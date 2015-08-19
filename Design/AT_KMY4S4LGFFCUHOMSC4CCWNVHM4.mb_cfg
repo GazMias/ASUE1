@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Driver.MODBUS v. 1.0 >
+<Configuration>
+    <Devices CommConfig="" />
+    <Crossconnect />
+</Configuration>

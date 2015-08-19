@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Driver.MODBUS v. 1.3 >
+<Configuration Slave="FALSE" TCP="TRUE">
+    <Devices CommConfig="">
+        <Device Address="169.254.1.201:502" RetryCount="3" RetryDelay="1000" SymbolTimeout="1000" ResponseTimeout="50000" InterpacketDelay="5000" MaxStatus="32" MaxRegs="32">
+            <Group Name="AI" Function="READ_HOLDING_REGISTERS" UpdatePeriod="50000" />
+            <Group Name="DI" Function="READ_COIL_STATUS" UpdatePeriod="50000" />
+            <Group Name="Command" Function="FORCE_MULTIPLY_COILS" UpdatePeriod="0" />
+        </Device>
+    </Devices>
+    <Crossconnect>
+        <Connection ItemName="S_TVS_DS_DP" Device="169.254.1.201:502.status" Channel="" UUID="E6C368D54B1D4A4FCD7E07B9677481B9" />
+        <Connection ItemName="RAW_TVS_KNS_RESUROV_AP" Device="169.254.1.201:502" Channel="7:USHORT_AB" Group="AI" UUID="F19CD4D24369326E0CF66FBDBF6AD5FE" UpdatePeriod="100000" />
+        <Connection ItemName="RAW_TVS_KU_P2PRESS_AP" Device="169.254.1.201:502" Channel="6:USHORT_AB" Group="AI" UUID="D71D0A9548BB50B045235D8B2853B70F" UpdatePeriod="100000" />
+        <Connection ItemName="RAW_TVS_KU_P1PRESS_AP" Device="169.254.1.201:502" Channel="5:USHORT_AB" Group="AI" UUID="0622FCB14D196458318093B6E421FD07" UpdatePeriod="100000" />
+        <Connection ItemName="RAW_TVS_KOT_P2PRESS_AP" Device="169.254.1.201:502" Channel="4:USHORT_AB" Group="AI" UUID="612BF6B94EC02DA8CA35D38D208FEC7F" UpdatePeriod="100000" />
+        <Connection ItemName="RAW_TVS_KOT_P1PRESS_AP" Device="169.254.1.201:502" Channel="3:USHORT_AB" Group="AI" UUID="2116A49A4573A33B367BDB9843B225F5" UpdatePeriod="100000" />
+        <Connection ItemName="RAW_TVS_VOS_A2PRESS_AP" Device="169.254.1.201:502" Channel="2:USHORT_AB" Group="AI" UUID="1E41404140F7BF4D16D68197E630A2CA" UpdatePeriod="100000" />
+        <Connection ItemName="RAW_TVS_VOS_A1PRESS_AP" Device="169.254.1.201:502" Channel="1:USHORT_AB" Group="AI" UUID="10265ABD47F8AE03AA97B7B5356460D4" UpdatePeriod="100000" />
+        <Connection ItemName="RAW_TVS_VOS_RESUROV_AP" Device="169.254.1.201:502" Channel="0:USHORT_AB" Group="AI" UUID="7053ACB242A17E8F650593B807D0CBB4" UpdatePeriod="100000" />
+        <Connection ItemName="RAW_TVS_KU_P1TEMP_AP" Device="169.254.1.201:502" Channel="110:USHORT_AB" Group="AI" UUID="F232E8F24A7D1CEBCCD0E0BE842AFEF2" />
+        <Connection ItemName="RAW_TVS_KU_P2TEMP_AP" Device="169.254.1.201:502" Channel="111:USHORT_AB" Group="AI" UUID="E6847F2C43B8C3087D8C42BE66CECD0C" />
+        <Connection ItemName="RAW_TVS_KOT_P1TEMP_AP" Device="169.254.1.201:502" Channel="108:USHORT_AB" Group="AI" UUID="BCA73BCB4A5E852B55D32EA81A7A390E" />
+        <Connection ItemName="RAW_TVS_KOT_P2TEMP_AP" Device="169.254.1.201:502" Channel="109:USHORT_AB" Group="AI" UUID="D86E39DF41A72DF44592869CDDEB1273" />
+        <Connection ItemName="RAW_TVS_A1800_WP" Device="169.254.1.201:502" Channel="410:ULONG_ABCD" Group="AI" UUID="43F2B45748A8655D68EB27AB7C14533C" />
+        <Connection ItemName="RAW_TVS_A1800_WS" Device="169.254.1.201:502" Channel="430:ULONG_ABCD" Group="AI" UUID="F254214D4A350BA000BA9C93FA2C7011" />
+        <Connection ItemName="RAW_TVS_A1800_WQ" Device="169.254.1.201:502" Channel="420:ULONG_ABCD" Group="AI" UUID="E8D91BA24CE33F28D580438553F1DA93" />
+        <Connection ItemName="RAW_TVS_VOS_RESVREM_DP" Device="169.254.1.201:502" Channel="1:BIT" Group="DI" UUID="9E1AE58842B53B79F3CF9280F46726A7" UpdatePeriod="100000" />
+        <Connection ItemName="RAW_TVS_VOS_M5AVAR_DP" Device="169.254.1.201:502" Channel="2:BIT" Group="DI" UUID="A87C772F4BB8D46207C6BC9A8323A314" UpdatePeriod="100000" />
+        <Connection ItemName="RAW_TVS_VOS_NASA1OSN_DP" Device="169.254.1.201:502" Channel="24:BIT" Group="DI" UUID="E927FABC42EBB50349879DAEA1B084A0" UpdatePeriod="100000" />
+        <Connection ItemName="RAW_TVS_VOS_NASA1RES_DP" Device="169.254.1.201:502" Channel="25:BIT" Group="DI" UUID="0C8E2B2043A4FAC70CFC178F8BF77CD9" UpdatePeriod="100000" />
+        <Connection ItemName="RAW_TVS_VOS_NASA2OSN_DP" Device="169.254.1.201:502" Channel="29:BIT" Group="DI" UUID="6C1642464411FC3AB46098B5A10A7452" UpdatePeriod="100000" />
+        <Connection ItemName="RAW_TVS_VOS_NASA2RES_DP" Device="169.254.1.201:502" Channel="30:BIT" Group="DI" UUID="2ACE4643458C471B36A896B0EA91FBF0" UpdatePeriod="100000" />
+        <Connection ItemName="RAW_TVS_VOS_NASA1AVAR_DP" Device="169.254.1.201:502" Channel="15:BIT" Group="DI" UUID="47ECCCD34F02D630FFF6B1BA3C34DAD7" UpdatePeriod="100000" />
+        <Connection ItemName="RAW_TVS_VOS_NASA2AVAR_DP" Device="169.254.1.201:502" Channel="16:BIT" Group="DI" UUID="39967EE24AB493CE9018F79F7F8D0AF6" UpdatePeriod="100000" />
+        <Connection ItemName="RAW_TVS_VOS_VAVARURRES_DP" Device="169.254.1.201:502" Channel="19:BIT" Group="DI" UUID="711394744B96929A9E0D28AE73B0B648" UpdatePeriod="100000" />
+        <Connection ItemName="RAW_TVS_VOS_NSPVSHOD_DP" Device="169.254.1.201:502" Channel="20:BIT" Group="DI" UUID="69E0D36442BD7C994A77C397B01CEAA9" UpdatePeriod="100000" />
+        <Connection ItemName="RAW_TVS_VOS_A1NASVKL_DP" Device="169.254.1.201:502" Channel="21:BIT" Group="DI" UUID="A7ED8B5A40CBB5723E3B6CB9B861D4E9" UpdatePeriod="100000" />
+        <Connection ItemName="RAW_TVS_VOS_A1TMIN_DP" Device="169.254.1.201:502" Channel="22:BIT" Group="DI" UUID="D07F5A004A44DBF4115CB2914E79D3D7" UpdatePeriod="100000" />
+        <Connection ItemName="RAW_TVS_VOS_A2TMIN_DP" Device="169.254.1.201:502" Channel="27:BIT" Group="DI" UUID="C0131D6B4CC7DD9C6882B38E6D3F3362" UpdatePeriod="100000" />
+        <Connection ItemName="RAW_TVS_VOS_A2DVOTK_DP" Device="169.254.1.201:502" Channel="28:BIT" Group="DI" UUID="09A1FDD0462F0931775216A61322CDDD" UpdatePeriod="100000" />
+        <Connection ItemName="RAW_TVS_VOS_A2NASOSN_DP" Device="169.254.1.201:502" Channel="7:BIT" Group="DI" UUID="B057F8724930C9C97CF0DEB6EDA829CB" UpdatePeriod="100000" />
+        <Connection ItemName="RAW_TVS_VOS_A2NASRES_DP" Device="169.254.1.201:502" Channel="8:BIT" Group="DI" UUID="66DA9E5D49DC710DB19D75B1CE2902D1" UpdatePeriod="100000" />
+        <Connection ItemName="RAW_TVS_VOS_M5ZAKR_DP" Device="169.254.1.201:502" Channel="31:BIT" Group="DI" UUID="4083E685481FCA34EE5FC494DCD4FC95" UpdatePeriod="100000" />
+        <Connection ItemName="RAW_TVS_VOS_M5OTKR_DP" Device="169.254.1.201:502" Channel="32:BIT" Group="DI" UUID="2A6C9C55470B9AE2CD086CBDC76BACAD" UpdatePeriod="100000" />
+        <Connection ItemName="RAW_TVS_VOS_MOTKR_DP" Device="169.254.1.201:502" Channel="33:BIT" Group="DI" UUID="E7BB0A9C4519DF83D575AE9904F184FD" UpdatePeriod="100000" />
+        <Connection ItemName="RAW_TVS_VOS_MZAKR_DP" Device="169.254.1.201:502" Channel="34:BIT" Group="DI" UUID="520A26B3475C943379AD6981534DB876" UpdatePeriod="100000" />
+        <Connection ItemName="RAW_TVS_VOS_NPPVHAVAR_DP" Device="169.254.1.201:502" Channel="35:BIT" Group="DI" UUID="AEE92B90466AE388CDABE49BF7588294" UpdatePeriod="100000" />
+        <Connection ItemName="RAW_TVS_VOS_NPPVFIRE_DP" Device="169.254.1.201:502" Channel="36:BIT" Group="DI" UUID="A81AB3FD407848B6F84FE9B7688170A5" UpdatePeriod="100000" />
+        <Connection ItemName="RAW_TVS_VOS_NPPVPAVAR_DP" Device="169.254.1.201:502" Channel="37:BIT" Group="DI" UUID="4E78504749E1770A4B985AB846487FE5" UpdatePeriod="100000" />
+        <Connection ItemName="RAW_TVS_VOS_NPPVNASVKL_DP" Device="169.254.1.201:502" Channel="38:BIT" Group="DI" UUID="1A5F57944B25695364D5E6919E2A139D" UpdatePeriod="100000" />
+        <Connection ItemName="RAW_TVS_VOS_PULT_DP" Device="169.254.1.201:502" Channel="39:BIT" Group="DI" UUID="8F1FE0EC491C25311DC0B290E511F044" UpdatePeriod="100000" />
+        <Connection ItemName="RAW_TVS_VOS_SAU_DP" Device="169.254.1.201:502" Channel="40:BIT" Group="DI" UUID="B66C34604E5632DEBFE0BFBF6E453CD5" UpdatePeriod="100000" />
+        <Connection ItemName="RAW_TVS_KOT_KOTELVKL_DP" Device="169.254.1.201:502" Channel="41:BIT" Group="DI" UUID="9874FD544F4500ED89571C84EA0C7102" UpdatePeriod="100000" />
+        <Connection ItemName="RAW_TVS_KOT_SETNASVKL_DP" Device="169.254.1.201:502" Channel="42:BIT" Group="DI" UUID="ACC4281A4BD99C30F1D938863856B6EC" UpdatePeriod="100000" />
+        <Connection ItemName="RAW_TVS_KOT_SETNASAVAR_DP" Device="169.254.1.201:502" Channel="43:BIT" Group="DI" UUID="664A542A4FA2155638FCE4A8D78B361B" UpdatePeriod="100000" />
+        <Connection ItemName="RAW_TVS_KOT_RECNASVKL_DP" Device="169.254.1.201:502" Channel="44:BIT" Group="DI" UUID="11D4BF5F47CE2FBF53FD9CBC21B9651D" UpdatePeriod="100000" />
+        <Connection ItemName="RAW_TVS_KOT_OTKLOTKR_DP" Device="169.254.1.201:502" Channel="45:BIT" Group="DI" UUID="D985328F46B4705876DC20ACBA718EAA" UpdatePeriod="100000" />
+        <Connection ItemName="RAW_TVS_KU_SHIBOTKR_DP" Device="169.254.1.201:502" Channel="46:BIT" Group="DI" UUID="97D04CE643357FDF372F838064CB5ED8" UpdatePeriod="100000" />
+        <Connection ItemName="RAW_TVS_KNS_SAUAVT_DP" Device="169.254.1.201:502" Channel="49:BIT" Group="DI" UUID="097FEB53404790E9EF262FA255F8ADE6" UpdatePeriod="100000" />
+        <Connection ItemName="RAW_TVS_KNS_NASVKL_DP" Device="169.254.1.201:502" Channel="50:BIT" Group="DI" UUID="CD5C932545E9EB26A0CD1687E4BF2B90" UpdatePeriod="100000" />
+        <Connection ItemName="RAW_TVS_KNS_NASAVAR_DP" Device="169.254.1.201:502" Channel="51:BIT" Group="DI" UUID="1E5CD4ED4BCF7B09995B64ABDD6EC311" UpdatePeriod="100000" />
+        <Connection ItemName="RAW_TVS_KNS_KOSVRAB_DP" Device="169.254.1.201:502" Channel="52:BIT" Group="DI" UUID="330D1A1F47A669AB0C7FB79D4A08A4FC" UpdatePeriod="100000" />
+        <Connection ItemName="RAW_TVS_KNS_KOSNEIS_DP" Device="169.254.1.201:502" Channel="53:BIT" Group="DI" UUID="BF35F7234FF421FF4E90C88AE1888E72" UpdatePeriod="100000" />
+        <Connection ItemName="RAW_TVS_VOS_A1DVOTK_DP" Device="169.254.1.201:502" Channel="23:BIT" Group="DI" UUID="EA518B654AEB7DD3B05BBC9394064971" />
+        <Connection ItemName="RAW_TVS_VOS_A2NASVKL_DP" Device="169.254.1.201:502" Channel="26:BIT" Group="DI" UUID="6BD4A5FC44EF79438293278D6BFE7E3B" />
+        <Connection ItemName="RAW_TVS_VOS_A1NASVKL_DP" Device="169.254.1.201:502" Channel="21:BIT" Group="DI" UUID="A7ED8B5A40CBB5723E3B6CB9B861D4E9" />
+        <Connection ItemName="RAW_TVS_KU_SHIBZAKR_DP" Device="169.254.1.201:502" Channel="54:BIT" Group="DI" UUID="FD2AD6DC4787E365F21AF79D4529DD41" />
+        <Connection ItemName="RAW_TVS_KU_OTKRSHIB_CO" Device="169.254.1.201:502" Channel="47:BIT" Group="Command" UUID="5827D8B94975613DB1C95A9B33A6DA3A" UpdatePeriod="100000" />
+        <Connection ItemName="RAW_TVS_KU_ZAKRSHIB_CO" Device="169.254.1.201:502" Channel="48:BIT" Group="Command" UUID="B0B2C42F4293CDAC5929F4A063D36273" UpdatePeriod="100000" />
+        <Connection ItemName="RAW_TVS_KOT_SETNASVKL_DP" Device="169.254.1.201:502" Channel="42:BIT" Group="Command" UUID="ACC4281A4BD99C30F1D938863856B6EC" />
+    </Crossconnect>
+</Configuration>

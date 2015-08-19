@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE SubAppType v. 1.3 >
+<SubAppType Name="Time_Sync" Kind="APPLICATION.LUA" Args="" Comment="" UUID="339FA28C49D0E4DC19894CA1B6366785">
+    <InterfaceList>
+        <Signal Name="Time_request" UUID="FF225CEE4A8F6218E57D12B29EB8386C" Type="BOOL" Global="TRUE" Comment="Запрос текущего времени" />
+        <Signal Name="Local_Time" UUID="141125674C707031508D27879DE5E4C0" Type="STRING" Usage="input" Comment="Локальное время" />
+        <Signal Name="@COMMAND" UUID="198627D345527D41E191368CBC64596C" Type="STRING" />
+        <Signal Name="@COMMAND_VALUE" UUID="728D598849AF8A1F4E2E9484CC63AC98" Type="STRING" />
+        <Signal Name="@EVENT" UUID="3391D65C440F813B50EE4190A9C70B8A" Type="STRING" />
+        <Signal Name="@MESSAGE" UUID="1D81986A4E275E9AA117BFB6FB8139FC" Type="STRING" Usage="output" />
+        <Signal Name="@MESSAGE_FRAMEWORK" UUID="EF169ED943230AA59A6650AFFA9F9DDE" Type="STRING" Usage="output" />
+        <Signal Name="@PID" UUID="1114C7AA4988765C6BB4E69D7E4D4EF0" Type="STRING" Usage="output" />
+        <Signal Name="@RESERVE" UUID="04D78E61428DD1759E71798F22246CB7" Type="BOOL" />
+        <Signal Name="@STATE" UUID="E21ABAB444127140F3CB15BE95C96BC2" Type="STRING" Usage="output" />
+    </InterfaceList>
+</SubAppType>

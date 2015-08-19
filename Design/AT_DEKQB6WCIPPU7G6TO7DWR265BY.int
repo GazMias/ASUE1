@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE SubAppType v. 1.3 >
+<SubAppType Name="Processing_SEPAMS80_SHTN" Kind="APPLICATION.LUA" Args="" Comment="" UUID="DB25C098486A2173EA9C97885DAA0B41">
+    <InterfaceList>
+        <Signal Name="@COMMAND" UUID="C27FFA5D4AC1E33B63B7B5BADFB10047" Type="STRING" />
+        <Signal Name="@COMMAND_VALUE" UUID="031CDD464D371455247CFD8C2008992F" Type="STRING" />
+        <Signal Name="@EVENT" UUID="F9E118434E3447DB4368FF890CACBF57" Type="STRING" />
+        <Signal Name="@MESSAGE" UUID="DCEE91A448AD58D175E39CB4A038DFC4" Type="STRING" />
+        <Signal Name="@MESSAGE_FRAMEWORK" UUID="F2B5C5204DB7A80292ADC8B9BE5DF07D" Type="STRING" />
+        <Signal Name="@PID" UUID="C5DC74B249C38D5190FCC58C392205FA" Type="STRING" />
+        <Signal Name="@RESERVE" UUID="373CED1A41F9DE3EDCBB7FA532C3E6CC" Type="BOOL" />
+        <Signal Name="@STATE" UUID="1FEE41C34B4A9DBD4360EA8336C8CD9D" Type="STRING" />
+        <Signal Name="@WINDOW" UUID="312A49A749C6B460848F96A7A4C7823F" Type="TWINDOW" ArraySize="32" InitialValue="[(VISIBLE:=TRUE, X:=0, Y:=0, WIDTH:=640, HEIGHT:=480, FLAGS:=0)]" />
+        <Signal Name="RAW_SEPAM_SHTN_3208_2_CO" UUID="BCCFC70241AF87975E3D8E81C411ECFC" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Квитирование аварийной и предупредительной сигнализации " />
+        <Signal Name="RAW_SEPAM_SHTN_3209_1_CO" UUID="F82DE31447158076FF84AC99137982F3" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Блокировка запуска осциллограмм аварийных режимов " />
+        <Signal Name="RAW_SEPAM_SHTN_3209_2_CO" UUID="31C34F52441A32649EA25B86DD69C41C" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Разрешение запуска осциллограмм аварийных режимов " />
+        <Signal Name="RAW_SEPAM_SHTN_3209_3_CO" UUID="296CCB7F487510621AADDD89361EB680" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Ручной запуск осциллограмм аварийных режимов " />
+        <Signal Name="S_ZRU_P11_SHTN_3208_2_CO" UUID="8815D3A743001A11B5E1B69B15A37D20" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Квитирование аварийной и предупредительной сигнализации" />
+        <Signal Name="S_ZRU_P11_SHTN_3209_1_CO" UUID="956D087740D4B11B550A5EA426B08109" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Блокировка запуска осциллограмм аварийных режимов" />
+        <Signal Name="S_ZRU_P11_SHTN_3209_2_CO" UUID="0818734544089E7B0875C28B93432E34" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Разрешение запуска осциллограмм аварийных режимов" />
+        <Signal Name="S_ZRU_P11_SHTN_3209_3_CO" UUID="F58A198A402935FC3A9FAE86776AC422" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Ручной запуск осциллограмм аварийных режимов" />
+        <Signal Name="RAW_SEPAM_SHTN_3088_0_DP" UUID="555A5CB1452541F027A2F5B59806EE45" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Выключатель ввода или СВ включен " />
+        <Signal Name="RAW_SEPAM_SHTN_3088_10_DP" UUID="4B33A1D643159B187793E594EAA72669" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Сигнал из ввода «U обр. послед. больше» " />
+        <Signal Name="RAW_SEPAM_SHTN_3088_11_DP" UUID="12E9DC9B42D2641850F1B784ABAAC375" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Авт. выкл. доп. обмотки ТН отключен " />
+        <Signal Name="RAW_SEPAM_SHTN_3088_12_DP" UUID="919D0EC34132F4514B055F891D6C52C5" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Цепи ТН собраны " />
+        <Signal Name="RAW_SEPAM_SHTN_3088_13_DP" UUID="2641214A4D28E2D4F0E0E48854A0C730" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Перегорание предохранителя ТН " />
+        <Signal Name="RAW_SEPAM_SHTN_3088_3_DP" UUID="F9B58B9E49A19E515FEA7B86F205B428" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Срабатывание клапана дуговой защиты " />
+        <Signal Name="RAW_SEPAM_SHTN_3088_4_DP" UUID="2B35272449017717482AD4A224B904E5" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Напряжение на «смежной» с.ш. в норме " />
+        <Signal Name="RAW_SEPAM_SHTN_3088_5_DP" UUID="9639465049FC4FA4E86707827431685F" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Устройство АВР включено " />
+        <Signal Name="RAW_SEPAM_SHTN_3088_6_DP" UUID="7D568ABD43E99450A10A0083B1D8FE73" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Переключатель АЧР включен " />
+        <Signal Name="RAW_SEPAM_SHTN_3088_7_DP" UUID="93A6BBA04033DA6B12418B96406ED7BD" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Самоподхват ДГЗ не снят " />
+        <Signal Name="RAW_SEPAM_SHTN_3088_8_DP" UUID="560987D448CBB9F6003F0CBEB2F222F2" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Авт. выкл. ТН отключен " />
+        <Signal Name="RAW_SEPAM_SHTN_3088_9_DP" UUID="754200B0499509FB397A40A79144245F" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Сигнал «Феррорезонанс» " />
+        <Signal Name="RAW_SEPAM_SHTN_3216_4_DP" UUID="BAC7D30F47048B9E2C554696712A085B" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Вызов в ЗРУ " />
+        <Signal Name="RAW_SEPAM_SHTN_3219_15_DP" UUID="59C0B0904368DA233B1F93A8F9A4B844" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Срабатывание клапанов дуговой защиты " />
+        <Signal Name="RAW_SEPAM_SHTN_3219_1_DP" UUID="7C74E40D46C86E6427E8639CD47AD839" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Блокировка записи осциллограмм аварийных режимов " />
+        <Signal Name="RAW_SEPAM_SHTN_3219_2_DP" UUID="1C8C104D44B7E1C1E759B0BD2BFFC157" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Запрет телерегулировки " />
+        <Signal Name="RAW_SEPAM_SHTN_3219_3_DP" UUID="7C50920445D1088679B4149755137425" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Обобщенный сигнал неисправности " />
+        <Signal Name="RAW_SEPAM_SHTN_3221_12_DP" UUID="B4EBC8994A12D08AECDA67BF9923FD97" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Земля в сети 10 кВ " />
+        <Signal Name="RAW_SEPAM_SHTN_3224_2_DP" UUID="809E574A454724195EBC6C8277B7C5C2" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Срабатывание АЧР 1 очередь " />
+        <Signal Name="RAW_SEPAM_SHTN_3224_3_DP" UUID="B184DF0C4DCFD982D7BCE9B27F575BE6" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Срабатывание АЧР 2 очередь " />
+        <Signal Name="RAW_SEPAM_SHTN_3227_0_DP" UUID="FE5A8A1F46875BA38B75BC96759D281E" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Срабатывание защиты минимального напряжения 1 ст.  " />
+        <Signal Name="RAW_SEPAM_SHTN_3227_1_DP" UUID="4C5F3AEA48659C63D8907C9261897B18" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Срабатывание защиты минимального напряжения 2 ст. " />
+        <Signal Name="RAW_SEPAM_SHTN_3227_2_DP" UUID="734D5DD645F3AD69940989B7ED8527FA" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Сигнализация обрыва фаз питающей ЛЭП " />
+        <Signal Name="RAW_SEPAM_SHTN_3227_3_DP" UUID="A3665FC843CA0F868DF8329B090E0A37" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Срабатывание пускового органа АВР по напряжению " />
+        <Signal Name="RAW_SEPAM_SHTN_3227_4_DP" UUID="0B0CD5F0486EC3742BAA0F9303A63EA3" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Срабатывание защиты от феррорезонанса " />
+        <Signal Name="RAW_SEPAM_SHTN_3227_5_DP" UUID="0C0D81394C161E16C77D53BDAF9F6E1B" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Подхват действия ЗМН до U&gt;0,8 введен " />
+        <Signal Name="RAW_SEPAM_SHTN_3227_6_DP" UUID="D0F7E213481D89F207228184CB7C6406" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Пуск АВР при обрыве фаз введен " />
+        <Signal Name="RAW_SEPAM_SHTN_3228_15_DP" UUID="70E55EF1451D74BB4EC6FCBADEC63823" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Самоподхват ДГЗ, УРОВ не снят " />
+        <Signal Name="RAW_SEPAM_SHTN_3229_10_DP" UUID="EDE9EC0649559B3DC4C1AB856353ED6F" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Батарея Sepam разряжена " />
+        <Signal Name="RAW_SEPAM_SHTN_3229_11_DP" UUID="ACBC1041458EB6C8A25F488A39859ECD" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Автоматический выключатель ТН отключен " />
+        <Signal Name="RAW_SEPAM_SHTN_3229_12_DP" UUID="48F7CF5F473F6873A62A51AC1073B7DC" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Переключатель АЧР включен " />
+        <Signal Name="RAW_SEPAM_SHTN_3229_1_DP" UUID="6E0E7EE747870DA758CDBE8308EECE1A" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Неисправность трансформатора напряжения " />
+        <Signal Name="RAW_SEPAM_SHTN_3229_2_DP" UUID="ABB3F1034C22E0FE0DB5088EDC2346A5" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Неисправность цепей напряжения нулевой последовательности " />
+        <Signal Name="RAW_SEPAM_SHTN_3229_5_DP" UUID="8BEF0D774D913109525BF3B04F34417E" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Срабатывание пускового органа АВР при обрыве фаз " />
+        <Signal Name="RAW_SEPAM_SHTN_3229_8_DP" UUID="23C46AA6441327B791B0EE9B7680E7EC" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Снижение напряжения питания Sepam " />
+        <Signal Name="RAW_SEPAM_SHTN_3229_9_DP" UUID="801C0F7A46AA2B31750BDD8BE4EA7D32" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Повышение напряжения питания Sepam " />
+        <Signal Name="RAW_SEPAM_SHTN_64006_AP" UUID="A007D4B54682075BD6AC899597246F9F" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Линейное напряжение U21 " />
+        <Signal Name="RAW_SEPAM_SHTN_64007_AP" UUID="50ABEB3247E347682D792BB528A75F40" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Линейное напряжение U32 " />
+        <Signal Name="RAW_SEPAM_SHTN_64008_AP" UUID="3D804B234BEFBFC4058A83B4F3E407D9" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Линейное напряжение U13 " />
+        <Signal Name="RAW_SEPAM_SHTN_64009_AP" UUID="3CA1536B421C98F0FE6F33A68FC81E4E" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Частота " />
+        <Signal Name="RAW_SEPAM_SHTN_Reg_Time" UUID="FD63E40E41D57C76CE3F858E2304E7CB" Type="BYTE" ArraySize="5" Global="TRUE" Comment="Астрономическое время встроенных часов- календаря   " />
+        <Signal Name="RAW_SEPAM_SHTN_Reg_Time_MS" UUID="7CD0EFFD4501D176E20906B90E10A60A" Type="WORD" Global="TRUE" Comment="Астрономическое время встроенных часов- календаря. Милисекунды " />
+        <Signal Name="RAW_SEPAM_SHTN_Reg_Time_MS_Write" UUID="C765358C48538DC9D369D68F209F6D84" Type="WORD" Global="TRUE" Comment="время встроенных часов- календаря. Милисекунды  " />
+        <Signal Name="RAW_SEPAM_SHTN_Reg_Time_Write" UUID="9E40CA3445149B387E0A66873F8DCF16" Type="BYTE" ArraySize="5" Global="TRUE" Comment="время встроенных часов- календаря    " />
+        <Signal Name="S_ZRU_P11_SHTN_3088_0_DP" UUID="426544D14160D039147793A5E652F5D1" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Выключатель ввода или СВ включен" />
+        <Signal Name="S_ZRU_P11_SHTN_3088_10_DP" UUID="E4A993DC4F2F7CE157191E98E30B7CF8" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Сигнал из ввода «U обр. послед. больше»" />
+        <Signal Name="S_ZRU_P11_SHTN_3088_11_DP" UUID="DF809F244B0A6FDC939C0A88B04BFF25" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Авт. выкл. доп. обмотки ТН отключен" />
+        <Signal Name="S_ZRU_P11_SHTN_3088_12_DP" UUID="31739CC649747EC0F14313A20DAB0389" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Цепи ТН собраны" />
+        <Signal Name="S_ZRU_P11_SHTN_3088_13_DP" UUID="815BC1584E7B2D13BE942CA1E5902651" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Перегорание предохранителя ТН" />
+        <Signal Name="S_ZRU_P11_SHTN_3088_3_DP" UUID="4B9DCEE8499BE788C5A0BC8C18B36B17" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Срабатывание клапана дуговой защиты" />
+        <Signal Name="S_ZRU_P11_SHTN_3088_4_DP" UUID="DCC16BE94FBE0F0A575CE0B8E016D6A8" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Напряжение на «смежной» с.ш. в норме" />
+        <Signal Name="S_ZRU_P11_SHTN_3088_5_DP" UUID="59AA260D40AFA5C755E05A8FA62C8650" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Устройство АВР включено" />
+        <Signal Name="S_ZRU_P11_SHTN_3088_6_DP" UUID="38EA92354E79FD822948F5B5614C733A" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Переключатель АЧР включен" />
+        <Signal Name="S_ZRU_P11_SHTN_3088_7_DP" UUID="8834823F427CA7A30378CEBAF575453B" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Самоподхват ДГЗ не снят" />
+        <Signal Name="S_ZRU_P11_SHTN_3088_8_DP" UUID="9F2E48924BC2C302792C69A0A633CE9A" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Авт. выкл. ТН отключен" />
+        <Signal Name="S_ZRU_P11_SHTN_3088_9_DP" UUID="6027D93A48D77B34ABF675A919456222" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Сигнал «Феррорезонанс»" />
+        <Signal Name="S_ZRU_P11_SHTN_3216_4_DP" UUID="2988465C4A01CAEDA7F1BAB074024E53" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Вызов в ЗРУ" />
+        <Signal Name="S_ZRU_P11_SHTN_3219_15_DP" UUID="ED993BBE442A871A6B1E82A04C129FCF" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Срабатывание клапанов дуговой защиты" />
+        <Signal Name="S_ZRU_P11_SHTN_3219_1_DP" UUID="EFBC281C45AE250C4F021181D27999E2" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Блокировка записи осциллограмм аварийных режимов" />
+        <Signal Name="S_ZRU_P11_SHTN_3219_2_DP" UUID="FE53F0E247E4CE226FD4F5AAB21B5C6E" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Запрет телерегулировки" />
+        <Signal Name="S_ZRU_P11_SHTN_3219_3_DP" UUID="0BA0D4C84D2C344EEE9E769F9B46012B" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Обобщенный сигнал неисправности" />
+        <Signal Name="S_ZRU_P11_SHTN_3221_12_DP" UUID="F4DF57A94066288613719E95204B8A79" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Земля в сети 10 кВ" />
+        <Signal Name="S_ZRU_P11_SHTN_3224_2_DP" UUID="9D338B204F4352FA15D600A1A25C7C4F" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Срабатывание АЧР 1 очередь" />
+        <Signal Name="S_ZRU_P11_SHTN_3224_3_DP" UUID="576A7F644D21B8CC479AA8869110B1DB" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Срабатывание АЧР 2 очередь" />
+        <Signal Name="S_ZRU_P11_SHTN_3227_0_DP" UUID="850EEEBE49B5B3B0392F0FBDF5C5F25C" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Срабатывание защиты минимального напряжения 1 ст. " />
+        <Signal Name="S_ZRU_P11_SHTN_3227_1_DP" UUID="AB64763343A2DAF0B75486B2D10AE5F0" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Срабатывание защиты минимального напряжения 2 ст." />
+        <Signal Name="S_ZRU_P11_SHTN_3227_2_DP" UUID="8F9291C549931BC3AB007CADB6E32503" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Сигнализация обрыва фаз питающей ЛЭП" />
+        <Signal Name="S_ZRU_P11_SHTN_3227_3_DP" UUID="F53FB498422316A134F0DFB5558290F9" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Срабатывание пускового органа АВР по напряжению" />
+        <Signal Name="S_ZRU_P11_SHTN_3227_4_DP" UUID="F2EC357E4BD81B225716E28678122B3F" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Срабатывание защиты от феррорезонанса" />
+        <Signal Name="S_ZRU_P11_SHTN_3227_5_DP" UUID="15B393C746D6628B6AB2199F56AEB8C0" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Подхват действия ЗМН до U&gt;0,8 введен" />
+        <Signal Name="S_ZRU_P11_SHTN_3227_6_DP" UUID="40EF414249E82E2FCAB5E897675B623D" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Пуск АВР при обрыве фаз введен" />
+        <Signal Name="S_ZRU_P11_SHTN_3228_15_DP" UUID="B3146D16430F3848656826A5186C7FC3" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Самоподхват ДГЗ, УРОВ не снят" />
+        <Signal Name="S_ZRU_P11_SHTN_3229_10_DP" UUID="A9AD21E248F2F4405DD96DB521B82781" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Батарея Sepam разряжена" />
+        <Signal Name="S_ZRU_P11_SHTN_3229_11_DP" UUID="E11945AE4F1FD94E210724AB317E21B1" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Автоматический выключатель ТН отключен" />
+        <Signal Name="S_ZRU_P11_SHTN_3229_12_DP" UUID="F51E43E249D3F06CD5F3DE904F2A81FB" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Переключатель АЧР включен" />
+        <Signal Name="S_ZRU_P11_SHTN_3229_1_DP" UUID="2330772948C62F854BEFBAB41C08DCB7" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Неисправность трансформатора напряжения" />
+        <Signal Name="S_ZRU_P11_SHTN_3229_2_DP" UUID="966E84EB4B3B389DB27936AA20CAD3E5" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Неисправность цепей напряжения нулевой последовательности" />
+        <Signal Name="S_ZRU_P11_SHTN_3229_5_DP" UUID="EC7DCD9E4BA5E8749C6B9EA960DECAD5" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Срабатывание пускового органа АВР при обрыве фаз" />
+        <Signal Name="S_ZRU_P11_SHTN_3229_8_DP" UUID="A0A3256C472449B13CE11F8BEC9C7546" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Снижение напряжения питания Sepam" />
+        <Signal Name="S_ZRU_P11_SHTN_3229_9_DP" UUID="23F1254340F241F9347F05B9C7E502A0" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Повышение напряжения питания Sepam" />
+        <Signal Name="S_ZRU_P11_SHTN_64006_AP" UUID="C1556C934245D067762B25A0146C4E67" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Линейное напряжение U21" />
+        <Signal Name="S_ZRU_P11_SHTN_64007_AP" UUID="ACF41BDA43FEFD899366738779D5895C" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Линейное напряжение U32" />
+        <Signal Name="S_ZRU_P11_SHTN_64008_AP" UUID="A8581A414F06E3071BB940803870F1DC" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Линейное напряжение U13" />
+        <Signal Name="S_ZRU_P11_SHTN_64009_AP" UUID="B9263DB541F262CC5A60998FA4B677C5" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Частота" />
+        <Signal Name="S_ZRU_P11_SHTN_Reg_Time" UUID="BDF133404AA5FC98F5CFA786A476C567" Type="STRING" Global="TRUE" Comment="Астрономическое время в SEPAM" />
+        <Signal Name="S_ZRU_P11_SHTN_Reg_Time_CO" UUID="229F624C4E4A46F7F0428BBF90854D39" Type="BOOL" Global="TRUE" />
+        <Signal Name="S_ZRU_P11_SHTN_Reg_Time_Set_AV" UUID="C854F90A4265E922BFF044B41E85DA6C" Type="BOOL" Global="TRUE" Comment="Установка текущего астрономического времени автоматическки" />
+        <Signal Name="S_ZRU_P11_SHTN_SysCmd_T_Cor_AV" UUID="72AF45FF41267F6271068DBBA8E07BB3" Type="BOOL" Global="TRUE" Comment="Коррекция астрономического времени автоматически" />
+    </InterfaceList>
+</SubAppType>

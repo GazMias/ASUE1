@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Driver.Sonet.LOCALBUS v. 1.0 >
+<Configuration>
+    <Device CyclePeriod="3000" ConfigUpdatePeriod="3000000">
+        <Slot Address="1" ModuleType="33" ChannelCount="16" Min="0" Max="1" Units="" IsAnalog="FALSE" IsInput="TRUE" />
+        <Slot Address="2" ModuleType="33" ChannelCount="16" Min="0" Max="1" Units="" IsAnalog="FALSE" IsInput="TRUE" />
+        <Slot Address="3" ModuleType="33" ChannelCount="16" Min="0" Max="1" Units="" IsAnalog="FALSE" IsInput="TRUE" />
+        <Slot Address="4" ModuleType="22" ChannelCount="8" Min="0" Max="1" Units="" IsAnalog="FALSE" IsInput="FALSE" />
+        <Slot Address="5" ModuleType="62" ChannelCount="4" Min="0" Max="22" Units="mA" IsAnalog="TRUE" IsInput="TRUE" />
+        <Slot Address="6" ModuleType="62" ChannelCount="4" Min="0" Max="22" Units="mA" IsAnalog="TRUE" IsInput="TRUE" />
+        <Slot Address="7" ModuleType="40" ChannelCount="4" Min="0" Max="20" Units="mA" IsAnalog="TRUE" IsInput="FALSE" />
+    </Device>
+    <Crossconnect>
+        <Connection ItemName="S_ZRU_P11_XT5_1A_DI" Device="" Slot="2" Channel="1" UUID="31D0C0444C10EA8BDEA64984BAED35EB" />
+        <Connection ItemName="S_ZRU_P11_XT5_2A_DI" Device="" Slot="2" Channel="2" UUID="6086D775459FC93F368CB3A82A1D80F2" />
+        <Connection ItemName="S_ZRU_P11_XT5_3A_DI" Device="" Slot="2" Channel="3" UUID="C76C0DDD4CD04223470B618107F210DC" />
+        <Connection ItemName="S_ZRU_P11_XT5_4A_DI" Device="" Slot="2" Channel="4" UUID="B78122CA4C1A894E5BAB2B97174A7307" />
+        <Connection ItemName="S_ZRU_P11_XT5_5A_DI" Device="" Slot="2" Channel="5" UUID="CD361029495F8AC9A9670297091568A7" />
+        <Connection ItemName="S_ZRU_P11_XT5_6A_DI" Device="" Slot="2" Channel="6" UUID="DDCE44224BE6CD47A0DA3FA1C35421EF" />
+        <Connection ItemName="S_ZRU_P11_XT5_7A_DI" Device="" Slot="2" Channel="7" UUID="11904DCA4C147505F3C04D9F5F1CCCFD" />
+        <Connection ItemName="S_ZRU_P11_XT5_8A_DI" Device="" Slot="2" Channel="8" UUID="5E72B28548BF7737ADD90F97276DAC6E" />
+        <Connection ItemName="S_ZRU_P11_XT5_9A_DI" Device="" Slot="2" Channel="9" UUID="5DCDB61D47A13E142B6201B3400B103F" />
+        <Connection ItemName="S_ZRU_P11_XT5_10A_DI" Device="" Slot="2" Channel="10" UUID="FEED2DC04EC5EEA52D976BB9FA937F22" />
+        <Connection ItemName="S_ZRU_P11_XT5_11A_DI" Device="" Slot="2" Channel="11" UUID="72B4C437406A6143ABE84781E2EB096C" />
+        <Connection ItemName="S_ZRU_P11_XT5_12A_DI" Device="" Slot="2" Channel="12" UUID="07238C8E461F83F0246B7F80C8046B99" />
+        <Connection ItemName="S_KTP_P07_XT5_13A_DI" Device="" Slot="2" Channel="13" UUID="BB2C32714CF9CED0EBE67683F5FB81B1" />
+        <Connection ItemName="S_KTP_P07_XT5_14A_DI" Device="" Slot="2" Channel="14" UUID="AFE7BD974204EAD0913DF598F76AE556" />
+        <Connection ItemName="S_KTP_P07_XT5_15A_DI" Device="" Slot="2" Channel="15" UUID="EFA6A26F4ED12E16107132B9C3602BCF" />
+        <Connection ItemName="S_KTP_P07_XT5_16A_DI" Device="" Slot="2" Channel="16" UUID="24DCA68345A2C940A9ECCFB95416D04B" />
+        <Connection ItemName="S_KTP_P07_XT6_1A_DI" Device="" Slot="3" Channel="1" UUID="00ED0E3440BD7FA594A0A4BAA0C6FC16" />
+        <Connection ItemName="S_KTP_P07_XT6_2A_DI" Device="" Slot="3" Channel="2" UUID="4B8E0932441ABCA8FFED3D920042E0C5" />
+        <Connection ItemName="S_KTP_P07_XT6_3A_DI" Device="" Slot="3" Channel="3" UUID="C89AE39B4155DD6A51F26AAF0A29961A" />
+        <Connection ItemName="S_KTP_P07_XT6_4A_DI" Device="" Slot="3" Channel="4" UUID="FAC773C14CC603479D9AD2B321163A74" />
+        <Connection ItemName="S_KTP_P07_XT6_5A_DI" Device="" Slot="3" Channel="5" UUID="9FA046BA445E4D2A982C238A424D9F7F" />
+        <Connection ItemName="S_KTP_P07_XT6_6A_DI" Device="" Slot="3" Channel="6" UUID="04EA7A95428A076F487DD6BB8416A7C5" />
+        <Connection ItemName="S_KTP_P07_XT6_7A_DI" Device="" Slot="3" Channel="7" UUID="C2D14E494BBD652874D50198F24906F1" />
+        <Connection ItemName="S_KTP_P07_XT6_8A_DI" Device="" Slot="3" Channel="8" UUID="1AB1297441C441BE4235CEA94A5D3C80" />
+        <Connection ItemName="S_KTP_P07_XT6_9A_DI" Device="" Slot="3" Channel="9" UUID="FC683793400C122C10C912A7228B0DBC" />
+        <Connection ItemName="S_KTP_P07_XT6_10A_DI" Device="" Slot="3" Channel="10" UUID="3D17FC984142CC65B3D54897C1331754" />
+        <Connection ItemName="S_KTP_P07_XT6_11A_DI" Device="" Slot="3" Channel="11" UUID="3655DD38468E6A2F0386F98BF473C5FF" />
+        <Connection ItemName="S_KTP_P07_XT6_12A_DI" Device="" Slot="3" Channel="12" UUID="894036FF4CC607AC3B93DC973AEE4DE7" />
+        <Connection ItemName="S_KTP_P07_XT6_13A_DI" Device="" Slot="3" Channel="13" UUID="A2381A274C13B0DECA09B0B4A0DA5D0E" />
+        <Connection ItemName="S_KTP_P07_XT6_14A_DI" Device="" Slot="3" Channel="14" UUID="A211DC034EAE1CA1CFB88EA25CC584F4" />
+        <Connection ItemName="S_KTP_P07_XT6_15A_DI" Device="" Slot="3" Channel="15" UUID="0793182E4D7F448B452C74B39720CF31" />
+        <Connection ItemName="S_KTP_P07_XT6_16A_DI" Device="" Slot="3" Channel="16" UUID="F76012B447292F6B5CFD838B20628030" />
+        <Connection ItemName="RAW_USO_SNT_XT7_1A_AI" Device="" Slot="5" Channel="1" UUID="44DF1DAF4D8FF5248DADDD8E9AB66549" />
+        <Connection ItemName="RAW_USO_SNT_XT7_2A_AI" Device="" Slot="5" Channel="2" UUID="A9ABF4934BBE536ABCE7968360D2B5B3" />
+        <Connection ItemName="S_RM_A10503_AI" Device="" Slot="5" Channel="3" UUID="E2EC00B04CD6BB00B51B8F82ACC8AE1B" />
+    </Crossconnect>
+</Configuration>

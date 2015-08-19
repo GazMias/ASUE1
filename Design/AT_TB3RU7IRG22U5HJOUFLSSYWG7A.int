@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE SubAppType v. 1.3 >
+<SubAppType Name="Processing_SEPAMS80_VV" Kind="APPLICATION.LUA" Args="" Comment="Чтение и преобразование сигналов SEPAM S80" UUID="EFCBC8EF4AA578F916B27CB2E338FEAF">
+    <InterfaceList>
+        <Signal Name="@COMMAND" UUID="83D6AF0C4D14BB6F24FDBDBC6D781296" Type="STRING" />
+        <Signal Name="@COMMAND_VALUE" UUID="58C822034CBED3156319BE97C0826F2E" Type="STRING" />
+        <Signal Name="@EVENT" UUID="C58A54564C67339046B4B49B87D25A41" Type="STRING" />
+        <Signal Name="@MESSAGE" UUID="C35B915F437BD129B2E47C83F863E30C" Type="STRING" Usage="output" />
+        <Signal Name="@MESSAGE_FRAMEWORK" UUID="EF00E22047B5EC8EA81FA4AEBE4013B6" Type="STRING" Usage="output" />
+        <Signal Name="@PID" UUID="165F668B44D2BEFAC71B43AABFB63FA8" Type="STRING" Usage="output" />
+        <Signal Name="@RESERVE" UUID="6E1F3FD3437F6BC255CDABBC226110F2" Type="BOOL" />
+        <Signal Name="@STATE" UUID="773937864F1F2BB5ED48E5B3273C4ACA" Type="STRING" Usage="output" />
+        <Signal Name="RAW_SEPAM_VV1_Reg_Time" UUID="49E011454B0FE5CA02FC02B3914D1CC9" Type="BYTE" ArraySize="5" Global="TRUE" Comment="Астрономическое время встроенных часов- календаря  " />
+        <Signal Name="RAW_SEPAM_VV1_Reg_Time_MS" UUID="8BB7508F4085BC595D13A49E1B7F0539" Type="WORD" Global="TRUE" Comment="Астрономическое время встроенных часов- календаря. Милисекунды" />
+        <Signal Name="RAW_SEPAM_VV1_Reg_Time_Write" UUID="3424981A4938244DE9A8A095AFD538DB" Type="BYTE" ArraySize="5" Global="TRUE" Comment="время встроенных часов- календаря   " />
+        <Signal Name="RAW_SEPAM_VV1_Reg_Time_MS_Write" UUID="9E1CD0554400EB0E940FF88213CBDA76" Type="WORD" Global="TRUE" Comment="время встроенных часов- календаря. Милисекунды " />
+        <Signal Name="RAW_SEPAM_VV1_3088_0_DP" UUID="1BD46BEF42DD01D9B42729BD3CC95FDD" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_РПВ (Реле положения «Включено») " />
+        <Signal Name="RAW_SEPAM_VV1_3088_10_DP" UUID="56AFBC0541DAE691C907F6A08EE3A278" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Отключение от ДГЗ, УРОВ " />
+        <Signal Name="RAW_SEPAM_VV1_3088_11_DP" UUID="2A2E13A24FF419B78FC342BCCFAAB909" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Отключение от защит трансформатора " />
+        <Signal Name="RAW_SEPAM_VV1_3088_12_DP" UUID="D6D993A244776F9E2820BE8B9A4DF14D" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Отключение от АВР " />
+        <Signal Name="RAW_SEPAM_VV1_3088_13_DP" UUID="DB7C6B544D3207A57CA3BAA8F4B93C89" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Выключатель выкачен " />
+        <Signal Name="RAW_SEPAM_VV1_3088_1_DP" UUID="D4963D3C4BE3D4C6C6D13499519F3052" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_РПО (Реле положения «Отключено») " />
+        <Signal Name="RAW_SEPAM_VV1_3088_3_DP" UUID="7B4FFC964751BEDD23A6A68BE4476DB7" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Срабатывание клапана дуговой защиты " />
+        <Signal Name="RAW_SEPAM_VV1_3088_4_DP" UUID="D4C518124FCD236ACB8530822094D560" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Низкое давление в выключателе " />
+        <Signal Name="RAW_SEPAM_VV1_3088_5_DP" UUID="1A1E31824B084450CFAA60AED83C5837" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_РКО (Реле команды «Отключить») " />
+        <Signal Name="RAW_SEPAM_VV1_3088_6_DP" UUID="F0695BC84F05E60B220202A9B0F6A9E3" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_РКВ (Реле команды «Включить») " />
+        <Signal Name="RAW_SEPAM_VV1_3088_7_DP" UUID="D73204B8430ADE299DF30F8DDFB2DA6E" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Блокировка ЛЗШ " />
+        <Signal Name="RAW_SEPAM_VV1_3088_8_DP" UUID="375BED3C4D1674126D57BC8864D8BA20" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Выключатель эл.мотора завода пружины привода отключен " />
+        <Signal Name="RAW_SEPAM_VV1_3088_9_DP" UUID="7B5CAAD74B494B9D065373B67A2FB5A6" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Разрешение телеуправления " />
+        <Signal Name="RAW_SEPAM_VV1_3089_0_DP" UUID="C01C549046D41A01C4BD948EFC5173A2" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Внешнее отключение с запретом АВР " />
+        <Signal Name="RAW_SEPAM_VV1_3089_12_DP" UUID="472257274248AE09149FA1B60EB2C751" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Отключение от ДГЗ при к.з. в отсеке ввода " />
+        <Signal Name="RAW_SEPAM_VV1_3089_1_DP" UUID="A63C8FF14A7FC4E0F89D3DABECFF54F6" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Внешнее отключение без запрета АВР " />
+        <Signal Name="RAW_SEPAM_VV1_3089_2_DP" UUID="33A5EF004835A998C855CEB8C76A3033" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Включение выключателя при автоматическом восстановлении нормального режима " />
+        <Signal Name="RAW_SEPAM_VV1_3089_3_DP" UUID="020FAE804170571B250769936FEDBB64" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Контроль цепи включения " />
+        <Signal Name="RAW_SEPAM_VV1_3089_4_DP" UUID="B39340134E6FC502AF76FC81E4F52F15" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Перегорание предохранителя ТН " />
+        <Signal Name="RAW_SEPAM_VV1_3089_5_DP" UUID="130594974ED03C171B4A709C2E5FB955" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Цепи ТН собраны " />
+        <Signal Name="RAW_SEPAM_VV1_3089_6_DP" UUID="F586973F43C07D8C9D66C298F2098D80" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Автоматический выключатель ТН отключен " />
+        <Signal Name="RAW_SEPAM_VV1_3089_7_DP" UUID="06862658440E7625724E009DF18B06DD" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_АВР включено " />
+        <Signal Name="RAW_SEPAM_VV1_3208_0_CO" UUID="B48337C0414E9B4E0FA27085D4772D42" Type="BOOL" Global="TRUE" Comment='АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Команда &quot;Отключить&quot; ' />
+        <Signal Name="RAW_SEPAM_VV1_3208_1_CO" UUID="778673E441C9AA0F62EA07BFDC986F9D" Type="BOOL" Global="TRUE" Comment='АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Команда &quot;Включить&quot; ' />
+        <Signal Name="RAW_SEPAM_VV1_3208_2_CO" UUID="95AD9207491636784C11B18829D18051" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Квитирование аварийной и предупредительной сигнализации " />
+        <Signal Name="RAW_SEPAM_VV1_3208_3_CO" UUID="BD2A4C754905B604624807986E681CA9" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Сброс максиметров тока " />
+        <Signal Name="RAW_SEPAM_VV1_3208_4_CO" UUID="3CEDBB234B257D9EF44A328C3B79DB09" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Сброс максиметров мощности " />
+        <Signal Name="RAW_SEPAM_VV1_3209_1_CO" UUID="DCC94372477B95A9525D1785DDC42BC5" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Блокировка запуска осциллограмм аварийных режимов " />
+        <Signal Name="RAW_SEPAM_VV1_3209_2_CO" UUID="F7B2DFDE48F5979A6A91A2A2B8A66FE4" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Разрешение запуска осциллограмм аварийных режимов " />
+        <Signal Name="RAW_SEPAM_VV1_3209_3_CO" UUID="703E51B24417402A70B715BEF5A8DA93" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Ручной запуск осциллограмм аварийных режимов " />
+        <Signal Name="RAW_SEPAM_VV1_3216_10_DP" UUID="70F36CF74BCECF205285BC9ECB050698" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Выключатель выкачен " />
+        <Signal Name="RAW_SEPAM_VV1_3216_11_DP" UUID="55B22E084016F73EE674B7858E560CA2" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Низкое давление в выключателе " />
+        <Signal Name="RAW_SEPAM_VV1_3216_13_DP" UUID="44E986A94177A298A0246A814C5A1E48" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Разрешение телеуправления " />
+        <Signal Name="RAW_SEPAM_VV1_3216_2_DP" UUID="3434DABE47AD291B8BDBA8AFE595308B" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Несоответствие положения выключателя последней команде телеуправления " />
+        <Signal Name="RAW_SEPAM_VV1_3216_4_DP" UUID="9B4280BB4023D0E0A9203692A49607E4" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Вызов в ЗРУ " />
+        <Signal Name="RAW_SEPAM_VV1_3216_9_DP" UUID="2E40958F4D011BD9471CBC9A00BAA147" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Выключатель «Включен» " />
+        <Signal Name="RAW_SEPAM_VV1_3217_0_DP" UUID="DCA3364E4A303781FF61F4B38EC8414A" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Выключатель «Отключен» " />
+        <Signal Name="RAW_SEPAM_VV1_3219_15_DP" UUID="CE560608450595E8E1FB42A347BB4860" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Срабатывание клапанов дуговой защиты " />
+        <Signal Name="RAW_SEPAM_VV1_3219_1_DP" UUID="B542B9F24CF71937F6FF43B4522BE55D" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Блокировка записи осциллограмм аварийных режимов " />
+        <Signal Name="RAW_SEPAM_VV1_3219_2_DP" UUID="D9BE3F144FE85295F8619586FCF1A905" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Запрет телерегулировки " />
+        <Signal Name="RAW_SEPAM_VV1_3219_3_DP" UUID="BDC4FFB64776A0F8EA1970A555FAE7DD" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Обобщенный сигнал неисправности " />
+        <Signal Name="RAW_SEPAM_VV1_3220_0_DP" UUID="AA4DB1C24F6B354668D861A2476AC23B" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Срабатывание логической защиты шин " />
+        <Signal Name="RAW_SEPAM_VV1_3220_2_DP" UUID="9D3599D448EA24A288289680475C9FD9" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Срабатывание МТЗ " />
+        <Signal Name="RAW_SEPAM_VV1_3220_3_DP" UUID="7B2372E248C752B5D458E2B76E239F79" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Срабатывание ускорения МТЗ при включении выключателя " />
+        <Signal Name="RAW_SEPAM_VV1_3220_4_DP" UUID="D9C0FB1F46C28AA73D50D38FE8BEF1AC" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Перегрузка " />
+        <Signal Name="RAW_SEPAM_VV1_3222_15_DP" UUID="BDBE82F148C12F46BCD7E2A7ED6DC69B" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Срабатывание УРОВ " />
+        <Signal Name="RAW_SEPAM_VV1_3227_0_DP" UUID="F510DFF54722F5AFF5D254A43CAA5B88" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Отключение от ДГЗ, УРОВ " />
+        <Signal Name="RAW_SEPAM_VV1_3227_1_DP" UUID="801761334646E7B27C8F2A83DABF2C4D" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Отключение от защит трансформатора " />
+        <Signal Name="RAW_SEPAM_VV1_3227_2_DP" UUID="0AFF481742A839088E41B7AD14F21346" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Аварийное отключение " />
+        <Signal Name="RAW_SEPAM_VV1_3227_3_DP" UUID="426DC2BD489991BD947E4884E9A9A172" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Выключатель эл. мотора завода пружины привода отключен " />
+        <Signal Name="RAW_SEPAM_VV1_3227_4_DP" UUID="1482EF694E5BBF9E241E5CA377DAEAE2" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Внешнее отключение с запретом АВР " />
+        <Signal Name="RAW_SEPAM_VV1_3227_5_DP" UUID="9DBDD6454DA82CBE56EB679E60E52C70" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Внешнее отключение без запрета АВР " />
+        <Signal Name="RAW_SEPAM_VV1_3227_6_DP" UUID="F6EA1420498F55A6C623E4ADDCE8D5A2" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Отключение от АВР " />
+        <Signal Name="RAW_SEPAM_VV1_3227_7_DP" UUID="92CF965C4537C4EEFC365491EEA7148B" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Включение выключателя при автоматическом восстановлении нормального режима " />
+        <Signal Name="RAW_SEPAM_VV1_3228_15_DP" UUID="120D8EEA471D9B4087247C8CD0D71E51" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Неисправность цепи включения " />
+        <Signal Name="RAW_SEPAM_VV1_3229_0_DP" UUID="96489BB04F393C18F41BB0BC4C34DAC0" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Неисправность трансформатора тока " />
+        <Signal Name="RAW_SEPAM_VV1_3229_10_DP" UUID="ABF87C8A480103C73F6F839C22675CD5" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Батарея Sepam разряжена " />
+        <Signal Name="RAW_SEPAM_VV1_3229_11_DP" UUID="F63712C84FBE42C212EF58A7A8F23877" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Автоматический выключатель ТН отключен " />
+        <Signal Name="RAW_SEPAM_VV1_3229_13_DP" UUID="612668AC4060A96A337E0799A634BEFF" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Команда включения СВ по АВР " />
+        <Signal Name="RAW_SEPAM_VV1_3229_1_DP" UUID="07D244E24A26F35FF19ACDBAB56F59B1" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Неисправность трансформатора напряжения " />
+        <Signal Name="RAW_SEPAM_VV1_3230_14_DP" UUID="4D6252A34F683B69DF2F869C5FE57FA9" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Срабатывание ДГЗ ячейки ввода " />
+        <Signal Name="RAW_SEPAM_VV1_3230_8_DP" UUID="19E6EB4A488F2D84414A70AB7EEE93F2" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Контроль неисправности цепи включения введен " />
+        <Signal Name="RAW_SEPAM_VV1_558_AP" UUID="FE7C3DB24E68B18534FDB6977B1223F6" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Полная мощность " />
+        <Signal Name="RAW_SEPAM_VV1_584_AP" UUID="0EF7AC1748C257D8365DF7A77A5B537E" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Активная энергия (потребленная) " />
+        <Signal Name="RAW_SEPAM_VV1_586_AP" UUID="9492345241F034DF02AD9AB244997575" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Активная энергия (выданная) " />
+        <Signal Name="RAW_SEPAM_VV1_588_AP" UUID="5ED48E8446A1E19C97B70583C4EBA6DB" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Реактивная энергия (потребленная) " />
+        <Signal Name="RAW_SEPAM_VV1_590_AP" UUID="EF27004A48A521126F61ABBD88054408" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Реактивная энергия (выданная) " />
+        <Signal Name="RAW_SEPAM_VV1_636_AP" UUID="B4097FC04D318062FC4935A2B27BF239" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Счетчик коммутаций " />
+        <Signal Name="RAW_SEPAM_VV1_64000_AP" UUID="68AC65324779FD660C88E6BCC79CC22B" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Фазный ток I1 " />
+        <Signal Name="RAW_SEPAM_VV1_64001_AP" UUID="DE231C0848769EFB8FE44A960B039F5A" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Фазный ток I2 " />
+        <Signal Name="RAW_SEPAM_VV1_64002_AP" UUID="12C4535B42CE6369C7C0B8898E0A7DDB" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Фазный ток I3 " />
+        <Signal Name="RAW_SEPAM_VV1_64003_AP" UUID="7D07E7FA44917060235B01A645F425A7" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Максиметры фазного тока Im1 " />
+        <Signal Name="RAW_SEPAM_VV1_64004_AP" UUID="2CA0F7BE4FECA7CE323B2FAD8D0676D1" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Максиметры фазного тока Im2 " />
+        <Signal Name="RAW_SEPAM_VV1_64005_AP" UUID="97C3C9C8458473CCAABC89A7804463A7" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Максиметры фазного тока Im3 " />
+        <Signal Name="RAW_SEPAM_VV1_64006_AP" UUID="F4E9BEB24775FA349728DEAFB0ABE575" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Линейное напряжение U21 " />
+        <Signal Name="RAW_SEPAM_VV1_64007_AP" UUID="75855D5849C929085937D4BBCD7D9D00" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Линейное напряжение U32 " />
+        <Signal Name="RAW_SEPAM_VV1_64008_AP" UUID="6366B4844CA2E98BE6A84F893BBC376F" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Линейное напряжение U13 " />
+        <Signal Name="RAW_SEPAM_VV1_64009_AP" UUID="87CE24104ECFFC60F71442B94976B949" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Частота " />
+        <Signal Name="RAW_SEPAM_VV1_64010_AP" UUID="D8FCABBC4327792DCA8025BCC0063C8A" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Активная мощность " />
+        <Signal Name="RAW_SEPAM_VV1_64011_AP" UUID="A8A26D0D45E212AD536FCDA761A4C09A" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Реактивная мощность " />
+        <Signal Name="RAW_SEPAM_VV1_64012_AP" UUID="C58714F343F8146CA1D4129750D0F971" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Коэффициент мощности   (cos φ) " />
+        <Signal Name="RAW_SEPAM_VV1_64013_AP" UUID="7516E95E4F31F5D2E73B1DA8E7B14AE4" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Максиметр активной мощности " />
+        <Signal Name="RAW_SEPAM_VV1_64014_AP" UUID="61F493A9478D9F52D962EDB94987BF27" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Максиметр реактивной мощности " />
+        <Signal Name="RAW_SEPAM_VV1_64272_AP" UUID="5E2AB3344F6C3FB79796FBBEEEDE9D8D" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Токи отключения trip I1 " />
+        <Signal Name="RAW_SEPAM_VV1_64273_AP" UUID="35C27ADC49B4BED2AE30778BCDA9B75A" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Токи отключения trip I2 " />
+        <Signal Name="RAW_SEPAM_VV1_64274_AP" UUID="27777F084A76E7E6266EA185017B10DE" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Токи отключения trip I3 " />
+        <Signal Name="RAW_SEPAM_VV1_808_AP" UUID="664DC9E8480F9F161D9FC28F1F9B6517" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Кумулятивное значение токов отключения 0&lt;I&lt;2In " />
+        <Signal Name="RAW_SEPAM_VV1_809_AP" UUID="7E0EF1E74EA204E49636478C3A78FF55" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Кумулятивное значение токов отключения 2&lt;I&lt;5In " />
+        <Signal Name="RAW_SEPAM_VV1_810_AP" UUID="35DC333741BB41D047E8E28679303A5F" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Кумулятивное значение токов отключения 5&lt;I&lt;10In " />
+        <Signal Name="RAW_SEPAM_VV1_811_AP" UUID="729009714CEDD50FBDA510B14884FD21" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Кумулятивное значение токов отключения 10&lt;I&lt;40In " />
+        <Signal Name="RAW_SEPAM_VV1_812_AP" UUID="E844C68E49DE9DEE93D2B586E7F6B934" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Кумулятивное значение токов отключения I&gt;40In " />
+        <Signal Name="RAW_SEPAM_VV1_813_AP" UUID="9572CDBE42DCEB461A32D684A569DF47" Type="STRING" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Время коммутации (отключение выключателя) " />
+        <Signal Name="RAW_SEPAM_VV1_815_AP" UUID="54E800EA43392D780789BCA2D518AF14" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Счетчик количества выката выключателей " />
+        <Signal Name="RAW_SEPAM_VV1_817_AP" UUID="3663A9FA46C0EB30E8A0BD84CC77351A" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Счетчик отключения междуфазных КЗ " />
+        <Signal Name="S_ZRU_P11_VV1_3088_0_DP" UUID="649405D642E1ED29D37AD289C8F59E9A" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_РПВ (Реле положения «Включено»)" />
+        <Signal Name="S_ZRU_P11_VV1_3088_10_DP" UUID="7FE2F8A040C138B8477EB89ECC7D1377" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Отключение от ДГЗ, УРОВ" />
+        <Signal Name="S_ZRU_P11_VV1_3088_11_DP" UUID="B48220E84E70513F8B711AB148097772" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Отключение от защит трансформатора" />
+        <Signal Name="S_ZRU_P11_VV1_3088_12_DP" UUID="75A0395644CFC17BEDF310B103A39BF7" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Отключение от АВР" />
+        <Signal Name="S_ZRU_P11_VV1_3088_13_DP" UUID="E5AA434E4BABA54DD6867EA503FA2DB5" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Выключатель выкачен" />
+        <Signal Name="S_ZRU_P11_VV1_3088_1_DP" UUID="E6AFB28048ED083E2AD3A0B72C0AD7C9" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_РПО (Реле положения «Отключено»)" />
+        <Signal Name="S_ZRU_P11_VV1_3088_3_DP" UUID="3ADD7D7C47D5C8F4D9C0F781CAED9B6D" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Срабатывание клапана дуговой защиты" />
+        <Signal Name="S_ZRU_P11_VV1_3088_4_DP" UUID="BE8D67EB409F3805B18D77A2AB78DFB1" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Низкое давление в выключателе" />
+        <Signal Name="S_ZRU_P11_VV1_3088_5_DP" UUID="7B2EF78E4D43096F0D4DEF9DB0F18E76" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_РКО (Реле команды «Отключить»)" />
+        <Signal Name="S_ZRU_P11_VV1_3088_6_DP" UUID="C245B8BA45BBCAACD277D7828A61B546" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_РКВ (Реле команды «Включить»)" />
+        <Signal Name="S_ZRU_P11_VV1_3088_7_DP" UUID="5AB5F1214D5238D78DD2D387BB2B9139" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Блокировка ЛЗШ" />
+        <Signal Name="S_ZRU_P11_VV1_3088_8_DP" UUID="6BE60853465215C46CC128B93DA21B27" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Выключатель эл.мотора завода пружины привода отключен" />
+        <Signal Name="S_ZRU_P11_VV1_3088_9_DP" UUID="EDB0A4684D971D59DB0AB985E1D1F16F" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Разрешение телеуправления" />
+        <Signal Name="S_ZRU_P11_VV1_3089_0_DP" UUID="CAF357574B4C28DAC3C775AB7B7050CA" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Внешнее отключение с запретом АВР" />
+        <Signal Name="S_ZRU_P11_VV1_3089_12_DP" UUID="DC47B7314EBB86742CE3E291092F5F47" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Отключение от ДГЗ при к.з. в отсеке ввода" />
+        <Signal Name="S_ZRU_P11_VV1_3089_1_DP" UUID="154B8C244F54BD79F81180A182D72582" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Внешнее отключение без запрета АВР" />
+        <Signal Name="S_ZRU_P11_VV1_3089_2_DP" UUID="B6E0E7B3475BFA65F68066BFB278B1F9" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Включение выключателя при автоматическом восстановлении нормального режима" />
+        <Signal Name="S_ZRU_P11_VV1_3089_3_DP" UUID="04F528694287C62296D0428EBA003A47" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Контроль цепи включения" />
+        <Signal Name="S_ZRU_P11_VV1_3089_4_DP" UUID="D5B683C041E8B6A58EFD7DB72F50C57F" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Перегорание предохранителя ТН" />
+        <Signal Name="S_ZRU_P11_VV1_3089_5_DP" UUID="4D81EB054EC0BA4D0137FFA0C19B83E1" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Цепи ТН собраны" />
+        <Signal Name="S_ZRU_P11_VV1_3089_6_DP" UUID="7F2992074303BE000F73DD94DECE5371" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Автоматический выключатель ТН отключен" />
+        <Signal Name="S_ZRU_P11_VV1_3089_7_DP" UUID="C8202746445C9E9CA54B8FAE9772CF84" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_АВР включено" />
+        <Signal Name="S_ZRU_P11_VV1_3208_0_CO" UUID="0160A8C14637684CBC1554861A009DAF" Type="BOOL" Global="TRUE" Comment='АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Команда &quot;Отключить&quot;' />
+        <Signal Name="S_ZRU_P11_VV1_3208_1_CO" UUID="282364F64CF51E3AE909B7A4D8F6BB84" Type="BOOL" Global="TRUE" Comment='АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Команда &quot;Включить&quot;' />
+        <Signal Name="S_ZRU_P11_VV1_3208_2_CO" UUID="6FC5C03D4391244C619EBF92F6E92F9C" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Квитирование аварийной и предупредительной сигнализации" />
+        <Signal Name="S_ZRU_P11_VV1_3208_3_CO" UUID="5DD402F641DDA445C08ABB96FFE01659" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Сброс максиметров тока" />
+        <Signal Name="S_ZRU_P11_VV1_3208_4_CO" UUID="BA30035B4A8AFFB5AB2FD7B757DB24D9" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Сброс максиметров мощности" />
+        <Signal Name="S_ZRU_P11_VV1_3209_1_CO" UUID="ACA303E14379B6E3DCD2E7B80EEC6223" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Блокировка запуска осциллограмм аварийных режимов" />
+        <Signal Name="S_ZRU_P11_VV1_3209_2_CO" UUID="200E52BC428788ED9F9813A13A8BA106" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Разрешение запуска осциллограмм аварийных режимов" />
+        <Signal Name="S_ZRU_P11_VV1_3209_3_CO" UUID="CC48143E48C456620E89549473C52F4D" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Ручной запуск осциллограмм аварийных режимов" />
+        <Signal Name="S_ZRU_P11_VV1_3216_10_DP" UUID="0FB1BDF6451788DB6EE99E82E0701A00" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Выключатель выкачен" />
+        <Signal Name="S_ZRU_P11_VV1_3216_11_DP" UUID="AB4796784217F9B22CA67481A4E536B0" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Низкое давление в выключателе" />
+        <Signal Name="S_ZRU_P11_VV1_3216_13_DP" UUID="CD54D2944B664A13886EAE82492099C7" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Разрешение телеуправления" />
+        <Signal Name="S_ZRU_P11_VV1_3216_2_DP" UUID="F81D2E8A43C73C55E06A7B9BCAFD1755" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Несоответствие положения выключателя последней команде телеуправления" />
+        <Signal Name="S_ZRU_P11_VV1_3216_4_DP" UUID="1C49F74441EC4C61DF7D519516E3FDBD" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Вызов в ЗРУ" />
+        <Signal Name="S_ZRU_P11_VV1_3216_9_DP" UUID="04332C1D4D74E12D9A4CEA9DAB775601" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Выключатель «Включен»" />
+        <Signal Name="S_ZRU_P11_VV1_3217_0_DP" UUID="A1D2491441D43DFE8491879508849DCC" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Выключатель «Отключен»" />
+        <Signal Name="S_ZRU_P11_VV1_3219_15_DP" UUID="BD116EAA42887D613253D88B8F1A317A" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Срабатывание клапанов дуговой защиты" />
+        <Signal Name="S_ZRU_P11_VV1_3219_1_DP" UUID="0451753D4D106D923A73C09FBDE80632" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Блокировка записи осциллограмм аварийных режимов" />
+        <Signal Name="S_ZRU_P11_VV1_3219_2_DP" UUID="A12F21D0419626BD6097D69EAC4DB62E" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Запрет телерегулировки" />
+        <Signal Name="S_ZRU_P11_VV1_3219_3_DP" UUID="3E6F5FA24269BEADA4B73E93B38111F9" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Обобщенный сигнал неисправности" />
+        <Signal Name="S_ZRU_P11_VV1_3220_0_DP" UUID="D29536E446BB0DF17818069A35B3BCAD" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Срабатывание логической защиты шин" />
+        <Signal Name="S_ZRU_P11_VV1_3220_2_DP" UUID="988A6DC5448F4A49743204A5178D92A5" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Срабатывание МТЗ" />
+        <Signal Name="S_ZRU_P11_VV1_3220_3_DP" UUID="2F12E84A4B37746D61BAFFB75BE7E5FB" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Срабатывание ускорения МТЗ при включении выключателя" />
+        <Signal Name="S_ZRU_P11_VV1_3220_4_DP" UUID="C9B0921E4138315415996F9D83D56E2B" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Перегрузка" />
+        <Signal Name="S_ZRU_P11_VV1_3222_15_DP" UUID="92DD3A59422EAA2AEA3A79921B8A32F8" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Срабатывание УРОВ" />
+        <Signal Name="S_ZRU_P11_VV1_3227_0_DP" UUID="97B35CA84E85E25BE960A08EDFA84313" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Отключение от ДГЗ, УРОВ" />
+        <Signal Name="S_ZRU_P11_VV1_3227_1_DP" UUID="82F1C9744CA57834D21D0BBB8F25E1A4" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Отключение от защит трансформатора" />
+        <Signal Name="S_ZRU_P11_VV1_3227_2_DP" UUID="47905E91494B2B957BD182A1F106CD7B" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Аварийное отключение" />
+        <Signal Name="S_ZRU_P11_VV1_3227_3_DP" UUID="3135F0A94306AC202A3DB481494C426B" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Выключатель эл. мотора завода пружины привода отключен" />
+        <Signal Name="S_ZRU_P11_VV1_3227_4_DP" UUID="AC4C5FFB45E9B243D44C6C8F757EFB85" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Внешнее отключение с запретом АВР" />
+        <Signal Name="S_ZRU_P11_VV1_3227_5_DP" UUID="B4643FB84AC1A480FC8C068C9F701B0C" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Внешнее отключение без запрета АВР" />
+        <Signal Name="S_ZRU_P11_VV1_3227_6_DP" UUID="DB5FA5BB4A288B68CCF7E2A5C17F5B6E" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Отключение от АВР" />
+        <Signal Name="S_ZRU_P11_VV1_3227_7_DP" UUID="4B8691384DA04A978F7766ACCBBD83FC" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Включение выключателя при автоматическом восстановлении нормального режима" />
+        <Signal Name="S_ZRU_P11_VV1_3228_15_DP" UUID="878BB5634FF7119A40C0B09CC6A55790" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Неисправность цепи включения" />
+        <Signal Name="S_ZRU_P11_VV1_3229_0_DP" UUID="3659E6E24398D781A3546D85DEDA24EA" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Неисправность трансформатора тока" />
+        <Signal Name="S_ZRU_P11_VV1_3229_10_DP" UUID="7E251FF343ACEC65916F398AC0276AA8" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Батарея Sepam разряжена" />
+        <Signal Name="S_ZRU_P11_VV1_3229_11_DP" UUID="605DE7F14C26A7DD0E054280BD0B7680" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Автоматический выключатель ТН отключен" />
+        <Signal Name="S_ZRU_P11_VV1_3229_13_DP" UUID="B91F9F8D475500EA212A61A66C234C5C" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Команда включения СВ по АВР" />
+        <Signal Name="S_ZRU_P11_VV1_3229_1_DP" UUID="AA2C6FC64E2B711681CE23A822E10C1D" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Неисправность трансформатора напряжения" />
+        <Signal Name="S_ZRU_P11_VV1_3230_14_DP" UUID="9454EF714B8909F1FC3BC9A10BBB6585" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Срабатывание ДГЗ ячейки ввода" />
+        <Signal Name="S_ZRU_P11_VV1_3230_8_DP" UUID="CDA888834DC78E02F397D9B4FC774DC4" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Контроль неисправности цепи включения введен" />
+        <Signal Name="S_ZRU_P11_VV1_558_AP" UUID="1C9EA4EB49560A20FFFF9ABADF587B22" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Полная мощность" />
+        <Signal Name="S_ZRU_P11_VV1_584_AP" UUID="9B718EB94BEDB6755EE2B6A4D30C24F8" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Активная энергия (потребленная)" />
+        <Signal Name="S_ZRU_P11_VV1_586_AP" UUID="43F94F1D47C153DFAAF4D79D06C6D5BA" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Активная энергия (выданная)" />
+        <Signal Name="S_ZRU_P11_VV1_588_AP" UUID="7F9854374D783076355F9FAF3014D79F" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Реактивная энергия (потребленная)" />
+        <Signal Name="S_ZRU_P11_VV1_590_AP" UUID="68AE721A4547C9B271198F9C0217C43B" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Реактивная энергия (выданная)" />
+        <Signal Name="S_ZRU_P11_VV1_636_AP" UUID="27A0B7E74D1B89616D5B08A08D7FA6A6" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Счетчик коммутаций" />
+        <Signal Name="S_ZRU_P11_VV1_64000_AP" UUID="15AD2C3A45393BC5F69EF6854585D002" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Фазный ток I1" />
+        <Signal Name="S_ZRU_P11_VV1_64001_AP" UUID="24F6F67242D7AA7699B485B282083F19" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Фазный ток I2" />
+        <Signal Name="S_ZRU_P11_VV1_64002_AP" UUID="95606A3E44D6DCAE819B669325E19665" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Фазный ток I3" />
+        <Signal Name="S_ZRU_P11_VV1_64003_AP" UUID="84097E82436587065D9B17B46EB1D6EA" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Максиметры фазного тока Im1" />
+        <Signal Name="S_ZRU_P11_VV1_64004_AP" UUID="C8E280584F3BACB1403193ACD5AA5483" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Максиметры фазного тока Im2" />
+        <Signal Name="S_ZRU_P11_VV1_64005_AP" UUID="F27EAF5A41D1F9C8FD5AFE8223163BDC" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Максиметры фазного тока Im3" />
+        <Signal Name="S_ZRU_P11_VV1_64006_AP" UUID="6EAF811B46C1E6F1B4F589830B0EB743" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Линейное напряжение U21" />
+        <Signal Name="S_ZRU_P11_VV1_64007_AP" UUID="5888CF744EAFA686E3D59B84E1EF620A" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Линейное напряжение U32" />
+        <Signal Name="S_ZRU_P11_VV1_64008_AP" UUID="0A74E85F4EB363790714CD994E95141F" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Линейное напряжение U13" />
+        <Signal Name="S_ZRU_P11_VV1_64009_AP" UUID="084AE6504F00661457B7B5B571F757DD" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Частота" />
+        <Signal Name="S_ZRU_P11_VV1_64010_AP" UUID="DD6AF9A648273B4525BEA09592C7241F" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Активная мощность" />
+        <Signal Name="S_ZRU_P11_VV1_64011_AP" UUID="25AF6A0D4972C716FD78BDB48EE5DF93" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Реактивная мощность" />
+        <Signal Name="S_ZRU_P11_VV1_64012_AP" UUID="EA85B8E44DA1CA242213A0922CCEC5D2" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Коэффициент мощности   (cos φ)" />
+        <Signal Name="S_ZRU_P11_VV1_64013_AP" UUID="4177DB044B20D51A8894FD8F1FE56675" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Максиметр активной мощности" />
+        <Signal Name="S_ZRU_P11_VV1_64014_AP" UUID="7530D0B84442DCD40D6B95A68AFA055E" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Максиметр реактивной мощности" />
+        <Signal Name="S_ZRU_P11_VV1_64272_AP" UUID="AEE788B44261AF6050C414900F2E9B00" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Токи отключения trip I1" />
+        <Signal Name="S_ZRU_P11_VV1_64273_AP" UUID="9A7480B94709682B0682EBB6C9CF0A08" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Токи отключения trip I2" />
+        <Signal Name="S_ZRU_P11_VV1_64274_AP" UUID="A6EAF6C44164B76A45B74CBAAE966E80" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Токи отключения trip I3" />
+        <Signal Name="S_ZRU_P11_VV1_808_AP" UUID="705AFEA647E5DA6E3627EDB35E6D1788" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Кумулятивное значение токов отключения 0&lt;I&lt;2In" />
+        <Signal Name="S_ZRU_P11_VV1_809_AP" UUID="7BB570BF43AEE2673DE68EACD73D5999" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Кумулятивное значение токов отключения 2&lt;I&lt;5In" />
+        <Signal Name="S_ZRU_P11_VV1_810_AP" UUID="C26BF055430964CE4A881EAF5F8C970A" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Кумулятивное значение токов отключения 5&lt;I&lt;10In" />
+        <Signal Name="S_ZRU_P11_VV1_811_AP" UUID="133CE620408756CF33335D952CEC659A" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Кумулятивное значение токов отключения 10&lt;I&lt;40In" />
+        <Signal Name="S_ZRU_P11_VV1_812_AP" UUID="63C267B644F8FA916A9818B281AADA4B" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Кумулятивное значение токов отключения I&gt;40In" />
+        <Signal Name="S_ZRU_P11_VV1_813_AP" UUID="7E06599E4F3E7A9CFECCD1B6FB448671" Type="STRING" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Время коммутации (отключение выключателя)" />
+        <Signal Name="S_ZRU_P11_VV1_815_AP" UUID="EA89BBD746CFB4ABC11A4A9EF812D1D6" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Счетчик количества выката выключателей" />
+        <Signal Name="S_ZRU_P11_VV1_817_AP" UUID="51CFCCDB4AD6CF78630E18868C6CB8C0" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Счетчик отключения междуфазных КЗ" />
+        <Signal Name="S_ZRU_P11_VV1_DS_DP" UUID="58E1C9194024354CF5DDDF8A2274F2E9" Type="USINT" Global="TRUE" Comment=" АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1. Определение достоверности " />
+        <Signal Name="S_ZRU_P11_VV1_Reg_Time" UUID="C0CEA9C8414F4D147930FA9E227DB873" Type="STRING" Global="TRUE" Comment="Астрономическое время в SEPAM" />
+        <Signal Name="S_ZRU_P11_VV1_Reg_Time_CO" UUID="240630484EA4DC3CC81182ADF375721F" Type="BOOL" Global="TRUE" />
+        <Signal Name="S_ZRU_P11_VV1_Reg_Time_Set_AV" UUID="2770C6774BF7B78A38930EB03C822FF1" Type="BOOL" Global="TRUE" Comment="Установка текущего астрономического времени автоматическки" />
+        <Signal Name="S_ZRU_P11_VV1_SysCmd_T_Cor_AV" UUID="DDB420A340C6E06AE521ECA64A0B4038" Type="BOOL" Global="TRUE" Comment="Коррекция астрономического времени автоматически" />
+    </InterfaceList>
+</SubAppType>

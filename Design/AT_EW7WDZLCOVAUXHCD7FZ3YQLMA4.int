@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE SubAppType v. 1.3 >
+<SubAppType Name="Report" Kind="REPORT ENGINE" Args="" Comment="" UUID="2B73C06C403367E9267C448704ECD0E8">
+    <InterfaceList>
+        <Signal Name="@PID" UUID="C5DC74B249C38D5190FCC58C392205FA" Type="STRING" />
+        <Signal Name="@STATE" UUID="1FEE41C34B4A9DBD4360EA8336C8CD9D" Type="STRING" />
+        <Signal Name="@COMMAND" UUID="C27FFA5D4AC1E33B63B7B5BADFB10047" Type="STRING" />
+        <Signal Name="@COMMAND_VALUE" UUID="031CDD464D371455247CFD8C2008992F" Type="STRING" />
+        <Signal Name="@MESSAGE" UUID="DCEE91A448AD58D175E39CB4A038DFC4" Type="STRING" />
+        <Signal Name="@MESSAGE_FRAMEWORK" UUID="F2B5C5204DB7A80292ADC8B9BE5DF07D" Type="STRING" />
+        <Signal Name="@EVENT" UUID="F9E118434E3447DB4368FF890CACBF57" Type="STRING" />
+        <Signal Name="@RESERVE" UUID="373CED1A41F9DE3EDCBB7FA532C3E6CC" Type="BOOL" />
+        <Signal Name="@WINDOW" UUID="312A49A749C6B460848F96A7A4C7823F" Type="TWINDOW" ArraySize="32" InitialValue="[(BB31C56B403BBCBB789DA6897EBA93E0:=0, DE33784041BE77E260D174A21CCCC011:=0, A52DDCF84E29D2796A871496ADE0285C:=0, B42191CC4597AC3EB8EAFB92D723118C:=1024, 0D676125474662A65EF6399D51C17141:=768, AD19379F4D61D4E9D6901EB6068FAB3B:=4), (B42191CC4597AC3EB8EAFB92D723118C:=1024, 0D676125474662A65EF6399D51C17141:=768, AD19379F4D61D4E9D6901EB6068FAB3B:=4), (B42191CC4597AC3EB8EAFB92D723118C:=1024, 0D676125474662A65EF6399D51C17141:=768), (B42191CC4597AC3EB8EAFB92D723118C:=1024, 0D676125474662A65EF6399D51C17141:=768)]" />
+        <Signal Name="MakeReport1" UUID="E1342197475E617EAFEFF49A46B15625" Type="BOOL" Global="TRUE" />
+        <Signal Name="MakeReport2" UUID="83865F4041A336EBEE3BEDB512D9EB7D" Type="BOOL" Global="TRUE" />
+        <Signal Name="MakeReport3" UUID="A732DA7347E13F7642A0A8B84E35AC79" Type="BOOL" Global="TRUE" />
+        <Signal Name="RashodHH" UUID="E8BCCB9A41D37D2B4117F5A753BBABA8" Type="REAL" ArraySize="3600" Global="TRUE" Storage="persistent" Comment="Показания расходомера за час" />
+        <Signal Name="RashodHHItog" UUID="3CD982B14A0DA16FE50BAEA8F9C26EAC" Type="REAL" ArraySize="4" Global="TRUE" Storage="persistent" Comment="Сумма Среднее Минимум и максимум показаний расходомера за день" />
+        <Signal Name="RashodDay" UUID="1A280A5246CC9A81AC9FCABE75077C1E" Type="REAL" ArraySize="48" Global="TRUE" Storage="persistent" Comment="Показания расходомера за день" />
+        <Signal Name="RashodDayItog" UUID="79DE949E4AFA697F8AF3599D6D500705" Type="REAL" ArraySize="4" Global="TRUE" Storage="persistent" Comment="Сумма Среднее Минимум и Максимум показания расходомера за неделю" />
+        <Signal Name="S_ZRU_P11_VV1_64000_AP" UUID="15AD2C3A45393BC5F69EF6854585D002" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Фазный ток I1" />
+        <Signal Name="RashodMonth" UUID="B9D52F504D99A10B1188C3BA4F543ECD" Type="REAL" ArraySize="31" Global="TRUE" Storage="persistent" />
+        <Signal Name="PotrebP" UUID="9564FE8F46474832F10E7E832AE11038" Type="REAL" ArraySize="48" Global="TRUE" Storage="persistent" />
+        <Signal Name="RashodMonthItog" UUID="06C9C27A4CCDB34D96D93085EE73AFB2" Type="REAL" ArraySize="4" Global="TRUE" Storage="persistent" />
+        <Signal Name="PotrebPItog" UUID="42A37F434BB57E08B8D694A579E7DC8F" Type="REAL" ArraySize="4" Global="TRUE" Storage="persistent" />
+        <Signal Name="PotrebS" UUID="8AC5B8094DF860E858D46D81C2FED330" Type="REAL" ArraySize="48" Global="TRUE" Storage="persistent" />
+        <Signal Name="PotrebSItog" UUID="61F3F2184CD27881E7ED62AE506F6C8E" Type="REAL" ArraySize="4" Global="TRUE" Storage="persistent" />
+        <Signal Name="PotrebQ" UUID="96151B144C86A4B174D80CAA23C4DEFF" Type="REAL" ArraySize="48" Global="TRUE" Storage="persistent" />
+        <Signal Name="PotrebQItog" UUID="2B0DA974432342EBE7CBA4BB0AF1CACC" Type="REAL" ArraySize="4" Global="TRUE" Storage="persistent" />
+        <Signal Name="MakeReport4" UUID="A9A8CF8D46D462F58332E08964F33078" Type="BOOL" Global="TRUE" />
+        <Signal Name="MakeReport5" UUID="D1C1169745BCFD202234609E2F6AB813" Type="BOOL" Global="TRUE" />
+        <Signal Name="MakeReport6" UUID="C7C8364C4E2792FD5A3EA5A1601D2A9E" Type="BOOL" Global="TRUE" />
+        <Signal Name="MakeReport7" UUID="069AB36D4D013F65B52FD784493D6CD6" Type="BOOL" Global="TRUE" />
+    </InterfaceList>
+</SubAppType>

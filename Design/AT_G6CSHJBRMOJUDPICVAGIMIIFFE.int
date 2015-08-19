@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE SubAppType v. 1.3 >
+<SubAppType Name="Command_BMPA" Kind="APPLICATION.LUA" Args="" Comment="" UUID="28A29E3348A22CA9C62F60882362AE75">
+    <InterfaceList>
+        <Signal Name="RAW_BMPA_Reg_Block_ID" UUID="7240711B4F63796F4DDA68A8D3645A27" Type="UINT" ArraySize="1" Global="TRUE" Comment="Номер конфигурации " />
+        <Signal Name="RAW_BMPA_Reg_DataCtrl1" UUID="C34B46F24F6A9E8C9BC4579DCA2E1DDE" Type="BYTE" ArraySize="8" Global="TRUE" Comment="Параметры&#x0A;команды управления БМРЗ" />
+        <Signal Name="RAW_BMPA_Reg_NetCtrl" UUID="923777C64702989B1189B198A0AB3295" Type="DWORD" Global="TRUE" Comment="Регистр команд управления выключателем " />
+        <Signal Name="RAW_BMPA_Reg_NetCtrl1" UUID="85752E3F4B7739E2EAA7D2A8535A1141" Type="DWORD" Global="TRUE" Comment="Регистр команд управления БМРЗ " />
+        <Signal Name="RAW_BMPA_Reg_Cmd_WinRd_Only" UUID="140CB69B4F4BFADDAFA43E9095401BF8" Type="DWORD" Global="TRUE" Comment="Управление окном обмена“Только чтение”" />
+        <Signal Name="S_KTP_P07_BMPA_Reg_Time_Set_AV" UUID="180E3DDB46168FB92871BAA4A8B5791C" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМПА .  Установка текущего астрономического времени  автоматически" />
+        <Signal Name="S_KTP_P07_BMPA_Cmd_Rd_Nak_CO" UUID="0E991DE64EB1C4F9E909E0B76D213626" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМПА . Чтение  накопи-тельной  инфор-мации " />
+        <Signal Name="S_KTP_P07_BMPA_KVIT_CO" UUID="F63608DA4E8E809DD359C2AFDC26AE47" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМПА . Квитирование  " />
+        <Signal Name="S_KTP_P07_BMPA_OTKV_CO" UUID="EEF0377E4A87FC39A7902AA396B293D0" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМПА . Отключить выключатель  " />
+        <Signal Name="S_KTP_P07_BMPA_Reg_Time_Set_CO" UUID="4BB5EB1342ADEBC9253BA38B2A976178" Type="BOOL" Global="TRUE" Comment="Установка текущего астрономического времени " />
+        <Signal Name="S_KTP_P07_BMPA_SBROSINFAV_CO" UUID="5CB94B7642A92D0980CC0B84122A55F3" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМПА . Сброс информации об авариях  " />
+        <Signal Name="S_KTP_P07_BMPA_SBROSINF_CO" UUID="D152A194454DF8434C9924BE6C603E5F" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМПА . Сброс накопительной информации  " />
+        <Signal Name="S_KTP_P07_BMPA_SysCmd_T_Cor_CO" UUID="58F6C6D14A095C5D9D8BB2BE5EB18B77" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМПА . Коррекция астрономического времени " />
+        <Signal Name="S_KTP_P07_BMPA_VKLV_CO" UUID="343ECC89471D46CB4FBBF0BEF267C200" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМПА . Включить выключатель  " />
+        <Signal Name="S_KTP_P07_BMPA_VKLAVRSV_CO" UUID="C2E6F6D743A78B53A16400B5630529E9" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМПА . Включить АВР СВ " />
+        <Signal Name="S_KTP_P07_BMPA_OTKAVRSV_CO" UUID="47399ACA4695BC070FAA0984CF71CFE3" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМПА . Отключить АВР СВ " />
+        <Signal Name="@COMMAND" UUID="58EAA40E4A8D1187E6EFC8B9A5445585" Type="STRING" />
+        <Signal Name="@COMMAND_VALUE" UUID="8356F11E4920D0E1E50FC2980102D9DB" Type="STRING" />
+        <Signal Name="@EVENT" UUID="CB66A5914ED812CB7FED2CAECDCF5CB9" Type="STRING" />
+        <Signal Name="@MESSAGE" UUID="18CCC203492C9512BCC3CA862C0BE1AA" Type="STRING" Usage="output" />
+        <Signal Name="@MESSAGE_FRAMEWORK" UUID="6BC87DB74A16E1DEED16BBBF1466166F" Type="STRING" Usage="output" />
+        <Signal Name="@PID" UUID="1324594C4375F165A8A5D39EAC62C6EC" Type="STRING" Usage="output" />
+        <Signal Name="@RESERVE" UUID="AB22193B4C81BAF136D26994AAF4133F" Type="BOOL" />
+        <Signal Name="@STATE" UUID="FE056E4040E30EB299541B84140C06FB" Type="STRING" Usage="output" />
+        
+    </InterfaceList>
+</SubAppType>

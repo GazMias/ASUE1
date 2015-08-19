@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE SubAppType v. 1.3 >
+<SubAppType Name="Расходмер" Kind="APPLICATION.LUA" Args="" Comment="" UUID="6908F4324D9B038A13CE3F99D1DEDCAC">
+    <InterfaceList>
+        <Signal Name="@PID" UUID="EF74662345C52C0877B0AFAAEED73A5E" Type="STRING" Usage="output" />
+        <Signal Name="@STATE" UUID="4ABBAD16426AACE3C01DD18224938EAF" Type="STRING" Usage="output" />
+        <Signal Name="@COMMAND" UUID="FE2217AB43A60F937B0969A696375289" Type="STRING" />
+        <Signal Name="@COMMAND_VALUE" UUID="D234BF154F6BE9A1E6193BA7C6BB3844" Type="STRING" />
+        <Signal Name="@MESSAGE" UUID="907F04674F7C7A68A5643D96D94BF9BE" Type="STRING" Usage="output" />
+        <Signal Name="@MESSAGE_FRAMEWORK" UUID="71FF5F7E43E01EED62E48CA158E40509" Type="STRING" Usage="output" />
+        <Signal Name="@EVENT" UUID="77CB16F447345635C87A7EAB32F2C88D" Type="STRING" />
+        <Signal Name="@RESERVE" UUID="E1977B6E443D052314C240A89DB5D52A" Type="BOOL" />
+        <Signal Name="RashodHH" UUID="E8BCCB9A41D37D2B4117F5A753BBABA8" Type="REAL" ArraySize="3600" Global="TRUE" Storage="persistent" Comment="Показания расходомера за час" />
+        <Signal Name="RashodHHItog" UUID="3CD982B14A0DA16FE50BAEA8F9C26EAC" Type="REAL" ArraySize="4" Global="TRUE" Storage="persistent" Comment="Сумма Среднее Минимум и максимум показаний расходомера за день" />
+        <Signal Name="RashodDay" UUID="1A280A5246CC9A81AC9FCABE75077C1E" Type="REAL" ArraySize="48" Global="TRUE" Storage="persistent" Comment="Показания расходомера за день" />
+        <Signal Name="RashodDayItog" UUID="79DE949E4AFA697F8AF3599D6D500705" Type="REAL" ArraySize="4" Global="TRUE" Storage="persistent" Comment="Сумма Среднее Минимум и Максимум показания расходомера за неделю" />
+        <Signal Name="RashodWeek" UUID="D0D4CCA04594F4F67A2178B4A5D12CF9" Type="REAL" ArraySize="7" Global="TRUE" Storage="persistent" />
+        <Signal Name="S_RM_A10503_AI" UUID="E2EC00B04CD6BB00B51B8F82ACC8AE1B" Type="REAL" Global="TRUE" Comment="Показания расходомера " />
+        <Signal Name="RashodMonth" UUID="B9D52F504D99A10B1188C3BA4F543ECD" Type="REAL" ArraySize="31" Global="TRUE" Storage="persistent" />
+        <Signal Name="RashodMonthItog" UUID="06C9C27A4CCDB34D96D93085EE73AFB2" Type="REAL" ArraySize="4" Global="TRUE" Storage="persistent" />
+        <Signal Name="RashodWeekItog" UUID="A6185D014C235D49DBE00AB28CC1F991" Type="REAL" ArraySize="4" Global="TRUE" />
+    </InterfaceList>
+</SubAppType>

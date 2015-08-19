@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Type v. 1.0 >
+<Type Name="TStruct_Osc_Sepam" Kind="Struct" UUID="94CD427C4FB607A0C990D9B2947C4BB8">
+    <Fields>
+        <Field Name="OSCIL_N_CP" Type="WORD" UUID="E0AC51D14CE2A99A6353C3983EA6B73E" Comment="число записей осцилограмма" />
+        <Field Name="N_cur_Read_Bytes" Type="DINT" UUID="2B3BDCFF4C89D162EC22799986C2AF60" Comment="текущее число прочтённых байтов осцилограммы" />
+        <Field Name="N_posilka_cur_Read_Bytes" Type="DINT" UUID="C61746414F89E847C565F0997A36A4E0" Comment="текущее число прочтённых байтов осцилограммы в текущей посылке" />
+        <Field Name="OSCIL_SIZE_CONF_CP" Type="WORD" UUID="FDF67B4B4C03039DAEEB70BFCC93E2C6" Comment="размер части осциллограммы - файла конфигурации" />
+        <Field Name="OSCIL_SIZE_DATA_CP" Type="DWORD" UUID="17DCE0F247E60F8C9A822EA9A7446DB9" Comment="размер части осциллограммы - файла .DAT" />
+        <Field Name="update_OSCIL_ZONA_ZAPISI" Type="BOOL" UUID="DF4F0A9E41621D7FD779A59E40282CE6" />
+        <Field Name="status_OSCIL_ZONA_ZAPISI" Type="WORD" UUID="F9061E8A45954D2E7C0F8F92534469E1" />
+        <Field Name="update_OSCIL_ZONA_VIBORA" Type="BOOL" UUID="32DBC6F4448FAF7724A6F2AFEF1E4C65" />
+        <Field Name="status_OSCIL_ZONA_VIBORA" Type="WORD" UUID="650E04894E24D01BC65176A0007EC8CC" />
+        <Field Name="update_OSCIL_ZONA_Schit" Type="BOOL" UUID="FDA46C7A4C49B600BED3F1AB369C61A4" />
+        <Field Name="status_OSCIL_ZONA_Schit" Type="WORD" UUID="C9D71AEE486B780BA50AD09516394C13" />
+        <Field Name="update_OSCIL_ZONA_Schit2" Type="BOOL" UUID="0EB120A64BCB50E66A6AAFBDA425F32F" />
+        <Field Name="status_OSCIL_ZONA_Schit2" Type="WORD" UUID="3ACDBECF41FEC004305CB2BB7C5498A5" />
+        <Field Name="update_OSCIL_ZONA_Schiti_kvitir" Type="BOOL" UUID="4DCA964D4020D7EAC8B08791CEE90B98" />
+        <Field Name="status_OSCIL_ZONA_Schiti_kvitir" Type="WORD" UUID="EBD4A4AA48DBB2101F453B8699CAAEC3" />
+        <Field Name="OSCIL_DATE_ZAPIS_1_CP" Type="B07CB7CE4E4D270AE151008C971D986A" UUID="4C8D10EE4CDCEB5105C099A1CAA12999" Comment="дата последней записи осциллограмма" />
+        <Field Name="iN_Bytes_Schit" Type="WORD" UUID="08F85F4448D243AF4D14A9B4E8DD0BC7" Comment="число байтов в зоне считывания" />
+        <Field Name="bDataFile" Type="BOOL" UUID="0D62FBAE49AFF11565AA9198EEF2315D" Comment="признак что пишется файл с данными осцилограммы(а не с конфигурацией)" />
+        <Field Name="N_Obmen" Type="BYTE" UUID="FBA4F76D49A8084CF2EDFCBD0C486FB2" Comment="число передач блоков данных" />
+        <Field Name="update_OSCIL_MANUAL_ZAPUSK_TC" Type="BOOL" UUID="EB82899440764A7A404BF59BD5A4B3B2" />
+        <Field Name="status_OSCIL_MANUAL_ZAPUSK_TC" Type="WORD" UUID="7B2C38924A4F83228A3DE6B9571B1948" />
+        <Field Name="update_OSCIL_MANUAL_ZAPUSK_STC" Type="BOOL" UUID="06456D1C4F47E0786FF2B0AD2731A5AB" />
+        <Field Name="status_OSCIL_MANUAL_ZAPUSK_STC" Type="WORD" UUID="50B1B79A4718BBF494D3DD9C593CD1E1" />
+        <Field Name="N_osc_no_write" Type="DINT" UUID="F7A316464404B410C7B6B99D3AFFBCD2" Comment="число ещё незаписанных осциллограмм" />
+        <Field Name="OSCIL_DATE_ZAPIS_LAST" Type="B07CB7CE4E4D270AE151008C971D986A" UUID="7C6C05864450C74DE937C984A15B7943" Comment="дата самой поздней записи осциллограммы, уже обработанной  программой" />
+    </Fields>
+</Type>

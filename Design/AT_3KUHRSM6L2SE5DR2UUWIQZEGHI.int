@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE SubAppType v. 1.3 >
+<SubAppType Name="Collect_data_BMPA" Kind="DRIVER.MODBUS" Args="" Comment="" UUID="C93545814F3656216453C38F20502FEC">
+    <InterfaceList>
+        <Signal Name="RAW_BMPA_Reg_Block_ID" UUID="7240711B4F63796F4DDA68A8D3645A27" Type="UINT" ArraySize="1" Global="TRUE" Comment="Номер конфигурации " />
+        <Signal Name="RAW_BMPA_Reg_DataCtrl1" UUID="C34B46F24F6A9E8C9BC4579DCA2E1DDE" Type="BYTE" ArraySize="8" Global="TRUE" Comment="Параметры&#x0A;команды управления БМРЗ" />
+        <Signal Name="RAW_BMPA_Reg_Cmd_WinRd_Only" UUID="140CB69B4F4BFADDAFA43E9095401BF8" Type="DWORD" Global="TRUE" Comment="Управление окном обмена“Только чтение”" />
+        <Signal Name="RAW_BMPA_40029_15_DP" UUID="314F9A1A48CBD5C9580469802786ADCB" Type="BOOL" Global="TRUE" Comment="Отключение СВ от АВР СВ ВЫЗОВ  " />
+        <Signal Name="RAW_BMPA_40029_14_DP" UUID="64223D2F4B15B6C46AD2B9AF16BDD47C" Type="BOOL" Global="TRUE" Comment="Отключение СВ от АВР АВ ВЫЗОВ  " />
+        <Signal Name="RAW_BMPA_40029_00_DP" UUID="09852D51493A6160C753CBBF803EC3BE" Type="BOOL" Global="TRUE" Comment="Неисправность БМПА ВЫЗОВ  " />
+        <Signal Name="RAW_BMPA_40029_01_DP" UUID="2AB3B9534B452A375568E4AB7AF19380" Type="BOOL" Global="TRUE" Comment="Неисправность ЦУ ВЫЗОВ  " />
+        <Signal Name="RAW_BMPA_40029_07_DP" UUID="76D325A943A179F7A1794B9DBE70E184" Type="BOOL" Global="TRUE" Comment="Аварийное отключение  " />
+        <Signal Name="RAW_BMPA_M34C15_DP" UUID="384A6FB84DFB0BD9EDB86C81A7CA42B4" Type="BOOL" Global="TRUE" Comment="ВЫЗОВ  " />
+        <Signal Name="RAW_BMPA_Reg_NetCmd_Result" UUID="27A2C3C94F08E40617D0448DC69C708C" Type="INT" Global="TRUE" Comment="Код исполнения команды " />
+        <Signal Name="RAW_BMPA_Reg_NetCtrl" UUID="923777C64702989B1189B198A0AB3295" Type="DWORD" Global="TRUE" Comment="Регистр команд управления выключателем " />
+        <Signal Name="RAW_BMPA_Reg_NetCtrl1" UUID="85752E3F4B7739E2EAA7D2A8535A1141" Type="DWORD" Global="TRUE" Comment="Регистр команд управления БМРЗ " />
+        <Signal Name="RAW_BMPA_Reg_NetCtrl1_R" UUID="D06622E24F42288C91321BB4A574FE81" Type="DWORD" Global="TRUE" Comment="Регистр команд управления БМРЗ " />
+        <Signal Name="RAW_BMPA_Reg_NetCtrl_R" UUID="204D7BE14447D8411FDB139C08C31ACD" Type="DWORD" Global="TRUE" Comment="Регистр команд управления выключателем " />
+        <Signal Name="RAW_BMPA_Reg_Slave_ID" UUID="9809651147552BB9389CBA876A2FDDAE" Type="BYTE" ArraySize="32" Global="TRUE" Comment="Идентификатор  " />
+        <Signal Name="RAW_BMPA_Reg_Time" UUID="3640F31047C4A672250F41AF360380CF" Type="BYTE" ArraySize="8" Global="TRUE" Comment="Астрономическое время встроенных часов- календаря  " />
+        <Signal Name="RAW_BMPA_Reg_Version" UUID="7DACEE36406C140531CFF1BEB0312C6E" Type="UINT" ArraySize="1" Global="TRUE" Comment="Версия сетевого драйвера  " />
+        <Signal Name="RAW_BMPA_M41C05_DI" UUID="8C03A5BE44230709A36293863858689D" Type="BOOL" Global="TRUE" Comment="РПВ  " />
+        <Signal Name="RAW_BMPA_M41C07_DI" UUID="10059456431E59E20E4F86A104BB79D1" Type="BOOL" Global="TRUE" Comment="Вкл. СВ от АВР СВ  " />
+        <Signal Name="RAW_BMPA_M41C09_DI" UUID="09C419674670B08D3ED59CA8A5119ACE" Type="BOOL" Global="TRUE" Comment="Откл. По ВНР после АВР СВ  " />
+        <Signal Name="RAW_BMPA_M41C11_DI" UUID="490A8F5F4DFD1292297A08B9293B3093" Type="BOOL" Global="TRUE" Comment="Вкл. СВ от АВР АВ  " />
+        <Signal Name="RAW_BMPA_M41C13_DI" UUID="48678E544292BCAACEF343843EAE783A" Type="BOOL" Global="TRUE" Comment="Откл. От защ. ВВ  " />
+        <Signal Name="RAW_BMPA_M41C15_DI" UUID="C27CBFF3491678B6DD6C8D9D583358D2" Type="BOOL" Global="TRUE" Comment="Откл. От защ. АВ  " />
+        <Signal Name="RAW_BMPA_M42C01_DI" UUID="486C9BAD41BBAAC9A1B873881AE8007A" Type="BOOL" Global="TRUE" Comment="Отключить СВ вых  " />
+        <Signal Name="RAW_BMPA_M42C03_DI" UUID="8E878C7A486EEA7F45D293A140FA0D9D" Type="BOOL" Global="TRUE" Comment="Включить СВ вых  " />
+        <Signal Name="RAW_BMPA_M42C05_DO" UUID="B973073946246238C7C20D829FF3260B" Type="BOOL" Global="TRUE" Comment="АВР СВ включен 1  " />
+        <Signal Name="RAW_BMPA_M42C07_DO" UUID="8B6D88264B52D0EEB0FF30A7142E11F3" Type="BOOL" Global="TRUE" Comment="АВР СВ включен 2  " />
+        <Signal Name="RAW_BMPA_M42C09_DO" UUID="F2D70C7C47412CFBEB6B4688970F2CA5" Type="BOOL" Global="TRUE" Comment="РПВ 1  " />
+        <Signal Name="RAW_BMPA_M42C11_DO" UUID="110E12BA4E8BC394337B879A5F5AC6D9" Type="BOOL" Global="TRUE" Comment="РПО 1  " />
+        <Signal Name="RAW_BMPA_M42C13_DO" UUID="29BDF49E421B5F3ADDF048AF738BF5F6" Type="BOOL" Global="TRUE" Comment="РПО 2  " />
+        <Signal Name="RAW_BMPA_M42C15_DO" UUID="3B96F1A5496D1800CB73B7AAD99E7DF0" Type="BOOL" Global="TRUE" Comment="РПВ 2  " />
+        <Signal Name="RAW_BMPA_M43C01_DI" UUID="F13438114B304DC35BD94F90B64D0E14" Type="BOOL" Global="TRUE" Comment="ДУ  " />
+        <Signal Name="RAW_BMPA_M43C03_DI" UUID="9691D086436B7C54B02455804176EB93" Type="BOOL" Global="TRUE" Comment="АВР СВ включить  " />
+        <Signal Name="RAW_BMPA_M43C05_DI" UUID="9DD451154D764760AAC060AF6012C92A" Type="BOOL" Global="TRUE" Comment="АВР СВ отключить  " />
+        <Signal Name="RAW_BMPA_M43C07_DI" UUID="01E3C56945B022D2263DB4809FA8792B" Type="BOOL" Global="TRUE" Comment="Откл. СВ от АВР АВ  " />
+        <Signal Name="RAW_BMPA_M43C09_DI" UUID="7A8984EE45CF23F692CEBCAC75DEE146" Type="BOOL" Global="TRUE" Comment="Отключить СВ  " />
+        <Signal Name="RAW_BMPA_M43C11_DI" UUID="B1B8CFD146639227AF08ABA15FF19EC2" Type="BOOL" Global="TRUE" Comment="Включить СВ  " />
+        <Signal Name="RAW_BMPA_M43C13_DI" UUID="F490C6834AFE892D9CFE4480DA708A95" Type="BOOL" Global="TRUE" Comment="Квитирование  " />
+        <Signal Name="RAW_BMPA_M43C15_DI" UUID="09A475ED480879DDE4B446B51452D9EA" Type="BOOL" Global="TRUE" Comment="СЕВ  " />
+        <Signal Name="RAW_BMPA_M44C01_DO" UUID="D62923FC4258E0F48F439D8115AE8278" Type="BOOL" Global="TRUE" Comment="Неиспр. БМПА  " />
+        <Signal Name="RAW_BMPA_M44C03_DO" UUID="6D5460A54A72BF31F2FA77AFB848F5A3" Type="BOOL" Global="TRUE" Comment="Авар. Откл.  " />
+        <Signal Name="RAW_BMPA_M44C05_DO" UUID="EA37DFDD444B65D876F3E6947964254B" Type="BOOL" Global="TRUE" Comment="АВР СВ включен  " />
+        <Signal Name="RAW_BMPA_M44C07_DO" UUID="0CDA376C4FAAD257AE0B18865BC89CCC" Type="BOOL" Global="TRUE" Comment="АВР СВ отключен  " />
+        <Signal Name="RAW_BMPA_M44C09_DO" UUID="04150A2A40D9B296EC68769E09C1728D" Type="BOOL" Global="TRUE" Comment="Неисправность ЦУ  " />
+        <Signal Name="RAW_BMPA_M44C11_DO" UUID="8069177E42917AD5E03170838B3A328F" Type="BOOL" Global="TRUE" Comment="Отказ БМПА 2  " />
+        <Signal Name="RAW_BMPA_M44C13_DO" UUID="B9AEF9534F9A68BA6C20E385186DB611" Type="BOOL" Global="TRUE" Comment="РФК  " />
+        <Signal Name="RAW_BMPA_M33C01_DI" UUID="790D8BFD49FC1200923BD1A5E62DB451" Type="BOOL" Global="TRUE" Comment="Тележка СВ выкачена  " />
+        <Signal Name="RAW_BMPA_M34C09_DO" UUID="407785A04739ECC880E45DA22FC2D974" Type="BOOL" Global="TRUE" Comment="Отказ БМПА 1  " />
+        <Signal Name="RAW_BMPA_M41C01_DI" UUID="C7594985424802860B77109684560A2E" Type="BOOL" Global="TRUE" Comment="СВ отключен  " />
+        <Signal Name="RAW_BMPA_M41C03_DI" UUID="74BCEAE84487D9E0B6A37D85320F3A27" Type="BOOL" Global="TRUE" Comment="СВ включен  " />
+        <Signal Name="@COMMAND" UUID="5D3CD7F54FDE56A4CCD7CBAF4BDABE14" Type="STRING" />
+        <Signal Name="@COMMAND_VALUE" UUID="3055C3D943A891FA73B277AE622411B7" Type="STRING" />
+        <Signal Name="@EVENT" UUID="EAC7E6F64776B1AC78DB1AB38BC9D9D8" Type="STRING" />
+        <Signal Name="@MESSAGE" UUID="24A4971744D96631BEF7EB86D86A6D89" Type="STRING" Usage="output" />
+        <Signal Name="@MESSAGE_FRAMEWORK" UUID="7D6E65D14C6E787B0E14FC9B3DFB28F9" Type="STRING" Usage="output" />
+        <Signal Name="@PID" UUID="4C4B86F246DB6348D4E1C0A32063AF4C" Type="STRING" Usage="output" />
+        <Signal Name="@RESERVE" UUID="51EAE8C34B12F7740F960BAD9ECA636D" Type="BOOL" />
+        <Signal Name="@STATE" UUID="226AD87B40780C8E3B2C3189018A7EAF" Type="STRING" Usage="output" />
+        <Signal Name="RAW_BMPA_SUMKOLOTKV_CP" UUID="6D3AE2EB49FC10CC83069E9F69609B64" Type="INT" Global="TRUE" Comment="Суммарное количество отключений выключателя  " />
+        <Signal Name="RAW_BMPA_VREMSBROSA_CP" UUID="67B90B5D45D4B3D161F3399DF3F9745E" Type="BYTE" ArraySize="8" Global="TRUE" Comment="Дата – время последнего сброса накопительной информации  " />
+    </InterfaceList>
+</SubAppType>

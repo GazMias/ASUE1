@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE TrendViewer v. 1.0 >
+<Configuration>
+    <Windows>
+        <Window Title="" Period="1000" TextColor="#000000" GridColor="#F0F0F0" BkgColor="#FFFFFF" FixedBkgColor="#F0F0F0" VerticalSplitter="FALSE" SplitterPos="0">
+            <Trend ItemName="" CellIndex="0" Min="0" Max="0" Color="#000000" Title="" LineWidth="0" HideScale="FALSE" />
+        </Window>
+    </Windows>
+</Configuration>

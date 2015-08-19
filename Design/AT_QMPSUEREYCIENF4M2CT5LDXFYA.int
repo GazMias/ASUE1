@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE SubAppType v. 1.3 >
+<SubAppType Name="Collect_Sonet" Kind="DRIVER.SONET.LOCALBUS" Args="" Comment="Контроллер в шкафу УСО АСУЭ" UUID="9E8688104014A80BB217F0BCDBA72272">
+    <InterfaceList>
+        <Signal Name="RAW_USO_SNT_XT7_1A_AI" UUID="44DF1DAF4D8FF5248DADDD8E9AB66549" Type="REAL" Global="TRUE" Comment="ЗРУ-10кВ. Температура в помещении ЗРУ. Необработанный" />
+        <Signal Name="RAW_USO_SNT_XT7_2A_AI" UUID="A9ABF4934BBE536ABCE7968360D2B5B3" Type="REAL" Global="TRUE" Comment="КТП c БМРЗ. Температура в помещении КТП. . Необработанный" />
+        <Signal Name="S_ZRU_P11_XT5_1A_DI" UUID="31D0C0444C10EA8BDEA64984BAED35EB" Type="BOOL" Global="TRUE" Comment="ЗРУ-10кВ. Тележка выключателя Q1 (Ввод №1) выкачена" />
+        <Signal Name="S_ZRU_P11_XT5_2A_DI" UUID="6086D775459FC93F368CB3A82A1D80F2" Type="BOOL" Global="TRUE" Comment="ЗРУ-10кВ. Заземляющий нож ввода 1 включен" />
+        <Signal Name="S_ZRU_P11_XT5_3A_DI" UUID="C76C0DDD4CD04223470B618107F210DC" Type="BOOL" Global="TRUE" Comment="ЗРУ-10кВ. Тележка ТН (Ввод №1) выкачена" />
+        <Signal Name="S_ZRU_P11_XT5_4A_DI" UUID="B78122CA4C1A894E5BAB2B97174A7307" Type="BOOL" Global="TRUE" Comment="ЗРУ-10кВ. Тележка выключателя Q2 (Ввод №2) выкачена" />
+        <Signal Name="S_ZRU_P11_XT5_5A_DI" UUID="CD361029495F8AC9A9670297091568A7" Type="BOOL" Global="TRUE" Comment="ЗРУ-10кВ. Заземляющий нож ввода 2 включен" />
+        <Signal Name="S_ZRU_P11_XT5_6A_DI" UUID="DDCE44224BE6CD47A0DA3FA1C35421EF" Type="BOOL" Global="TRUE" Comment="ЗРУ-10кВ. Тележка ТН (Ввод №2) выкачена" />
+        <Signal Name="S_RM_A10503_AI" UUID="E2EC00B04CD6BB00B51B8F82ACC8AE1B" Type="REAL" DSP="55A937B54A679D807696B98E9D472150" Global="TRUE" Comment="Показания расходомера " />
+        <Signal Name="S_ZRU_P11_XT5_7A_DI" UUID="11904DCA4C147505F3C04D9F5F1CCCFD" Type="BOOL" Global="TRUE" Comment="ЗРУ-10кВ. Тележка выключателя Q3 (секционный) выкачена" />
+        <Signal Name="S_ZRU_P11_XT5_8A_DI" UUID="5E72B28548BF7737ADD90F97276DAC6E" Type="BOOL" Global="TRUE" Comment="ЗРУ-10кВ. Секционный разъединитель включен" />
+        <Signal Name="S_ZRU_P11_XT5_9A_DI" UUID="5DCDB61D47A13E142B6201B3400B103F" Type="BOOL" Global="TRUE" Comment="ЗРУ-10кВ. Тележка выключателя Q4 (ОЛ1) выкачена" />
+        <Signal Name="S_ZRU_P11_XT5_10A_DI" UUID="FEED2DC04EC5EEA52D976BB9FA937F22" Type="BOOL" Global="TRUE" Comment="ЗРУ-10кВ. Заземляющий нож ОЛ1 включен" />
+        <Signal Name="S_ZRU_P11_XT5_11A_DI" UUID="72B4C437406A6143ABE84781E2EB096C" Type="BOOL" Global="TRUE" Comment="ЗРУ-10кВ. Тележка выключателя Q5 (ОЛ2) выкачена" />
+        <Signal Name="S_ZRU_P11_XT5_12A_DI" UUID="07238C8E461F83F0246B7F80C8046B99" Type="BOOL" Global="TRUE" Comment="ЗРУ-10кВ. Заземляющий нож ОЛ2 включен" />
+        <Signal Name="S_KTP_P07_XT5_13A_DI" UUID="BB2C32714CF9CED0EBE67683F5FB81B1" Type="BOOL" Global="TRUE" Comment="КТП c БМРЗ. Тележка выключателя Q2 (Ввод №2) выкачена" />
+        <Signal Name="S_KTP_P07_XT5_14A_DI" UUID="AFE7BD974204EAD0913DF598F76AE556" Type="BOOL" Global="TRUE" Comment="КТП c БМРЗ. Тележка выключателя Q3 (СВ) выкачена" />
+        <Signal Name="S_KTP_P07_XT5_15A_DI" UUID="EFA6A26F4ED12E16107132B9C3602BCF" Type="BOOL" Global="TRUE" Comment="КТП c БМРЗ. Тележка выключателя Q4 (АВ1) выкачена" />
+        <Signal Name="S_KTP_P07_XT5_16A_DI" UUID="24DCA68345A2C940A9ECCFB95416D04B" Type="BOOL" Global="TRUE" Comment="КТП c БМРЗ. Тележка выключателя Q5 (АВ2) выкачена" />
+        <Signal Name="S_KTP_P07_XT6_1A_DI" UUID="00ED0E3440BD7FA594A0A4BAA0C6FC16" Type="BOOL" Global="TRUE" Comment="КТП c БМРЗ. Выключатель УВН ввода 1 включен" />
+        <Signal Name="S_KTP_P07_XT6_2A_DI" UUID="4B8E0932441ABCA8FFED3D920042E0C5" Type="BOOL" Global="TRUE" Comment="КТП c БМРЗ. Выключатель УВН ввода 1 выключен" />
+        <Signal Name="S_KTP_P07_XT6_3A_DI" UUID="C89AE39B4155DD6A51F26AAF0A29961A" Type="BOOL" Global="TRUE" Comment="КТП c БМРЗ. Заземление УВН ввода 1 наложено" />
+        <Signal Name="S_KTP_P07_XT6_4A_DI" UUID="FAC773C14CC603479D9AD2B321163A74" Type="BOOL" Global="TRUE" Comment="КТП c БМРЗ. Заземление УВН ввода 1 снято" />
+        <Signal Name="S_KTP_P07_XT6_5A_DI" UUID="9FA046BA445E4D2A982C238A424D9F7F" Type="BOOL" Global="TRUE" Comment="КТП c БМРЗ. Предохранитель УВН ввода 1 сгорел" />
+        <Signal Name="S_KTP_P07_XT6_6A_DI" UUID="04EA7A95428A076F487DD6BB8416A7C5" Type="BOOL" Global="TRUE" Comment="КТП c БМРЗ. Тележка выключателя Q1 (Ввод №1) выкачена" />
+        <Signal Name="S_KTP_P07_XT6_7A_DI" UUID="C2D14E494BBD652874D50198F24906F1" Type="BOOL" Global="TRUE" Comment="КТП c БМРЗ. Выключатель УВН ввода 2 включен" />
+        <Signal Name="S_KTP_P07_XT6_8A_DI" UUID="1AB1297441C441BE4235CEA94A5D3C80" Type="BOOL" Global="TRUE" Comment="КТП c БМРЗ. Выключатель УВН ввода 2 выключен" />
+        <Signal Name="S_KTP_P07_XT6_9A_DI" UUID="FC683793400C122C10C912A7228B0DBC" Type="BOOL" Global="TRUE" Comment="КТП c БМРЗ. Заземление УВН ввода 2 наложено" />
+        <Signal Name="S_KTP_P07_XT6_10A_DI" UUID="3D17FC984142CC65B3D54897C1331754" Type="BOOL" Global="TRUE" Comment="КТП c БМРЗ. Заземление УВН ввода 2 снято" />
+        <Signal Name="S_KTP_P07_XT6_11A_DI" UUID="3655DD38468E6A2F0386F98BF473C5FF" Type="BOOL" Global="TRUE" Comment="КТП c БМРЗ. Предохранитель УВН ввода 2 сгорел" />
+        <Signal Name="S_KTP_P07_XT6_12A_DI" UUID="894036FF4CC607AC3B93DC973AEE4DE7" Type="BOOL" Global="TRUE" Comment="КТП c БМРЗ. Выключатель ОЛ1 включен" />
+        <Signal Name="S_KTP_P07_XT6_13A_DI" UUID="A2381A274C13B0DECA09B0B4A0DA5D0E" Type="BOOL" Global="TRUE" Comment="КТП c БМРЗ. Выключатель ОЛ1 Отключен" />
+        <Signal Name="S_KTP_P07_XT6_14A_DI" UUID="A211DC034EAE1CA1CFB88EA25CC584F4" Type="BOOL" Global="TRUE" Comment="КТП c БМРЗ. Выключатель ОЛ1 аварийно отключен" />
+        <Signal Name="S_KTP_P07_XT6_15A_DI" UUID="0793182E4D7F448B452C74B39720CF31" Type="BOOL" Global="TRUE" Comment="КТП c БМРЗ. Выключатель ОЛ2 включен" />
+        <Signal Name="S_KTP_P07_XT6_16A_DI" UUID="F76012B447292F6B5CFD838B20628030" Type="BOOL" Global="TRUE" Comment="КТП c БМРЗ. Выключатель ОЛ2 Отключен" />
+        <Signal Name="@COMMAND" UUID="80C8CE024FB49E32676EBDAF4966758B" Type="STRING" />
+        <Signal Name="@COMMAND_VALUE" UUID="DB4F48DA48BAACC26FBCA4A6053A8612" Type="STRING" />
+        <Signal Name="@EVENT" UUID="AFCD812A497FFFBBDB01D3AC17A7B98C" Type="STRING" />
+        <Signal Name="@MESSAGE" UUID="2E662AB04D5D7311D2A007B4D567ED14" Type="STRING" Usage="output" />
+        <Signal Name="@MESSAGE_FRAMEWORK" UUID="AA0357AF4A8210906FAE6A8BD2FBBDEE" Type="STRING" Usage="output" />
+        <Signal Name="@PID" UUID="0AE4938348C5996161B919A535E3A34B" Type="STRING" Usage="output" />
+        <Signal Name="@RESERVE" UUID="BF20C7BF41BFE08D016BCB8B5ADB01A6" Type="BOOL" />
+        <Signal Name="@STATE" UUID="F20E28AF44594EF2104D47B90C173354" Type="STRING" Usage="output" />
+    </InterfaceList>
+</SubAppType>

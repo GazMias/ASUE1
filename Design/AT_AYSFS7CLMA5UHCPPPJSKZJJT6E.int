@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE SubAppType v. 1.3 >
+<SubAppType Name="DIAG_SONET_MODUL" Kind="APPLICATION.LUA" Args="" Comment="" UUID="343F5651411B4F9632D42DA671FA7E8F">
+    <InterfaceList>
+        <Signal Name="D_USO_NEISP_5_CP" UUID="1B6D9FF84C210423CDD5E69215CB082E" Type="INT" Global="TRUE" />
+        <Signal Name="D_USO_MESSAGE_ST" UUID="170EBD714ED15E745DB147B3B9E23310" Type="STRING" Comment="Диагностика   УСО. Строка сообщения" />
+        <Signal Name="D_USO_NEISP_1_DP" UUID="62CE39F440B7231DA7E1F78BA61D2064" Type="BOOL" Global="TRUE" Comment="Диагностика   УСО. Неисправность модуля 1" />
+        <Signal Name="D_USO_NEISP_2_DP" UUID="EE0DDA9D4A79C807B7048CAA523659A7" Type="BOOL" Global="TRUE" Comment="Диагностика   УСО. Неисправность модуля 2" />
+        <Signal Name="D_USO_NEISP_3_DP" UUID="1B4AB5244501D9367CA32DAE83D57A97" Type="BOOL" Global="TRUE" Comment="Диагностика   УСО. Неисправность модуля 3" />
+        <Signal Name="D_USO_NEISP_4_DP" UUID="D5D3E1FB41AB469EF202EA948612B005" Type="BOOL" Global="TRUE" Comment="Диагностика   УСО. Неисправность модуля 4" />
+        <Signal Name="D_USO_NEISP_5_DP" UUID="28A3CAB44F9F399F75FD72ACACE06D48" Type="BOOL" Global="TRUE" Comment="Диагностика   УСО. Неисправность модуля 5" />
+        <Signal Name="D_USO_NEISP_6_DP" UUID="C051A3744C4599DBF8B7689F51643D0F" Type="BOOL" Global="TRUE" Comment="Диагностика   УСО. Неисправность модуля 6" />
+        <Signal Name="D_USO_NEISP_7_DP" UUID="EC623BB848A2B749A7DA19A14D59F511" Type="BOOL" Global="TRUE" Comment="Диагностика   УСО. Неисправность модуля 7" />
+        <Signal Name="D_USO_NEISP_8_DP" UUID="AF1789124055D147CAD827AF5B5DB5ED" Type="BOOL" Global="TRUE" Comment="Диагностика   УСО. Неисправность модуля 8" />
+        <Signal Name="D_USO_NEISP_9_DP" UUID="37F2BA4E47A967CF3F4D8289637F8C27" Type="BOOL" Global="TRUE" Comment="Диагностика   УСО. Неисправность модуля 9" />
+        <Signal Name="@PID" UUID="C5DC74B249C38D5190FCC58C392205FA" Type="STRING" />
+        <Signal Name="@STATE" UUID="1FEE41C34B4A9DBD4360EA8336C8CD9D" Type="STRING" />
+        <Signal Name="@COMMAND" UUID="C27FFA5D4AC1E33B63B7B5BADFB10047" Type="STRING" />
+        <Signal Name="@COMMAND_VALUE" UUID="031CDD464D371455247CFD8C2008992F" Type="STRING" />
+        <Signal Name="@MESSAGE" UUID="DCEE91A448AD58D175E39CB4A038DFC4" Type="STRING" />
+        <Signal Name="@MESSAGE_FRAMEWORK" UUID="F2B5C5204DB7A80292ADC8B9BE5DF07D" Type="STRING" />
+        <Signal Name="@EVENT" UUID="F9E118434E3447DB4368FF890CACBF57" Type="STRING" />
+        <Signal Name="@RESERVE" UUID="373CED1A41F9DE3EDCBB7FA532C3E6CC" Type="BOOL" />
+    </InterfaceList>
+</SubAppType>

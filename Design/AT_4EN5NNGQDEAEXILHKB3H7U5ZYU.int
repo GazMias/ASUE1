@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE SubAppType v. 1.3 >
+<SubAppType Name="Generator_Automatic_Commands" Kind="APPLICATION.LUA" Args="" Comment="Генератор автоматических команд" UUID="8BB52D114897E2BF85CF4AA14B8AD23B">
+    <InterfaceList>
+        <Signal Name="S_ZRU_P11_VV1_Reg_Time_Set_AV" UUID="2770C6774BF7B78A38930EB03C822FF1" Type="BOOL" Global="TRUE" Comment="Установка текущего астрономического времени автоматическки" />
+        <Signal Name="RAW_SEPAM_VV1_Reg_Time_MS_Write" UUID="9E1CD0554400EB0E940FF88213CBDA76" Type="WORD" Global="TRUE" Comment="время встроенных часов- календаря. Милисекунды " />
+        <Signal Name="RAW_SEPAM_VV1_Reg_Time_MS_Write_1" UUID="287B7CD544D00952B7B12B83B9BDE4A4" Type="WORD" Global="TRUE" Comment="время встроенных часов- календаря. Милисекунды  " />
+        <Signal Name="RAW_SEPAM_VV1_Reg_Time_Write" UUID="3424981A4938244DE9A8A095AFD538DB" Type="BYTE" ArraySize="5" Global="TRUE" Comment="время встроенных часов- календаря   " />
+        <Signal Name="RAW_SEPAM_VV1_Reg_Time_Write_1" UUID="A87C4418441A804922A4CB8A69B40A63" Type="BYTE" ArraySize="5" Global="TRUE" Comment="время встроенных часов- календаря    " />
+        <Signal Name="S_KTP_P07_BMPA_Reg_Time_Set_AV" UUID="180E3DDB46168FB92871BAA4A8B5791C" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМПА .  Установка текущего астрономического времени  автоматически" />
+        <Signal Name="Time_request" UUID="FF225CEE4A8F6218E57D12B29EB8386C" Type="BOOL" Global="TRUE" Comment="Запрос текущего времени" />
+        <Signal Name="S_KTP_P07_BVV2_SysCmd_T_Cor_AV" UUID="C167197640CB34C54FA463AA5542DE8B" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ2. Коррекция астрономического времени автоматически " />
+        <Signal Name="S_KTP_P07_BVV2_Reg_Time_Set_AV" UUID="031E3E404EA3BE2298367786E27BA4C6" Type="BOOL" Global="TRUE" Comment=" АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ2. Установка текущего астрономического времени автоматически " />
+        <Signal Name="S_KTP_P07_BVV1_SysCmd_T_Cor_AV" UUID="8775EF604438B70F57A41193AB5F88BC" Type="BOOL" Global="TRUE" Comment="Коррекция астрономического времени автоматически" />
+        <Signal Name="S_KTP_P07_BVV1_Reg_Time_Set_AV" UUID="B22236E647CD7E6547BDDC9CEDA0F8CA" Type="BOOL" Global="TRUE" Comment="Установка текущего астрономического времени автоматически" />
+        <Signal Name="@COMMAND" UUID="3110B99A4D5DDAB0CEF993AD97A77528" Type="STRING" />
+        <Signal Name="@COMMAND_VALUE" UUID="518CE1F74510A5B200D5B683AA7E3CAC" Type="STRING" />
+        <Signal Name="@EVENT" UUID="E63A83BF4FE54A7084A2C69AE56B6A9E" Type="STRING" />
+        <Signal Name="@MESSAGE" UUID="B9EEDC6A47EACB974E1A1AA9DC1ABCB6" Type="STRING" Usage="output" />
+        <Signal Name="@MESSAGE_FRAMEWORK" UUID="8AAF0ACE4058BF655519B6A489405495" Type="STRING" Usage="output" />
+        <Signal Name="@PID" UUID="F667F5E948452F3352E4C1971AC85988" Type="STRING" Usage="output" />
+        <Signal Name="@RESERVE" UUID="A7B059094DA6BDE3446C5E9A0DD73071" Type="BOOL" />
+        <Signal Name="@STATE" UUID="867B8AF349F3740ECD5D6EBDF94DFC12" Type="STRING" Usage="output" />
+    </InterfaceList>
+</SubAppType>

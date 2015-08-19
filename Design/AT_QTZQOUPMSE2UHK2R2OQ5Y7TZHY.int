@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE SubAppType v. 1.3 >
+<SubAppType Name="Potreb" Kind="APPLICATION.LUA" Args="" Comment="" UUID="0D8B2973484B662EAD5868B2FC1EDE4C">
+    <InterfaceList>
+        <Signal Name="@PID" UUID="A02975E247D4984A9714859D087DF052" Type="STRING" />
+        <Signal Name="@STATE" UUID="DADC736C429790D2744452B5455EF41D" Type="STRING" />
+        <Signal Name="@COMMAND" UUID="8969390246F1FBA1DA3F819E31C6559D" Type="STRING" />
+        <Signal Name="@COMMAND_VALUE" UUID="FC52CBB149FDAF082F32C789995B07E2" Type="STRING" />
+        <Signal Name="@MESSAGE" UUID="07AFF9C44D64F906CFCF77AF5CA42D07" Type="STRING" />
+        <Signal Name="@MESSAGE_FRAMEWORK" UUID="EC98E46B47E5B5AB5AFC529AF3447B53" Type="STRING" />
+        <Signal Name="@EVENT" UUID="DB3CE4D7489549BFC3C189B310FAB8F6" Type="STRING" />
+        <Signal Name="@RESERVE" UUID="20520C254C5A2AB48382D4A6E27BEE79" Type="BOOL" />
+        <Signal Name="@WINDOW" UUID="332392454B19B726761BDEB91DAE3EFD" Type="TWINDOW" ArraySize="32" InitialValue="[(VISIBLE:=TRUE, WIDTH:=640, HEIGHT:=480)]" />
+        <Signal Name="PotrebP" UUID="9564FE8F46474832F10E7E832AE11038" Type="REAL" ArraySize="48" Global="TRUE" Storage="persistent" />
+        <Signal Name="PotrebPItog" UUID="42A37F434BB57E08B8D694A579E7DC8F" Type="REAL" ArraySize="4" Global="TRUE" Storage="persistent" />
+        <Signal Name="PotrebS" UUID="8AC5B8094DF860E858D46D81C2FED330" Type="REAL" ArraySize="48" Global="TRUE" Storage="persistent" />
+        <Signal Name="PotrebSItog" UUID="61F3F2184CD27881E7ED62AE506F6C8E" Type="REAL" ArraySize="4" Global="TRUE" Storage="persistent" />
+        <Signal Name="PotrebQ" UUID="96151B144C86A4B174D80CAA23C4DEFF" Type="REAL" ArraySize="48" Global="TRUE" Storage="persistent" />
+        <Signal Name="PotrebQItog" UUID="2B0DA974432342EBE7CBA4BB0AF1CACC" Type="REAL" ArraySize="4" Global="TRUE" Storage="persistent" />
+        <Signal Name="S_TVS_A1800_WQ" UUID="29E893774236B04BA1D4E097617CED8A" Type="UDINT" Global="TRUE" />
+        <Signal Name="S_TVS_A1800_WS" UUID="675A1E194AF0533B78E70BA875FB78E9" Type="UDINT" Global="TRUE" />
+        <Signal Name="S_TVS_A1800_WP" UUID="474989A64485E4AFCF520D9E46D12024" Type="UDINT" Global="TRUE" />
+    </InterfaceList>
+</SubAppType>

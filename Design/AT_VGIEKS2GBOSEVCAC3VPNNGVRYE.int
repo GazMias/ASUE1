@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE SubAppType v. 1.3 >
+<SubAppType Name="Command_KTP_M340" Kind="APPLICATION.LUA" Args="" Comment="Обработка команд управления КТП с ПЛК М340" UUID="D1247D644EC6A355397CC1BF1B4DE925">
+    <InterfaceList>
+        <Signal Name="@PID" UUID="C5DC74B249C38D5190FCC58C392205FA" Type="STRING" />
+        <Signal Name="@STATE" UUID="1FEE41C34B4A9DBD4360EA8336C8CD9D" Type="STRING" />
+        <Signal Name="@COMMAND" UUID="C27FFA5D4AC1E33B63B7B5BADFB10047" Type="STRING" />
+        <Signal Name="@COMMAND_VALUE" UUID="031CDD464D371455247CFD8C2008992F" Type="STRING" />
+        <Signal Name="@MESSAGE" UUID="DCEE91A448AD58D175E39CB4A038DFC4" Type="STRING" />
+        <Signal Name="@MESSAGE_FRAMEWORK" UUID="F2B5C5204DB7A80292ADC8B9BE5DF07D" Type="STRING" />
+        <Signal Name="@EVENT" UUID="F9E118434E3447DB4368FF890CACBF57" Type="STRING" />
+        <Signal Name="@RESERVE" UUID="373CED1A41F9DE3EDCBB7FA532C3E6CC" Type="BOOL" />
+        
+        <Signal Name="S_KTP_P06_PU_CLOCKSET_CO" UUID="64CB1AAC4AEC5E44B96D9BA88F6E5AD0" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Установка часов" />
+        <Signal Name="S_KTP_P06_AV2_OTKVAV_CO" UUID="C821A30F4308F81096376896E118CD25" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 2. Отключить BАВ " />
+        <Signal Name="S_KTP_P06_AV2_PADS_CO" UUID="35874A1F44D855AE529C36B41F2EB693" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 2. Пуск АДЭС " />
+        <Signal Name="S_KTP_P06_AV1_OTKVAV_CO" UUID="C0F182944E00A2B0DA23D8B890FD1BD1" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 1. Отключить BАВ " />
+        <Signal Name="S_KTP_P06_AV1_PADS_CO" UUID="1C9A43D64D4C05441FAEBFA2B2706356" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 1. Пуск АДЭС " />
+        <Signal Name="RAW_M340_P06_40088_CO" UUID="5D696D7148AD82EF604800940AB4900B" Type="WORD" Global="TRUE" Comment="Панель №6, СЛОВО УПРАВЛЕНИЯ 40088" />
+        <Signal Name="RAW_M340_P06_40089_CO" UUID="9451FF004B8CB53F7D6F45A53DA890F4" Type="WORD" Global="TRUE" Comment="Панель_№6,_СЛОВО_УПРАВЛЕНИЯ_40089" />
+        <Signal Name="S_KTP_P06_PU_DURAZR_DP" UUID="3B9D644D411B2815CC123EB468CCF2B6" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_ ДУ Разрешено" />
+        <Signal Name="S_KTP_P06_AV1_OSTADS_CO" UUID="408DB17941E0C3326341DCB77A0ADA3C" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 1. Останов АДЭС " />
+        <Signal Name="S_KTP_P06_AV1_OTKAVRAV_CO" UUID="DFA397424FFB08E210503D9BCBF17D2A" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 1. Отключить АВР AВ " />
+        <Signal Name="S_KTP_P06_AV1_VKLAVRAV_CO" UUID="7669B9F447B4639FD042918C4FCA88C0" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 1. Включить АВР AВ " />
+        <Signal Name="S_KTP_P06_AV1_VKLVAV_CO" UUID="6815338F4108E2B576B7628C7917080E" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 1. Включить BАВ " />
+        <Signal Name="S_KTP_P06_AV2_OSTADS_CO" UUID="1D22EC22497C3592AA09ED86D296439D" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 2. Останов АДЭС " />
+        <Signal Name="S_KTP_P06_AV2_OTKAVRAV_CO" UUID="B953ABA84626AC7DDA4CCFA1D429CAAE" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 2. Отключить АВР AВ " />
+        <Signal Name="S_KTP_P06_AV2_VKLAVRAV_CO" UUID="FDFF46C6486430CF927918A571371711" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 2. Включить АВР AВ " />
+        <Signal Name="S_KTP_P06_AV2_VKLVAV_CO" UUID="445564104F2F1FB6D6A32891AF9F6728" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 2. Включить BАВ " />
+        <Signal Name="S_KTP_P06_SV_OTKAVRSV_CO" UUID="A62F3CF0433FA73F841CEA99DDBB0E45" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Секционный выключатель. Отключить АВР СВ " />
+        <Signal Name="S_KTP_P06_SV_OTKSV_CO" UUID="E758CAD845BDFF43EE4DE08529DC79E8" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Секционный выключатель. Отключить CB " />
+        <Signal Name="S_KTP_P06_SV_VKLAVRSV_CO" UUID="D23946D14ED420CD6CA04782CE82F976" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Секционный выключатель. Включить АВР СВ " />
+        <Signal Name="S_KTP_P06_SV_VKLSV_CO" UUID="F5AEEC46464AB5F302B8A5B76D184351" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Секционный выключатель. Включить CB " />
+        <Signal Name="S_KTP_P06_VV1_OTKVV_CO" UUID="DF9020CE479E7CBB4676178ED80321AA" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 1. Отключить ВВ " />
+        <Signal Name="S_KTP_P06_VV1_VKLVV_CO" UUID="44B4CDBE4BAEEA709BB2839A0D4EAD0D" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 1. Включить ВВ " />
+        <Signal Name="S_KTP_P06_VV2_OTKVV_CO" UUID="F5797D0C41BB84BCDA4E6EA00595807A" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 2. Отключить ВВ " />
+        <Signal Name="S_KTP_P06_VV2_VKLVV_CO" UUID="408744024C40F4D998C2C38831081DD2" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 2. Включить ВВ " />
+        <Signal Name="S_KTP_P06_PU_RESET_CO" UUID="AF92FAA040D49C7FAFD2D686EF8B8CB0" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Сброс" />
+    </InterfaceList>
+</SubAppType>

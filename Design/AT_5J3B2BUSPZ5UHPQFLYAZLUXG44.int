@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE SubAppType v. 1.3 >
+<SubAppType Name="ARHIVE" Kind="ARCHIVE" Args="" Comment="" UUID="A69473A74AF31985E41BB5A6C42D50F6">
+    <InterfaceList>
+        <Signal Name="@COMMAND" UUID="3A8430E24285415E7E3F35826ACEF584" Type="STRING" />
+        <Signal Name="@COMMAND_VALUE" UUID="F106E8FF43D5F5D3DCFC44BF197A8FCA" Type="STRING" />
+        <Signal Name="@EVENT" UUID="4F3A3E1149CDE3FDC6902DA74B952667" Type="STRING" />
+        <Signal Name="@MESSAGE" UUID="B29201AE4D4CF4828DFD16A39F01FE06" Type="STRING" Usage="output" />
+        <Signal Name="@MESSAGE_FRAMEWORK" UUID="C817605445680A5DDCA1FC9D84DED74B" Type="STRING" Usage="output" />
+        <Signal Name="@PID" UUID="7CFF48E64E840294C520189A934A8684" Type="STRING" Usage="output" />
+        <Signal Name="@RESERVE" UUID="E6CFF00B4BBD8C4852F33B9F18B38AEC" Type="BOOL" />
+        <Signal Name="@STATE" UUID="9F1FF17C4C129981DA694283B78FC741" Type="STRING" Usage="output" />
+        <Signal Name="S_KTP_P07_XT7_2A_AI" UUID="41E9458D4546E92A36661B9727F3E987" Type="REAL" Global="TRUE" Comment="КТП c БМРЗ. Температура в помещении КТП" />
+        <Signal Name="D_USO_NEISP_5_CP" UUID="1B6D9FF84C210423CDD5E69215CB082E" Type="INT" Global="TRUE" />
+        <Signal Name="S_ZRU_P11_XT5_1A_DI" UUID="31D0C0444C10EA8BDEA64984BAED35EB" Type="BOOL" Global="TRUE" Comment="ЗРУ-10кВ. Тележка выключателя Q1 (Ввод №1) выкачена" />
+        <Signal Name="S_ZRU_P11_XT7_1A_AI" UUID="771F2DD04A5B657C01B22E81E5C17AF1" Type="REAL" Global="TRUE" Comment="ЗРУ-10кВ. Температура в помещении ЗРУ" />
+    </InterfaceList>
+</SubAppType>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Node v. 1.3 >
+<Node Name="USO_ASUE_Sonet" Comment="" Disabled="TRUE" Address="169.254.0.136" TargetPath="" UUID="F0854DF94801C0CF65E59BA49453E1A1">
+    <InterfaceList>
+        <SubApp Name="Collect_Sonet" Type="9E8688104014A80BB217F0BCDBA72272" Args="" ConnectionTimeout="2000" ExecTimeout="10000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="E9F321DF44B172921BF2BB9211722B96" />
+        <SubApp Name="DIAG_SONET_MODUL" Type="343F5651411B4F9632D42DA671FA7E8F" Args="" ConnectionTimeout="2000" ExecTimeout="10000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="AA09FC9A4726D1FCAD3018B7A8438850" />
+        <SubApp Name="Processing_SONET_AI" Type="1A045EEA4F59D620D3D648B919506E47" Args="" ConnectionTimeout="2000" ExecTimeout="10000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="E609286E4F28CD438D2CDE8975196C83" />
+        <SubApp Name="Connection_check_PLC" Type="117FCD3A4D69AC08DBA53FA1A6F9875B" Args="" ConnectionTimeout="2000" ExecTimeout="10000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="D825B8C74E88A6D01B0FAB9538D7E7D6" />
+    </InterfaceList>
+</Node>

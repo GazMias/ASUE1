@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Driver.Sonet.LOCALBUS v. 1.0 >
+<Configuration>
+    <Device CyclePeriod="10000" ConfigUpdatePeriod="3000000">
+        <Slot Address="1" ModuleType="23" ChannelCount="14" Min="0" Max="1" Units="" IsAnalog="FALSE" IsInput="FALSE" />
+        <Slot Address="2" ModuleType="32" ChannelCount="8" Min="0" Max="1" Units="" IsAnalog="FALSE" IsInput="TRUE" />
+        <Slot Address="3" ModuleType="1" ChannelCount="4" Min="0" Max="20" Units="mA" IsAnalog="TRUE" IsInput="TRUE" />
+    </Device>
+    <Crossconnect>
+        <Connection ItemName="ANALOG_LOEG_TEST" CellIndex="0" Device="" Slot="3" Channel="1" Filter="" UUID="00000000000000000000000000000000" />
+    </Crossconnect>
+</Configuration>

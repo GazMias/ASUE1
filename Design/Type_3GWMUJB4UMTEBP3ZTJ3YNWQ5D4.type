@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Type v. 1.0 >
+<Type Name="TData_Sepam" Kind="Struct" Comment="структура даты в сепаме" UUID="B07CB7CE4E4D270AE151008C971D986A">
+    <Fields>
+        <Field Name="year" Type="BYTE" UUID="ADE2B258448003B96FA7E8AED3F01C94" />
+        <Field Name="month" Type="BYTE" UUID="ED7F239541F59320424F0181B31B09E9" />
+        <Field Name="day" Type="BYTE" UUID="84A7042A433D3C409771C79B026CDBB8" />
+        <Field Name="hour" Type="BYTE" UUID="104074C1463D41CD9CF9C3B7AE39F684" />
+        <Field Name="minute" Type="BYTE" UUID="D940DC9D44E0C2F7243A78AC6422E3E1" />
+        <Field Name="msec" Type="WORD" UUID="E736EF0847CAA3C485AA78A313FBF47B" />
+        <Field Name="type_zapisi" Type="BYTE" UUID="CF6EC60B4A40C489D6E206ACC06AF58C" Comment="тип записи (0 - записи осциллограмм аварийных режимов, 1 - контексты отключения, 2 - контекст отсутствия синхронизации.)" />
+    </Fields>
+</Type>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE SubAppType v. 1.3 >
+<SubAppType Name="Processing_TVS" Kind="APPLICATION.LUA" Args="" Comment="Обработка данных от объектов ТВС" UUID="656078DE44BAA6FED6162FA2C2F86D3B">
+    <InterfaceList>
+        <Signal Name="RAW_TVS_KOT_P1TEMP_AP" UUID="BCA73BCB4A5E852B55D32EA81A7A390E" Type="WORD" Global="TRUE" Comment="Панель ТВС_AI_КОТ Температура прямоточной воды" />
+        <Signal Name="RAW_TVS_KOT_P2TEMP_AP" UUID="D86E39DF41A72DF44592869CDDEB1273" Type="WORD" Global="TRUE" Comment="Панель ТВС_AI_КОТ_Температура обратной воды" />
+        <Signal Name="RAW_TVS_KU_P1TEMP_AP" UUID="F232E8F24A7D1CEBCCD0E0BE842AFEF2" Type="WORD" Global="TRUE" Comment="Панель ТВС_AI_КУ Температура прямоточной воды" />
+        <Signal Name="RAW_TVS_KU_P2TEMP_AP" UUID="E6847F2C43B8C3087D8C42BE66CECD0C" Type="WORD" Global="TRUE" Comment="Панель ТВС_AI_КУ_Температура обратной воды" />
+        <Signal Name="S_TVS_KU_P1TEMP_AP" UUID="6FB1EA3146E3F9ABE95BFC886D8C6AD9" Type="WORD" Global="TRUE" Comment="ТВС_AI_КU_Температура прямоточной воды" />
+        <Signal Name="S_TVS_KU_P2TEMP_AP" UUID="F43602724CA99092263349BDBB313F95" Type="WORD" Global="TRUE" Comment="ТВС_AI_КU_Температура обратной воды" />
+        <Signal Name="S_TVS_KOT_P1TEMP_AP" UUID="D8E2D46C4A4EBA5FAE7B9197DCD0FB79" Type="WORD" Global="TRUE" Comment="ТВС_AI_КОТ_Температура прямоточной воды" />
+        <Signal Name="S_TVS_KOT_P2TEMP_AP" UUID="F40092D84429B7E59EB44A90A31CD923" Type="WORD" Global="TRUE" Comment="ТВС_AI_КОТ_Температура обратной воды" />
+        <Signal Name="RAW_TVS_VOS_RESVREM_DP" UUID="9E1AE58842B53B79F3CF9280F46726A7" Type="BOOL" Global="TRUE" Comment="Панель ТВС_ТВС_ВОС_Резервуар в ремонте" />
+        <Signal Name="RAW_TVS_VOS_M5AVAR_DP" UUID="A87C772F4BB8D46207C6BC9A8323A314" Type="BOOL" Global="TRUE" Comment="Панель ТВС_ТВС_ВОС_М5_Затвор М5 - АВАРИЯ" />
+        <Signal Name="RAW_TVS_VOS_NASA1OSN_DP" UUID="E927FABC42EBB50349879DAEA1B084A0" Type="BOOL" Global="TRUE" Comment="Панель ТВС_ТВС_ВОС_А1_Насосный агрегат - РАБОЧИЙ" />
+        <Signal Name="RAW_TVS_VOS_NASA1RES_DP" UUID="0C8E2B2043A4FAC70CFC178F8BF77CD9" Type="BOOL" Global="TRUE" Comment="Панель ТВС_ТВС_ВОС_А1_Насосный агрегат - РЕЗЕРВНЫЙ" />
+        <Signal Name="RAW_TVS_VOS_NASA2OSN_DP" UUID="6C1642464411FC3AB46098B5A10A7452" Type="BOOL" Global="TRUE" Comment="Панель ТВС_ТВС_ВОС_А2_Насосный агрегат - РАБОЧИЙ" />
+        <Signal Name="RAW_TVS_VOS_NASA2RES_DP" UUID="2ACE4643458C471B36A896B0EA91FBF0" Type="BOOL" Global="TRUE" Comment="Панель ТВС_ТВС_ВОС_А2_Насосный агрегат - РЕЗЕРВНЫЙ" />
+        <Signal Name="RAW_TVS_VOS_NASA1AVAR_DP" UUID="47ECCCD34F02D630FFF6B1BA3C34DAD7" Type="BOOL" Global="TRUE" Comment="Панель ТВС_ТВС_ВОС_А1_Насосный агрегат - АВАРИЯ" />
+        <Signal Name="RAW_TVS_VOS_NASA2AVAR_DP" UUID="39967EE24AB493CE9018F79F7F8D0AF6" Type="BOOL" Global="TRUE" Comment="Панель ТВС_ТВС_ВОС_А2_Насосный агрегат - АВАРИЯ" />
+        <Signal Name="RAW_TVS_VOS_VAVARURRES_DP" UUID="711394744B96929A9E0D28AE73B0B648" Type="BOOL" Global="TRUE" Comment="Панель ТВС_ТВС_ВОС_РЕЗ_Уровень воды ВЕРХНИЙ АВАРИЙНЫЙ" />
+        <Signal Name="RAW_TVS_VOS_NSPVSHOD_DP" UUID="69E0D36442BD7C994A77C397B01CEAA9" Type="BOOL" Global="TRUE" Comment="Панель ТВС_ТВС_ВОС_НСПВ_Насосная станция противопожарного водоснабжения СУХОЙ ХОД" />
+        <Signal Name="RAW_TVS_VOS_A1NASVKL_DP" UUID="A7ED8B5A40CBB5723E3B6CB9B861D4E9" Type="BOOL" Global="TRUE" Comment="Панель ТВС_ТВС_ВОС_А1_Насос артскважины 1 ВКЛЮЧЕН" />
+        <Signal Name="RAW_TVS_VOS_A1TMIN_DP" UUID="D07F5A004A44DBF4115CB2914E79D3D7" Type="BOOL" Global="TRUE" Comment="Панель ТВС_ТВС_ВОС_А1_Т воздуха в помещении насосной артскважины 1 &lt;+3C" />
+        <Signal Name="RAW_TVS_VOS_A1DVOTK_DP" UUID="EA518B654AEB7DD3B05BBC9394064971" Type="BOOL" Global="TRUE" Comment="Панель ТВС_ТВС_ВОС_А1_Т дверь в помещении насосной артскважины 1открыта" />
+        <Signal Name="RAW_TVS_VOS_A1NASOSN_DP" UUID="8B6A462849FF1CBF75F35D899ED9C581" Type="BOOL" Global="TRUE" Comment="Панель ТВС_ТВС_ВОС_А1_Насосный агрегат - РАБОЧИЙ" />
+        <Signal Name="RAW_TVS_VOS_A1NASRES_DP" UUID="34DCB3C34A095DE4F026AD8F16A5E06F" Type="BOOL" Global="TRUE" Comment="Панель ТВС_ТВС_ВОС_А1_Насосный агрегат - РЕЗЕРВНЫЙ" />
+        <Signal Name="RAW_TVS_VOS_A2NASVKL_DP" UUID="6BD4A5FC44EF79438293278D6BFE7E3B" Type="BOOL" Global="TRUE" Comment="Панель ТВС_ТВС_ВОС_А2_Насос артскважины 2 ВКЛЮЧЕН" />
+        <Signal Name="RAW_TVS_VOS_A2TMIN_DP" UUID="C0131D6B4CC7DD9C6882B38E6D3F3362" Type="BOOL" Global="TRUE" Comment="Панель ТВС_ТВС_ВОС_А2_Т воздуха в помещении насосной артскважины 2 &lt;+3C" />
+        <Signal Name="RAW_TVS_VOS_A2DVOTK_DP" UUID="09A1FDD0462F0931775216A61322CDDD" Type="BOOL" Global="TRUE" Comment="Панель ТВС_ТВС_ВОС_А2_Т дверь в помещении насосной артскважины 2 открыта" />
+        <Signal Name="RAW_TVS_VOS_A2NASOSN_DP" UUID="B057F8724930C9C97CF0DEB6EDA829CB" Type="BOOL" Global="TRUE" Comment="Панель ТВС_ТВС_ВОС_А2_Насосный агрегат - РАБОЧИЙ" />
+        <Signal Name="RAW_TVS_VOS_A2NASRES_DP" UUID="66DA9E5D49DC710DB19D75B1CE2902D1" Type="BOOL" Global="TRUE" Comment="Панель ТВС_ТВС_ВОС_А2_Насосный агрегат - РЕЗЕРВНЫЙ" />
+        <Signal Name="RAW_TVS_VOS_M5ZAKR_DP" UUID="4083E685481FCA34EE5FC494DCD4FC95" Type="BOOL" Global="TRUE" Comment="Панель ТВС_ТВС_ВОС_М5_Затвор М5 ЗАКРЫТ" />
+        <Signal Name="RAW_TVS_VOS_M5OTKR_DP" UUID="2A6C9C55470B9AE2CD086CBDC76BACAD" Type="BOOL" Global="TRUE" Comment="Панель ТВС_ТВС_ВОС_М5_Затвор М5 ОТКРЫТ" />
+        <Signal Name="RAW_TVS_VOS_MOTKR_DP" UUID="E7BB0A9C4519DF83D575AE9904F184FD" Type="BOOL" Global="TRUE" Comment="Панель ТВС_ТВС_ВОС_М_Затвор М ОТКРЫТ" />
+        <Signal Name="RAW_TVS_VOS_MZAKR_DP" UUID="520A26B3475C943379AD6981534DB876" Type="BOOL" Global="TRUE" Comment="Панель ТВС_ТВС_ВОС_М_Затвор М ЗАКРЫТ" />
+        <Signal Name="RAW_TVS_VOS_NPPVHAVAR_DP" UUID="AEE92B90466AE388CDABE49BF7588294" Type="BOOL" Global="TRUE" Comment="Панель ТВС_ТВС_ВОС_НППВ_Насосная станция хозпитьевого водоснабжения АВАРИЯ" />
+        <Signal Name="RAW_TVS_VOS_NPPVFIRE_DP" UUID="A81AB3FD407848B6F84FE9B7688170A5" Type="BOOL" Global="TRUE" Comment="Панель ТВС_ТВС_ВОС_НППВ_Насосная станция противопожарного водоснабжения ПОЖАР" />
+        <Signal Name="RAW_TVS_VOS_NPPVPAVAR_DP" UUID="4E78504749E1770A4B985AB846487FE5" Type="BOOL" Global="TRUE" Comment="Панель ТВС_ТВС_ВОС_НППВ_Насосная станция противопожарного водоснабжения АВАРИЯ" />
+        <Signal Name="RAW_TVS_VOS_NPPVNASVKL_DP" UUID="1A5F57944B25695364D5E6919E2A139D" Type="BOOL" Global="TRUE" Comment="Панель ТВС_ТВС_ВОС_НППВ_Насосная станция противопожарного водоснабжения Пожарный Насос ВКЛЮЧЕН" />
+        <Signal Name="RAW_TVS_VOS_PULT_DP" UUID="8F1FE0EC491C25311DC0B290E511F044" Type="BOOL" Global="TRUE" Comment="Панель ТВС_ТВС_ВОС_Система водоснабжения с пульта оператора" />
+        <Signal Name="RAW_TVS_VOS_SAU_DP" UUID="B66C34604E5632DEBFE0BFBF6E453CD5" Type="BOOL" Global="TRUE" Comment="Панель ТВС_ТВС_ВОС_Система водоснабжения от САУ ВОС" />
+        <Signal Name="RAW_TVS_VOS_RESUROV_AP" UUID="7053ACB242A17E8F650593B807D0CBB4" Type="WORD" Global="TRUE" Comment="Панель ТВС_ТВС_ВОС_AP_РЕЗ_Уровень воды" />
+        <Signal Name="RAW_TVS_VOS_A1PRESS_AP" UUID="10265ABD47F8AE03AA97B7B5356460D4" Type="WORD" Global="TRUE" Comment="Панель ТВС_ТВС_ВОС_AP_А1_Насосный агрегат - Давление воды" />
+        <Signal Name="RAW_TVS_VOS_A2PRESS_AP" UUID="1E41404140F7BF4D16D68197E630A2CA" Type="WORD" Global="TRUE" Comment="Панель ТВС_ТВС_ВОС_AP_А2_Насосный агрегат - Давление воды " />
+        <Signal Name="S_TVS_VOS_RESVREM_DP" UUID="FFAEAA604CCDFEC2C83F868D3630B72A" Type="BOOL" Global="TRUE" Comment="ТВС_ВОС_Резервуар в ремонте" />
+        <Signal Name="S_TVS_VOS_M5AVAR_DP" UUID="922857854BA4F3943B1F7B9E27C4629F" Type="BOOL" Global="TRUE" Comment="ТВС_ВОС_М5_Затвор М5 - АВАРИЯ" />
+        <Signal Name="S_TVS_VOS_NASA1OSN_DP" UUID="79E4E4B144CB6EDF5C5FAA84BABD01A4" Type="BOOL" Global="TRUE" Comment="ТВС_ВОС_А1_Насосный агрегат - РАБОЧИЙ" />
+        <Signal Name="S_TVS_VOS_NASA1RES_DP" UUID="6BF3091341A2C5D3B0C1E885E39D08D1" Type="BOOL" Global="TRUE" Comment="ТВС_ВОС_А1_Насосный агрегат - РЕЗЕРВНЫЙ" />
+        <Signal Name="S_TVS_VOS_NASA2OSN_DP" UUID="8AF6597B483DF3DEDE609591CF226C46" Type="BOOL" Global="TRUE" Comment="ТВС_ВОС_А2_Насосный агрегат - РАБОЧИЙ" />
+        <Signal Name="S_TVS_VOS_NASA2RES_DP" UUID="6F4504FE4162029DF2D3DEA43BFE99CF" Type="BOOL" Global="TRUE" Comment="ТВС_ВОС_А2_Насосный агрегат - РЕЗЕРВНЫЙ" />
+        <Signal Name="S_TVS_VOS_NASA1AVAR_DP" UUID="A87E197D4DB0F053FA15EE91C009911F" Type="BOOL" Global="TRUE" Comment="ТВС_ВОС_А1_Насосный агрегат - АВАРИЯ" />
+        <Signal Name="S_TVS_VOS_NASA2AVAR_DP" UUID="44BF7DAA4C5FCDBE63A582957502DAEF" Type="BOOL" Global="TRUE" Comment="ТВС_ВОС_А2_Насосный агрегат - АВАРИЯ" />
+        <Signal Name="S_TVS_VOS_VAVARURRES_DP" UUID="1A32D46149176AA8EE2540A7D4F4E73B" Type="BOOL" Global="TRUE" Comment="ТВС_ВОС_РЕЗ_Уровень воды ВЕРХНИЙ АВАРИЙНЫЙ" />
+        <Signal Name="S_TVS_VOS_NSPVSHOD_DP" UUID="B4B340CD4352F9A94045A1B9F664D818" Type="BOOL" Global="TRUE" Comment="ТВС_ВОС_НСПВ_Насосная станция противопожарного водоснабжения СУХОЙ ХОД" />
+        <Signal Name="S_TVS_VOS_A1NASVKL_DP" UUID="E48778E34899BC9AC58A89888EE3049A" Type="BOOL" Global="TRUE" Comment="ТВС_ВОС_А1_Насос артскважины 1 ВКЛЮЧЕН" />
+        <Signal Name="S_TVS_VOS_A1TMIN_DP" UUID="B40B659D4F4EEE7CA51665A53EE1EF0C" Type="BOOL" Global="TRUE" Comment="ТВС_ВОС_А1_Т воздуха в помещении насосной артскважины 1 &lt;+3C" />
+        <Signal Name="S_TVS_VOS_A1DVOTK_DP" UUID="39717687403185E2D0A0B6BBFFED77F0" Type="BOOL" Global="TRUE" Comment="ТВС_ВОС_А1_Т дверь в помещении насосной артскважины 1открыта" />
+        <Signal Name="S_TVS_VOS_A1NASOSN_DP" UUID="8C1A0CA04D942D521F2D31A350A0582B" Type="BOOL" Global="TRUE" Comment="ТВС_ВОС_А1_Насосный агрегат - РАБОЧИЙ" />
+        <Signal Name="S_TVS_VOS_A1NASRES_DP" UUID="3501B700482E72935E1912BB7A847837" Type="BOOL" Global="TRUE" Comment="ТВС_ВОС_А1_Насосный агрегат - РЕЗЕРВНЫЙ" />
+        <Signal Name="S_TVS_VOS_A2NASVKL_DP" UUID="10215299492AE093D219ADADF257BDCD" Type="BOOL" Global="TRUE" Comment="ТВС_ВОС_А2_Насос артскважины 2 ВКЛЮЧЕН" />
+        <Signal Name="S_TVS_VOS_A2TMIN_DP" UUID="A5BF791746D7DCFF3A2DA6B415B1820C" Type="BOOL" Global="TRUE" Comment="ТВС_ВОС_А2_Т воздуха в помещении насосной артскважины 2 &lt;+3C" />
+        <Signal Name="S_TVS_VOS_A2DVOTK_DP" UUID="9CDD3A1D40E78E309A5A328A40D13D82" Type="BOOL" Global="TRUE" Comment="ТВС_ВОС_А2_Т дверь в помещении насосной артскважины 2 открыта" />
+        <Signal Name="S_TVS_VOS_A2NASOSN_DP" UUID="3DE8A7D6423154AB1EFC3691841A14DA" Type="BOOL" Global="TRUE" Comment="ТВС_ВОС_А2_Насосный агрегат - РАБОЧИЙ" />
+        <Signal Name="S_TVS_VOS_A2NASRES_DP" UUID="6BE0ED6149FB90FEA85938AD3A398C36" Type="BOOL" Global="TRUE" Comment="ТВС_ВОС_А2_Насосный агрегат - РЕЗЕРВНЫЙ" />
+        <Signal Name="S_TVS_VOS_M5ZAKR_DP" UUID="4CF6A0DE40ADD650078CB893FB99B7DA" Type="BOOL" Global="TRUE" Comment="ТВС_ВОС_М5_Затвор М5 ЗАКРЫТ" />
+        <Signal Name="S_TVS_VOS_M5OTKR_DP" UUID="2EBC8F274B4FB4B4674062A3A2911ED9" Type="BOOL" Global="TRUE" Comment="ТВС_ВОС_М5_Затвор М5 ОТКРЫТ" />
+        <Signal Name="S_TVS_VOS_MOTKR_DP" UUID="8DF358134146BBC4E4D59F92CEF3CCB7" Type="BOOL" Global="TRUE" Comment="ТВС_ВОС_М_Затвор М ОТКРЫТ" />
+        <Signal Name="S_TVS_VOS_MZAKR_DP" UUID="AC12429840C9F67874F362A668DEAF54" Type="BOOL" Global="TRUE" Comment="ТВС_ВОС_М_Затвор М ЗАКРЫТ" />
+        <Signal Name="S_TVS_VOS_NPPVHAVAR_DP" UUID="6F25B5184259CA1F0FD02F80751EE899" Type="BOOL" Global="TRUE" Comment="ТВС_ВОС_НППВ_Насосная станция хозпитьевого водоснабжения АВАРИЯ" />
+        <Signal Name="S_TVS_VOS_NPPVFIRE_DP" UUID="432ABC18427035B2CC4E61BD676D8D84" Type="BOOL" Global="TRUE" Comment="ТВС_ВОС_НППВ_Насосная станция противопожарного водоснабжения ПОЖАР" />
+        <Signal Name="S_TVS_VOS_NPPVPAVAR_DP" UUID="B55086F8476C3AA6AEC4A0860913D7A8" Type="BOOL" Global="TRUE" Comment="ТВС_ВОС_НППВ_Насосная станция противопожарного водоснабжения АВАРИЯ" />
+        <Signal Name="S_TVS_VOS_NPPVNASVKL_DP" UUID="FFBFA39A4191A81768DA048D7B1AD79F" Type="BOOL" Global="TRUE" Comment="ТВС_ВОС_НППВ_Насосная станция противопожарного водоснабжения Пожарный Насос ВКЛЮЧЕН" />
+        <Signal Name="S_TVS_VOS_PULT_DP" UUID="E1C7645848DB407B13D623ABE425EC7D" Type="BOOL" Global="TRUE" Comment="ТВС_ВОС_Система водоснабжения с пульта оператора" />
+        <Signal Name="S_TVS_VOS_SAU_DP" UUID="8A0A4DA0429988143364D4B56CA7409B" Type="BOOL" Global="TRUE" Comment="ТВС_ВОС_Система водоснабжения от САУ ВОС" />
+        <Signal Name="S_TVS_VOS_RESUROV_AP" UUID="045C685642184978820DE2B322A8C48A" Type="WORD" Global="TRUE" Comment="ТВС_ВОС_AP_РЕЗ_Уровень воды" />
+        <Signal Name="S_TVS_VOS_A1PRESS_AP" UUID="BDED17054AF4E6F906F703B2463CC033" Type="WORD" Global="TRUE" Comment="ТВС_ВОС_AP_А1_Насосный агрегат - Давление воды" />
+        <Signal Name="S_TVS_VOS_A2PRESS_AP" UUID="EFE277434B7D2AA193717286CB6AE9D6" Type="WORD" Global="TRUE" Comment="ТВС_ВОС_AP_А2_Насосный агрегат - Давление воды " />
+        <Signal Name="RAW_TVS_KOT_KOTELVKL_DP" UUID="9874FD544F4500ED89571C84EA0C7102" Type="BOOL" Global="TRUE" Comment="Панель ТВС_КОТ_Котел включен" />
+        <Signal Name="RAW_TVS_KOT_SETNASVKL_DP" UUID="ACC4281A4BD99C30F1D938863856B6EC" Type="BOOL" Global="TRUE" Comment="Панель ТВС_КОТ_Сетевой насос включен" />
+        <Signal Name="RAW_TVS_KOT_SETNASAVAR_DP" UUID="664A542A4FA2155638FCE4A8D78B361B" Type="BOOL" Global="TRUE" Comment="Панель ТВС_КОТ_Авария сетевого насоса" />
+        <Signal Name="RAW_TVS_KOT_RECNASVKL_DP" UUID="11D4BF5F47CE2FBF53FD9CBC21B9651D" Type="BOOL" Global="TRUE" Comment="Панель ТВС_КОТ_Рециркулярционный насос включен" />
+        <Signal Name="RAW_TVS_KOT_OTKLOTKR_DP" UUID="D985328F46B4705876DC20ACBA718EAA" Type="BOOL" Global="TRUE" Comment="Панель ТВС_КОТ_Отсечной клапан открыт" />
+        <Signal Name="RAW_TVS_KOT_P1PRESS_AP" UUID="2116A49A4573A33B367BDB9843B225F5" Type="WORD" Global="TRUE" Comment="Панель ТВС_AI_КОТ_Давление прямоточной воды" />
+        <Signal Name="RAW_TVS_KOT_P2PRESS_AP" UUID="612BF6B94EC02DA8CA35D38D208FEC7F" Type="WORD" Global="TRUE" Comment="Панель ТВС_AI_КОТ_Давление обратной воды" />
+        <Signal Name="S_TVS_KOT_KOTELVKL_DP" UUID="8902498348A10224608704A1811CB172" Type="BOOL" Global="TRUE" Comment="ТВС_КОТ_Котел включен" />
+        <Signal Name="S_TVS_KOT_SETNASVKL_DP" UUID="AD14CCA04C28FCAEDBE9F186622B3E00" Type="BOOL" Global="TRUE" Comment="ТВС_КОТ_Сетевой насос включен" />
+        <Signal Name="S_TVS_KOT_SETNASAVAR_DP" UUID="DCA26E68418DD731E1529AA2F8631979" Type="BOOL" Global="TRUE" Comment="ТВС_КОТ_Авария сетевого насоса" />
+        <Signal Name="S_TVS_KOT_RECNASVKL_DP" UUID="4645E0E44B99CD0C003702B97280264B" Type="BOOL" Global="TRUE" Comment="ТВС_КОТ_Рециркулярционный насос включен" />
+        <Signal Name="S_TVS_KOT_OTKLOTKR_DP" UUID="579A0AB5440BE42AB17B1DAC4E0B9957" Type="BOOL" Global="TRUE" Comment="ТВС_КОТ_Отсечной клапан открыт" />
+        <Signal Name="S_TVS_KOT_P1PRESS_AP" UUID="D37A43624BEC620C685817AB79241347" Type="WORD" Global="TRUE" Comment="ТВС_AI_КОТ_Давление прямоточной воды" />
+        <Signal Name="S_TVS_KOT_P2PRESS_AP" UUID="A3A2E0454CE07C505B7EE4A21774BA18" Type="WORD" Global="TRUE" Comment="ТВС_AI_КОТ_Давление обратной воды" />
+        <Signal Name="RAW_TVS_KU_SHIBOTKR_DP" UUID="97D04CE643357FDF372F838064CB5ED8" Type="BOOL" Global="TRUE" Comment="Панель ТВС_КУ_Шибер открыт" />
+        <Signal Name="RAW_TVS_KU_P1PRESS_AP" UUID="0622FCB14D196458318093B6E421FD07" Type="WORD" Global="TRUE" Comment="Панель ТВС_AI_КУ_Давление прямоточной воды" />
+        <Signal Name="RAW_TVS_KU_P2PRESS_AP" UUID="D71D0A9548BB50B045235D8B2853B70F" Type="WORD" Global="TRUE" Comment="Панель ТВС_AI_КУ_Давление обратной воды " />
+        <Signal Name="RAW_TVS_KU_SHIBZAKR_DP" UUID="FD2AD6DC4787E365F21AF79D4529DD41" Type="BOOL" Global="TRUE" Comment="Панель ТВС_КУ_Шибер закрыт" />
+        <Signal Name="S_TVS_KU_SHIBZAKR_DP" UUID="FCA784FC4B8B2C6BB4CDFBB33E3E4C74" Type="BOOL" Global="TRUE" Comment="ТВС_КУ_Шибер закрыт" />
+        <Signal Name="S_TVS_KU_SHIBOTKR_DP" UUID="027C0E014AC3EDCFB0A926947331F2C5" Type="BOOL" Global="TRUE" Comment="ТВС_КУ_Шибер открыт" />
+        <Signal Name="S_TVS_KU_P1PRESS_AP" UUID="BA0E164F42204CE31CA8D18DFF344AB2" Type="WORD" Global="TRUE" Comment="ТВС_AI_КУ_Давление прямоточной воды" />
+        <Signal Name="S_TVS_KU_P2PRESS_AP" UUID="591BE7984E91FB7142F232BBF6C951F6" Type="WORD" Global="TRUE" Comment="ТВС_AI_КУ_Давление обратной воды " />
+        <Signal Name="RAW_TVS_KNS_SAUAVT_DP" UUID="097FEB53404790E9EF262FA255F8ADE6" Type="BOOL" Global="TRUE" Comment="Панель ТВС_КНС_Автоматический режим работы САУ КНС включен" />
+        <Signal Name="RAW_TVS_KNS_NASVKL_DP" UUID="CD5C932545E9EB26A0CD1687E4BF2B90" Type="BOOL" Global="TRUE" Comment="Панель ТВС_КНС_Насос КНС включен" />
+        <Signal Name="RAW_TVS_KNS_NASAVAR_DP" UUID="1E5CD4ED4BCF7B09995B64ABDD6EC311" Type="BOOL" Global="TRUE" Comment="Панель ТВС_КНС_Авария насоса КНС" />
+        <Signal Name="RAW_TVS_KNS_KOSVRAB_DP" UUID="330D1A1F47A669AB0C7FB79D4A08A4FC" Type="BOOL" Global="TRUE" Comment="Панель ТВС_КОС_КОС в работе" />
+        <Signal Name="RAW_TVS_KNS_KOSNEIS_DP" UUID="BF35F7234FF421FF4E90C88AE1888E72" Type="BOOL" Global="TRUE" Comment="Панель ТВС_КОС_Неисправность КОС" />
+        <Signal Name="RAW_TVS_KNS_RESUROV_AP" UUID="F19CD4D24369326E0CF66FBDBF6AD5FE" Type="WORD" Global="TRUE" Comment="Панель ТВС_AI_КНС_Уровень стоков в приёмном резервуаре" />
+        <Signal Name="S_TVS_KNS_SAUAVT_DP" UUID="40D6739440895B6E4CAA92955A6086F8" Type="BOOL" Global="TRUE" Comment="ТВС_КНС_Автоматический режим работы САУ КНС включен" />
+        <Signal Name="S_TVS_KNS_NASVKL_DP" UUID="E6F490BA4F3E93F3D8028D9BC69DCE5F" Type="BOOL" Global="TRUE" Comment="ТВС_КНС_Насос КНС включен" />
+        <Signal Name="S_TVS_KNS_NASAVAR_DP" UUID="E026BEEE44758C04D664B9AAEC380F95" Type="BOOL" Global="TRUE" Comment="ТВС_КНС_Авария насоса КНС" />
+        <Signal Name="S_TVS_KNS_KOSVRAB_DP" UUID="CDFCBABC46AAACC61AF1B5AC74FFDC1F" Type="BOOL" Global="TRUE" Comment="ТВС_КОС_КОС в работе" />
+        <Signal Name="S_TVS_KNS_KOSNEIS_DP" UUID="2F661C584828DCBD824EFAB24FCFF1D6" Type="BOOL" Global="TRUE" Comment="ТВС_КОС_Неисправность КОС" />
+        <Signal Name="S_TVS_KNS_RESUROV_AP" UUID="BA1B01154446FB27CAD600AA195EEF17" Type="WORD" Global="TRUE" Comment="ТВС_AI_КНС_Уровень стоков в приёмном резервуаре" />
+        <Signal Name="@PID" UUID="C5DC74B249C38D5190FCC58C392205FA" Type="STRING" />
+        <Signal Name="@STATE" UUID="1FEE41C34B4A9DBD4360EA8336C8CD9D" Type="STRING" />
+        <Signal Name="@COMMAND" UUID="C27FFA5D4AC1E33B63B7B5BADFB10047" Type="STRING" />
+        <Signal Name="@COMMAND_VALUE" UUID="031CDD464D371455247CFD8C2008992F" Type="STRING" />
+        <Signal Name="@MESSAGE" UUID="DCEE91A448AD58D175E39CB4A038DFC4" Type="STRING" />
+        <Signal Name="@MESSAGE_FRAMEWORK" UUID="F2B5C5204DB7A80292ADC8B9BE5DF07D" Type="STRING" />
+        <Signal Name="@EVENT" UUID="F9E118434E3447DB4368FF890CACBF57" Type="STRING" />
+        <Signal Name="@RESERVE" UUID="373CED1A41F9DE3EDCBB7FA532C3E6CC" Type="BOOL" />
+        <Signal Name="@WINDOW" UUID="312A49A749C6B460848F96A7A4C7823F" Type="TWINDOW" ArraySize="32" InitialValue="[(VISIBLE:=TRUE, X:=0, Y:=0, WIDTH:=640, HEIGHT:=480, FLAGS:=0)]" />
+        <Signal Name="S_TVS_A1800_WQ" UUID="29E893774236B04BA1D4E097617CED8A" Type="UDINT" Global="TRUE" />
+        <Signal Name="S_TVS_A1800_WS" UUID="675A1E194AF0533B78E70BA875FB78E9" Type="UDINT" Global="TRUE" />
+        <Signal Name="S_TVS_A1800_WP" UUID="474989A64485E4AFCF520D9E46D12024" Type="UDINT" Global="TRUE" />
+        <Signal Name="RAW_TVS_A1800_WP" UUID="43F2B45748A8655D68EB27AB7C14533C" Type="UDINT" Global="TRUE" />
+        <Signal Name="RAW_TVS_A1800_WS" UUID="F254214D4A350BA000BA9C93FA2C7011" Type="UDINT" Global="TRUE" />
+        <Signal Name="RAW_TVS_A1800_WQ" UUID="E8D91BA24CE33F28D580438553F1DA93" Type="UDINT" Global="TRUE" />
+    </InterfaceList>
+</SubAppType>

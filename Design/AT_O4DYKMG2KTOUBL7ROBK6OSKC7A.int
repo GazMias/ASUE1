@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE SubAppType v. 1.3 >
+<SubAppType Name="Processing_KTP_M340" Kind="APPLICATION.LUA" Args="" Comment="Обработка данных КТП М340" UUID="FC1110B14A5AE14571482E8C45ABF180">
+    <InterfaceList>
+        <Signal Name="USER_NAME_OUT" UUID="6635F88B4D85282B72705FAD3B99E079" Type="STRING" Global="TRUE" />
+        <Signal Name="S_KTP_P06_STACK_ERR" UUID="A14018A04FB5C2281E01A0A386100D9A" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Флаг ошибки стека" />
+        <Signal Name="RAW_M340_P06_DATABLOCK1" UUID="CC034C7A44FB25EFBE79389814F7FA55" Type="WORD" Global="TRUE" Comment="Панель №6, Слово стека событий №1" />
+        <Signal Name="RAW_M340_P06_DATABLOCK2" UUID="3473F1C04266FDF56B6723B04AE10776" Type="WORD" Global="TRUE" Comment="Панель №6, Слово стека событий №2" />
+        <Signal Name="RAW_M340_P06_DATABLOCK3" UUID="09AF445D4B6CBEDA16FD0F931C846F55" Type="WORD" Global="TRUE" Comment="Панель №6, Слово стека событий №3" />
+        <Signal Name="RAW_M340_P06_DATABLOCK4" UUID="33A99CC7449545074BF552AF727D03AE" Type="WORD" Global="TRUE" Comment="Панель №6, Слово стека событий №4" />
+        <Signal Name="RAW_M340_P06_DATABLOCK5" UUID="214D133F4BB097E9D83F0A87E712AEE6" Type="WORD" Global="TRUE" Comment="Панель №6, Слово стека событий №5" />
+        <Signal Name="RAW_M340_P06_DATABLOCK6" UUID="F4785EC747FDC8459658808A37D2D2C3" Type="WORD" Global="TRUE" Comment="Панель №6, Слово стека событий №6" />
+        <Signal Name="RAW_M340_P06_STACK_ERR" UUID="8A12516C4D9061CAEB8EB2A89C5B8195" Type="WORD" Global="TRUE" Comment="Панель_№6_Флаг_ошибки_стека" />
+        <Signal Name="RAW_M340_P06_STACK_STATUS" UUID="E922D0FA4C0A3737D60B3A8B3AE62573" Type="WORD" Global="TRUE" Comment="Панель_№6_Статус_стека_событий" />
+        <Signal Name="S_KTP_P06_STACK_STATUS" UUID="64EB0BF741387753BAB4E8B3768F4090" Type="WORD" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Статус стека событий" />
+        <Signal Name="S_KTP_P06_STACK_NUM" UUID="D07FC40A4ABF1F3B7C0D7D8FF8566AD4" Type="BYTE" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6, номер обмена" />
+        <Signal Name="S_KTP_P06_READY_BLOCKS" UUID="0CB723634CEBD0223F09DCBF773C3200" Type="BYTE" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6, количество блоков для обмена" />
+        <Signal Name="RAW_M340_P06_AV1_AVOTKVAV_DP" UUID="9E7F8F514133EDBBDC9269B968E5D00D" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_1._Аварийное_отключение_ВАВ_" />
+        <Signal Name="RAW_M340_P06_AV1_AVRAVOTKPU_DP" UUID="7CBDBA324834F976F0AE0A8268C4637B" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_1._АВР_АВ_отключено_с_ПУ_" />
+        <Signal Name="RAW_M340_P06_AV1_AVRAVOTK_DP" UUID="C3DF4C9B47621A805E91CB8E02E2108C" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_1._АВР_АВ_отключен_" />
+        <Signal Name="RAW_M340_P06_AV1_AVRAVVKLPU_DP" UUID="1DE1A23D411C9AA0298351B2EAA9BE52" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_1._АВР_АВ_включено_с_ПУ_" />
+        <Signal Name="RAW_M340_P06_AV1_AVRAVVKL_DP" UUID="357F4B2B4976346BB08403888333B6F6" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_1._АВР_АВ_включен_" />
+        <Signal Name="RAW_M340_P06_AV1_AVTVIKCNAVOTK_DP" UUID="1EF0257B4A113AB3037B11B9034FEF47" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_1._Авт._выключатель_цепей_напряжения_АВ_откл._" />
+        <Signal Name="RAW_M340_P06_AV1_AVTVIKCUAVOTK_DP" UUID="C3F59F0842047D21DF1124B51B8451CA" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_1._Авт._выключатель_цепей_управления_АВ_откл._" />
+        <Signal Name="RAW_M340_P06_AV1_COMOTKVAVPU_DP" UUID="12A0686147F59C212F56AB84BBFDD795" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_1._Команда_отключить_ВАВ_поступила_с_ПУ_" />
+        <Signal Name="RAW_M340_P06_AV1_COMVKLVAVPU_DP" UUID="55BAF5144427C3E3E522558870DAF53C" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_1._Команда_включить_ВАВ_поступила_с_ПУ_" />
+        <Signal Name="RAW_M340_P06_AV1_NEISPADS_DP" UUID="028C78BE4D699A6C8E42EFBACC60CF31" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_1._Неисправность_АДЭС_" />
+        <Signal Name="RAW_M340_P06_AV1_NEISPCONTRAV_DP" UUID="F232227345098E92B0CBBAB6B78352F0" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_1._Неисправность_контроллера_АВ_" />
+        <Signal Name="RAW_M340_P06_AV1_NEISPCUVAV_DP" UUID="1EEFE738469D7452F67117A05C0352FE" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_1._Неисправность_цепей_управления_ВАВ_" />
+        <Signal Name="RAW_M340_P06_AV1_NEISPCUVG_DP" UUID="3D112A49489ECA79E012E5A3D8B273E7" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_1._Неисправность_цепей_управления_BГ_" />
+        <Signal Name="RAW_M340_P06_AV1_NPADS_DP" UUID="E5B84D9447981DC1F3AFC4BF4C3644C2" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_1._Неуспешный_пуск_АДЭС_" />
+        <Signal Name="RAW_M340_P06_AV1_OSTADSVNRAVRAV_DP" UUID="A4EB235749EC96CD941D429105E11FCD" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_1._Останов_АДЭС_при_ВНР_после_АВР_АВ_" />
+        <Signal Name="RAW_M340_P06_AV1_OTKSVAVRAV_DP" UUID="59BDB561471C2F955FD720BBE6269292" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_1._Отключение_СВ_по_АВР_АВ_" />
+        <Signal Name="RAW_M340_P06_AV1_OTKSVVNRAVRAV_DP" UUID="BD623B6E44F290591E6AF5980D0EFE99" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_1._Отключение_СВ_при_ВНР_после_АВР_АВ_" />
+        <Signal Name="RAW_M340_P06_AV1_OTKVAVDGZ_DP" UUID="8C5D561440A07A254AD88187CD4574D6" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_1._Отключение_ВАВ_от_дуговой_защиты_" />
+        <Signal Name="RAW_M340_P06_AV1_OTKVAVVNR_DP" UUID="1FB9451C4587587C1416B2897D82C083" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_1._Отключение_ВАВ_при_ВНР_после_АВР_АВ_" />
+        <Signal Name="RAW_M340_P06_AV1_PADSAVRAV_DP" UUID="1D5D08504803A69D98B132BB7F54734E" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_1._Пуск_АДЭС_по_АВР_АВ_" />
+        <Signal Name="RAW_M340_P06_AV1_PEREGRADS_DP" UUID="ABB6C65C47F03744C3680681AA32C824" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_1._Перегрузка_АДЭС_" />
+        <Signal Name="RAW_M340_P06_AV1_SRZASHVAV_DP" UUID="0423D4A34658372385CDB8AC06B50633" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_1._Срабатывание_защит_ВАВ_" />
+        <Signal Name="RAW_M340_P06_AV1_VAVOTK_DP" UUID="0D4217AB4FECCD801F7816A41F16C250" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_1._Выключатель_аварийного_ввода_отключен_" />
+        <Signal Name="RAW_M340_P06_AV1_VAVVIK_DP" UUID="97BF6CE744D20601923CC6A27D63E004" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_1._Выключатель_аварийного_ввода_выкачен_" />
+        <Signal Name="RAW_M340_P06_AV1_VAVVKL_DP" UUID="976C5C09430EFED629C96893691F70CA" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_1._Выключатель_аварийного_ввода_включен_" />
+        <Signal Name="RAW_M340_P06_AV1_VGOTK_DP" UUID="F3DD3A514C5B9E458DC90CB3AB7795EE" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_1._ВГ_отключен_" />
+        <Signal Name="RAW_M340_P06_AV1_VGVKL_DP" UUID="B327A3D8477E84BB6AB2D2BF74708142" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_1._ВГ_включен_" />
+        <Signal Name="RAW_M340_P06_AV1_VKLSVAVRAV_DP" UUID="4A2CC58C4A05B920694B45893E43AAC6" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_1._Включение_СВ_по_АВР_АВ_" />
+        <Signal Name="RAW_M340_P06_AV1_VKLSVVNRAVRAV_DP" UUID="18C148CF49963024A82ECA9948726A34" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_1._Включение_СВ_при_ВНР_после_АВР_АВ_" />
+        <Signal Name="RAW_M340_P06_AV1_VKLVAVAVRAV_DP" UUID="344E568B4D7D42FE685295B414BE0CAA" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_1._Включение_ВАВ_по_АВР_АВ_" />
+        <Signal Name="RAW_M340_P06_AV2_AVOTKVAV_DP" UUID="3D9C40A747B30B5DC22F55A89595903D" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_2._Аварийное_отключение_ВАВ_" />
+        <Signal Name="RAW_M340_P06_AV2_AVRAVOTKPU_DP" UUID="CA0B0C5444AE2429DC46A88E641DCB1F" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_2._АВР_АВ_отключено_с_ПУ_" />
+        <Signal Name="RAW_M340_P06_AV2_AVRAVOTK_DP" UUID="6A68976F4A2884E0354EE39117F3C34D" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_2._АВР_АВ_отключен_" />
+        <Signal Name="RAW_M340_P06_AV2_AVRAVVKLPU_DP" UUID="A0CF96A941B5F59A1BF935B2D7F6C29F" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_2._АВР_АВ_включено_с_ПУ_" />
+        <Signal Name="RAW_M340_P06_AV2_AVRAVVKL_DP" UUID="BBBE496B4BF4CC3267CF5FBCF4CF9DA7" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_2._АВР_АВ_включен_" />
+        <Signal Name="RAW_M340_P06_AV2_AVTVIKCNAVOTK_DP" UUID="90C4BB92400ED9F013DB6B9159CB343F" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_2._Авт._выключатель_цепей_напряжения_АВ_откл._" />
+        <Signal Name="RAW_M340_P06_AV2_AVTVIKCUAVOTK_DP" UUID="A975CB73493773A2832DC4A3308F2B1B" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_2._Авт._выключатель_цепей_управления_АВ_откл._" />
+        <Signal Name="RAW_M340_P06_AV2_COMOTKVAVPU_DP" UUID="B00567254AF11E2141EE609C816130C9" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_2._Команда_отключить_ВАВ_поступила_с_ПУ_" />
+        <Signal Name="RAW_M340_P06_AV2_COMVKLVAVPU_DP" UUID="C460E47C4E7C29CFA5C8539647AFB708" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_2._Команда_включить_ВАВ_поступила_с_ПУ_" />
+        <Signal Name="RAW_M340_P06_AV2_NEISPADS_DP" UUID="3838D79440FB5CD65678588C05A44A7F" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_2._Неисправность_АДЭС_" />
+        <Signal Name="RAW_M340_P06_AV2_NEISPCONTRAV_DP" UUID="371C3E39467B81D2906E18B2562F6741" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_2._Неисправность_контроллера_АВ_" />
+        <Signal Name="RAW_M340_P06_AV2_NEISPCUVAV_DP" UUID="169468F0486A9050B740548A81F43A12" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_2._Неисправность_цепей_управления_ВАВ_" />
+        <Signal Name="RAW_M340_P06_AV2_NEISPCUVG_DP" UUID="0CEE71754D7E07CC6E4F94822E269267" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_2._Неисправность_цепей_управления_BГ_" />
+        <Signal Name="RAW_M340_P06_AV2_NPADS_DP" UUID="5E42235C44F6E7C3E5F6919598D627E5" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_2._Неуспешный_пуск_АДЭС_" />
+        <Signal Name="RAW_M340_P06_AV2_OSTADSVNRAVRAV_DP" UUID="7CDB81704BBEEDAFA657B58CB951AD78" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_2._Останов_АДЭС_при_ВНР_после_АВР_АВ_" />
+        <Signal Name="RAW_M340_P06_AV2_OTKSVAVRAV_DP" UUID="6C446ED34751C6EA1D36A2B411FF3C35" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_2._Отключение_СВ_по_АВР_АВ_" />
+        <Signal Name="RAW_M340_P06_AV2_OTKSVVNRAVRAV_DP" UUID="142C377C40E905F83F6427A65D1A683C" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_2._Отключение_СВ_при_ВНР_после_АВР_АВ_" />
+        <Signal Name="RAW_M340_P06_AV2_OTKVAVDGZ_DP" UUID="D4D61E0C4C1AFFCBAA9B859966539B8C" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_2._Отключение_ВАВ_от_дуговой_защиты_" />
+        <Signal Name="RAW_M340_P06_AV2_OTKVAVVNR_DP" UUID="158634A244E2FCB8942004B1ECC951DC" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_2._Отключение_ВАВ_при_ВНР_после_АВР_АВ_" />
+        <Signal Name="RAW_M340_P06_AV2_PADSAVRAV_DP" UUID="A0B354884737E823982BA3A839A4DD6F" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_2._Пуск_АДЭС_по_АВР_АВ_" />
+        <Signal Name="RAW_M340_P06_AV2_PEREGRADS_DP" UUID="C0B1CA96418DF4A4FD55459132B25D32" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_2._Перегрузка_АДЭС_" />
+        <Signal Name="RAW_M340_P06_AV2_SRZASHVAV_DP" UUID="94F92DB948E7017EFB097A9B653E7A2B" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_2._Срабатывание_защит_ВАВ_" />
+        <Signal Name="RAW_M340_P06_AV2_VAVOTK_DP" UUID="30B310934E18F1010A9870BED35E2B88" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_2._Выключатель_аварийного_ввода_отключен_" />
+        <Signal Name="RAW_M340_P06_AV2_VAVVIK_DP" UUID="483805FA41999D26539E3CA7BEB9A4E7" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_2._Выключатель_аварийного_ввода_выкачен_" />
+        <Signal Name="RAW_M340_P06_AV2_VAVVKL_DP" UUID="B7F7787C404B53FF3EA713B043861360" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_2._Выключатель_аварийного_ввода_включен_" />
+        <Signal Name="RAW_M340_P06_AV2_VGOTK_DP" UUID="8BE90D074F1CCF21B11B0EAA9CEEFF38" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_2._ВГ_отключен_" />
+        <Signal Name="RAW_M340_P06_AV2_VGVKL_DP" UUID="9F368EFB4F417266999AAD8A2D43D576" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_2._ВГ_включен_" />
+        <Signal Name="RAW_M340_P06_AV2_VKLSVAVRAV_DP" UUID="BF58FA524EB929A8013776BE2220E9A0" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_2._Включение_СВ_по_АВР_АВ_" />
+        <Signal Name="RAW_M340_P06_AV2_VKLSVVNRAVRAV_DP" UUID="597BBA72430AB76CDDF55FB4D1CDDD61" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_2._Включение_СВ_при_ВНР_после_АВР_АВ_" />
+        <Signal Name="RAW_M340_P06_AV2_VKLVAVAVRAV_DP" UUID="B8A3F6FD4F1E7AED0A30EE8F57DE4CB8" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_2._Включение_ВАВ_по_АВР_АВ_" />
+        <Signal Name="RAW_M340_P06_SV_AVOTKSV_DP" UUID="AD2F02684D77DA43C19348AB6D20DD42" Type="BOOL" Global="TRUE" Comment="Панель_№6_Секционный_выключатель._Аварийное_отключение_СВ_" />
+        <Signal Name="RAW_M340_P06_SV_AVRSVOTKPU_DP" UUID="3DE339AB480456FFD5581382614A4CAE" Type="BOOL" Global="TRUE" Comment="Панель_№6_Секционный_выключатель._АВР_СВ_отключено_с_ПУ_" />
+        <Signal Name="RAW_M340_P06_SV_AVRSVOTK_DP" UUID="CF30E19F48ECE17BC27391A6BE074908" Type="BOOL" Global="TRUE" Comment="Панель_№6_Секционный_выключатель._АВР_СВ_отключен_" />
+        <Signal Name="RAW_M340_P06_SV_AVRSVVKLPU_DP" UUID="63BCB036441E314B480135BC7964EBC1" Type="BOOL" Global="TRUE" Comment="Панель_№6_Секционный_выключатель._АВР_СВ_включено_с_ПУ_" />
+        <Signal Name="RAW_M340_P06_SV_AVRSVVKL_DP" UUID="54D0DE5F420042F877CB9BAC6E664F79" Type="BOOL" Global="TRUE" Comment="Панель_№6_Секционный_выключатель._АВР_СВ_включен_" />
+        <Signal Name="RAW_M340_P06_SV_AVTVIKCUSVOTK_DP" UUID="744D209D49F53D7C1D88589B378A7622" Type="BOOL" Global="TRUE" Comment="Панель_№6_Секционный_выключатель._Авт._выключатель_цепей_управления_СВ_откл._" />
+        <Signal Name="RAW_M340_P06_SV_COMOTKSVPU_DP" UUID="868C656A42CCB8A559AD249403665E51" Type="BOOL" Global="TRUE" Comment="Панель_№6_Секционный_выключатель._Команда_отключить_СВ_поступила_с_ПУ_" />
+        <Signal Name="RAW_M340_P06_SV_COMVKLSVPU_DP" UUID="0271E1F945A38CD948B3D29902603D2C" Type="BOOL" Global="TRUE" Comment="Панель_№6_Секционный_выключатель._Команда_включить_СВ_поступила_с_ПУ_" />
+        <Signal Name="RAW_M340_P06_SV_NEISPCONTRSV_DP" UUID="6333421F4BFEF048EF62ED932D1A41D0" Type="BOOL" Global="TRUE" Comment="Панель_№6_Секционный_выключатель._Неисправность_контроллера_СВ_" />
+        <Signal Name="RAW_M340_P06_SV_NEISPCUSV_DP" UUID="2B6C66444C49AA490571BCA5A055CD31" Type="BOOL" Global="TRUE" Comment="Панель_№6_Секционный_выключатель._Неисправность_цепей_управления_СВ_" />
+        <Signal Name="RAW_M340_P06_SV_OTKSVTZNPVVDGZ_DP" UUID="41E3F74249230396496FFAB1F94108B1" Type="BOOL" Global="TRUE" Comment="Панель_№6_Секционный_выключатель._Отключение_СВ_от_ТЗНП_вводов,_ДГЗ_" />
+        <Signal Name="RAW_M340_P06_SV_SRZASHSV_DP" UUID="B50F03E84FF2D92BF1D600A561999C46" Type="BOOL" Global="TRUE" Comment="Панель_№6_Секционный_выключатель._Срабатывание_защит_СВ_" />
+        <Signal Name="RAW_M340_P06_SV_SVOTK_DP" UUID="72491BF842F99613303BF582F5266F74" Type="BOOL" Global="TRUE" Comment="Панель_№6_Секционный_выключатель._Секционный_выключатель_отключен_" />
+        <Signal Name="RAW_M340_P06_SV_SVVIK_DP" UUID="EB040292471F0BE592D341A2A3A98D77" Type="BOOL" Global="TRUE" Comment="Панель_№6_Секционный_выключатель._Секционный_выключатель_выкачен_" />
+        <Signal Name="RAW_M340_P06_SV_SVVKL_DP" UUID="7ABCE3E042F0AD4F108CAF8BBD3D77AE" Type="BOOL" Global="TRUE" Comment="Панель_№6_Секционный_выключатель._Секционный_выключатель_включен_" />
+        <Signal Name="RAW_M340_P06_VV1_AVOTKOLSEC_DP" UUID="E5421160433DC06D044B7A863AEE8235" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_1._Аварийное_отключение_ОЛ_секции_" />
+        <Signal Name="RAW_M340_P06_VV1_AVOTKUVN_DP" UUID="BCC1A17343992DB2F5D7AC901A2A9398" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_1._Аварийное_отключение_УВН_" />
+        <Signal Name="RAW_M340_P06_VV1_AVOTKVV_DP" UUID="5864808E4003CF207FCC8791B03755CE" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_1._Аварийное_отключение_ВВ_" />
+        <Signal Name="RAW_M340_P06_VV1_AVTVIKCNOTK_DP" UUID="E5E647604F19190D4957BCAAF041A66B" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_1._Авт._выключатели_цепей_напряжения_В_откл._" />
+        <Signal Name="RAW_M340_P06_VV1_AVTVIKCUOLSECOTK_DP" UUID="140A91DF43AF737C160CD39286F53546" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_1._Авт._выкл._цепей_управления_ОЛ_секции_откл._" />
+        <Signal Name="RAW_M340_P06_VV1_AVTVIKCUOTK_DP" UUID="32DE8D1044358FDC07B7C483B2CEAEB7" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_1._Авт._выключатель_цепей_управления_В_откл._" />
+        <Signal Name="RAW_M340_P06_VV1_COMOTKVVPU_DP" UUID="DDA6968E4C55A8AFD2915EA379927D6E" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_1._Команда_на_отключение_ВВ_поступила_с_ПУ_" />
+        <Signal Name="RAW_M340_P06_VV1_COMVKLVVPU_DP" UUID="073B99BA46F5C8D811BBB7BB87F243AC" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_1._Команда_на_включение_ВВ_поступила_с_ПУ_" />
+        <Signal Name="RAW_M340_P06_VV1_NEISPCONTRV_DP" UUID="60BE2DC04A6AAB285761B98CD423FF96" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_1._Неисправность_контроллера_В_" />
+        <Signal Name="RAW_M340_P06_VV1_NEISPCUV_DP" UUID="5DBBAA8943592A78CEE9038C39E78895" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_1._Неисправность_цепей_управления_B_" />
+        <Signal Name="RAW_M340_P06_VV1_OTKSVVNRAVRSV_DP" UUID="81F15C69458457D0AF9B379F6EA31E93" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_1._Отключение_СВ_при_ВНР_после_АВР_СВ_" />
+        <Signal Name="RAW_M340_P06_VV1_OTKVVAVRAV1_DP" UUID="984F84684536AC6B11B9E5BD8F8802BA" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_1._Отключение_ВВ_по_АВР_АВ1_" />
+        <Signal Name="RAW_M340_P06_VV1_OTKVVAVRAV2_DP" UUID="68C6023A4318BA5B30EC21AEECC7025C" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_1._Отключение_ВВ_по_АВР_АВ2_" />
+        <Signal Name="RAW_M340_P06_VV1_OTKVVAVRSV_DP" UUID="A96E51CF42E11EB4A0E232B1C9127146" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_1._Отключение_ВВ_по_АВР_СВ_" />
+        <Signal Name="RAW_M340_P06_VV1_OTKVVDGZ_DP" UUID="D07B7BE442A3EFE63D65929561FBBE9C" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_1._Отключение_ВВ_от_дуговой_защиты_" />
+        <Signal Name="RAW_M340_P06_VV1_OTKVVNTRZASH_DP" UUID="543A38634C7471DD643A30BAC6921583" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_1._Отключение_выкл._ВН_тр-ра_от_защит_" />
+        <Signal Name="RAW_M340_P06_VV1_PRTEMTROTK_DP" UUID="7D734E9B4E4B6825D4D9248BC6B51A2D" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_1._Превышение_температуры_тр-ра__на_откл._" />
+        <Signal Name="RAW_M340_P06_VV1_PRTEMTRSIG_DP" UUID="3AEEAB57449C8262F61C0B81A468F3BB" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_1._Превышение_температуры_тр-ра_на_сигн._" />
+        <Signal Name="RAW_M340_P06_VV1_RAZGRSEC_DP" UUID="6AD9F2A5438E23ED2BC3B2B9445D2B53" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_1._Разгрузка_секции_" />
+        <Signal Name="RAW_M340_P06_VV1_SRDGZSEC_DP" UUID="FDA94521430F814F1D3FDF89D032372F" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_1._Срабатывание_дуговой_защиты_секции_" />
+        <Signal Name="RAW_M340_P06_VV1_SRTZNPOTKSV_DP" UUID="2A7A41F448F47667DF162591DBEDD261" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_1._Срабатывание_ТЗНП_В_на_отключение_СВ_" />
+        <Signal Name="RAW_M340_P06_VV1_SRTZNPOTKTR_DP" UUID="773F945F4C9AA6AB826E8B973FE0D7CA" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_1._Срабатывание_ТЗНП_В_на_отключение_тр-ра__" />
+        <Signal Name="RAW_M340_P06_VV1_SRTZNPOTKVV_DP" UUID="87D53761445194B5897AAFBAB2120B77" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_1._Срабатывание_ТЗНП_на_отключение_ВВ_" />
+        <Signal Name="RAW_M340_P06_VV1_SRZASHVV_DP" UUID="A52BFECC420158A4E94368B4231A22CA" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_1._Срабатывание_защит_ВВ_" />
+        <Signal Name="RAW_M340_P06_VV1_VKLSVAVRSV_DP" UUID="20438C64418668FDD68E6C84D03C6377" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_1._Включение_СВ_по_АВР_СВ_" />
+        <Signal Name="RAW_M340_P06_VV1_VKLVVVNRAVRAV1_DP" UUID="1988FCBF42973D7713C6A294820FEE35" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_1._Включение_ВВ_при_ВНР_после_АВР_АВ1_" />
+        <Signal Name="RAW_M340_P06_VV1_VKLVVVNRAVRAV2_DP" UUID="B00F338545BB6EE23D6690B2DA4DD80C" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_1._Включение_ВВ_при_ВНР_после_АВР_АВ2_" />
+        <Signal Name="RAW_M340_P06_VV1_VKLVVVNRAVRSV_DP" UUID="D6F5B34D47C6761CCE756988BDAFE29E" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_1._Включение_ВВ_при_ВНР_после_АВР_СВ_" />
+        <Signal Name="RAW_M340_P06_VV1_VOTK_DP" UUID="884F050F45250F15FE96E58D389EAE1A" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_1._Выключатель_ввода_отключен_" />
+        <Signal Name="RAW_M340_P06_VV1_VVIK_DP" UUID="99991E6745FDC3EE0BA49D8D5140629E" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_1._Выключатель_ввода_выкачен_" />
+        <Signal Name="RAW_M340_P06_VV1_VVKL_DP" UUID="9924E9FE4FF61F55CAE45E9EDFA7E2F4" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_1._Выключатель_ввода_включен_" />
+        <Signal Name="RAW_M340_P06_VV2_AVOTKOLSEC_DP" UUID="F7379302400786682673AB936D7F75D9" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_2._Аварийное_отключение_ОЛ_секции_" />
+        <Signal Name="RAW_M340_P06_VV2_AVOTKUVN_DP" UUID="A5778E214A0B62DC62284191FDDAAEF5" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_2._Аварийное_отключение_УВН_" />
+        <Signal Name="RAW_M340_P06_VV2_AVOTKVV_DP" UUID="C4CBAFEC4095889D0006949189E145E8" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_2._Аварийное_отключение_ВВ_" />
+        <Signal Name="RAW_M340_P06_VV2_AVTVIKCNOTK_DP" UUID="3454427C451BFDE1FC7E51B10AFB39AF" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_2._Авт._выключатели_цепей_напряжения_В_откл._" />
+        <Signal Name="RAW_M340_P06_VV2_AVTVIKCUOLSECOTK_DP" UUID="A59C54BF458CEE29AF25BCB4019FC508" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_2._Авт._выкл._цепей_управления_ОЛ_секции_откл._" />
+        <Signal Name="RAW_M340_P06_VV2_AVTVIKCUOTK_DP" UUID="BE02D0A9441ECD282CE15698C6226CD1" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_2._Авт._выключатель_цепей_управления_В_откл._" />
+        <Signal Name="RAW_M340_P06_VV2_COMOTKVVPU_DP" UUID="D56A9B824B560CA7F3A2F58B28367F65" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_2._Команда_на_отключение_ВВ_поступила_с_ПУ_" />
+        <Signal Name="RAW_M340_P06_VV2_COMVKLVVPU_DP" UUID="621A89704178648D829B6E9A91103BCA" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_2._Команда_на_включение_ВВ_поступила_с_ПУ_" />
+        <Signal Name="RAW_M340_P06_VV2_NEISPCONTRV_DP" UUID="3A2803504DAFFF778A15D6B2B7F13DE1" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_2._Неисправность_контроллера_В_" />
+        <Signal Name="RAW_M340_P06_VV2_NEISPCUV_DP" UUID="55AA04BF4D70A91E7D9C79B42A329782" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_2._Неисправность_цепей_управления_B_" />
+        <Signal Name="RAW_M340_P06_VV2_OTKSVVNRAVRSV_DP" UUID="CBA5972047CEE8C5DAE8728D37DED9AF" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_2._Отключение_СВ_при_ВНР_после_АВР_СВ_" />
+        <Signal Name="RAW_M340_P06_VV2_OTKVVAVRAV1_DP" UUID="E1019E0D4F80493B4E0FC886AF070318" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_2._Отключение_ВВ_по_АВР_АВ1_" />
+        <Signal Name="RAW_M340_P06_VV2_OTKVVAVRAV2_DP" UUID="1D5E12104F8C31B6BAC4D1B5EBDEABB6" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_2._Отключение_ВВ_по_АВР_АВ2_" />
+        <Signal Name="RAW_M340_P06_VV2_OTKVVAVRSV_DP" UUID="6BD86B7B4AAD5457D33B999F0BCB8EA6" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_2._Отключение_ВВ_по_АВР_СВ_" />
+        <Signal Name="RAW_M340_P06_VV2_OTKVVDGZ_DP" UUID="86FEBE7947C5CBE111C3B9B5657CAFE8" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_2._Отключение_ВВ_от_дуговой_защиты_" />
+        <Signal Name="RAW_M340_P06_VV2_OTKVVNTRZASH_DP" UUID="C012E9BA4CC1BF2E977356BB385D2190" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_2._Отключение_выкл._ВН_тр-ра_от_защит_" />
+        <Signal Name="RAW_M340_P06_VV2_PRTEMTROTK_DP" UUID="E67C1B5C4EA62BAAB1D39290FCC78FAA" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_2._Превышение_температуры_тр-ра__на_откл._" />
+        <Signal Name="RAW_M340_P06_VV2_PRTEMTRSIG_DP" UUID="EAF34D564276E34B41C417A1F186B8CB" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_2._Превышение_температуры_тр-ра_на_сигн._" />
+        <Signal Name="RAW_M340_P06_VV2_RAZGRSEC_DP" UUID="D17C12CA4A9285BE1BC50AA532DAD788" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_2._Разгрузка_секции_" />
+        <Signal Name="RAW_M340_P06_VV2_SRDGZSEC_DP" UUID="8DF32922400CC8B620FAEABD71B96545" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_2._Срабатывание_дуговой_защиты_секции_" />
+        <Signal Name="RAW_M340_P06_VV2_SRTZNPOTKSV_DP" UUID="BA3C7E904E0F845ED43868B3323CDC24" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_2._Срабатывание_ТЗНП_В_на_отключение_СВ_" />
+        <Signal Name="RAW_M340_P06_VV2_SRTZNPOTKTR_DP" UUID="6975827849A6277046BCF2B224909DFF" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_2._Срабатывание_ТЗНП_В_на_отключение_тр-ра__" />
+        <Signal Name="RAW_M340_P06_VV2_SRTZNPOTKVV_DP" UUID="CC5345EB46C90D421F80DDBAF2D6E28F" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_2._Срабатывание_ТЗНП_на_отключение_ВВ_" />
+        <Signal Name="RAW_M340_P06_VV2_SRZASHVV_DP" UUID="3F3A21814ED4443E2AFCB198793C7EC9" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_2._Срабатывание_защит_ВВ_" />
+        <Signal Name="RAW_M340_P06_VV2_VKLSVAVRSV_DP" UUID="14A1596748230A39252C1D9D5E30AF26" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_2._Включение_СВ_по_АВР_СВ_" />
+        <Signal Name="RAW_M340_P06_VV2_VKLVVVNRAVRAV1_DP" UUID="0B8631A548BC02155E88C9BDCD26E53C" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_2._Включение_ВВ_при_ВНР_после_АВР_АВ1_" />
+        <Signal Name="RAW_M340_P06_VV2_VKLVVVNRAVRAV2_DP" UUID="C6FE0CC34D1B43B93E0B13AE6DD7329F" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_2._Включение_ВВ_при_ВНР_после_АВР_АВ2_" />
+        <Signal Name="RAW_M340_P06_VV2_VKLVVVNRAVRSV_DP" UUID="A8AB4E63424E33737FCBACBFB57CE87A" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_2._Включение_ВВ_при_ВНР_после_АВР_СВ_" />
+        <Signal Name="RAW_M340_P06_VV2_VOTK_DP" UUID="C1D9D56F4A13FBFF212AD9BDDECA750C" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_2._Выключатель_ввода_отключен_" />
+        <Signal Name="RAW_M340_P06_VV2_VVIK_DP" UUID="00CDB71B4EAFB76EEDE3C485158E7291" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_2._Выключатель_ввода_выкачен_" />
+        <Signal Name="RAW_M340_P06_VV2_VVKL_DP" UUID="736ACEA94A506262429E78A9174C912E" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ввод_2._Выключатель_ввода_включен_" />
+        <Signal Name="RAW_M340_P06_PU_NEISKTP_DP" UUID="DA9CDF874D03A23B1043F89F6A373AEF" Type="BOOL" Global="TRUE" Comment="Панель_№6_Неисправность_КТП" />
+        <Signal Name="RAW_M340_P06_PU_AVARKTP_DP" UUID="C1AED2A74A9AAB2DE6D893BD34B97107" Type="BOOL" Global="TRUE" Comment="Панель_№6_Авария_КТП" />
+        <Signal Name="RAW_M340_P06_PU_NEISPDGZ_DP" UUID="4F5C62EF45783C55E543519262DC19E6" Type="BOOL" Global="TRUE" Comment="Панель_№6_Неисправность_ДГЗ" />
+        <Signal Name="RAW_M340_P06_PU_NEISPCONTRPU_DP" UUID="2C94103D4FED4D774D1B548229D2523D" Type="BOOL" Global="TRUE" Comment="Панель_№6_Неисправность_контроллера_ПУ" />
+        <Signal Name="RAW_M340_P06_PU_AVTVIKCSIGOTK_DP" UUID="E5BA5FA542451E9E9B54C19589FE478A" Type="BOOL" Global="TRUE" Comment="Панель_№6_Авт._Выключатель_цепей_сигнализации_откл." />
+        <Signal Name="RAW_M340_P06_PU_AVTVIKCOBOTK_DP" UUID="CA38956740ED30DA5B77D0B4EC15F4F1" Type="BOOL" Global="TRUE" Comment="Панель_№6_авт._Выключатель_цепей_обогрева_откл." />
+        <Signal Name="RAW_M340_P06_PU_CLOCKERR_DP" UUID="081CCA8146C05C53169CF0BA68A4D849" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ошибка_часов_ЦПЛК" />
+        <Signal Name="RAW_M340_P06_PU_NTPERR_DP" UUID="DBA8A2E04B0CE48C41F85D91CE73D807" Type="BOOL" Global="TRUE" Comment="Панель_№6_Ошибка_получения_времени_NTP" />
+        <Signal Name="RAW_M340_P06_PU_PURESET_DP" UUID="588A4149436634BD4F550DAA8D0E2713" Type="BOOL" Global="TRUE" Comment="Панель_№6_Сброс_выполнен_с_ПУ" />
+        <Signal Name="RAW_M340_P06_PU_DURAZR_DP" UUID="03FB7B7749C4033EF1325DA1882D6C53" Type="BOOL" Global="TRUE" Comment="Панель_№6__ДУ_Разрешено" />
+        <Signal Name="RAW_M340_P06_PU_SRAVTKTP_DP" UUID="E6FEAB1140E23C6FC62483BEA890848F" Type="BOOL" Global="TRUE" Comment="Панель_№6_Срабатывание_автоматики_КТП" />
+        <Signal Name="S_KTP_P06_AV1_AVOTKVAV_DP" UUID="E0946AE7443C6EBBAF3CB48B4D9281AB" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 1. Аварийное отключение ВАВ " />
+        <Signal Name="S_KTP_P06_AV1_AVRAVOTKPU_DP" UUID="E3F6EF0A46DB2F8AB10B03A809BE1B78" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 1. АВР АВ отключено с ПУ " />
+        <Signal Name="S_KTP_P06_AV1_AVRAVOTK_DP" UUID="72DC2AA84B48E2D80E6941976EE7E742" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 1. АВР АВ отключен " />
+        <Signal Name="S_KTP_P06_AV1_AVRAVVKLPU_DP" UUID="274905C243526DFD5F1F888A93914C85" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 1. АВР АВ включено с ПУ " />
+        <Signal Name="S_KTP_P06_AV1_AVRAVVKL_DP" UUID="98437244401CFDDC321B4092690E963F" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 1. АВР АВ включен " />
+        <Signal Name="S_KTP_P06_AV1_AVTVIKCNAVOTK_DP" UUID="91EA7C19458B69634A9D6D934F5D1835" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 1. Авт. выключатель цепей напряжения АВ откл. " />
+        <Signal Name="S_KTP_P06_AV1_AVTVIKCUAVOTK_DP" UUID="534D795F4D90743C7F3802BD62F41D18" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 1. Авт. выключатель цепей управления АВ откл. " />
+        <Signal Name="S_KTP_P06_AV1_COMOTKVAVPU_DP" UUID="03111D72442CB1A8D389A284534351E2" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 1. Команда отключить ВАВ поступила с ПУ " />
+        <Signal Name="S_KTP_P06_AV1_COMVKLVAVPU_DP" UUID="21CFD9B443368CE38C265698AE8EB71B" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 1. Команда включить ВАВ поступила с ПУ " />
+        <Signal Name="S_KTP_P06_AV1_NEISPADS_DP" UUID="11AA91B64279337328710591D4FA0BC2" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 1. Неисправность АДЭС " />
+        <Signal Name="S_KTP_P06_AV1_NEISPCONTRAV_DP" UUID="18BDBCC14A02B29DC344F19BB90EAC11" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 1. Неисправность контроллера АВ " />
+        <Signal Name="S_KTP_P06_AV1_NEISPCUVAV_DP" UUID="640000D84BC56E35E99EE1BFE9D2B5E6" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 1. Неисправность цепей управления ВАВ " />
+        <Signal Name="S_KTP_P06_AV1_NEISPCUVG_DP" UUID="BAE271964A4AA47F4C84648FEF0EBFE3" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 1. Неисправность цепей управления BГ " />
+        <Signal Name="S_KTP_P06_AV1_NPADS_DP" UUID="8CE5DA6F4542025375FCAA9DDBD6451E" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 1. Неуспешный пуск АДЭС " />
+        <Signal Name="S_KTP_P06_AV1_OSTADSVNRAVRAV_DP" UUID="236C63EB486F8CD201317C8FC86D731F" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 1. Останов АДЭС при ВНР после АВР АВ " />
+        <Signal Name="S_KTP_P06_AV1_OTKSVAVRAV_DP" UUID="32AB334946375ECF6799BE920F4E50DD" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 1. Отключение СВ по АВР АВ " />
+        <Signal Name="S_KTP_P06_AV1_OTKSVVNRAVRAV_DP" UUID="75162A0D43316A0BD407EEA3B34E198E" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 1. Отключение СВ при ВНР после АВР АВ " />
+        <Signal Name="S_KTP_P06_AV1_OTKVAVDGZ_DP" UUID="2E90106B4B811446EF3EC5804CC44271" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 1. Отключение ВАВ от дуговой защиты " />
+        <Signal Name="S_KTP_P06_AV1_OTKVAVVNR_DP" UUID="C8F4C74C4D9CFA012C100584A1CC49BC" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 1. Отключение ВАВ при ВНР после АВР АВ " />
+        <Signal Name="S_KTP_P06_AV1_PADSAVRAV_DP" UUID="C3B059AC40325E45D0F2DD8CAA072330" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 1. Пуск АДЭС по АВР АВ " />
+        <Signal Name="S_KTP_P06_AV1_PEREGRADS_DP" UUID="DE09369B42FF084A130355A8347FE7DB" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 1. Перегрузка АДЭС " />
+        <Signal Name="S_KTP_P06_AV1_SRZASHVAV_DP" UUID="EDB2D73F451C9970862B4AA8C748FD5E" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 1. Срабатывание защит ВАВ " />
+        <Signal Name="S_KTP_P06_AV1_VAVOTK_DP" UUID="02EBC0AB495907271DACD4B4CF3BE59F" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 1. Выключатель аварийного ввода отключен " />
+        <Signal Name="S_KTP_P06_AV1_VAVVIK_DP" UUID="7180B72247D49FB023BFBABF55DD66B5" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 1. Выключатель аварийного ввода выкачен " />
+        <Signal Name="S_KTP_P06_AV1_VAVVKL_DP" UUID="7D99465744B5A86AF1522CB4BB81BF93" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 1. Выключатель аварийного ввода включен " />
+        <Signal Name="S_KTP_P06_AV1_VGOTK_DP" UUID="0DF8F47343B9E25F417B3B98DA70455B" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 1. ВГ отключен " />
+        <Signal Name="S_KTP_P06_AV1_VGVKL_DP" UUID="733FEEE8481AE01332EC1FA24CB9E9BE" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 1. ВГ включен " />
+        <Signal Name="S_KTP_P06_AV1_VKLSVAVRAV_DP" UUID="CF35903E4E997ACC1D20DAA1A2DE11DA" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 1. Включение СВ по АВР АВ " />
+        <Signal Name="S_KTP_P06_AV1_VKLSVVNRAVRAV_DP" UUID="CFCAA9EC470961DB642F9AAF789B2D7D" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 1. Включение СВ при ВНР после АВР АВ " />
+        <Signal Name="S_KTP_P06_AV1_VKLVAVAVRAV_DP" UUID="6722606941294ECFA6581C86FE8D64D4" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 1. Включение ВАВ по АВР АВ " />
+        <Signal Name="S_KTP_P06_AV2_AVOTKVAV_DP" UUID="08D901274C13C712FF32008E2ADE088F" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 2. Аварийное отключение ВАВ " />
+        <Signal Name="S_KTP_P06_AV2_AVRAVOTKPU_DP" UUID="8FFDBF494948BA406419F1A337AC39A3" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 2. АВР АВ отключено с ПУ " />
+        <Signal Name="S_KTP_P06_AV2_AVRAVOTK_DP" UUID="FB8CD4D94590BE01506F5E8A881D7F20" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 2. АВР АВ отключен " />
+        <Signal Name="S_KTP_P06_AV2_AVRAVVKLPU_DP" UUID="9DBE147F465002246FD58190A65AB2BC" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 2. АВР АВ включено с ПУ " />
+        <Signal Name="S_KTP_P06_AV2_AVRAVVKL_DP" UUID="D1FD9BFB4927CB3898DC6ABA546C7D47" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 2. АВР АВ включен " />
+        <Signal Name="S_KTP_P06_AV2_AVTVIKCNAVOTK_DP" UUID="D6ACB88D4017319E31D07A9D8BFF8849" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 2. Авт. выключатель цепей напряжения АВ откл. " />
+        <Signal Name="S_KTP_P06_AV2_AVTVIKCUAVOTK_DP" UUID="73A9359C45A2009162E020BBA4E824B0" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 2. Авт. выключатель цепей управления АВ откл. " />
+        <Signal Name="S_KTP_P06_AV2_COMOTKVAVPU_DP" UUID="0E950F344CD8BA650EAD87AE20BB8A4E" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 2. Команда отключить ВАВ поступила с ПУ " />
+        <Signal Name="S_KTP_P06_AV2_COMVKLVAVPU_DP" UUID="EDEA455B4DA5B705E44596A72571BE93" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 2. Команда включить ВАВ поступила с ПУ " />
+        <Signal Name="S_KTP_P06_AV2_NEISPADS_DP" UUID="10BA4B2E4726FF03B0ADBF8693527F4B" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 2. Неисправность АДЭС " />
+        <Signal Name="S_KTP_P06_AV2_NEISPCONTRAV_DP" UUID="EA72CB67439485DF5A40D7AA3E145DB3" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 2. Неисправность контроллера АВ " />
+        <Signal Name="S_KTP_P06_AV2_NEISPCUVAV_DP" UUID="12E66EA24A7A017F9F7C459A45FFE327" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 2. Неисправность цепей управления ВАВ " />
+        <Signal Name="S_KTP_P06_AV2_NEISPCUVG_DP" UUID="2958E1C24C976E24156833A695F2FBAE" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 2. Неисправность цепей управления BГ " />
+        <Signal Name="S_KTP_P06_AV2_NPADS_DP" UUID="43CBFDC04B52BB597ECB9381C378F831" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 2. Неуспешный пуск АДЭС " />
+        <Signal Name="S_KTP_P06_AV2_OSTADSVNRAVRAV_DP" UUID="7FE36C3C4D1A148D583543BCDDCEAD23" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 2. Останов АДЭС при ВНР после АВР АВ " />
+        <Signal Name="S_KTP_P06_AV2_OTKSVAVRAV_DP" UUID="F4CE850C451498F4C78717852BE37049" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 2. Отключение СВ по АВР АВ " />
+        <Signal Name="S_KTP_P06_AV2_OTKSVVNRAVRAV_DP" UUID="892756B347541E0EF7510389595253BB" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 2. Отключение СВ при ВНР после АВР АВ " />
+        <Signal Name="S_KTP_P06_AV2_OTKVAVDGZ_DP" UUID="E499E219422C2A156434BAAE0F9E46F7" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 2. Отключение ВАВ от дуговой защиты " />
+        <Signal Name="S_KTP_P06_AV2_OTKVAVVNR_DP" UUID="95ECE57A4D68E4F3ACAB92B6E79D9595" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 2. Отключение ВАВ при ВНР после АВР АВ " />
+        <Signal Name="S_KTP_P06_AV2_PADSAVRAV_DP" UUID="17EB363E440BF85EADDC9695920190F4" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 2. Пуск АДЭС по АВР АВ " />
+        <Signal Name="S_KTP_P06_AV2_PEREGRADS_DP" UUID="3C184BB5459DC354846E1F8033816FE8" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 2. Перегрузка АДЭС " />
+        <Signal Name="S_KTP_P06_AV2_SRZASHVAV_DP" UUID="E5E93A874C7F37E7C0B930819E5E38D2" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 2. Срабатывание защит ВАВ " />
+        <Signal Name="S_KTP_P06_AV2_VAVOTK_DP" UUID="294DE61F41A1513329BA7A9CDBD62F63" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 2. Выключатель аварийного ввода отключен " />
+        <Signal Name="S_KTP_P06_AV2_VAVVIK_DP" UUID="046BB277497BC802D6E0A3B19824D59B" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 2. Выключатель аварийного ввода выкачен " />
+        <Signal Name="S_KTP_P06_AV2_VAVVKL_DP" UUID="DC8EA46E488B074AC11039A8B2047FB8" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 2. Выключатель аварийного ввода включен " />
+        <Signal Name="S_KTP_P06_AV2_VGOTK_DP" UUID="8196C858479DC33A95C17BA984BAA31A" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 2. ВГ отключен " />
+        <Signal Name="S_KTP_P06_AV2_VGVKL_DP" UUID="78047307458E3BA3F2DDF9882511AECE" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 2. ВГ включен " />
+        <Signal Name="S_KTP_P06_AV2_VKLSVAVRAV_DP" UUID="240B44CA443A2E1C73C560854F1EB831" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 2. Включение СВ по АВР АВ " />
+        <Signal Name="S_KTP_P06_AV2_VKLSVVNRAVRAV_DP" UUID="9FAE572A4E693A7EE2AAC8A8D8D501B6" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 2. Включение СВ при ВНР после АВР АВ " />
+        <Signal Name="S_KTP_P06_AV2_VKLVAVAVRAV_DP" UUID="E14974AC409D8039D0C8358FB71DF848" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 2. Включение ВАВ по АВР АВ " />
+        <Signal Name="S_KTP_P06_SV_AVOTKSV_DP" UUID="FAC7611B4F1495FABEB1BBAA3750EC5C" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Секционный выключатель. Аварийное отключение СВ " />
+        <Signal Name="S_KTP_P06_SV_AVRSVOTKPU_DP" UUID="D935825D4B22416F09E8AFB763676CB9" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Секционный выключатель. АВР СВ отключено с ПУ " />
+        <Signal Name="S_KTP_P06_SV_AVRSVOTK_DP" UUID="B5EA1EB44D9703868720829F9EA7840E" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Секционный выключатель. АВР СВ отключен " />
+        <Signal Name="S_KTP_P06_SV_AVRSVVKLPU_DP" UUID="EAFD33AA4E0FC42E35B1C2BE26F85645" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Секционный выключатель. АВР СВ включено с ПУ " />
+        <Signal Name="S_KTP_P06_SV_AVRSVVKL_DP" UUID="5DD30E2B49CEC0AF09D05E9D7147B3E2" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Секционный выключатель. АВР СВ включен " />
+        <Signal Name="S_KTP_P06_SV_AVTVIKCUSVOTK_DP" UUID="93CD5C07465EF05DB61A3F9CAC61E242" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Секционный выключатель. Авт. выключатель цепей управления СВ откл. " />
+        <Signal Name="S_KTP_P06_SV_COMOTKSVPU_DP" UUID="A567B8434F7A50562DC669BDF35FEB99" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Секционный выключатель. Команда отключить СВ поступила с ПУ " />
+        <Signal Name="S_KTP_P06_SV_COMVKLSVPU_DP" UUID="AE7186874FC8B18953A8B1BD637B687C" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Секционный выключатель. Команда включить СВ поступила с ПУ " />
+        <Signal Name="S_KTP_P06_SV_NEISPCONTRSV_DP" UUID="38895D7D480C8BE967C9CE95A99015C9" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Секционный выключатель. Неисправность контроллера СВ " />
+        <Signal Name="S_KTP_P06_SV_NEISPCUSV_DP" UUID="3394090D46422A8F46AA06A4CA9D6D4E" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Секционный выключатель. Неисправность цепей управления СВ " />
+        <Signal Name="S_KTP_P06_SV_OTKSVTZNPVVDGZ_DP" UUID="14C65E9744C772D2C02BFB84D908A081" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Секционный выключатель. Отключение СВ от ТЗНП вводов, ДГЗ " />
+        <Signal Name="S_KTP_P06_SV_SRZASHSV_DP" UUID="2D920A914561E49086F61EB046AA624B" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Секционный выключатель. Срабатывание защит СВ " />
+        <Signal Name="S_KTP_P06_SV_SVOTK_DP" UUID="B2AE164B4177F7B9D6478D8092057400" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Секционный выключатель. Секционный выключатель отключен " />
+        <Signal Name="S_KTP_P06_SV_SVVIK_DP" UUID="B6D4031B4979C361D36D9487B3DC8A25" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Секционный выключатель. Секционный выключатель выкачен " />
+        <Signal Name="S_KTP_P06_SV_SVVKL_DP" UUID="B7D1FC68482090409538E79F4ABB2EEB" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Секционный выключатель. Секционный выключатель включен " />
+        <Signal Name="S_KTP_P06_VV1_AVOTKOLSEC_DP" UUID="96F6D2D84CC4EA2ED7CB8DB62BE858B6" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 1. Аварийное отключение ОЛ секции " />
+        <Signal Name="S_KTP_P06_VV1_AVOTKUVN_DP" UUID="280686F943C4C576A539049B53350D19" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 1. Аварийное отключение УВН " />
+        <Signal Name="S_KTP_P06_VV1_AVOTKVV_DP" UUID="3A6D23D743091B5960B50782706B4D3E" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 1. Аварийное отключение ВВ " />
+        <Signal Name="S_KTP_P06_VV1_AVTVIKCNOTK_DP" UUID="0F1E6CF14191C8A83EF8D6B46B57E722" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 1. Авт. выключатели цепей напряжения В откл. " />
+        <Signal Name="S_KTP_P06_VV1_AVTVIKCUOLSECOTK_DP" UUID="333C9CA4478DF8A20B7233A32281473F" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 1. Авт. выкл. цепей управления ОЛ секции откл. " />
+        <Signal Name="S_KTP_P06_VV1_AVTVIKCUOTK_DP" UUID="2A8B1E3547CEEF3F490B72844E053B44" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 1. Авт. выключатель цепей управления В откл. " />
+        <Signal Name="S_KTP_P06_VV1_COMOTKVVPU_DP" UUID="CBFD7F014EAC27B21D5BB3A866DA6F00" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 1. Команда на отключение ВВ поступила с ПУ " />
+        <Signal Name="S_KTP_P06_VV1_COMVKLVVPU_DP" UUID="9B083E2745E5262512D47DBE960C4372" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 1. Команда на включение ВВ поступила с ПУ " />
+        <Signal Name="S_KTP_P06_VV1_NEISPCONTRV_DP" UUID="D136D60046D5843EE477E39598F0C341" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 1. Неисправность контроллера В " />
+        <Signal Name="S_KTP_P06_VV1_NEISPCUV_DP" UUID="EE2A552B4AD9A69BBD435EB347F3DDC4" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 1. Неисправность цепей управления B " />
+        <Signal Name="S_KTP_P06_VV1_OTKSVVNRAVRSV_DP" UUID="DC5251BF4355A070D703F19B89891B7C" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 1. Отключение СВ при ВНР после АВР СВ " />
+        <Signal Name="S_KTP_P06_VV1_OTKVVAVRAV1_DP" UUID="C3F0744B480A689A0E804BA31CA90E14" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 1. Отключение ВВ по АВР АВ1 " />
+        <Signal Name="S_KTP_P06_VV1_OTKVVAVRAV2_DP" UUID="08DE077A47C01B80179456B1B6795E43" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 1. Отключение ВВ по АВР АВ2 " />
+        <Signal Name="S_KTP_P06_VV1_OTKVVAVRSV_DP" UUID="940CA40A4A42C5E600FCF49367D1FC0D" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 1. Отключение ВВ по АВР СВ " />
+        <Signal Name="S_KTP_P06_VV1_OTKVVDGZ_DP" UUID="10A73C4441FBFC18985FF3AD1A96BBDE" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 1. Отключение ВВ от дуговой защиты " />
+        <Signal Name="S_KTP_P06_VV1_OTKVVNTRZASH_DP" UUID="9EBF22974F6ABBE771322A8E9C979678" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 1. Отключение выкл. ВН тр-ра от защит " />
+        <Signal Name="S_KTP_P06_VV1_PRTEMTROTK_DP" UUID="029273D84D7614C70FD18FBEB7B47F2B" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 1. Превышение температуры тр-ра  на откл. " />
+        <Signal Name="S_KTP_P06_VV1_PRTEMTRSIG_DP" UUID="2C24977A42F4D268488F6BAF7ABD2255" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 1. Превышение температуры тр-ра на сигн. " />
+        <Signal Name="S_KTP_P06_VV1_RAZGRSEC_DP" UUID="4495D30B412E98A33A4D428C71DDC720" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 1. Разгрузка секции " />
+        <Signal Name="S_KTP_P06_VV1_SRDGZSEC_DP" UUID="D88E73984C6C1AD6B7282AB65D83EBAB" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 1. Срабатывание дуговой защиты секции " />
+        <Signal Name="S_KTP_P06_VV1_SRTZNPOTKSV_DP" UUID="D8040AB04D0DE44A381A39BC2828C303" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 1. Срабатывание ТЗНП В на отключение СВ " />
+        <Signal Name="S_KTP_P06_VV1_SRTZNPOTKTR_DP" UUID="522AF1C841D7FAC9EFA924A8237907F0" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 1. Срабатывание ТЗНП В на отключение тр-ра  " />
+        <Signal Name="S_KTP_P06_VV1_SRTZNPOTKVV_DP" UUID="7879FD6F4176D6870A47EC91F2757FC3" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 1. Срабатывание ТЗНП на отключение ВВ " />
+        <Signal Name="S_KTP_P06_VV1_SRZASHVV_DP" UUID="08E33245476810292C5B6B8CD6288075" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 1. Срабатывание защит ВВ " />
+        <Signal Name="S_KTP_P06_VV1_VKLSVAVRSV_DP" UUID="36E396D54E4EBE5692AF6D891D732264" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 1. Включение СВ по АВР СВ " />
+        <Signal Name="S_KTP_P06_VV1_VKLVVVNRAVRAV1_DP" UUID="EFF31A354DA6991F31CB53ACDAADD61A" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 1. Включение ВВ при ВНР после АВР АВ1 " />
+        <Signal Name="S_KTP_P06_VV1_VKLVVVNRAVRAV2_DP" UUID="4660769443ADFC7FDB68488752FB91FC" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 1. Включение ВВ при ВНР после АВР АВ2 " />
+        <Signal Name="S_KTP_P06_VV1_VKLVVVNRAVRSV_DP" UUID="9F5FB75C48390399ECD3F280520C0EA5" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 1. Включение ВВ при ВНР после АВР СВ " />
+        <Signal Name="S_KTP_P06_VV1_VOTK_DP" UUID="8ECA43ED40620687EEE61789F3F55848" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 1. Выключатель ввода отключен " />
+        <Signal Name="S_KTP_P06_VV1_VVIK_DP" UUID="4D48F33F40ADF5D0FD4B44916541F0A0" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 1. Выключатель ввода выкачен " />
+        <Signal Name="S_KTP_P06_VV1_VVKL_DP" UUID="5C936B72408B0520E4ED709EE6463072" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 1. Выключатель ввода включен " />
+        <Signal Name="S_KTP_P06_VV2_AVOTKOLSEC_DP" UUID="51E7EE6045F5BAAF4DB02781C5ED8679" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 2. Аварийное отключение ОЛ секции " />
+        <Signal Name="S_KTP_P06_VV2_AVOTKUVN_DP" UUID="A1CD11FB47DA3BDEBD5DA4A288217A6D" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 2. Аварийное отключение УВН " />
+        <Signal Name="S_KTP_P06_VV2_AVOTKVV_DP" UUID="892151F84CF2C3DD55DD0383E94C20A1" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 2. Аварийное отключение ВВ " />
+        <Signal Name="S_KTP_P06_VV2_AVTVIKCNOTK_DP" UUID="56E016CE46C34B1D6F41548BEE4EAA9E" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 2. Авт. выключатели цепей напряжения В откл. " />
+        <Signal Name="S_KTP_P06_VV2_AVTVIKCUOLSECOTK_DP" UUID="E801E2E543213437D8833B80925789C6" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 2. Авт. выкл. цепей управления ОЛ секции откл. " />
+        <Signal Name="S_KTP_P06_VV2_AVTVIKCUOTK_DP" UUID="C7D88B7743BDEC8A1DDA04A8A51D4D0A" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 2. Авт. выключатель цепей управления В откл. " />
+        <Signal Name="S_KTP_P06_VV2_COMOTKVVPU_DP" UUID="4D13F96F4C7B00CD1023959703BC26D7" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 2. Команда на отключение ВВ поступила с ПУ " />
+        <Signal Name="S_KTP_P06_VV2_COMVKLVVPU_DP" UUID="FBB4DAC64F5B1E013D1689A79D4B8E6B" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 2. Команда на включение ВВ поступила с ПУ " />
+        <Signal Name="S_KTP_P06_VV2_NEISPCONTRV_DP" UUID="87CAF0384599CD3E8B9CFAA1DABC5BB1" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 2. Неисправность контроллера В " />
+        <Signal Name="S_KTP_P06_VV2_NEISPCUV_DP" UUID="92924FAB4C66787E78CEE7A5814CB898" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 2. Неисправность цепей управления B " />
+        <Signal Name="S_KTP_P06_VV2_OTKSVVNRAVRSV_DP" UUID="BF0528BF45ACBD08B3DAD0A075EC8545" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 2. Отключение СВ при ВНР после АВР СВ " />
+        <Signal Name="S_KTP_P06_VV2_OTKVVAVRAV1_DP" UUID="41D3B0CD4581F3CDE3815FB97F0D7AB5" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 2. Отключение ВВ по АВР АВ1 " />
+        <Signal Name="S_KTP_P06_VV2_OTKVVAVRAV2_DP" UUID="57CE1B854C2691DF01984994D7AFB741" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 2. Отключение ВВ по АВР АВ2 " />
+        <Signal Name="S_KTP_P06_VV2_OTKVVAVRSV_DP" UUID="8B75B4624A7CE84B84EC50B251D20F51" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 2. Отключение ВВ по АВР СВ " />
+        <Signal Name="S_KTP_P06_VV2_OTKVVDGZ_DP" UUID="0E0D8EA840BF0E107E39DDAA4E1EF0AC" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 2. Отключение ВВ от дуговой защиты " />
+        <Signal Name="S_KTP_P06_VV2_OTKVVNTRZASH_DP" UUID="C46B03A6452AAA9A197627864DF953FD" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 2. Отключение выкл. ВН тр-ра от защит " />
+        <Signal Name="S_KTP_P06_VV2_PRTEMTROTK_DP" UUID="890A6488454B9E6F1949FEA1B952FF15" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 2. Превышение температуры тр-ра  на откл. " />
+        <Signal Name="S_KTP_P06_VV2_PRTEMTRSIG_DP" UUID="0AB98E224AE1063224472AB832A3352D" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 2. Превышение температуры тр-ра на сигн. " />
+        <Signal Name="S_KTP_P06_VV2_RAZGRSEC_DP" UUID="FFB4A51A4F29CA4781B57F9AA6453A6A" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 2. Разгрузка секции " />
+        <Signal Name="S_KTP_P06_VV2_SRDGZSEC_DP" UUID="5FF4CBC6484D7602BD7DF9897894C911" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 2. Срабатывание дуговой защиты секции " />
+        <Signal Name="S_KTP_P06_VV2_SRTZNPOTKSV_DP" UUID="D9266B294983BC352450718A9587A506" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 2. Срабатывание ТЗНП В на отключение СВ " />
+        <Signal Name="S_KTP_P06_VV2_SRTZNPOTKTR_DP" UUID="724A7B89427BB788B7A3629929C70871" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 2. Срабатывание ТЗНП В на отключение тр-ра  " />
+        <Signal Name="S_KTP_P06_VV2_SRTZNPOTKVV_DP" UUID="569F54324F4EA7CA8B7BF191F182A89D" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 2. Срабатывание ТЗНП на отключение ВВ " />
+        <Signal Name="S_KTP_P06_VV2_SRZASHVV_DP" UUID="820AEDC1406213AF8CA9599B3D0552F6" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 2. Срабатывание защит ВВ " />
+        <Signal Name="S_KTP_P06_VV2_VKLSVAVRSV_DP" UUID="C994A31C4D86135923A2FC9EA850454F" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 2. Включение СВ по АВР СВ " />
+        <Signal Name="S_KTP_P06_VV2_VKLVVVNRAVRAV1_DP" UUID="E62F6E5E4492E3FBD9BF8CB4BC783EA8" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 2. Включение ВВ при ВНР после АВР АВ1 " />
+        <Signal Name="S_KTP_P06_VV2_VKLVVVNRAVRAV2_DP" UUID="74EC771A4ADFC1FB580320AFADE06988" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 2. Включение ВВ при ВНР после АВР АВ2 " />
+        <Signal Name="S_KTP_P06_VV2_VKLVVVNRAVRSV_DP" UUID="E3FA8C3C41A106800D007BB50B694AA4" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 2. Включение ВВ при ВНР после АВР СВ " />
+        <Signal Name="S_KTP_P06_VV2_VOTK_DP" UUID="DD95A4FB45FD279281DD44990D248034" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 2. Выключатель ввода отключен " />
+        <Signal Name="S_KTP_P06_VV2_VVIK_DP" UUID="4BAEE08B420B3A2FB8819B92A88EA648" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 2. Выключатель ввода выкачен " />
+        <Signal Name="S_KTP_P06_VV2_VVKL_DP" UUID="9B1AE9634E4402A882BB3287594F4388" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ввод 2. Выключатель ввода включен " />
+        <Signal Name="S_KTP_P06_PU_NEISKTP_DP" UUID="C61DCA99457DE42298DE8AA9572A1439" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Неисправность КТП" />
+        <Signal Name="S_KTP_P06_PU_AVARKTP_DP" UUID="6CEDEDBE4E569F939E65DDB78F7C3D73" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Авария КТП" />
+        <Signal Name="S_KTP_P06_PU_NEISPDGZ_DP" UUID="5E2050A54E49390787310E89F903C741" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Неисправность ДГЗ&#x0A;" />
+        <Signal Name="S_KTP_P06_PU_NEISPCONTRPU_DP" UUID="DB146EB949E88AA366E14E96CBCA1ECB" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Неисправность контроллера ПУ" />
+        <Signal Name="S_KTP_P06_PU_AVTVIKCSIGOTK_DP" UUID="807995354EA5882A470AC0AA0E873FAD" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Авт. Выключатель цепей сигнализации откл." />
+        <Signal Name="S_KTP_P06_PU_AVTVIKCOBOTK_DP" UUID="E6FB6AAF44AC21F561EED9900C3FE7A4" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_авт. Выключатель цепей обогрева откл.&#x0A;" />
+        <Signal Name="S_KTP_P06_PU_CLOCKERR_DP" UUID="CCAA10DB4C541B33E1DE2398E659DF7E" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ошибка часов ЦПЛК" />
+        <Signal Name="S_KTP_P06_PU_NTPERR_DP" UUID="8A37C9A84D2A780F658272B5A0AA7883" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Ошибка получения времени NTP&#x0A;" />
+        <Signal Name="S_KTP_P06_PU_PURESET_DP" UUID="F2F08B6641D204CC8DC40B90DAFCEEEB" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Сброс выполнен с ПУ&#x0A;" />
+        <Signal Name="S_KTP_P06_PU_DURAZR_DP" UUID="3B9D644D411B2815CC123EB468CCF2B6" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_ ДУ Разрешено" />
+        <Signal Name="S_KTP_P06_PU_SRAVTKTP_DP" UUID="9FFEDEF24D217CB3E906579367000B8E" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Срабатывание автоматики КТП" />
+        <Signal Name="@PID" UUID="DA0BBCEB40D235568489B4BAC9E14737" Type="STRING" />
+        <Signal Name="@STATE" UUID="3FD13AEB42F422AF6473B7ABAB849D24" Type="STRING" />
+        <Signal Name="@COMMAND" UUID="7FFDDB3C497544F2F01624979E1A9336" Type="STRING" />
+        <Signal Name="@COMMAND_VALUE" UUID="CCFA3AA443B08184DBF60ABD3DFD61C1" Type="STRING" />
+        <Signal Name="@MESSAGE" UUID="504A69FF4C6E0B0893E3CFB393CCAC0A" Type="STRING" />
+        <Signal Name="@MESSAGE_FRAMEWORK" UUID="1A1ACCC849D1176CD2CDAA9DA8AFD9E1" Type="STRING" />
+        <Signal Name="@EVENT" UUID="483F3A5C4B54F7BDEEBA5A943854F86A" Type="STRING" />
+        <Signal Name="@RESERVE" UUID="F3B3218D406F0584BD34A1A632CA1EE1" Type="BOOL" />
+    </InterfaceList>
+</SubAppType>

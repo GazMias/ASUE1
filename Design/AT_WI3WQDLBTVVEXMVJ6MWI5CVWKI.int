@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE SubAppType v. 1.3 >
+<SubAppType Name="SOUND_WARNING" Kind="SOUND" Args="" Comment="" UUID="905CEFA24F3C726E607B3C8557011E7F">
+    <InterfaceList>
+        <Signal Name="Local_1" UUID="D7F14E234202DC2ACB4EE6A655E4870B" Type="BOOL" />
+        <Signal Name="Local" UUID="7C3BECCE4281F2688B7011A5704BB397" Type="BOOL" />
+        <Signal Name="SOUND_WARNING" UUID="04DBB02C4EE20E3E689948BFF072B6B4" Type="BOOL" Global="TRUE" Comment="Звуковая сигнализация WARNING" />
+        <Signal Name="@COMMAND" UUID="AFA0546E4242673B121CC386661172DA" Type="STRING" />
+        <Signal Name="@COMMAND_VALUE" UUID="D99D5B34449A85F469CA5EA2E489A129" Type="STRING" />
+        <Signal Name="@EVENT" UUID="A32D275C476F291E912D4DAA0A208572" Type="STRING" />
+        <Signal Name="@MESSAGE" UUID="BEA0F6484BA117ACE195DF8D275E2E35" Type="STRING" Usage="output" />
+        <Signal Name="@MESSAGE_FRAMEWORK" UUID="3CCD7E62492BF13176A5D6A84F9FBA5A" Type="STRING" Usage="output" />
+        <Signal Name="@PID" UUID="DC70394B43780A5B81792BA1E049CECB" Type="STRING" Usage="output" />
+        <Signal Name="@RESERVE" UUID="DB044354464B7A1A1D23F982052B3EA1" Type="BOOL" />
+        <Signal Name="@STATE" UUID="44F9EEC944EFCB50A461BD88FFFC4F73" Type="STRING" Usage="output" />
+    </InterfaceList>
+</SubAppType>

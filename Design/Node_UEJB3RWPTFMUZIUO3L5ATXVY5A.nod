@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Node v. 1.3 >
+<Node Name="ARM_OPERATOR" Comment="Интерфейс пользователя" Disabled="TRUE" Address="169.254.0.158" TargetPath="" UUID="9482F3D6497342309ADF7C9BF2EFD1DD">
+    <InterfaceList>
+        <SubApp Name="User_interface" Type="01E79B314099080F773B1DAF8A9FCB3C" Args="" ConnectionTimeout="2000" ExecTimeout="30000" ShutdownTimeout="0" GoodResult="0" Comment="" UUID="25BD3BFD42357D40020008A50187E77A" />
+        <SubApp Name="SOUND" Type="CCD87896497DEB381D91A2A9D81AA4F7" Args="" ConnectionTimeout="2000" ExecTimeout="10000" ShutdownTimeout="0" GoodResult="0" Comment="" UUID="1BF2CAAB4AA25E56220242BC734CD11C" />
+        <SubApp Name="SOUND2" Type="905CEFA24F3C726E607B3C8557011E7F" Args="" ConnectionTimeout="2000" ExecTimeout="10000" ShutdownTimeout="0" GoodResult="0" Comment="" UUID="BF1D70024DFC136A5F9B788B1E57DB24" />
+        <SubApp Name="Report" Type="2B73C06C403367E9267C448704ECD0E8" Args="" ConnectionTimeout="2000" ExecTimeout="10000" ShutdownTimeout="0" GoodResult="0" Comment="" UUID="DBEBD88C4027C0BFFB8CCA97BF989B3A" />
+        <SubApp Name="Processing_Rashod" Type="930151224331D228F7A786AF1DCEC269" Args="" ConnectionTimeout="2000" ExecTimeout="10000" ShutdownTimeout="0" GoodResult="0" Comment="" UUID="9EEBDD3C4733395A796F6090514674C4" />
+        <SubApp Name="Connection_check_ARM1" Type="E9779DAC40A394862DFA63B2419EEA59" Args="" ConnectionTimeout="2000" ExecTimeout="10000" ShutdownTimeout="0" GoodResult="0" Comment="" UUID="9632DBC44263785FD4F7A39A3FA5EB5F" />
+        <SubApp Name="ReserveServer" Type="739E85A243674396E0251DB11B8CDC68" Args="" ConnectionTimeout="2000" ExecTimeout="10000" ShutdownTimeout="0" GoodResult="0" Comment="" UUID="1FFA62934E772CCBEC93AD8C00975A31" />
+        <SubApp Name="TREND" Type="304571234EF897DA2E837D9B298187E0" Args="" ConnectionTimeout="2000" ExecTimeout="10000" ShutdownTimeout="0" GoodResult="0" Comment="" UUID="3C1B4D094277BFDA2F33779B8FB8FF95" />
+        <SubApp Name="Rashodomer" Type="6908F4324D9B038A13CE3F99D1DEDCAC" Args="" ConnectionTimeout="2000" ExecTimeout="10000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="8CBFDF7B4BE15B57D72852BBBA9C0E37" />
+        <SubApp Name="Potreblenie" Type="0D8B2973484B662EAD5868B2FC1EDE4C" Args="" ConnectionTimeout="2000" ExecTimeout="10000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="636E2D15422A3B68A07864BD6260470E" />
+        <SubApp Name="Connection_break" Type="771E28CE4B2B4FE0509786B59AE85640" Args="" ConnectionTimeout="2000" ExecTimeout="10000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="EADCC33841B1A94F7599F0A7E9061E0B" />
+    </InterfaceList>
+</Node>

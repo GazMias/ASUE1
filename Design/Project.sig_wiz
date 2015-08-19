@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Signal wizard config v. 1.0 >
+<Config>
+    <Templates>
+        <Template Name="BMRZ">
+            <Item Name="S_4" ArraySize="0" Type="WORD" />
+            <Item Name="S_3" ArraySize="0" Type="DINT" />
+            <Item Name="S_2" ArraySize="0" Type="TIME" />
+            <Item Name="S_1" ArraySize="0" Type="BOOL" />
+        </Template>
+    </Templates>
+</Config>

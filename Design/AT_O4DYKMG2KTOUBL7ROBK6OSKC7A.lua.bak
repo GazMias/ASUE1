@@ -1,0 +1,215 @@
+--Объявление структуры, в которой левая часть до знака = это массив сигналов а правая часть - это массив переменных, передаваемых в SCADA систему
+local cell_addr --адрес ячейки данных о событии, считываемой из стека
+timestamp = { year, mouth, day, hour, minites, sec, milsec } --структура метки времени события
+local bit ={} -- массив бит - для разбивки слова данных на отдельные события
+timestamp_str="" -- строка меткив ремени
+
+
+local blocks
+local objects = {
+	["RAW_M340_P06_"]="S_KTP_P06_"
+}
+
+local signals = {
+	-- Объявление переменных в виде структуры где левая часть до знака = это Suffix, правая часть это Descriptor. Descriptor в свою очередь представляет собой структуру
+	-- в которой первый элемент это комментарий Comment, второй элемент это функция eval. В функциях происходит преобразование значений сигналов из регистров, и присваивание этих
+	-- преобразованных значений переменным, передаваемым в SCADA систему
+	["STACK_STATUS"]=
+			 {["Comment"]="Состояние буфера событий ПЛК М340",["eval"]= 
+				function(Name) 
+					cell_addr=bit32.extract(Core[Name[1].."DATABLOCK1"],0,12) --считываем адрес слова данных
+					if cell_addr==100 then --проверяем стек на переполнение
+						Core[Name[2].."STACK_ERR"] =true --устанавливаем флаг переполнения стека 
+						--Core[Name[2].."EVENT_STRING_0"]="КТП М340. Ошибка стека событий ПЛК(переполнение)" --выводим сообщение об ошибке
+					else 
+						Core[Name[2].."STACK_ERR"]=false -- сбрасываем флаг переполнения стека 
+						Core[Name[2].."STACK_NUM"]=bit32.extract (Core[Name[1].."STACK_STATUS"] ,0,8) --вычисляем номер обмена
+						--Core[Name[2].."READY_BLOCKS"]=bit32.extract (Core[Name[1].."STACK_STATUS"] ,8,8) -- вычисляем количество блоков
+						timestamp.day=bit32.extract (Core[Name[1].."DATABLOCK4"] , 0,5) --вычисляем день события
+						timestamp.month=bit32.extract (Core[Name[1].."DATABLOCK4"] ,5,4)--вычисляем месяц
+						timestamp.year=bit32.extract (Core[Name[1].."DATABLOCK4"] ,9,7) + 1980 --вычисляем год
+						timestamp.hour=bit32.extract (Core[Name[1].."DATABLOCK5"] , 0,8) --вычисляем час
+						timestamp.minutes=bit32.extract (Core[Name[1].."DATABLOCK5"] , 8,8)--вычисляем минуты
+						timestamp.sec=math.floor(Core[Name[1].."DATABLOCK6"]/1000)--вычисляем секунды
+						timestamp.milsec=Core[Name[1].."DATABLOCK6"]-timestamp.sec*1000 --вычисляем миллисекунды
+					 	timestamp_str = timestamp.day .. "." .. timestamp.month .. "." .. timestamp.year .. " " .. timestamp.hour .. ":" .. timestamp.minutes .. ":" ..  timestamp.sec .. "." .. timestamp.milsec -- формируем метку времени
+					end
+
+				end
+			 },
+
+
+
+	-- Дискретные сигналы и переменные
+        ["VV1_AVOTKOLSEC_DP"]= {["Comment"]="Секция 1. Аварийное отключение ОЛ секции ",["eval"]= function(Name) Core[Name[2].."VV1_AVOTKOLSEC_DP"]=Core[Name[1].."VV1_AVOTKOLSEC_DP"] end},
+        ["VV1_AVOTKUVN_DP"]= {["Comment"]="Секция 1. Аварийное отключение УВН ",["eval"]= function(Name) Core[Name[2].."VV1_AVOTKUVN_DP"]=Core[Name[1].."VV1_AVOTKUVN_DP"] end},
+        ["VV1_AVOTKVV_DP"]= {["Comment"]="Секция 1. Аварийное отключение ВВ ",["eval"]= function(Name) Core[Name[2].."VV1_AVOTKVV_DP"]=Core[Name[1].."VV1_AVOTKVV_DP"] end},
+        ["VV1_AVTVIKCNOTK_DP"]= {["Comment"]="Секция 1. Авт. выключатели цепей напряжения В откл. ",["eval"]= function(Name) Core[Name[2].."VV1_AVTVIKCNOTK_DP"]=Core[Name[1].."VV1_AVTVIKCNOTK_DP"] end},
+        ["VV1_AVTVIKCUOLSECOTK_DP"]= {["Comment"]="Секция 1. Авт. выкл. цепей управления ОЛ секции откл. ",["eval"]= function(Name) Core[Name[2].."VV1_AVTVIKCUOLSECOTK_DP"]=Core[Name[1].."VV1_AVTVIKCUOLSECOTK_DP"] end},
+        ["VV1_AVTVIKCUOTK_DP"]= {["Comment"]="Секция 1. Авт. выключатель цепей управления В откл. ",["eval"]= function(Name) Core[Name[2].."VV1_AVTVIKCUOTK_DP"]=Core[Name[1].."VV1_AVTVIKCUOTK_DP"] end},
+        ["VV1_COMOTKVVPU_DP"]= {["Comment"]="Секция 1. Команда на отключение ВВ поступила с ПУ ",["eval"]= function(Name) Core[Name[2].."VV1_COMOTKVVPU_DP"]=Core[Name[1].."VV1_COMOTKVVPU_DP"] end},
+        ["VV1_COMVKLVVPU_DP"]= {["Comment"]="Секция 1. Команда на включение ВВ поступила с ПУ ",["eval"]= function(Name) Core[Name[2].."VV1_COMVKLVVPU_DP"]=Core[Name[1].."VV1_COMVKLVVPU_DP"] end},
+        ["VV1_NEISPCONTRV_DP"]= {["Comment"]="Секция 1. Неисправность контроллера В ",["eval"]= function(Name) Core[Name[2].."VV1_NEISPCONTRV_DP"]=Core[Name[1].."VV1_NEISPCONTRV_DP"] end},
+        ["VV1_NEISPCUV_DP"]= {["Comment"]="Секция 1. Неисправность цепей управления B ",["eval"]= function(Name) Core[Name[2].."VV1_NEISPCUV_DP"]=Core[Name[1].."VV1_NEISPCUV_DP"] end},
+        ["VV1_OTKSVVNRAVRSV_DP"]= {["Comment"]="Секция 1. Отключение СВ при ВНР после АВР СВ ",["eval"]= function(Name) Core[Name[2].."VV1_OTKSVVNRAVRSV_DP"]=Core[Name[1].."VV1_OTKSVVNRAVRSV_DP"] end},
+        ["VV1_OTKVVAVRAV1_DP"]= {["Comment"]="Секция 1. Отключение ВВ по АВР АВ1 ",["eval"]= function(Name) Core[Name[2].."VV1_OTKVVAVRAV1_DP"]=Core[Name[1].."VV1_OTKVVAVRAV1_DP"] end},
+        ["VV1_OTKVVAVRAV2_DP"]= {["Comment"]="Секция 1. Отключение ВВ по АВР АВ2 ",["eval"]= function(Name) Core[Name[2].."VV1_OTKVVAVRAV2_DP"]=Core[Name[1].."VV1_OTKVVAVRAV2_DP"] end},
+        ["VV1_OTKVVAVRSV_DP"]= {["Comment"]="Секция 1. Отключение ВВ по АВР СВ ",["eval"]= function(Name) Core[Name[2].."VV1_OTKVVAVRSV_DP"]=Core[Name[1].."VV1_OTKVVAVRSV_DP"] end},
+        ["VV1_OTKVVDGZ_DP"]= {["Comment"]="Секция 1. Отключение ВВ от дуговой защиты ",["eval"]= function(Name) Core[Name[2].."VV1_OTKVVDGZ_DP"]=Core[Name[1].."VV1_OTKVVDGZ_DP"] end},
+        ["VV1_OTKVVNTRZASH_DP"]= {["Comment"]="Секция 1. Отключение выкл. ВН тр-ра от защит ",["eval"]= function(Name) Core[Name[2].."VV1_OTKVVNTRZASH_DP"]=Core[Name[1].."VV1_OTKVVNTRZASH_DP"] end},
+        ["VV1_PRTEMTROTK_DP"]= {["Comment"]="Секция 1. Превышение температуры тр-ра  на откл. ",["eval"]= function(Name) Core[Name[2].."VV1_PRTEMTROTK_DP"]=Core[Name[1].."VV1_PRTEMTROTK_DP"] end},
+        ["VV1_PRTEMTRSIG_DP"]= {["Comment"]="Секция 1. Превышение температуры тр-ра на сигн. ",["eval"]= function(Name) Core[Name[2].."VV1_PRTEMTRSIG_DP"]=Core[Name[1].."VV1_PRTEMTRSIG_DP"] end},
+        ["VV1_RAZGRSEC_DP"]= {["Comment"]="Секция 1. Разгрузка секции ",["eval"]= function(Name) Core[Name[2].."VV1_RAZGRSEC_DP"]=Core[Name[1].."VV1_RAZGRSEC_DP"] end},
+        ["VV1_SRDGZSEC_DP"]= {["Comment"]="Секция 1. Срабатывание дуговой защиты секции ",["eval"]= function(Name) Core[Name[2].."VV1_SRDGZSEC_DP"]=Core[Name[1].."VV1_SRDGZSEC_DP"] end},
+        ["VV1_SRTZNPOTKSV_DP"]= {["Comment"]="Секция 1. Срабатывание ТЗНП В на отключение СВ ",["eval"]= function(Name) Core[Name[2].."VV1_SRTZNPOTKSV_DP"]=Core[Name[1].."VV1_SRTZNPOTKSV_DP"] end},
+        ["VV1_SRTZNPOTKTR_DP"]= {["Comment"]="Секция 1. Срабатывание ТЗНП В на отключение тр-ра  ",["eval"]= function(Name) Core[Name[2].."VV1_SRTZNPOTKTR_DP"]=Core[Name[1].."VV1_SRTZNPOTKTR_DP"] end},
+        ["VV1_SRTZNPOTKVV_DP"]= {["Comment"]="Секция 1. Срабатывание ТЗНП на отключение ВВ ",["eval"]= function(Name) Core[Name[2].."VV1_SRTZNPOTKVV_DP"]=Core[Name[1].."VV1_SRTZNPOTKVV_DP"] end},
+        ["VV1_SRZASHVV_DP"]= {["Comment"]="Секция 1. Срабатывание защит ВВ ",["eval"]= function(Name) Core[Name[2].."VV1_SRZASHVV_DP"]=Core[Name[1].."VV1_SRZASHVV_DP"] end},
+        ["VV1_VKLSVAVRSV_DP"]= {["Comment"]="Секция 1. Включение СВ по АВР СВ ",["eval"]= function(Name) Core[Name[2].."VV1_VKLSVAVRSV_DP"]=Core[Name[1].."VV1_VKLSVAVRSV_DP"] end},
+        ["VV1_VKLVVVNRAVRAV1_DP"]= {["Comment"]="Секция 1. Включение ВВ при ВНР после АВР АВ1 ",["eval"]= function(Name) Core[Name[2].."VV1_VKLVVVNRAVRAV1_DP"]=Core[Name[1].."VV1_VKLVVVNRAVRAV1_DP"] end},
+        ["VV1_VKLVVVNRAVRAV2_DP"]= {["Comment"]="Секция 1. Включение ВВ при ВНР после АВР АВ2 ",["eval"]= function(Name) Core[Name[2].."VV1_VKLVVVNRAVRAV2_DP"]=Core[Name[1].."VV1_VKLVVVNRAVRAV2_DP"] end},
+        ["VV1_VKLVVVNRAVRSV_DP"]= {["Comment"]="Секция 1. Включение ВВ при ВНР после АВР СВ ",["eval"]= function(Name) Core[Name[2].."VV1_VKLVVVNRAVRSV_DP"]=Core[Name[1].."VV1_VKLVVVNRAVRSV_DP"] end},
+        ["VV1_VOTK_DP"]= {["Comment"]="Секция 1. Выключатель ввода отключен ",["eval"]= function(Name) Core[Name[2].."VV1_VOTK_DP"]=Core[Name[1].."VV1_VOTK_DP"] end},
+        ["VV1_VVIK_DP"]= {["Comment"]="Секция 1. Выключатель ввода выкачен ",["eval"]= function(Name) Core[Name[2].."VV1_VVIK_DP"]=Core[Name[1].."VV1_VVIK_DP"] end},
+        ["VV1_VVKL_DP"]= {["Comment"]="Секция 1. Выключатель ввода включен ",["eval"]= function(Name) Core[Name[2].."VV1_VVKL_DP"]=Core[Name[1].."VV1_VVKL_DP"] end},
+        ["VV2_AVOTKOLSEC_DP"]= {["Comment"]="Секция 2. Аварийное отключение ОЛ секции ",["eval"]= function(Name) Core[Name[2].."VV2_AVOTKOLSEC_DP"]=Core[Name[1].."VV2_AVOTKOLSEC_DP"] end},
+        ["VV2_AVOTKUVN_DP"]= {["Comment"]="Секция 2. Аварийное отключение УВН ",["eval"]= function(Name) Core[Name[2].."VV2_AVOTKUVN_DP"]=Core[Name[1].."VV2_AVOTKUVN_DP"] end},
+        ["VV2_AVOTKVV_DP"]= {["Comment"]="Секция 2. Аварийное отключение ВВ ",["eval"]= function(Name) Core[Name[2].."VV2_AVOTKVV_DP"]=Core[Name[1].."VV2_AVOTKVV_DP"] end},
+        ["VV2_AVTVIKCNOTK_DP"]= {["Comment"]="Секция 2. Авт. выключатели цепей напряжения В откл. ",["eval"]= function(Name) Core[Name[2].."VV2_AVTVIKCNOTK_DP"]=Core[Name[1].."VV2_AVTVIKCNOTK_DP"] end},
+        ["VV2_AVTVIKCUOLSECOTK_DP"]= {["Comment"]="Секция 2. Авт. выкл. цепей управления ОЛ секции откл. ",["eval"]= function(Name) Core[Name[2].."VV2_AVTVIKCUOLSECOTK_DP"]=Core[Name[1].."VV2_AVTVIKCUOLSECOTK_DP"] end},
+        ["VV2_AVTVIKCUOTK_DP"]= {["Comment"]="Секция 2. Авт. выключатель цепей управления В откл. ",["eval"]= function(Name) Core[Name[2].."VV2_AVTVIKCUOTK_DP"]=Core[Name[1].."VV2_AVTVIKCUOTK_DP"] end},
+        ["VV2_COMOTKVVPU_DP"]= {["Comment"]="Секция 2. Команда на отключение ВВ поступила с ПУ ",["eval"]= function(Name) Core[Name[2].."VV2_COMOTKVVPU_DP"]=Core[Name[1].."VV2_COMOTKVVPU_DP"] end},
+        ["VV2_COMVKLVVPU_DP"]= {["Comment"]="Секция 2. Команда на включение ВВ поступила с ПУ ",["eval"]= function(Name) Core[Name[2].."VV2_COMVKLVVPU_DP"]=Core[Name[1].."VV2_COMVKLVVPU_DP"] end},
+        ["VV2_NEISPCONTRV_DP"]= {["Comment"]="Секция 2. Неисправность контроллера В ",["eval"]= function(Name) Core[Name[2].."VV2_NEISPCONTRV_DP"]=Core[Name[1].."VV2_NEISPCONTRV_DP"] end},
+        ["VV2_NEISPCUV_DP"]= {["Comment"]="Секция 2. Неисправность цепей управления B ",["eval"]= function(Name) Core[Name[2].."VV2_NEISPCUV_DP"]=Core[Name[1].."VV2_NEISPCUV_DP"] end},
+        ["VV2_OTKSVVNRAVRSV_DP"]= {["Comment"]="Секция 2. Отключение СВ при ВНР после АВР СВ ",["eval"]= function(Name) Core[Name[2].."VV2_OTKSVVNRAVRSV_DP"]=Core[Name[1].."VV2_OTKSVVNRAVRSV_DP"] end},
+        ["VV2_OTKVVAVRAV1_DP"]= {["Comment"]="Секция 2. Отключение ВВ по АВР АВ1 ",["eval"]= function(Name) Core[Name[2].."VV2_OTKVVAVRAV1_DP"]=Core[Name[1].."VV2_OTKVVAVRAV1_DP"] end},
+        ["VV2_OTKVVAVRAV2_DP"]= {["Comment"]="Секция 2. Отключение ВВ по АВР АВ2 ",["eval"]= function(Name) Core[Name[2].."VV2_OTKVVAVRAV2_DP"]=Core[Name[1].."VV2_OTKVVAVRAV2_DP"] end},
+        ["VV2_OTKVVAVRSV_DP"]= {["Comment"]="Секция 2. Отключение ВВ по АВР СВ ",["eval"]= function(Name) Core[Name[2].."VV2_OTKVVAVRSV_DP"]=Core[Name[1].."VV2_OTKVVAVRSV_DP"] end},
+        ["VV2_OTKVVDGZ_DP"]= {["Comment"]="Секция 2. Отключение ВВ от дуговой защиты ",["eval"]= function(Name) Core[Name[2].."VV2_OTKVVDGZ_DP"]=Core[Name[1].."VV2_OTKVVDGZ_DP"] end},
+        ["VV2_OTKVVNTRZASH_DP"]= {["Comment"]="Секция 2. Отключение выкл. ВН тр-ра от защит ",["eval"]= function(Name) Core[Name[2].."VV2_OTKVVNTRZASH_DP"]=Core[Name[1].."VV2_OTKVVNTRZASH_DP"] end},
+        ["VV2_PRTEMTROTK_DP"]= {["Comment"]="Секция 2. Превышение температуры тр-ра  на откл. ",["eval"]= function(Name) Core[Name[2].."VV2_PRTEMTROTK_DP"]=Core[Name[1].."VV2_PRTEMTROTK_DP"] end},
+        ["VV2_PRTEMTRSIG_DP"]= {["Comment"]="Секция 2. Превышение температуры тр-ра на сигн. ",["eval"]= function(Name) Core[Name[2].."VV2_PRTEMTRSIG_DP"]=Core[Name[1].."VV2_PRTEMTRSIG_DP"] end},
+        ["VV2_RAZGRSEC_DP"]= {["Comment"]="Секция 2. Разгрузка секции ",["eval"]= function(Name) Core[Name[2].."VV2_RAZGRSEC_DP"]=Core[Name[1].."VV2_RAZGRSEC_DP"] end},
+        ["VV2_SRDGZSEC_DP"]= {["Comment"]="Секция 2. Срабатывание дуговой защиты секции ",["eval"]= function(Name) Core[Name[2].."VV2_SRDGZSEC_DP"]=Core[Name[1].."VV2_SRDGZSEC_DP"] end},
+        ["VV2_SRTZNPOTKSV_DP"]= {["Comment"]="Секция 2. Срабатывание ТЗНП В на отключение СВ ",["eval"]= function(Name) Core[Name[2].."VV2_SRTZNPOTKSV_DP"]=Core[Name[1].."VV2_SRTZNPOTKSV_DP"] end},
+        ["VV2_SRTZNPOTKTR_DP"]= {["Comment"]="Секция 2. Срабатывание ТЗНП В на отключение тр-ра  ",["eval"]= function(Name) Core[Name[2].."VV2_SRTZNPOTKTR_DP"]=Core[Name[1].."VV2_SRTZNPOTKTR_DP"] end},
+        ["VV2_SRTZNPOTKVV_DP"]= {["Comment"]="Секция 2. Срабатывание ТЗНП на отключение ВВ ",["eval"]= function(Name) Core[Name[2].."VV2_SRTZNPOTKVV_DP"]=Core[Name[1].."VV2_SRTZNPOTKVV_DP"] end},
+        ["VV2_SRZASHVV_DP"]= {["Comment"]="Секция 2. Срабатывание защит ВВ ",["eval"]= function(Name) Core[Name[2].."VV2_SRZASHVV_DP"]=Core[Name[1].."VV2_SRZASHVV_DP"] end},
+        ["VV2_VKLSVAVRSV_DP"]= {["Comment"]="Секция 2. Включение СВ по АВР СВ ",["eval"]= function(Name) Core[Name[2].."VV2_VKLSVAVRSV_DP"]=Core[Name[1].."VV2_VKLSVAVRSV_DP"] end},
+        ["VV2_VKLVVVNRAVRAV1_DP"]= {["Comment"]="Секция 2. Включение ВВ при ВНР после АВР АВ1 ",["eval"]= function(Name) Core[Name[2].."VV2_VKLVVVNRAVRAV1_DP"]=Core[Name[1].."VV2_VKLVVVNRAVRAV1_DP"] end},
+        ["VV2_VKLVVVNRAVRAV2_DP"]= {["Comment"]="Секция 2. Включение ВВ при ВНР после АВР АВ2 ",["eval"]= function(Name) Core[Name[2].."VV2_VKLVVVNRAVRAV2_DP"]=Core[Name[1].."VV2_VKLVVVNRAVRAV2_DP"] end},
+        ["VV2_VKLVVVNRAVRSV_DP"]= {["Comment"]="Секция 2. Включение ВВ при ВНР после АВР СВ ",["eval"]= function(Name) Core[Name[2].."VV2_VKLVVVNRAVRSV_DP"]=Core[Name[1].."VV2_VKLVVVNRAVRSV_DP"] end},
+        ["VV2_VOTK_DP"]= {["Comment"]="Секция 2. Выключатель ввода отключен ",["eval"]= function(Name) Core[Name[2].."VV2_VOTK_DP"]=Core[Name[1].."VV2_VOTK_DP"] end},
+        ["VV2_VVIK_DP"]= {["Comment"]="Секция 2. Выключатель ввода выкачен ",["eval"]= function(Name) Core[Name[2].."VV2_VVIK_DP"]=Core[Name[1].."VV2_VVIK_DP"] end},
+        ["VV2_VVKL_DP"]= {["Comment"]="Секция 2. Выключатель ввода включен ",["eval"]= function(Name) Core[Name[2].."VV2_VVKL_DP"]=Core[Name[1].."VV2_VVKL_DP"] end},
+        ["SV_AVOTKSV_DP"]= {["Comment"]="Секционный выключатель. Аварийное отключение СВ ",["eval"]= function(Name) Core[Name[2].."SV_AVOTKSV_DP"]=Core[Name[1].."SV_AVOTKSV_DP"] end},
+        ["SV_AVRSVOTKPU_DP"]= {["Comment"]="Секционный выключатель. АВР СВ отключено с ПУ ",["eval"]= function(Name) Core[Name[2].."SV_AVRSVOTKPU_DP"]=Core[Name[1].."SV_AVRSVOTKPU_DP"] end},
+        ["SV_AVRSVOTK_DP"]= {["Comment"]="Секционный выключатель. АВР СВ отключен ",["eval"]= function(Name) Core[Name[2].."SV_AVRSVOTK_DP"]=Core[Name[1].."SV_AVRSVOTK_DP"] end},
+        ["SV_AVRSVVKLPU_DP"]= {["Comment"]="Секционный выключатель. АВР СВ включено с ПУ ",["eval"]= function(Name) Core[Name[2].."SV_AVRSVVKLPU_DP"]=Core[Name[1].."SV_AVRSVVKLPU_DP"] end},
+        ["SV_AVRSVVKL_DP"]= {["Comment"]="Секционный выключатель. АВР СВ включен ",["eval"]= function(Name) Core[Name[2].."SV_AVRSVVKL_DP"]=Core[Name[1].."SV_AVRSVVKL_DP"] end},
+        ["SV_AVTVIKCUSVOTK_DP"]= {["Comment"]="Секционный выключатель. Авт. выключатель цепей управления СВ откл. ",["eval"]= function(Name) Core[Name[2].."SV_AVTVIKCUSVOTK_DP"]=Core[Name[1].."SV_AVTVIKCUSVOTK_DP"] end},
+        ["SV_COMOTKSVPU_DP"]= {["Comment"]="Секционный выключатель. Команда отключить СВ поступила с ПУ ",["eval"]= function(Name) Core[Name[2].."SV_COMOTKSVPU_DP"]=Core[Name[1].."SV_COMOTKSVPU_DP"] end},
+        ["SV_COMVKLSVPU_DP"]= {["Comment"]="Секционный выключатель. Команда включить СВ поступила с ПУ ",["eval"]= function(Name) Core[Name[2].."SV_COMVKLSVPU_DP"]=Core[Name[1].."SV_COMVKLSVPU_DP"] end},
+        ["SV_NEISPCONTRSV_DP"]= {["Comment"]="Секционный выключатель. Неисправность контроллера СВ ",["eval"]= function(Name) Core[Name[2].."SV_NEISPCONTRSV_DP"]=Core[Name[1].."SV_NEISPCONTRSV_DP"] end},
+        ["SV_NEISPCUSV_DP"]= {["Comment"]="Секционный выключатель. Неисправность цепей управления СВ ",["eval"]= function(Name) Core[Name[2].."SV_NEISPCUSV_DP"]=Core[Name[1].."SV_NEISPCUSV_DP"] end},
+        ["SV_OTKSVTZNPVVDGZ_DP"]= {["Comment"]="Секционный выключатель. Отключение СВ от ТЗНП вводов, ДГЗ ",["eval"]= function(Name) Core[Name[2].."SV_OTKSVTZNPVVDGZ_DP"]=Core[Name[1].."SV_OTKSVTZNPVVDGZ_DP"] end},
+        ["SV_SRZASHSV_DP"]= {["Comment"]="Секционный выключатель. Срабатывание защит СВ ",["eval"]= function(Name) Core[Name[2].."SV_SRZASHSV_DP"]=Core[Name[1].."SV_SRZASHSV_DP"] end},
+        ["SV_SVOTK_DP"]= {["Comment"]="Секционный выключатель. Секционный выключатель отключен ",["eval"]= function(Name) Core[Name[2].."SV_SVOTK_DP"]=Core[Name[1].."SV_SVOTK_DP"] end},
+        ["SV_SVVIK_DP"]= {["Comment"]="Секционный выключатель. Секционный выключатель выкачен ",["eval"]= function(Name) Core[Name[2].."SV_SVVIK_DP"]=Core[Name[1].."SV_SVVIK_DP"] end},
+        ["SV_SVVKL_DP"]= {["Comment"]="Секционный выключатель. Секционный выключатель включен ",["eval"]= function(Name) Core[Name[2].."SV_SVVKL_DP"]=Core[Name[1].."SV_SVVKL_DP"] end},
+        ["AV1_AVOTKVAV_DP"]= {["Comment"]="Аварийный ввод 1. Аварийное отключение ВАВ ",["eval"]= function(Name) Core[Name[2].."AV1_AVOTKVAV_DP"]=Core[Name[1].."AV1_AVOTKVAV_DP"] end},
+        ["AV1_AVRAVOTKPU_DP"]= {["Comment"]="Аварийный ввод 1. АВР АВ отключено с ПУ ",["eval"]= function(Name) Core[Name[2].."AV1_AVRAVOTKPU_DP"]=Core[Name[1].."AV1_AVRAVOTKPU_DP"] end},
+        ["AV1_AVRAVOTK_DP"]= {["Comment"]="Аварийный ввод 1. АВР АВ отключен ",["eval"]= function(Name) Core[Name[2].."AV1_AVRAVOTK_DP"]=Core[Name[1].."AV1_AVRAVOTK_DP"] end},
+        ["AV1_AVRAVVKLPU_DP"]= {["Comment"]="Аварийный ввод 1. АВР АВ включено с ПУ ",["eval"]= function(Name) Core[Name[2].."AV1_AVRAVVKLPU_DP"]=Core[Name[1].."AV1_AVRAVVKLPU_DP"] end},
+        ["AV1_AVRAVVKL_DP"]= {["Comment"]="Аварийный ввод 1. АВР АВ включен ",["eval"]= function(Name) Core[Name[2].."AV1_AVRAVVKL_DP"]=Core[Name[1].."AV1_AVRAVVKL_DP"] end},
+        ["AV1_AVTVIKCNAVOTK_DP"]= {["Comment"]="Аварийный ввод 1. Авт. выключатель цепей напряжения АВ откл. ",["eval"]= function(Name) Core[Name[2].."AV1_AVTVIKCNAVOTK_DP"]=Core[Name[1].."AV1_AVTVIKCNAVOTK_DP"] end},
+        ["AV1_AVTVIKCUAVOTK_DP"]= {["Comment"]="Аварийный ввод 1. Авт. выключатель цепей управления АВ откл. ",["eval"]= function(Name) Core[Name[2].."AV1_AVTVIKCUAVOTK_DP"]=Core[Name[1].."AV1_AVTVIKCUAVOTK_DP"] end},
+        ["AV1_COMOTKVAVPU_DP"]= {["Comment"]="Аварийный ввод 1. Команда отключить ВАВ поступила с ПУ ",["eval"]= function(Name) Core[Name[2].."AV1_COMOTKVAVPU_DP"]=Core[Name[1].."AV1_COMOTKVAVPU_DP"] end},
+        ["AV1_COMVKLVAVPU_DP"]= {["Comment"]="Аварийный ввод 1. Команда включить ВАВ поступила с ПУ ",["eval"]= function(Name) Core[Name[2].."AV1_COMVKLVAVPU_DP"]=Core[Name[1].."AV1_COMVKLVAVPU_DP"] end},
+        ["AV1_NEISPADS_DP"]= {["Comment"]="Аварийный ввод 1. Неисправность АДЭС ",["eval"]= function(Name) Core[Name[2].."AV1_NEISPADS_DP"]=Core[Name[1].."AV1_NEISPADS_DP"] end},
+        ["AV1_NEISPCONTRAV_DP"]= {["Comment"]="Аварийный ввод 1. Неисправность контроллера АВ ",["eval"]= function(Name) Core[Name[2].."AV1_NEISPCONTRAV_DP"]=Core[Name[1].."AV1_NEISPCONTRAV_DP"] end},
+        ["AV1_NEISPCUVAV_DP"]= {["Comment"]="Аварийный ввод 1. Неисправность цепей управления ВАВ ",["eval"]= function(Name) Core[Name[2].."AV1_NEISPCUVAV_DP"]=Core[Name[1].."AV1_NEISPCUVAV_DP"] end},
+        ["AV1_NEISPCUVG_DP"]= {["Comment"]="Аварийный ввод 1. Неисправность цепей управления BГ ",["eval"]= function(Name) Core[Name[2].."AV1_NEISPCUVG_DP"]=Core[Name[1].."AV1_NEISPCUVG_DP"] end},
+        ["AV1_NPADS_DP"]= {["Comment"]="Аварийный ввод 1. Неуспешный пуск АДЭС ",["eval"]= function(Name) Core[Name[2].."AV1_NPADS_DP"]=Core[Name[1].."AV1_NPADS_DP"] end},
+        ["AV1_OSTADSVNRAVRAV_DP"]= {["Comment"]="Аварийный ввод 1. Останов АДЭС при ВНР после АВР АВ ",["eval"]= function(Name) Core[Name[2].."AV1_OSTADSVNRAVRAV_DP"]=Core[Name[1].."AV1_OSTADSVNRAVRAV_DP"] end},
+        ["AV1_OTKSVAVRAV_DP"]= {["Comment"]="Аварийный ввод 1. Отключение СВ по АВР АВ ",["eval"]= function(Name) Core[Name[2].."AV1_OTKSVAVRAV_DP"]=Core[Name[1].."AV1_OTKSVAVRAV_DP"] end},
+        ["AV1_OTKSVVNRAVRAV_DP"]= {["Comment"]="Аварийный ввод 1. Отключение СВ при ВНР после АВР АВ ",["eval"]= function(Name) Core[Name[2].."AV1_OTKSVVNRAVRAV_DP"]=Core[Name[1].."AV1_OTKSVVNRAVRAV_DP"] end},
+        ["AV1_OTKVAVDGZ_DP"]= {["Comment"]="Аварийный ввод 1. Отключение ВАВ от дуговой защиты ",["eval"]= function(Name) Core[Name[2].."AV1_OTKVAVDGZ_DP"]=Core[Name[1].."AV1_OTKVAVDGZ_DP"] end},
+        ["AV1_OTKVAVVNR_DP"]= {["Comment"]="Аварийный ввод 1. Отключение ВАВ при ВНР после АВР АВ ",["eval"]= function(Name) Core[Name[2].."AV1_OTKVAVVNR_DP"]=Core[Name[1].."AV1_OTKVAVVNR_DP"] end},
+        ["AV1_PADSAVRAV_DP"]= {["Comment"]="Аварийный ввод 1. Пуск АДЭС по АВР АВ ",["eval"]= function(Name) Core[Name[2].."AV1_PADSAVRAV_DP"]=Core[Name[1].."AV1_PADSAVRAV_DP"] end},
+        ["AV1_PEREGRADS_DP"]= {["Comment"]="Аварийный ввод 1. Перегрузка АДЭС ",["eval"]= function(Name) Core[Name[2].."AV1_PEREGRADS_DP"]=Core[Name[1].."AV1_PEREGRADS_DP"] end},
+        ["AV1_SRZASHVAV_DP"]= {["Comment"]="Аварийный ввод 1. Срабатывание защит ВАВ ",["eval"]= function(Name) Core[Name[2].."AV1_SRZASHVAV_DP"]=Core[Name[1].."AV1_SRZASHVAV_DP"] end},
+        ["AV1_VAVOTK_DP"]= {["Comment"]="Аварийный ввод 1. Выключатель аварийного ввода отключен ",["eval"]= function(Name) Core[Name[2].."AV1_VAVOTK_DP"]=Core[Name[1].."AV1_VAVOTK_DP"] end},
+        ["AV1_VAVVIK_DP"]= {["Comment"]="Аварийный ввод 1. Выключатель аварийного ввода выкачен ",["eval"]= function(Name) Core[Name[2].."AV1_VAVVIK_DP"]=Core[Name[1].."AV1_VAVVIK_DP"] end},
+        ["AV1_VAVVKL_DP"]= {["Comment"]="Аварийный ввод 1. Выключатель аварийного ввода включен ",["eval"]= function(Name) Core[Name[2].."AV1_VAVVKL_DP"]=Core[Name[1].."AV1_VAVVKL_DP"] end},
+        ["AV1_VGOTK_DP"]= {["Comment"]="Аварийный ввод 1. ВГ отключен ",["eval"]= function(Name) Core[Name[2].."AV1_VGOTK_DP"]=Core[Name[1].."AV1_VGOTK_DP"] end},
+        ["AV1_VGVKL_DP"]= {["Comment"]="Аварийный ввод 1. ВГ включен ",["eval"]= function(Name) Core[Name[2].."AV1_VGVKL_DP"]=Core[Name[1].."AV1_VGVKL_DP"] end},
+        ["AV1_VKLSVAVRAV_DP"]= {["Comment"]="Аварийный ввод 1. Включение СВ по АВР АВ ",["eval"]= function(Name) Core[Name[2].."AV1_VKLSVAVRAV_DP"]=Core[Name[1].."AV1_VKLSVAVRAV_DP"] end},
+        ["AV1_VKLSVVNRAVRAV_DP"]= {["Comment"]="Аварийный ввод 1. Включение СВ при ВНР после АВР АВ ",["eval"]= function(Name) Core[Name[2].."AV1_VKLSVVNRAVRAV_DP"]=Core[Name[1].."AV1_VKLSVVNRAVRAV_DP"] end},
+        ["AV1_VKLVAVAVRAV_DP"]= {["Comment"]="Аварийный ввод 1. Включение ВАВ по АВР АВ ",["eval"]= function(Name) Core[Name[2].."AV1_VKLVAVAVRAV_DP"]=Core[Name[1].."AV1_VKLVAVAVRAV_DP"] end},
+        ["AV2_AVOTKVAV_DP"]= {["Comment"]="Аварийный ввод 2. Аварийное отключение ВАВ ",["eval"]= function(Name) Core[Name[2].."AV2_AVOTKVAV_DP"]=Core[Name[1].."AV2_AVOTKVAV_DP"] end},
+        ["AV2_AVRAVOTKPU_DP"]= {["Comment"]="Аварийный ввод 2. АВР АВ отключено с ПУ ",["eval"]= function(Name) Core[Name[2].."AV2_AVRAVOTKPU_DP"]=Core[Name[1].."AV2_AVRAVOTKPU_DP"] end},
+        ["AV2_AVRAVOTK_DP"]= {["Comment"]="Аварийный ввод 2. АВР АВ отключен ",["eval"]= function(Name) Core[Name[2].."AV2_AVRAVOTK_DP"]=Core[Name[1].."AV2_AVRAVOTK_DP"] end},
+        ["AV2_AVRAVVKLPU_DP"]= {["Comment"]="Аварийный ввод 2. АВР АВ включено с ПУ ",["eval"]= function(Name) Core[Name[2].."AV2_AVRAVVKLPU_DP"]=Core[Name[1].."AV2_AVRAVVKLPU_DP"] end},
+        ["AV2_AVRAVVKL_DP"]= {["Comment"]="Аварийный ввод 2. АВР АВ включен ",["eval"]= function(Name) Core[Name[2].."AV2_AVRAVVKL_DP"]=Core[Name[1].."AV2_AVRAVVKL_DP"] end},
+        ["AV2_AVTVIKCNAVOTK_DP"]= {["Comment"]="Аварийный ввод 2. Авт. выключатель цепей напряжения АВ откл. ",["eval"]= function(Name) Core[Name[2].."AV2_AVTVIKCNAVOTK_DP"]=Core[Name[1].."AV2_AVTVIKCNAVOTK_DP"] end},
+        ["AV2_AVTVIKCUAVOTK_DP"]= {["Comment"]="Аварийный ввод 2. Авт. выключатель цепей управления АВ откл. ",["eval"]= function(Name) Core[Name[2].."AV2_AVTVIKCUAVOTK_DP"]=Core[Name[1].."AV2_AVTVIKCUAVOTK_DP"] end},
+        ["AV2_COMOTKVAVPU_DP"]= {["Comment"]="Аварийный ввод 2. Команда отключить ВАВ поступила с ПУ ",["eval"]= function(Name) Core[Name[2].."AV2_COMOTKVAVPU_DP"]=Core[Name[1].."AV2_COMOTKVAVPU_DP"] end},
+        ["AV2_COMVKLVAVPU_DP"]= {["Comment"]="Аварийный ввод 2. Команда включить ВАВ поступила с ПУ ",["eval"]= function(Name) Core[Name[2].."AV2_COMVKLVAVPU_DP"]=Core[Name[1].."AV2_COMVKLVAVPU_DP"] end},
+        ["AV2_NEISPADS_DP"]= {["Comment"]="Аварийный ввод 2. Неисправность АДЭС ",["eval"]= function(Name) Core[Name[2].."AV2_NEISPADS_DP"]=Core[Name[1].."AV2_NEISPADS_DP"] end},
+        ["AV2_NEISPCONTRAV_DP"]= {["Comment"]="Аварийный ввод 2. Неисправность контроллера АВ ",["eval"]= function(Name) Core[Name[2].."AV2_NEISPCONTRAV_DP"]=Core[Name[1].."AV2_NEISPCONTRAV_DP"] end},
+        ["AV2_NEISPCUVAV_DP"]= {["Comment"]="Аварийный ввод 2. Неисправность цепей управления ВАВ ",["eval"]= function(Name) Core[Name[2].."AV2_NEISPCUVAV_DP"]=Core[Name[1].."AV2_NEISPCUVAV_DP"] end},
+        ["AV2_NEISPCUVG_DP"]= {["Comment"]="Аварийный ввод 2. Неисправность цепей управления BГ ",["eval"]= function(Name) Core[Name[2].."AV2_NEISPCUVG_DP"]=Core[Name[1].."AV2_NEISPCUVG_DP"] end},
+        ["AV2_NPADS_DP"]= {["Comment"]="Аварийный ввод 2. Неуспешный пуск АДЭС ",["eval"]= function(Name) Core[Name[2].."AV2_NPADS_DP"]=Core[Name[1].."AV2_NPADS_DP"] end},
+        ["AV2_OSTADSVNRAVRAV_DP"]= {["Comment"]="Аварийный ввод 2. Останов АДЭС при ВНР после АВР АВ ",["eval"]= function(Name) Core[Name[2].."AV2_OSTADSVNRAVRAV_DP"]=Core[Name[1].."AV2_OSTADSVNRAVRAV_DP"] end},
+        ["AV2_OTKSVAVRAV_DP"]= {["Comment"]="Аварийный ввод 2. Отключение СВ по АВР АВ ",["eval"]= function(Name) Core[Name[2].."AV2_OTKSVAVRAV_DP"]=Core[Name[1].."AV2_OTKSVAVRAV_DP"] end},
+        ["AV2_OTKSVVNRAVRAV_DP"]= {["Comment"]="Аварийный ввод 2. Отключение СВ при ВНР после АВР АВ ",["eval"]= function(Name) Core[Name[2].."AV2_OTKSVVNRAVRAV_DP"]=Core[Name[1].."AV2_OTKSVVNRAVRAV_DP"] end},
+        ["AV2_OTKVAVDGZ_DP"]= {["Comment"]="Аварийный ввод 2. Отключение ВАВ от дуговой защиты ",["eval"]= function(Name) Core[Name[2].."AV2_OTKVAVDGZ_DP"]=Core[Name[1].."AV2_OTKVAVDGZ_DP"] end},
+        ["AV2_OTKVAVVNR_DP"]= {["Comment"]="Аварийный ввод 2. Отключение ВАВ при ВНР после АВР АВ ",["eval"]= function(Name) Core[Name[2].."AV2_OTKVAVVNR_DP"]=Core[Name[1].."AV2_OTKVAVVNR_DP"] end},
+        ["AV2_PADSAVRAV_DP"]= {["Comment"]="Аварийный ввод 2. Пуск АДЭС по АВР АВ ",["eval"]= function(Name) Core[Name[2].."AV2_PADSAVRAV_DP"]=Core[Name[1].."AV2_PADSAVRAV_DP"] end},
+        ["AV2_PEREGRADS_DP"]= {["Comment"]="Аварийный ввод 2. Перегрузка АДЭС ",["eval"]= function(Name) Core[Name[2].."AV2_PEREGRADS_DP"]=Core[Name[1].."AV2_PEREGRADS_DP"] end},
+        ["AV2_SRZASHVAV_DP"]= {["Comment"]="Аварийный ввод 2. Срабатывание защит ВАВ ",["eval"]= function(Name) Core[Name[2].."AV2_SRZASHVAV_DP"]=Core[Name[1].."AV2_SRZASHVAV_DP"] end},
+        ["AV2_VAVOTK_DP"]= {["Comment"]="Аварийный ввод 2. Выключатель аварийного ввода отключен ",["eval"]= function(Name) Core[Name[2].."AV2_VAVOTK_DP"]=Core[Name[1].."AV2_VAVOTK_DP"] end},
+        ["AV2_VAVVIK_DP"]= {["Comment"]="Аварийный ввод 2. Выключатель аварийного ввода выкачен ",["eval"]= function(Name) Core[Name[2].."AV2_VAVVIK_DP"]=Core[Name[1].."AV2_VAVVIK_DP"] end},
+        ["AV2_VAVVKL_DP"]= {["Comment"]="Аварийный ввод 2. Выключатель аварийного ввода включен ",["eval"]= function(Name) Core[Name[2].."AV2_VAVVKL_DP"]=Core[Name[1].."AV2_VAVVKL_DP"] end},
+        ["AV2_VGOTK_DP"]= {["Comment"]="Аварийный ввод 2. ВГ отключен ",["eval"]= function(Name) Core[Name[2].."AV2_VGOTK_DP"]=Core[Name[1].."AV2_VGOTK_DP"] end},
+        ["AV2_VGVKL_DP"]= {["Comment"]="Аварийный ввод 2. ВГ включен ",["eval"]= function(Name) Core[Name[2].."AV2_VGVKL_DP"]=Core[Name[1].."AV2_VGVKL_DP"] end},
+        ["AV2_VKLSVAVRAV_DP"]= {["Comment"]="Аварийный ввод 2. Включение СВ по АВР АВ ",["eval"]= function(Name) Core[Name[2].."AV2_VKLSVAVRAV_DP"]=Core[Name[1].."AV2_VKLSVAVRAV_DP"] end},
+        ["AV2_VKLSVVNRAVRAV_DP"]= {["Comment"]="Аварийный ввод 2. Включение СВ при ВНР после АВР АВ ",["eval"]= function(Name) Core[Name[2].."AV2_VKLSVVNRAVRAV_DP"]=Core[Name[1].."AV2_VKLSVVNRAVRAV_DP"] end},
+        ["AV2_VKLVAVAVRAV_DP"]= {["Comment"]="Аварийный ввод 2. Включение ВАВ по АВР АВ ",["eval"]= function(Name) Core[Name[2].."AV2_VKLVAVAVRAV_DP"]=Core[Name[1].."AV2_VKLVAVAVRAV_DP"] end},
+        ["PU_DURAZR_DP"]= {["Comment"]=" ДУ Разрешено",["eval"]= function(Name) Core[Name[2].."PU_DURAZR_DP"]=Core[Name[1].."PU_DURAZR_DP"] end},
+        ["PU_SRAVTKTP_DP"]= {["Comment"]="Срабатывание автоматики КТП ",["eval"]= function(Name) Core[Name[2].."PU_SRAVTKTP_DP"]=Core[Name[1].."PU_SRAVTKTP_DP"] end},
+        ["PU_NEISKTP_DP"]= {["Comment"]="Неисправность КТП",["eval"]= function(Name) Core[Name[2].."PU_NEISKTP_DP"]=Core[Name[1].."PU_NEISKTP_DP"] end},
+        ["PU_AVARKTP_DP"]= {["Comment"]="Авария КТП",["eval"]= function(Name) Core[Name[2].."PU_AVARKTP_DP"]=Core[Name[1].."PU_AVARKTP_DP"] end},
+        ["PU_NEISPDGZ_DP"]= {["Comment"]="Неисправность ДГЗ",["eval"]= function(Name) Core[Name[2].."PU_NEISPDGZ_DP"]=Core[Name[1].."PU_NEISPDGZ_DP"] end},
+        ["PU_NEISPCONTRPU_DP"]= {["Comment"]="Неисправность контроллера ПУ",["eval"]= function(Name) Core[Name[2].."PU_NEISPCONTRPU_DP"]=Core[Name[1].."PU_NEISPCONTRPU_DP"] end},
+        ["PU_AVTVIKCSIGOTK_DP"]= {["Comment"]="Авт. Выключатель цепей сигнализации откл.",["eval"]= function(Name) Core[Name[2].."PU_AVTVIKCSIGOTK_DP"]=Core[Name[1].."PU_AVTVIKCSIGOTK_DP"] end},
+        ["PU_AVTVIKCOBOTK_DP"]= {["Comment"]="авт. Выключатель цепей обогрева откл.",["eval"]= function(Name) Core[Name[2].."PU_AVTVIKCOBOTK_DP"]=Core[Name[1].."PU_AVTVIKCOBOTK_DP"] end},
+        ["PU_CLOCKERR_DP"]= {["Comment"]="Ошибка часов ЦПЛК",["eval"]= function(Name) Core[Name[2].."PU_CLOCKERR_DP"]=Core[Name[1].."PU_CLOCKERR_DP"] end},
+        ["PU_NTPERR_DP"]= {["Comment"]="Ошибка получения времени NTP",["eval"]= function(Name) Core[Name[2].."PU_NTPERR_DP"]=Core[Name[1].."PU_NTPERR_DP"] end},
+        ["PU_PURESET_DP"]= {["Comment"]="Сброс выполнен с ПУ",["eval"]= function(Name) Core[Name[2].."PU_PURESET_DP"]=Core[Name[1].."PU_PURESET_DP"] end},
+		 
+        
+
+}
+
+
+	
+
+
+-- Инициализация сигналов в момент запуска
+
+for raw_objectName, objectName in pairs(objects) do	--Цикл по 2ум массивам: RAW_ и S_
+	for _, signals_Descriptor in pairs(signals) do	--Цикл по всем элементов в каждом из 2 массивов: RAW_ и S_
+		signals_Descriptor.eval({raw_objectName,objectName})	--Вызов функций у каждой из переменных, описанных в signals
+	end
+end
+-- Отслеживание изменений значений в сигналах
+for raw_objectName, objectName in pairs(objects) do	--Цикл по 2ум массивам: RAW_ и S_
+	for signals_Suffix, signals_Descriptor in pairs(signals) do	--Цикл по всем переменным в каждом из 2 массивов: RAW_ и S_
+		Core.onExtChange({raw_objectName..signals_Suffix},signals_Descriptor.eval,{raw_objectName,objectName})	--Вызов функций у каждой из переменных, описанных в signals при изменении любой из переменных
+	end
+end
+
+Core.waitEvents( )

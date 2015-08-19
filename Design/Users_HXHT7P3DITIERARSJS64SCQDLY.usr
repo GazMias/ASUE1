@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE UserList v. 1.0 >
+<GroupList CRC16="11548">
+    <Group Name="Операторы" Rights="Operator" Comment="1 уровень доступа – уровень оперативного персонала, мониторинг и оперативное управление энергетическим оборудованием" />
+    <Group Name="Разработчики" Rights="@SYSTEM_ColdRestart,@SYSTEM_HotRestart,@SYSTEM_RunApp,@SYSTEM_SetDateTime,@SYSTEM_Stop,Operator,Releyshik,SysEngeneer" />
+    <Group Name="Релейщики" Rights="@SYSTEM_RunApp,Releyshik" Comment="3 уровень доступа – уровень инженера-релейщика, инженера энергослужбы, инженерное сопровождение эксплуатации энергетического оборудования  без функций оперативного управления (режим инженерного сопровождения с возможностью изменения уставок и программных ключей РЗА, алгоритмов выполнения заданных технологических процессов объектов ТВС, анализ работы энергетического оборудования в различных режимах)." />
+    <Group Name="Системные инженеры" Rights="@SYSTEM_ColdRestart,@SYSTEM_HotRestart,@SYSTEM_RunApp,@SYSTEM_SetDateTime,@SYSTEM_Stop,SysEngeneer" Comment="2 уровень доступа – уровень системного инженера службы АСУ ТП, техническое обслуживание системы без функций оперативного управления энергетическим оборудованием;" />
+</GroupList>
+<UserList CRC16="40313">
+    <User Name="Инженер-релейщик" Password="MTIz" Rights="Releyshik" Groups="Релейщики" />
+    <User Name="Оператор" Rights="Operator" Groups="Операторы" />
+    <User Name="Системный инженер" Rights="SysEngeneer" Groups="Системные инженеры" />
+    <User Name="Я" Rights="@SYSTEM_ColdRestart,@SYSTEM_HotRestart,@SYSTEM_RunApp,@SYSTEM_SetDateTime,@SYSTEM_Stop" Groups="Операторы,Разработчики,Релейщики,Системные инженеры" />
+</UserList>

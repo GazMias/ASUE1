@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE SubAppType v. 1.3 >
+<SubAppType Name="Processing_Rashod" Kind="APPLICATION.LUA" Args="" Comment="" UUID="930151224331D228F7A786AF1DCEC269">
+    <InterfaceList>
+        <Signal Name="@PID" UUID="EBA679734CAD8FDCB85AD1858E3A0B7A" Type="STRING" />
+        <Signal Name="@STATE" UUID="8F6A981545CB366E55522799C67FC2A3" Type="STRING" />
+        <Signal Name="@COMMAND" UUID="6FAF8CEC4C2A3C7CB740F4AF6F90F1BF" Type="STRING" />
+        <Signal Name="@COMMAND_VALUE" UUID="3256A57C49334E3C141D93872E96A332" Type="STRING" />
+        <Signal Name="@MESSAGE" UUID="F05A5CE949056B652492AA9C2542FCC7" Type="STRING" />
+        <Signal Name="@MESSAGE_FRAMEWORK" UUID="A8F891FE4371C8D09F7F2FA35D9EAAA9" Type="STRING" />
+        <Signal Name="@EVENT" UUID="8F3DBA5F4C0804BC861515B5DF1D112A" Type="STRING" />
+        <Signal Name="@RESERVE" UUID="3C28A7EB4517BC3EDDD78AB64F594D1F" Type="BOOL" />
+        <Signal Name="@WINDOW" UUID="A6DBD13844A534B64610E387F5F69837" Type="TWINDOW" ArraySize="32" InitialValue="[(VISIBLE:=TRUE, WIDTH:=640, HEIGHT:=480)]" />
+        <Signal Name="RashodHH" UUID="E8BCCB9A41D37D2B4117F5A753BBABA8" Type="REAL" ArraySize="3600" Global="TRUE" Storage="persistent" Comment="Показания расходомера за час" />
+        <Signal Name="RashodHHItog" UUID="3CD982B14A0DA16FE50BAEA8F9C26EAC" Type="REAL" ArraySize="4" Global="TRUE" Storage="persistent" Comment="Сумма Среднее Минимум и максимум показаний расходомера за день" />
+        <Signal Name="RashodDay" UUID="1A280A5246CC9A81AC9FCABE75077C1E" Type="REAL" ArraySize="48" Global="TRUE" Storage="persistent" Comment="Показания расходомера за день" />
+        <Signal Name="RashodDayItog" UUID="79DE949E4AFA697F8AF3599D6D500705" Type="REAL" ArraySize="4" Global="TRUE" Storage="persistent" Comment="Сумма Среднее Минимум и Максимум показания расходомера за неделю" />
+        <Signal Name="S_RM_A10503_AI" UUID="E2EC00B04CD6BB00B51B8F82ACC8AE1B" Type="REAL" Global="TRUE" Comment="Показания расходомера " />
+    </InterfaceList>
+</SubAppType>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Node v. 1.3 >
+<Node Name="SERVER_1" Comment="" Disabled="TRUE" Address="169.254.0.159" TargetPath="" UUID="3439BA9943270A3A9BFC5DA1F0BF3B9A">
+    <InterfaceList>
+        <SubApp Name="EventLogger" Type="3FEA47F04C448F6B6B771694A2A6F12F" Args="" ConnectionTimeout="2000" ExecTimeout="30000" ShutdownTimeout="3000" GoodResult="0" Comment="" UUID="0718AB9E481D5AA4EEE1E28A713B04EC" />
+        <SubApp Name="Collect_M340" Type="0E574BD14F0B778BD92954A958B0F07F" Args="" ConnectionTimeout="2000" ExecTimeout="50000" ShutdownTimeout="0" GoodResult="0" Comment="" UUID="C12DEA3B499EF567E787959D63D6C713" />
+        <SubApp Name="CollectMoxa" Type="A951286848741D4A1B379992190B9665" Args="" ConnectionTimeout="2000" ExecTimeout="30000" ShutdownTimeout="0" GoodResult="0" Comment="" UUID="6951378E4082EB633BDAFF9C263D9C25" />
+        <SubApp Name="Collect_BMRZAV_BMCS40" Type="AA0B987E4C47C7A2AF3F7D9A2E423DD9" Args="" ConnectionTimeout="2000" ExecTimeout="30000" ShutdownTimeout="0" GoodResult="0" Comment="" UUID="75B5208E4B95FC512B49BDA72893405B" />
+        <SubApp Name="Collect_BMRZ_BMPA" Type="64F4833246E0EACDA6194F81EBFCF619" Args="" ConnectionTimeout="2000" ExecTimeout="30000" ShutdownTimeout="0" GoodResult="0" Comment="" UUID="29FBCFBD4FD2CA846297B9B6B50AE7E7" />
+        <SubApp Name="Collect_TVS" Type="47BEE28A453E4E0D011FFBBA9EEE9A9B" Args="" ConnectionTimeout="2000" ExecTimeout="30000" ShutdownTimeout="0" GoodResult="0" Comment="" UUID="190018974C37FB1F17AF87B5EAE8BCD1" />
+        <SubApp Name="Collect_S7" Type="D35E003F43F8C19BDC19E18FEF307B56" Args="" ConnectionTimeout="2000" ExecTimeout="30000" ShutdownTimeout="0" GoodResult="0" Comment="" UUID="E4861ABC44B9EB7CA988F9B24D4C6989" />
+        <SubApp Name="Collect_SEPAM" Type="8FF64E734FA2FF7DBB454B8A71A3FC9B" Args="" ConnectionTimeout="2000" ExecTimeout="30000" ShutdownTimeout="0" GoodResult="0" Comment="" UUID="BEB23A124D0BD14FB17CF7A9F3C3C701" />
+        <SubApp Name="Connection_check_Server1" Type="C6E6F5434A47E4DDF21B7A8619FDC0BC" Args="" ConnectionTimeout="2000" ExecTimeout="10000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="2406AFCA435A3BDD0C85BEB077A188D0" />
+        <SubApp Name="Processing_M340" Type="FC1110B14A5AE14571482E8C45ABF180" Args="" ConnectionTimeout="2000" ExecTimeout="10000" ShutdownTimeout="0" GoodResult="0" Comment="" UUID="DD8B972041A1819B5C1C6CACB4920542" />
+        <SubApp Name="Processing_BMPA" Type="433B5C7F4414BA6760AC7C9693809A7E" Args="" ConnectionTimeout="2000" ExecTimeout="10000" ShutdownTimeout="0" GoodResult="0" Comment="" UUID="3EFF27BD44BF45C90F73D4A285F81DB7" />
+        <SubApp Name="Processing_BMRZ" Type="7A0015A846444F33D5160083571CF65C" Args="" ConnectionTimeout="2000" ExecTimeout="10000" ShutdownTimeout="0" GoodResult="0" Comment="" UUID="0B5ED9B4425A57FBD71EF78B711035DB" />
+        <SubApp Name="Processing_BMRZAV" Type="48D73E1745A0CBEC4BB257BFFF441C94" Args="" ConnectionTimeout="2000" ExecTimeout="10000" ShutdownTimeout="0" GoodResult="0" Comment="" UUID="4412140247033232DDC51395735448D9" />
+        <SubApp Name="Processing_TVS" Type="656078DE44BAA6FED6162FA2C2F86D3B" Args="" ConnectionTimeout="2000" ExecTimeout="10000" ShutdownTimeout="0" GoodResult="0" Comment="" UUID="7E7BC3024DB255BC67D4B3BCCB013598" />
+        <SubApp Name="Processing_S7" Type="70BD49A8429DF733961326A3C86A7A7E" Args="" ConnectionTimeout="2000" ExecTimeout="10000" ShutdownTimeout="0" GoodResult="0" Comment="" UUID="7DC93137470EB542182FDDAAF2217567" />
+        <SubApp Name="Processing_SEPAM_VV" Type="EFCBC8EF4AA578F916B27CB2E338FEAF" Args="" ConnectionTimeout="2000" ExecTimeout="20000" ShutdownTimeout="0" GoodResult="0" Comment="" UUID="37BD6CB54EFE03181D1A69993BF8293C" />
+        <SubApp Name="Processing_SEPAM_SHTN" Type="DB25C098486A2173EA9C97885DAA0B41" Args="" ConnectionTimeout="2000" ExecTimeout="20000" ShutdownTimeout="0" GoodResult="0" Comment="" UUID="0EFED7D448CADD1870A1CEA4B34B6064" />
+        <SubApp Name="Processing_SEPAM_OL" Type="312E1C69413B86E17468A59032E1E143" Args="" ConnectionTimeout="2000" ExecTimeout="20000" ShutdownTimeout="0" GoodResult="0" Comment="" UUID="6F16F4A049F585AB5198C58FDF5086A2" />
+        <SubApp Name="Event_Analog" Type="B3E92FB8417B64E79B69B19B9B6DAD8C" Args="" ConnectionTimeout="2000" ExecTimeout="10000" ShutdownTimeout="0" GoodResult="0" Comment="" UUID="B163D6D945BC273C805410BFCA683CFB" />
+        <SubApp Name="Command_BMPA" Type="28A29E3348A22CA9C62F60882362AE75" Args="" ConnectionTimeout="2000" ExecTimeout="10000" ShutdownTimeout="0" GoodResult="0" Comment="" UUID="4D68DB504B4559293F090BB40CB2D791" />
+        <SubApp Name="Command_BMRZ" Type="F63286044A774CF6993D79A1478EB864" Args="" ConnectionTimeout="2000" ExecTimeout="10000" ShutdownTimeout="0" GoodResult="0" Comment="" UUID="A2B19BC74FFED7AE70F131A46A3AC94F" />
+        <SubApp Name="Command_S7" Type="1FA452D14DAA3689D100D39B6E133A59" Args="" ConnectionTimeout="2000" ExecTimeout="10000" ShutdownTimeout="0" GoodResult="0" Comment="" UUID="937EB4214B91DEB2AC4FF78E9C7A4AF0" />
+        <SubApp Name="Command_TVS" Type="636459A84FB5E9F702D07987BACCD894" Args="" ConnectionTimeout="2000" ExecTimeout="10000" ShutdownTimeout="0" GoodResult="0" Comment="" UUID="9C5F1C3B448A620E7275E68D62B5A905" />
+        <SubApp Name="Commands_M340" Type="D1247D644EC6A355397CC1BF1B4DE925" Args="" ConnectionTimeout="2000" ExecTimeout="10000" ShutdownTimeout="0" GoodResult="0" Comment="" UUID="8772E37A423555779939AE9D6D1EA14D" />
+        <SubApp Name="UST_BMRZ" Type="7C2CC82D47F22E8653CBE1B19464FA11" Args="" ConnectionTimeout="2000" ExecTimeout="10000" ShutdownTimeout="0" GoodResult="0" Comment="" UUID="4747C1694AF9A2BB189941B6481E86F1" />
+        <SubApp Name="Generator_Automatic_Commands" Type="8BB52D114897E2BF85CF4AA14B8AD23B" Args="" ConnectionTimeout="2000" ExecTimeout="10000" ShutdownTimeout="0" GoodResult="0" Comment="" UUID="DA93F5F3422688254E7DBBAF8892E5FC" />
+        <SubApp Name="Arhive" Type="A69473A74AF31985E41BB5A6C42D50F6" Args="" ConnectionTimeout="2000" ExecTimeout="20000" ShutdownTimeout="0" GoodResult="0" Comment="" UUID="0BAE0BFB42CBCB5162EF3EA98056F838" />
+    </InterfaceList>
+</Node>

@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE SubAppType v. 1.3 >
+<SubAppType Name="Collect_BMRZ_BMPA" Kind="DRIVER.MODBUS" Args="" Comment="" UUID="64F4833246E0EACDA6194F81EBFCF619">
+    <InterfaceList>
+        <Signal Name="@COMMAND" UUID="219E1AA24EB4985A043C04A3D784E3A9" Type="STRING" />
+        <Signal Name="@COMMAND_VALUE" UUID="7D7E70DE4E4BABFD87C86A8CA01CBBAA" Type="STRING" />
+        <Signal Name="@EVENT" UUID="3E93173040740DA626DC1CB01055809A" Type="STRING" />
+        <Signal Name="@MESSAGE" UUID="F9A9B09F4EA4B76DA07426A90195DB5F" Type="STRING" Usage="output" />
+        <Signal Name="@MESSAGE_FRAMEWORK" UUID="EAA94142477DDF74AEF29ABB10FD54BB" Type="STRING" Usage="output" />
+        <Signal Name="@PID" UUID="D98CCCA048123A3990CE28BA2442EEDB" Type="STRING" Usage="output" />
+        <Signal Name="@RESERVE" UUID="5D52909144116B02810BF3B0E6EB40EB" Type="BOOL" />
+        <Signal Name="@STATE" UUID="3CC5FE6A4A2BAE847DEDE68CA7A407CE" Type="STRING" Usage="output" />
+        <Signal Name="RAW_BMPA_Reg_NetCtrl1_UP" UUID="B02EA5764D206309A4C5479028DB1C05" Type="BOOL" Global="TRUE" Comment="Регистр команд управления БМРЗ " />
+        <Signal Name="RAW_BMRZ_2_Reg_NetCtrl1_UP" UUID="1FB9564A428AE8455B90CDA853979740" Type="BOOL" Global="TRUE" Comment=" Регистр команд управления БМРЗ " />
+        <Signal Name="RAW_BMRZ_Reg_NetCtrl1_UP" UUID="4F20933042EEFC3152F4E0ABA8AC1ED3" Type="BOOL" Global="TRUE" Comment="Регистр команд управления БМРЗ" />
+        <Signal Name="S_KTP_P07_BMPA_Reg_Time_Set_UP" UUID="FF0C32A640B4D3FA1DE5238B30D6331B" Type="BOOL" Global="TRUE" Comment="Установка текущего астрономического времени " />
+        <Signal Name="S_KTP_P07_BVV1_Reg_Time_Set_UP" UUID="E27BC1C7467A6B6D2E7C099D061B147A" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ1. Установка текущего астрономического времени" />
+        <Signal Name="S_KTP_P07_BVV2_Reg_Time_Set_UP" UUID="5AF1B27741B56278E081EE9D86D8E8B7" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ2. Установка текущего астрономического времени " />
+        <Signal Name="RAW_BMRZ_Cmd_Rd_Set_CO_UP" UUID="8FD4BFD1487BDF4D987D568460489157" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ1. Чтение уставок и конфигурации Обновить" />
+        <Signal Name="RAW_BMRZ_Cmd_Wr_Set_CO_UP" UUID="1ED36EBC422CC62CC514CD9E63DEA20F" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ1. Запись уставок и конфигурации Обновить" />
+        <Signal Name="RAW_BMRZ_2_Cmd_Rd_Set_CO_UP" UUID="C2692B854CFBA79EAF5FC5BA4102A960" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ2.Чтение уставок и конфигурации Обновить " />
+        <Signal Name="RAW_BMRZ_2_Cmd_Wr_Set_CO_UP" UUID="166681D64D578E9F63F50798742E8905" Type="BOOL" Global="TRUE" Comment=" АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ2. Запись уставок и конфигурации Обновить " />
+        <Signal Name="RAW_BMPA_40029_00_DP" UUID="09852D51493A6160C753CBBF803EC3BE" Type="BOOL" Global="TRUE" Comment="Неисправность БМПА ВЫЗОВ  " />
+        <Signal Name="RAW_BMPA_40029_01_DP" UUID="2AB3B9534B452A375568E4AB7AF19380" Type="BOOL" Global="TRUE" Comment="Неисправность ЦУ ВЫЗОВ  " />
+        <Signal Name="RAW_BMPA_40029_07_DP" UUID="76D325A943A179F7A1794B9DBE70E184" Type="BOOL" Global="TRUE" Comment="Аварийное отключение  " />
+        <Signal Name="RAW_BMPA_40029_14_DP" UUID="64223D2F4B15B6C46AD2B9AF16BDD47C" Type="BOOL" Global="TRUE" Comment="Отключение СВ от АВР АВ ВЫЗОВ  " />
+        <Signal Name="RAW_BMPA_40029_15_DP" UUID="314F9A1A48CBD5C9580469802786ADCB" Type="BOOL" Global="TRUE" Comment="Отключение СВ от АВР СВ ВЫЗОВ  " />
+        <Signal Name="RAW_BMPA_M33C01_DI" UUID="790D8BFD49FC1200923BD1A5E62DB451" Type="BOOL" Global="TRUE" Comment="Тележка СВ выкачена  " />
+        <Signal Name="RAW_BMPA_M34C09_DO" UUID="407785A04739ECC880E45DA22FC2D974" Type="BOOL" Global="TRUE" Comment="Отказ БМПА 1  " />
+        <Signal Name="RAW_BMPA_M34C15_DP" UUID="384A6FB84DFB0BD9EDB86C81A7CA42B4" Type="BOOL" Global="TRUE" Comment="ВЫЗОВ  " />
+        <Signal Name="RAW_BMPA_M41C01_DI" UUID="C7594985424802860B77109684560A2E" Type="BOOL" Global="TRUE" Comment="СВ отключен  " />
+        <Signal Name="RAW_BMPA_M41C03_DI" UUID="74BCEAE84487D9E0B6A37D85320F3A27" Type="BOOL" Global="TRUE" Comment="СВ включен  " />
+        <Signal Name="RAW_BMPA_M41C05_DI" UUID="8C03A5BE44230709A36293863858689D" Type="BOOL" Global="TRUE" Comment="РПВ  " />
+        <Signal Name="RAW_BMPA_M41C07_DI" UUID="10059456431E59E20E4F86A104BB79D1" Type="BOOL" Global="TRUE" Comment="Вкл. СВ от АВР СВ  " />
+        <Signal Name="RAW_BMPA_M41C09_DI" UUID="09C419674670B08D3ED59CA8A5119ACE" Type="BOOL" Global="TRUE" Comment="Откл. По ВНР после АВР СВ  " />
+        <Signal Name="RAW_BMPA_M41C11_DI" UUID="490A8F5F4DFD1292297A08B9293B3093" Type="BOOL" Global="TRUE" Comment="Вкл. СВ от АВР АВ  " />
+        <Signal Name="RAW_BMPA_M41C13_DI" UUID="48678E544292BCAACEF343843EAE783A" Type="BOOL" Global="TRUE" Comment="Откл. От защ. ВВ  " />
+        <Signal Name="RAW_BMPA_M41C15_DI" UUID="C27CBFF3491678B6DD6C8D9D583358D2" Type="BOOL" Global="TRUE" Comment="Откл. От защ. АВ  " />
+        <Signal Name="RAW_BMPA_M42C01_DI" UUID="486C9BAD41BBAAC9A1B873881AE8007A" Type="BOOL" Global="TRUE" Comment="Отключить СВ вых  " />
+        <Signal Name="RAW_BMPA_M42C03_DI" UUID="8E878C7A486EEA7F45D293A140FA0D9D" Type="BOOL" Global="TRUE" Comment="Включить СВ вых  " />
+        <Signal Name="RAW_BMPA_M42C05_DO" UUID="B973073946246238C7C20D829FF3260B" Type="BOOL" Global="TRUE" Comment="АВР СВ включен 1  " />
+        <Signal Name="RAW_BMPA_M42C07_DO" UUID="8B6D88264B52D0EEB0FF30A7142E11F3" Type="BOOL" Global="TRUE" Comment="АВР СВ включен 2  " />
+        <Signal Name="RAW_BMPA_M42C09_DO" UUID="F2D70C7C47412CFBEB6B4688970F2CA5" Type="BOOL" Global="TRUE" Comment="РПВ 1  " />
+        <Signal Name="RAW_BMPA_M42C11_DO" UUID="110E12BA4E8BC394337B879A5F5AC6D9" Type="BOOL" Global="TRUE" Comment="РПО 1  " />
+        <Signal Name="RAW_BMPA_M42C13_DO" UUID="29BDF49E421B5F3ADDF048AF738BF5F6" Type="BOOL" Global="TRUE" Comment="РПО 2  " />
+        <Signal Name="RAW_BMPA_M42C15_DO" UUID="3B96F1A5496D1800CB73B7AAD99E7DF0" Type="BOOL" Global="TRUE" Comment="РПВ 2  " />
+        <Signal Name="RAW_BMPA_M43C01_DI" UUID="F13438114B304DC35BD94F90B64D0E14" Type="BOOL" Global="TRUE" Comment="ДУ  " />
+        <Signal Name="RAW_BMPA_M43C03_DI" UUID="9691D086436B7C54B02455804176EB93" Type="BOOL" Global="TRUE" Comment="АВР СВ включить  " />
+        <Signal Name="RAW_BMPA_M43C05_DI" UUID="9DD451154D764760AAC060AF6012C92A" Type="BOOL" Global="TRUE" Comment="АВР СВ отключить  " />
+        <Signal Name="RAW_BMPA_M43C07_DI" UUID="01E3C56945B022D2263DB4809FA8792B" Type="BOOL" Global="TRUE" Comment="Откл. СВ от АВР АВ  " />
+        <Signal Name="RAW_BMPA_M43C09_DI" UUID="7A8984EE45CF23F692CEBCAC75DEE146" Type="BOOL" Global="TRUE" Comment="Отключить СВ  " />
+        <Signal Name="RAW_BMPA_M43C11_DI" UUID="B1B8CFD146639227AF08ABA15FF19EC2" Type="BOOL" Global="TRUE" Comment="Включить СВ  " />
+        <Signal Name="RAW_BMPA_M43C13_DI" UUID="F490C6834AFE892D9CFE4480DA708A95" Type="BOOL" Global="TRUE" Comment="Квитирование  " />
+        <Signal Name="RAW_BMPA_M43C15_DI" UUID="09A475ED480879DDE4B446B51452D9EA" Type="BOOL" Global="TRUE" Comment="СЕВ  " />
+        <Signal Name="RAW_BMPA_M44C01_DO" UUID="D62923FC4258E0F48F439D8115AE8278" Type="BOOL" Global="TRUE" Comment="Неиспр. БМПА  " />
+        <Signal Name="RAW_BMPA_M44C03_DO" UUID="6D5460A54A72BF31F2FA77AFB848F5A3" Type="BOOL" Global="TRUE" Comment="Авар. Откл.  " />
+        <Signal Name="RAW_BMPA_M44C05_DO" UUID="EA37DFDD444B65D876F3E6947964254B" Type="BOOL" Global="TRUE" Comment="АВР СВ включен  " />
+        <Signal Name="RAW_BMPA_M44C07_DO" UUID="0CDA376C4FAAD257AE0B18865BC89CCC" Type="BOOL" Global="TRUE" Comment="АВР СВ отключен  " />
+        <Signal Name="RAW_BMPA_M44C09_DO" UUID="04150A2A40D9B296EC68769E09C1728D" Type="BOOL" Global="TRUE" Comment="Неисправность ЦУ  " />
+        <Signal Name="RAW_BMPA_M44C11_DO" UUID="8069177E42917AD5E03170838B3A328F" Type="BOOL" Global="TRUE" Comment="Отказ БМПА 2  " />
+        <Signal Name="RAW_BMPA_M44C13_DO" UUID="B9AEF9534F9A68BA6C20E385186DB611" Type="BOOL" Global="TRUE" Comment="РФК  " />
+        <Signal Name="RAW_BMPA_Reg_Block_ID" UUID="7240711B4F63796F4DDA68A8D3645A27" Type="UINT" ArraySize="1" Global="TRUE" Comment="Номер конфигурации " />
+        <Signal Name="RAW_BMPA_Reg_Cmd_WinRd_Only" UUID="140CB69B4F4BFADDAFA43E9095401BF8" Type="DWORD" Global="TRUE" Comment="Управление окном обмена“Только чтение”" />
+        <Signal Name="RAW_BMPA_Reg_DataCtrl1" UUID="C34B46F24F6A9E8C9BC4579DCA2E1DDE" Type="BYTE" ArraySize="8" Global="TRUE" Comment="Параметры&#x0A;команды управления БМРЗ" />
+        <Signal Name="RAW_BMPA_Reg_NetCmd_Result" UUID="27A2C3C94F08E40617D0448DC69C708C" Type="INT" Global="TRUE" Comment="Код исполнения команды " />
+        <Signal Name="RAW_BMPA_Reg_NetCtrl" UUID="923777C64702989B1189B198A0AB3295" Type="DWORD" Global="TRUE" Comment="Регистр команд управления выключателем " />
+        <Signal Name="RAW_BMPA_Reg_NetCtrl1" UUID="85752E3F4B7739E2EAA7D2A8535A1141" Type="DWORD" Global="TRUE" Comment="Регистр команд управления БМРЗ " />
+        <Signal Name="RAW_BMPA_Reg_NetCtrl1_R" UUID="D06622E24F42288C91321BB4A574FE81" Type="DWORD" Global="TRUE" Comment="Регистр команд управления БМРЗ " />
+        <Signal Name="RAW_BMPA_Reg_NetCtrl_R" UUID="204D7BE14447D8411FDB139C08C31ACD" Type="DWORD" Global="TRUE" Comment="Регистр команд управления выключателем " />
+        <Signal Name="RAW_BMPA_Reg_Slave_ID" UUID="9809651147552BB9389CBA876A2FDDAE" Type="BYTE" ArraySize="32" Global="TRUE" Comment="Идентификатор  " />
+        <Signal Name="RAW_BMPA_Reg_Time" UUID="3640F31047C4A672250F41AF360380CF" Type="BYTE" ArraySize="8" Global="TRUE" Comment="Астрономическое время встроенных часов- календаря  " />
+        <Signal Name="RAW_BMPA_Reg_Version" UUID="7DACEE36406C140531CFF1BEB0312C6E" Type="UINT" ArraySize="1" Global="TRUE" Comment="Версия сетевого драйвера  " />
+        <Signal Name="RAW_BMPA_SUMKOLOTKV_CP" UUID="6D3AE2EB49FC10CC83069E9F69609B64" Type="INT" Global="TRUE" Comment="Суммарное количество отключений выключателя  " />
+        <Signal Name="RAW_BMPA_VREMSBROSA_CP" UUID="67B90B5D45D4B3D161F3399DF3F9745E" Type="BYTE" ArraySize="8" Global="TRUE" Comment="Дата – время последнего сброса накопительной информации  " />
+        <Signal Name="RAW_BMRZ_2_ANGLE_AP" UUID="19BC05D74B6B910632E815BD548DCEC7" Type="INT" Global="TRUE" Comment=" Текущее значение угла между I1 U1   " />
+        <Signal Name="RAW_BMRZ_2_AVOTK_DP" UUID="9873EC7C4C7DD3F7E7478582741D6BE3" Type="BOOL" Global="TRUE" Comment=" Аварийное отключение   " />
+        <Signal Name="RAW_BMRZ_2_AVRSVVKL_DP" UUID="F3B0755F4842A040B6DDB686B7489ED4" Type="BOOL" Global="TRUE" Comment=" АВР СВ включено   " />
+        <Signal Name="RAW_BMRZ_2_BLDRBMTZ_DP" UUID="05C17317464F2B9875F747A26D963B10" Type="BOOL" Global="TRUE" Comment=" Блокировка функций ДР и БМТЗ при параллельной работе ВВ и АВ   " />
+        <Signal Name="RAW_BMRZ_2_BLOCKAVRAV_DP" UUID="2A2EBAF04D851B19218851899B466A1D" Type="BOOL" Global="TRUE" Comment=" Блокировка АВР АВ   " />
+        <Signal Name="RAW_BMRZ_2_BMTZ_DP" UUID="11AE692245E6893367B14BB4AEE1F8EC" Type="BOOL" Global="TRUE" Comment=" БМТЗ   " />
+        <Signal Name="RAW_BMRZ_2_COSFI_AP" UUID="5B1CC7CC4091191FE05410B1F1370552" Type="INT" Global="TRUE" Comment=" Текущее значение cos φ   " />
+        <Signal Name="RAW_BMRZ_2_DUVKL_DP" UUID="20973DC749BC822C3368FB9BFB69AF5D" Type="BOOL" Global="TRUE" Comment=" ДУ включено   " />
+        <Signal Name="RAW_BMRZ_2_Diff_Time" UUID="3C213A394E3F48F4150BE185F69C2CAE" Type="LREAL" Global="TRUE" Comment=" Разница между системным временем и временем прибора " />
+        <Signal Name="RAW_BMRZ_2_FREQ__AP" UUID="E64939814B41BD9763DDAFBD73D7440D" Type="INT" Global="TRUE" Comment=" Текущее значение частоты тока в сети   " />
+        <Signal Name="RAW_BMRZ_2_I0MAX_CP" UUID="17AEDF9D42385D74839111BC3EF58D7C" Type="INT" Global="TRUE" Comment=" Максимальное значение тока нулевой последовательности   " />
+        <Signal Name="RAW_BMRZ_2_I0_AP" UUID="45B8D5DA4C52400A60BF219C59E4FC3F" Type="INT" Global="TRUE" Comment=" Текущее значение тока нулевой последовательности   " />
+        <Signal Name="RAW_BMRZ_2_IACPR_AP" UUID="2C888437479339BD0A1E768E4284E33F" Type="INT" Global="TRUE" Comment=" Текущее значение активной составляющей тока прямой последовательности   " />
+        <Signal Name="RAW_BMRZ_2_IAMAXPO_CP" UUID="B625D2E74E47C402B2FC9E807EB8450B" Type="INT" Global="TRUE" Comment=" Максимальный ток при последнем отключении Фаза A   " />
+        <Signal Name="RAW_BMRZ_2_IAMAX_CP" UUID="F6E37BC243E3FBEA87C4CC93E4DE7DA9" Type="INT" Global="TRUE" Comment=" Максимальное значение тока фазы А   " />
+        <Signal Name="RAW_BMRZ_2_IATEK_AP" UUID="28D7F9B349961B16AB71F3BB54F21FC2" Type="INT" Global="TRUE" Comment=" Текущее значение тока фазы А   " />
+        <Signal Name="RAW_BMRZ_2_IBMAXPO_CP" UUID="6AFB57E64807BE1E10F041956CAF8B68" Type="INT" Global="TRUE" Comment=" Максимальный ток при последнем отключении Фаза B   " />
+        <Signal Name="RAW_BMRZ_2_IBMAX_CP" UUID="B45F73E54704D84D8D2F2D95CBC44D69" Type="INT" Global="TRUE" Comment=" Максимальное значение тока фазы В   " />
+        <Signal Name="RAW_BMRZ_2_IBTEK_AP" UUID="0D1134794771E8AD0A6F90B410431BE7" Type="INT" Global="TRUE" Comment=" Текущее значение тока фазы В   " />
+        <Signal Name="RAW_BMRZ_2_ICMAXPO_CP" UUID="BC32F39D409E015AA6FCD99FC27F071A" Type="INT" Global="TRUE" Comment=" Максимальный ток при последнем отключении Фаза C   " />
+        <Signal Name="RAW_BMRZ_2_ICMAX_CP" UUID="153DAEA743D016FD9CE00AB80A517226" Type="INT" Global="TRUE" Comment=" Максимальное значение тока фазы С   " />
+        <Signal Name="RAW_BMRZ_2_ICTEK_AP" UUID="28BD866A4D8405AEC6D6BBB414CDFAFE" Type="INT" Global="TRUE" Comment=" Текущее значение тока фазы С   " />
+        <Signal Name="RAW_BMRZ_2_IOB_AP" UUID="E20E1F6F457569B7CBCD2AA826FBE7F6" Type="INT" Global="TRUE" Comment=" Текущее значение тока обратной последовательности   " />
+        <Signal Name="RAW_BMRZ_2_IPR_AP" UUID="B52279744E0C2E5D93E20DA0CEFB6AE1" Type="INT" Global="TRUE" Comment=" Текущее значение тока прямой последовательности   " />
+        <Signal Name="RAW_BMRZ_2_IREPR_AP" UUID="607AD6204ABF6C7162CCFE94DF4565DA" Type="INT" Global="TRUE" Comment=" Текущее значение реактивной составляющей тока прямой последовательности   " />
+        <Signal Name="RAW_BMRZ_2_KOLPTZNP_CP" UUID="DDE8DB93428D3CFD6A7FBC867A5A4C2E" Type="INT" Global="TRUE" Comment=" Количество пусков ТЗНП   " />
+        <Signal Name="RAW_BMRZ_2_KPAVR_CP" UUID="F5FA43DA4F95AA78C5FBD596926CBD7F" Type="INT" Global="TRUE" Comment=" Количество пусков АВР   " />
+        <Signal Name="RAW_BMRZ_2_KPDR_CP" UUID="F3EB9A6248D18DD07499E5B1DCCC932C" Type="INT" Global="TRUE" Comment=" Количество пусков ДР   " />
+        <Signal Name="RAW_BMRZ_2_KPMTZI1ST_CP" UUID="C1AE8EF54ADB4EDB754A90B9778C96B9" Type="INT" Global="TRUE" Comment=" Количество пусков МТЗ I&gt;&gt;   " />
+        <Signal Name="RAW_BMRZ_2_KPMTZI2ST_CP" UUID="9C5C0B86492CC715293744B7E13E8F29" Type="INT" Global="TRUE" Comment=" Количество пусков МТЗ I&gt;   " />
+        <Signal Name="RAW_BMRZ_2_KSAVRAV_CP" UUID="F911EF664DF185EE6BA284A03C43D413" Type="INT" Global="TRUE" Comment=" Количество срабатываний АВР AB   " />
+        <Signal Name="RAW_BMRZ_2_KSBMTZ_CP" UUID="36E4CD1048D5605146ECA7A45E50D017" Type="INT" Global="TRUE" Comment=" Количество срабатываний БМТЗ   " />
+        <Signal Name="RAW_BMRZ_2_KSDROTKSV_CP" UUID="78CEE28B44541A0FB8452BAFC50B5362" Type="INT" Global="TRUE" Comment=" Количество срабатываний ДР на отключение СВ   " />
+        <Signal Name="RAW_BMRZ_2_KSDROTKVV_CP" UUID="43AC16684949F0FD484C6286CB7870C0" Type="INT" Global="TRUE" Comment=" Количество срабатываний ДР на отключение ВВ   " />
+        <Signal Name="RAW_BMRZ_2_KSMTZI1STSV_CP" UUID="EF826A394B558A6F34D633A5287B64A3" Type="INT" Global="TRUE" Comment=" Количество срабатываний МТЗ I&gt;&gt; на отключение СВ   " />
+        <Signal Name="RAW_BMRZ_2_KSMTZI1STVV_CP" UUID="A8282C8C404B6F8E36CF7F8262EB3DF2" Type="INT" Global="TRUE" Comment=" Количество срабатываний МТЗ I&gt;&gt; на отключение ВВ   " />
+        <Signal Name="RAW_BMRZ_2_KSMTZI2STK13_CP" UUID="456FEB3B41B5C18F243D429227796008" Type="INT" Global="TRUE" Comment=" Количество срабатываний МТЗ I&gt; на К 13   " />
+        <Signal Name="RAW_BMRZ_2_KSMTZI2STVV_CP" UUID="282BE3414C50E457B313CCB766C59B10" Type="INT" Global="TRUE" Comment=" Количество срабатываний МТЗ I&gt; на отключение ВВ   " />
+        <Signal Name="RAW_BMRZ_2_KSTZNPSV_CP" UUID="3C3003DD4DDE457596AB90A993FF18BA" Type="INT" Global="TRUE" Comment=" Количество срабатываний ТЗНП на отключение СВ   " />
+        <Signal Name="RAW_BMRZ_2_KSTZNPVV_CP" UUID="F42FAD0649C2D8AA795BD38628B9CAA4" Type="INT" Global="TRUE" Comment=" Количество срабатываний ТЗНП на отключение ВВ   " />
+        <Signal Name="RAW_BMRZ_2_KVIT_CO" UUID="42FA1C8C4A9817890D1892B6ADF3F3DA" Type="BOOL" Global="TRUE" Comment=" Квитирование   " />
+        <Signal Name="RAW_BMRZ_2_KVIT_DP" UUID="45364E604EF19B41493D6D876C8B741F" Type="BOOL" Global="TRUE" Comment=" Квитирование   " />
+        <Signal Name="RAW_BMRZ_2_NBB1(2)_DP" UUID="6C7E079F4060DBFDD549C7B55DD19BD8" Type="BOOL" Global="TRUE" Comment=" Неисправность цепей управления ВВ1(2)   " />
+        <Signal Name="RAW_BMRZ_2_NBMRZ_DP" UUID="02B729354E7B14AC0D31CAAF34B14EB7" Type="BOOL" Global="TRUE" Comment=" Неисправность БМРЗ   " />
+        <Signal Name="RAW_BMRZ_2_NEZVNR_CP" UUID="C397740B4966B18457C1D191F3FEB1BB" Type="BOOL" Global="TRUE" Comment=" Незавершенное ВНР   " />
+        <Signal Name="RAW_BMRZ_2_NVV_CP" UUID="9CAC5D26419FC981C625B6A437B33917" Type="BOOL" Global="TRUE" Comment=" Неисправность ВВ   " />
+        <Signal Name="RAW_BMRZ_2_OTKAVRAV_DP" UUID="D1BF2E2E49DC3BBFE305AAA1BBE99231" Type="BOOL" Global="TRUE" Comment=" Отключение АВР АВ   " />
+        <Signal Name="RAW_BMRZ_2_OTKAVRSV_CP" UUID="C73A9D104288F7DC68094EA272118252" Type="BOOL" Global="TRUE" Comment=" Отключение от АВР СВ   " />
+        <Signal Name="RAW_BMRZ_2_OTKKL_DP" UUID="DC51BF794903EF6B1CA512B6659FA436" Type="BOOL" Global="TRUE" Comment=" Команда «Отключить» от ключа   " />
+        <Signal Name="RAW_BMRZ_2_OTKLSVVNR_DP" UUID="FE33F5674670ED17BF8BB1B49B7533C2" Type="BOOL" Global="TRUE" Comment=" Отключить СВ от ВНР   " />
+        <Signal Name="RAW_BMRZ_2_OTKLSVZASH_DP" UUID="23F9AE4B48AF8FAD72A620BBDB6A0360" Type="BOOL" Global="TRUE" Comment=" Отключить СВ от защит   " />
+        <Signal Name="RAW_BMRZ_2_OTKLTRAN_DP" UUID="12DA30844DAC4797FE695EA28D913B67" Type="BOOL" Global="TRUE" Comment=" Отключить трансформатор   " />
+        <Signal Name="RAW_BMRZ_2_OTKTR_CP" UUID="1B7AF7DB4B9BFB644AF3BC8776E645E7" Type="BOOL" Global="TRUE" Comment=" Отключение ТР   " />
+        <Signal Name="RAW_BMRZ_2_OTKVVAVR_CP" UUID="AEA9D0B64580C8D4CB58FFBA4929A505" Type="BOOL" Global="TRUE" Comment=" Отключение ВВ по АВР   " />
+        <Signal Name="RAW_BMRZ_2_OTKVV_AP" UUID="D214E41646E97E5A42B2819DCF911758" Type="INT" Global="TRUE" Comment=" Отключить ВВ   " />
+        <Signal Name="RAW_BMRZ_2_OTKVV_DP" UUID="0C396A19487E205C222F099F18720562" Type="BOOL" Global="TRUE" Comment=" Отключить ВВ   " />
+        <Signal Name="RAW_BMRZ_2_OTKV_CO" UUID="31F3C67845FCD30B9FEFE7AED15FF1BE" Type="BOOL" Global="TRUE" Comment=" Отключить выключатель   " />
+        <Signal Name="RAW_BMRZ_2_PAC3F_AP" UUID="CCF6A6FA418EDC5CA263B4A1CDE18809" Type="INT" Global="TRUE" Comment=" Текущее значение активной трехфазной мощности   " />
+        <Signal Name="RAW_BMRZ_2_PACOB_AP" UUID="CBB8005042C526DCAF749D8B807B2C87" Type="INT" Global="TRUE" Comment=" Текущее значение активной составляющей мощности обратной последовательности   " />
+        <Signal Name="RAW_BMRZ_2_PEREGR_DP" UUID="544C43954467C7C31F1B43919691E683" Type="BOOL" Global="TRUE" Comment=" Перегрузка   " />
+        <Signal Name="RAW_BMRZ_2_PPL3F_AP" UUID="07CF4ED744A2235F3F95EEA4F1E17237" Type="INT" Global="TRUE" Comment=" Текущее значение полной трехфазной мощности   " />
+        <Signal Name="RAW_BMRZ_2_PRE3F_AP" UUID="0558E93F410D8C963AF418826EB1DF7E" Type="INT" Global="TRUE" Comment=" Текущее значение реактивной фазной мощности   " />
+        <Signal Name="RAW_BMRZ_2_R40466_DP" UUID="8E2F984F4BEED085D0B17DAC8E1350A4" Type="UINT" Global="TRUE" Comment=" Уставка по току для первого пускового органа МТЗ первой ступени с независимой время - токовой характеристикой. Действует постоянно  " />
+        <Signal Name="RAW_BMRZ_2_R40467_DP" UUID="0A7AD741495DF53E133C43BA3B8F0B27" Type="UINT" Global="TRUE" Comment=" Уставка по току для второго пускового органа МТЗ первой ступени первой ступени с независимой время - токовой характеристикой. Используется функцией БМТЗ  " />
+        <Signal Name="RAW_BMRZ_2_R40468_DP" UUID="34F27EF5432D7AB7145DA280081DC9D7" Type="UINT" Global="TRUE" Comment=" Уставка по току для МТЗ второй ступени с независимой время - токовой характеристикой  " />
+        <Signal Name="RAW_BMRZ_2_R40469_DP" UUID="30F98BB841989AC619BB5A9A56FCEF17" Type="UINT" Global="TRUE" Comment=" Уставка по току для МТЗ второй ступени с обратнозависимой время - токовой характеристикой  " />
+        <Signal Name="RAW_BMRZ_2_R40470_DP" UUID="FA16A5AA42B857B58017519764309BDD" Type="UINT" Global="TRUE" Comment=' Уставка по выдержке времени для пер-вого элемента МТЗ первой ступени (выда-ча БМРЗ выходного сигнала &quot;Откл. СВ&quot;). Обязательное условие Т1 &lt; Т2  ' />
+        <Signal Name="RAW_BMRZ_2_R40471_DP" UUID="F7702C7840E3E0A878B000B31320D6C5" Type="UINT" Global="TRUE" Comment=' Уставка по выдержки времени для второго элемента МТЗ первой ступени (выдача БМРЗ выходного сигнала &quot;Откл&quot;)  ' />
+        <Signal Name="RAW_BMRZ_2_R40472_DP" UUID="3CA3F7EF4C6C77CFD43976B5CD0AC4D5" Type="UINT" Global="TRUE" Comment=" Уставка по выдержке времени для МТЗ второй ступени с независимой время - токовой характеристикой  " />
+        <Signal Name="RAW_BMRZ_2_R40473_DP" UUID="02047F68404729ADA4A733AD8643508B" Type="UINT" Global="TRUE" Comment=" Уставка по выдержке времени для МТЗ второй ступени с обратнозависимой время - токовой характеристикой при величине тока, равной 10 I3  " />
+        <Signal Name="RAW_BMRZ_2_R40474_DP" UUID="FAE23E5C492181B1CCDA84B32121DC2F" Type="UINT" Global="TRUE" Comment=" Уставка по току для ДР первой ступени с независимой время - токовой характерис­тикой  " />
+        <Signal Name="RAW_BMRZ_2_R40475_DP" UUID="4B1764AC4C85D2D4411B4CA974C57587" Type="UINT" Global="TRUE" Comment=" Уставка по току для ДР первой ступени с независимой время - токовой характерис­тикой при включении статической нагрузки  " />
+        <Signal Name="RAW_BMRZ_2_R40476_DP" UUID="065C81EF44D1C404B969B2A8058C8C85" Type="UINT" Global="TRUE" Comment=" Уставка по току обратной последова­тельности для ДР первой ступени с неза­висимой время - токовой характеристикой  " />
+        <Signal Name="RAW_BMRZ_2_R40477_DP" UUID="3CAE7B59440031F2EB75429B8326EFC3" Type="UINT" Global="TRUE" Comment=" Уставка по току для ДР первой ступени с независимой время - токовой характерис­тикой, равная номинальному току источ­ника питания ввода 0,4 кВ (трансформа­тора или генератора)  " />
+        <Signal Name="RAW_BMRZ_2_R40478_DP" UUID="AEF85F0849BF42F77A2FF3A955BCB1FA" Type="UINT" Global="TRUE" Comment=" Уставка по току для ДР второй ступени с обратнозависимой время - токовой характеристикой  " />
+        <Signal Name="RAW_BMRZ_2_R40479_DP" UUID="653017AC42921A3EC1AD6FBDD35D576D" Type="UINT" Global="TRUE" Comment=" Уставка по выдержке времени для ДР второй ступени с обратнозависимой время - токовой характеристикой при величине тока, равной 10 I3  " />
+        <Signal Name="RAW_BMRZ_2_R40480_DP" UUID="61790E074D169496A2F1258EEE1860DE" Type="UINT" Global="TRUE" Comment=' Уставка по первому элементу выдержки времени для ДР первой ступени с выдачей блоком выходного сигнала &quot;Откл. СВ&quot;. Обязательное условие Тдр1 &lt; Тдр2  ' />
+        <Signal Name="RAW_BMRZ_2_R40481_DP" UUID="AA829318426D44B9F74C028608744A07" Type="UINT" Global="TRUE" Comment=' Уставка по второму элементу выдержки времени для ДР первой ступени (выдача БМРЗ выходного сигнала &quot;Откл.&quot;)  ' />
+        <Signal Name="RAW_BMRZ_2_R40482_DP" UUID="D10A5AF44CA7B86CD0D07CA9B6243CF4" Type="UINT" Global="TRUE" Comment=" Уставка по току обратной последова­тельности для ТЗНП с независимой время - токовой характеристикой  " />
+        <Signal Name="RAW_BMRZ_2_R40483_DP" UUID="EA8223F5492EE6AFE95E73AD8192A674" Type="UINT" Global="TRUE" Comment=' Уставка по выдержке времени для первого элемента ТЗНП (выдача БМРЗ выходного сигнала &quot;Откл. СВ&quot;). Обязательное условие То1 &lt; То2  ' />
+        <Signal Name="RAW_BMRZ_2_R40484_DP" UUID="5E6D588243715FBBB909A4907DE00CAC" Type="UINT" Global="TRUE" Comment=' Уставка по выдержке времени для второго элемента ТЗНП (выдача БМРЗ выходного сигнала &quot;Откл&quot;)  ' />
+        <Signal Name="RAW_BMRZ_2_R40485_DP" UUID="AB70524A4A3ACC92E4B1C6BA70BCCE3C" Type="UINT" Global="TRUE" Comment=" Уставка по выдержке времени срабатывания АВР АВ  " />
+        <Signal Name="RAW_BMRZ_2_R40486_DP" UUID="EFD3678142504AC312F71DB531CCFDD0" Type="UINT" Global="TRUE" Comment=" Уставка по выдержке времени срабатывания ВНР АВ  " />
+        <Signal Name="RAW_BMRZ_2_R40487_DP" UUID="0A6D1EBE498D61DAC6160F97F719220D" Type="UINT" Global="TRUE" Comment=" Уставка по напряжению обратной последовательности ввода для РАВР  " />
+        <Signal Name="RAW_BMRZ_2_R40488_DP" UUID="944B3B2549EAA3CFFE85BDBB1A596FBE" Type="UINT" Global="TRUE" Comment=" Уставка по напряжению обратной последовательности секции для РАВР  " />
+        <Signal Name="RAW_BMRZ_2_R40489_DP" UUID="DC7EA900481D98C83681E486E4ADFFD0" Type="UINT" Global="TRUE" Comment=" Уставка назначения контрольного выхода  " />
+        <Signal Name="RAW_BMRZ_2_RAZAVRBMRZ_DP" UUID="4B805A944AE3B8B0A2F66AA228513C91" Type="BOOL" Global="TRUE" Comment=" Разрешение АВР БМРЗ – 0,4ВВ соседней секции   " />
+        <Signal Name="RAW_BMRZ_2_RAZAVRSV2VV_DP" UUID="AD419AF442F0BBEFB5E759A65293209D" Type="BOOL" Global="TRUE" Comment=" Разрешение АВР СВ второго ввода   " />
+        <Signal Name="RAW_BMRZ_2_RPOVOTK_DP" UUID="7A2438214A020FB10CDEB19FFFAC2365" Type="BOOL" Global="TRUE" Comment=" РПО «Выключатель отключен»   " />
+        <Signal Name="RAW_BMRZ_2_RPVVKLST_DP" UUID="4460FA0F4AF4A07D6824848B8F3A3559" Type="BOOL" Global="TRUE" Comment=" РПВ во включенном состоянии   " />
+        <Signal Name="RAW_BMRZ_2_RPVVKL_DP" UUID="78B2DD444B47B9578B22358C1AB96EB1" Type="BOOL" Global="TRUE" Comment=" РПВ «Выключатель включен»   " />
+        <Signal Name="RAW_BMRZ_2_RPVVKL_DP_1" UUID="3DB339264B2C21DAB1D98AB50ED9736E" Type="BOOL" Global="TRUE" Comment=" РПВ «Выключатель включен»   " />
+        <Signal Name="RAW_BMRZ_2_Reg_Block_ID" UUID="F511777B469AA9286C4FCDA0A8786E70" Type="UINT" ArraySize="1" Global="TRUE" Comment=" Номер конфигурации  " />
+        <Signal Name="RAW_BMRZ_2_Reg_Cmd_WinRd_Only" UUID="A16DB70D45998E6895363D91691DD37E" Type="DWORD" Global="TRUE" Comment=" Управление окном обмена Только чтение " />
+        <Signal Name="RAW_BMRZ_2_Reg_Cmd_WinWrRd_DP" UUID="F74A85D148C013C26119FBABCF994EED" Type="DWORD" Global="TRUE" Comment=" Регистры  команд управления окном обмена Запись чтение " />
+        <Signal Name="RAW_BMRZ_2_Reg_Ctrl_WinRdOnly_DP" UUID="177CEA8D4D340CCB37F14CA227A9A1DD" Type="DWORD" Global="TRUE" Comment=" Регистры  данных команд  управле-ния окном обмена  Только чтение  " />
+        <Signal Name="RAW_BMRZ_2_Reg_Ctrl_WinWrRd_DP" UUID="BAFF4B844F5218ACFEDCDCAFAC039171" Type="DWORD" Global="TRUE" Comment=" Регистры  данных команд  управления окном обмена Запись чтение " />
+        <Signal Name="RAW_BMRZ_2_Reg_DataCtrl1" UUID="FC863A6B48D1D0DEA11D23BFCF7A1BB4" Type="BYTE" ArraySize="8" Global="TRUE" Comment=" Параметры команды управления БМРЗ " />
+        <Signal Name="RAW_BMRZ_2_Reg_NET_KTr_1" UUID="6D6E556A4E0300C907FC4EB4E766E940" Type="REAL" Global="TRUE" Comment=" Коэф. для Текущее значение тока фазы А  " />
+        <Signal Name="RAW_BMRZ_2_Reg_NET_KTr_10" UUID="81BF65B04FC3534FEF5278A2C2A554E5" Type="REAL" Global="TRUE" Comment=" Коэф. для Текущее значение напряжения фазы С секции  " />
+        <Signal Name="RAW_BMRZ_2_Reg_NET_KTr_11" UUID="70469A6D444F93E7F28208ABEB31F43F" Type="REAL" Global="TRUE" Comment=" Коэф. для Текущее значение тока прямой последовательности  " />
+        <Signal Name="RAW_BMRZ_2_Reg_NET_KTr_12" UUID="68FAEC3E471FD3054A4EE1B5148E4E92" Type="REAL" Global="TRUE" Comment=" Коэф. для Текущее значение тока обратной последовательности  " />
+        <Signal Name="RAW_BMRZ_2_Reg_NET_KTr_13" UUID="6A85657E44E5639FC7A07D91EA96D764" Type="REAL" Global="TRUE" Comment=" Коэф. для Текущее значение напряжения прямой последовательности.  " />
+        <Signal Name="RAW_BMRZ_2_Reg_NET_KTr_14" UUID="8EF7B741438EE087F74F96AA55DF4143" Type="REAL" Global="TRUE" Comment=" Коэф. для Текущее значение напряжения обратной последовательности.  " />
+        <Signal Name="RAW_BMRZ_2_Reg_NET_KTr_15" UUID="039F0D91459A8BB40038FDAD9FDAE1CD" Type="REAL" Global="TRUE" Comment=" Коэф. для Текущее значение активной составляющей тока прямой последовательности  " />
+        <Signal Name="RAW_BMRZ_2_Reg_NET_KTr_16" UUID="DCCBCCAC4C2C1298689737B4CF650036" Type="REAL" Global="TRUE" Comment=" Коэф. для Текущее значение реактивной составляющей тока прямой последовательности  " />
+        <Signal Name="RAW_BMRZ_2_Reg_NET_KTr_17" UUID="2B953CA34E51D0482CC506A08E816777" Type="REAL" Global="TRUE" Comment=" Коэф. для Текущее значение угла между 11и U1  " />
+        <Signal Name="RAW_BMRZ_2_Reg_NET_KTr_18" UUID="570A10814C7AEAE822348FB3CA0E20E6" Type="REAL" Global="TRUE" Comment=" Коэф. для Текущее значение активной составляющей мощности обратной последовательности  " />
+        <Signal Name="RAW_BMRZ_2_Reg_NET_KTr_19" UUID="0289583E4C19613B5DBAD4BC93BDADDC" Type="REAL" Global="TRUE" Comment=" Коэф. для Текущее значение активной трехфазной мощности  " />
+        <Signal Name="RAW_BMRZ_2_Reg_NET_KTr_2" UUID="F21027AF47DDC754FA580286BEBBC638" Type="REAL" Global="TRUE" Comment=" Коэф. для Текущее значение тока фазы В  " />
+        <Signal Name="RAW_BMRZ_2_Reg_NET_KTr_20" UUID="D6BC4602404799FCF9BCAD80134F6029" Type="REAL" Global="TRUE" Comment=" Коэф. для Текущее значение реактивной фазной мощности  " />
+        <Signal Name="RAW_BMRZ_2_Reg_NET_KTr_21" UUID="AC6F10B94D90CCB2F86111B0E8B52B18" Type="REAL" Global="TRUE" Comment=" Коэф. для Текущее значение полной трехфазной мощности  " />
+        <Signal Name="RAW_BMRZ_2_Reg_NET_KTr_22" UUID="DB65CF2044E2A46C175F55B7C637E1C5" Type="REAL" Global="TRUE" Comment=" Коэф. для Текущее значение cos Ф  " />
+        <Signal Name="RAW_BMRZ_2_Reg_NET_KTr_23" UUID="6465AAA54F6A8F345E0B528F5923E689" Type="REAL" Global="TRUE" Comment=" Коэф. для Текущее значение напряжения обратной последовательности ввода.  " />
+        <Signal Name="RAW_BMRZ_2_Reg_NET_KTr_24" UUID="DF8880E14D597E18679F08ACE90EE234" Type="REAL" Global="TRUE" Comment=" Коэф. для Текущее значение частоты тока в сети  " />
+        <Signal Name="RAW_BMRZ_2_Reg_NET_KTr_3" UUID="1F477CE44B32353426F6AFAE444CBAC1" Type="REAL" Global="TRUE" Comment=" Коэф. для Текущее значение тока фазы С  " />
+        <Signal Name="RAW_BMRZ_2_Reg_NET_KTr_4" UUID="F16C2697448819EED312B8B56FA7917F" Type="REAL" Global="TRUE" Comment=" Коэф. для Текущее значение тока нулевой последовательности  " />
+        <Signal Name="RAW_BMRZ_2_Reg_NET_KTr_5" UUID="60F9F67F486EF16CB87B3A98589BB489" Type="REAL" Global="TRUE" Comment=" Коэф. для Текущее значение напряжения фазы А ввода  " />
+        <Signal Name="RAW_BMRZ_2_Reg_NET_KTr_6" UUID="6786FF9C4A0B85966C61D89749C4DAD6" Type="REAL" Global="TRUE" Comment=" Коэф. для Текущее значение напряжения фазы В ввода  " />
+        <Signal Name="RAW_BMRZ_2_Reg_NET_KTr_7" UUID="C9B237DC490DD01895BBEDBCE85A043D" Type="REAL" Global="TRUE" Comment=" Коэф. для Текущее значение напряжения фазы С ввода  " />
+        <Signal Name="RAW_BMRZ_2_Reg_NET_KTr_8" UUID="398582F549CEAB8E796D8EB001ACE3F1" Type="REAL" Global="TRUE" Comment=" Коэф. для Текущее значение напряжения фазы А секции  " />
+        <Signal Name="RAW_BMRZ_2_Reg_NET_KTr_9" UUID="65025D74438579D22A629480E54C3750" Type="REAL" Global="TRUE" Comment=" Коэф. для Текущее значение напряжения фазы В секции  " />
+        <Signal Name="RAW_BMRZ_2_Reg_NetCmd_Result" UUID="6D7B68054350D0678C62C28DBB89EA12" Type="INT" Global="TRUE" Comment=" Код исполнения команды " />
+        <Signal Name="RAW_BMRZ_2_Reg_NetCtrl" UUID="BED763ED43D25F404CF8399BB00E49B2" Type="DWORD" Global="TRUE" Comment=" Регистр команд управления выключателем " />
+        <Signal Name="RAW_BMRZ_2_Reg_NetCtrl1" UUID="2C27E9BF42CA5EBED36911B12E0DCD24" Type="DWORD" Global="TRUE" Comment=" Регистр команд управления БМРЗ " />
+        <Signal Name="RAW_BMRZ_2_Reg_NetCtrl1_R" UUID="BFCF9D944AB6C98D4FE49F869F230994" Type="DWORD" Global="TRUE" Comment=" Регистр команд управления БМРЗ " />
+        <Signal Name="RAW_BMRZ_2_Reg_NetCtrl_R" UUID="83D770DF4C07996302D0FC818006D949" Type="DWORD" Global="TRUE" Comment=" Регистр команд управления выключателем " />
+        <Signal Name="RAW_BMRZ_2_Reg_Slave_ID" UUID="30D23AA344B31CD6E31D63B280557125" Type="BYTE" ArraySize="32" Global="TRUE" Comment=" Идентификатор  " />
+        <Signal Name="RAW_BMRZ_2_Reg_Time" UUID="70D72D1742044351A7ADDFB3A56ED98A" Type="BYTE" ArraySize="8" Global="TRUE" Comment=" Астрономическое время встроенных часов- календаря  " />
+        <Signal Name="RAW_BMRZ_2_Reg_Version" UUID="F51AE40947E13A7FDE7F8EB027B7F9C8" Type="UINT" ArraySize="1" Global="TRUE" Comment=" Версия сетевого драйвера  " />
+        <Signal Name="RAW_BMRZ_2_SBROSINFAV_CO" UUID="298C160945F91A5B4C49F6925C808850" Type="BOOL" Global="TRUE" Comment=" Сброс информации об авариях   " />
+        <Signal Name="RAW_BMRZ_2_SBROSINF_CO" UUID="999AACB342E5806E4034BEB63C85BA0B" Type="BOOL" Global="TRUE" Comment=" Сброс накопительной информации   " />
+        <Signal Name="RAW_BMRZ_2_SBROSOSC_CO" UUID="5FA7CC5A4215850A939E118857A0C628" Type="BOOL" Global="TRUE" Comment=" Сброс осциллограммы   " />
+        <Signal Name="RAW_BMRZ_2_SBROSPM_CO" UUID="1EA8EEEB4941410CAEDE5592767F0B2F" Type="BOOL" Global="TRUE" Comment=" Сброс показаний максиметра   " />
+        <Signal Name="RAW_BMRZ_2_SIGPDGZ_DP" UUID="75357D7640106C83807F52B32CF6ADF9" Type="BOOL" Global="TRUE" Comment=" Сигнал пуска ДгЗ   " />
+        <Signal Name="RAW_BMRZ_2_SIGSRDGZ_DP" UUID="EF6154CD4B710D09582D0982ECB3E51D" Type="BOOL" Global="TRUE" Comment=" Сигнал срабатывания дуговой защиты   " />
+        <Signal Name="RAW_BMRZ_2_SR1STMTZSV_CP" UUID="D47A0E10413BDA9AD725B8AFDFE411C2" Type="BOOL" Global="TRUE" Comment=" Срабатывание первой ступени МТЗ на отключение СВ (МТЗ&gt;&gt;)   " />
+        <Signal Name="RAW_BMRZ_2_SR1STMTZ_CP" UUID="845CEB6544B7A1A6AA9987BE045406F2" Type="BOOL" Global="TRUE" Comment=" Срабатывание первой ступени МТЗ на отключение (МТЗ&gt;&gt;)   " />
+        <Signal Name="RAW_BMRZ_2_SR2STMTZ_CP" UUID="8931945B4F193E8AE352FAA4FADBB9D8" Type="BOOL" Global="TRUE" Comment=" Срабатывание второй ступени МТЗ на отключение (МТЗ&gt;&gt;)   " />
+        <Signal Name="RAW_BMRZ_2_SRAVTAVR_DP" UUID="2010507E40C30827978C7A80595EB204" Type="BOOL" Global="TRUE" Comment=" Срабатывание автоматики АВР   " />
+        <Signal Name="RAW_BMRZ_2_SRCHSTMTZ_CP" UUID="5AF95D064027D7558AD8ADB5505A987F" Type="BOOL" Global="TRUE" Comment=" Срабатывание чувствительной ступени МТЗ (Перегрузка)   " />
+        <Signal Name="RAW_BMRZ_2_SRDROTKSV_CP" UUID="4186B570437D15428D00BB8C2F4A4EDE" Type="BOOL" Global="TRUE" Comment=" Срабатывание ДР на отключение СВ   " />
+        <Signal Name="RAW_BMRZ_2_SRDROTK_CP" UUID="F80D57214D22BE63C68DCBA495D1D7FF" Type="BOOL" Global="TRUE" Comment=" Срабатывание ДР на отключение   " />
+        <Signal Name="RAW_BMRZ_2_SRTZNPOTKSV_CP" UUID="81F6B000416E5C5C480958971C54DB1C" Type="BOOL" Global="TRUE" Comment=" Срабатывание ТЗНП на отключение СВ   " />
+        <Signal Name="RAW_BMRZ_2_SRTZNPOTK_CP" UUID="52499454469F89E0C77D44AD6AFCEE1D" Type="BOOL" Global="TRUE" Comment=" Срабатывание ТЗНП на отключение   " />
+        <Signal Name="RAW_BMRZ_2_SUMIOTKA_CP" UUID="99A24C1A4444298BB6E88DAC53892EBE" Type="REAL" Global="TRUE" Comment=" Суммарный ток отключений Фаза А   " />
+        <Signal Name="RAW_BMRZ_2_SUMIOTKB_CP" UUID="1976615C423ED0ABD24BCD840FEC28C2" Type="REAL" Global="TRUE" Comment=" Суммарный ток отключений Фаза B   " />
+        <Signal Name="RAW_BMRZ_2_SUMIOTKC_CP" UUID="F58436FB456C2139DFC16BAFFB1A3CF2" Type="REAL" Global="TRUE" Comment=" Суммарный ток отключений Фаза C   " />
+        <Signal Name="RAW_BMRZ_2_SUMKOLOTK_CP" UUID="A6E916004967EE224A37D6BB90C7EB5A" Type="INT" Global="TRUE" Comment=" Суммарное количество отключений   " />
+        <Signal Name="RAW_BMRZ_2_SVOTK_DP" UUID="400DA65A4B8DDDD88D8ACD9A37F4BE13" Type="BOOL" Global="TRUE" Comment=" СВ отключен   " />
+        <Signal Name="RAW_BMRZ_2_SVVKL_DP" UUID="80373CAB45696C4CD0E05684F40B1029" Type="BOOL" Global="TRUE" Comment=" СВ включен   " />
+        <Signal Name="RAW_BMRZ_2_TELVVVIK_DP" UUID="952903FC4910D0AEE321AA82427B12A8" Type="BOOL" Global="TRUE" Comment=" Тележка ВВ выкачена   " />
+        <Signal Name="RAW_BMRZ_2_TTRPOV_DP" UUID="E28195E64871C35FF325749E94FCCCD0" Type="BOOL" Global="TRUE" Comment=" Температура трансформатора повышена (устанавливается в единицу при превышении порогового уровня температуры)   " />
+        <Signal Name="RAW_BMRZ_2_UAS_AP" UUID="914D35674F7799B0DCA228857EB6B7FA" Type="INT" Global="TRUE" Comment=" Текущее значение напряжения фазы А (на секции)   " />
+        <Signal Name="RAW_BMRZ_2_UAVV_AP" UUID="2615F1C64E9233A8D45B478EAC73A17B" Type="INT" Global="TRUE" Comment=" Текущее значение напряжения фазы А ввода   " />
+        <Signal Name="RAW_BMRZ_2_UBS_AP" UUID="557D4E6849EB3A4C943A93B4EBB6669B" Type="INT" Global="TRUE" Comment=" Текущее значение напряжения фазы В (на секции)   " />
+        <Signal Name="RAW_BMRZ_2_UBVV_AP" UUID="E9286C0A447D8776E22D6395AC7AE5EE" Type="INT" Global="TRUE" Comment=" Текущее значение напряжения фазы В ввода   " />
+        <Signal Name="RAW_BMRZ_2_UCS_AP" UUID="387CDDCB41C024D42C8CFEAAD58B1D1A" Type="INT" Global="TRUE" Comment=" Текущее значение напряжения фазы С (на секции)   " />
+        <Signal Name="RAW_BMRZ_2_UCVV_AP" UUID="7112ED00457D5FE594D3C19346D8D34C" Type="INT" Global="TRUE" Comment=" Текущее значение напряжения фазы С ввода   " />
+        <Signal Name="RAW_BMRZ_2_UOBVV_AP" UUID="EB609FBA4A37A77A3318D5B366221050" Type="INT" Global="TRUE" Comment=" Текущее значение напряжения напряжения обратной последовательности ввода (до выключателя)   " />
+        <Signal Name="RAW_BMRZ_2_UOB_AP" UUID="58649C9F4D0440579CFEABB2E629FF18" Type="INT" Global="TRUE" Comment=" Текущее значение напряжения обратной последовательности.   " />
+        <Signal Name="RAW_BMRZ_2_UPR_AP" UUID="D8EA56AF4F31A94E80528D98A6C3B66E" Type="INT" Global="TRUE" Comment=" Текущее значение напряжения прямой последовательности.   " />
+        <Signal Name="RAW_BMRZ_2_VAVOTK_CP" UUID="B0D3A69A4FAC796743A2D49E36790E0D" Type="BOOL" Global="TRUE" Comment=" Аварийное отключение   " />
+        <Signal Name="RAW_BMRZ_2_VIZKTP_DP" UUID="BB0646D4449601CD58CC169E1E75A34A" Type="BOOL" Global="TRUE" Comment=" Вызов в КТП   " />
+        <Signal Name="RAW_BMRZ_2_VKLAVRAV_DP" UUID="91139D0E4317C07F165CAB876B8AB428" Type="BOOL" Global="TRUE" Comment=" Включение по АВР АВ   " />
+        <Signal Name="RAW_BMRZ_2_VKLKL_DP" UUID="A58C33594B678206485A4DA2528E0A90" Type="BOOL" Global="TRUE" Comment=" Команда «Включить» от ключа   " />
+        <Signal Name="RAW_BMRZ_2_VKLSVAVRAV_DP" UUID="ADF514274C7A9B182B6644A37351368A" Type="BOOL" Global="TRUE" Comment=" Включить СВ по АВР АВ   " />
+        <Signal Name="RAW_BMRZ_2_VKLVV_AP" UUID="18D0474C4B9455A9245DFE811D9B8EB4" Type="INT" Global="TRUE" Comment=" Включить ВВ   " />
+        <Signal Name="RAW_BMRZ_2_VKLVV_DP" UUID="2233E4ED42C201B25C4DF081F42E3CD8" Type="BOOL" Global="TRUE" Comment=" Включить ВВ   " />
+        <Signal Name="RAW_BMRZ_2_VKLV_CO" UUID="6A4C06804D5EDFAA0F57BF992BF7B603" Type="BOOL" Global="TRUE" Comment=" Включить выключатель   " />
+        <Signal Name="RAW_BMRZ_2_VNBMRZ_CP" UUID="0D58E45E4118BA9F09DD58BD522EFAF2" Type="BOOL" Global="TRUE" Comment=" Неисправность БМРЗ   " />
+        <Signal Name="RAW_BMRZ_2_VNR_CP" UUID="0E07A2DB492E75D900FB36A91EEC5958" Type="BOOL" Global="TRUE" Comment=" ВНР   " />
+        <Signal Name="RAW_BMRZ_2_VOTK_DP" UUID="E5296BB14C1BB75AD7AE409D3C2A99A1" Type="BOOL" Global="TRUE" Comment=" Выключатель отключен   " />
+        <Signal Name="RAW_BMRZ_2_VREMSBROSA_CP" UUID="E3F58B3F428EBD2AD5EBD89B817E163B" Type="BYTE" ArraySize="8" Global="TRUE" Comment=" Астрономическое время последнего сброса накопительной информации " />
+        <Signal Name="RAW_BMRZ_2_VVKL_DP" UUID="9B61BFDE436B2E22FEA0719807AB5ACD" Type="BOOL" Global="TRUE" Comment=" Выключатель включен  " />
+        <Signal Name="RAW_BMRZ_2_W40466_DP" UUID="53ECD3644EB484F3C50029AA91553D53" Type="UINT" Global="TRUE" Comment=" Уставка по току для первого пускового органа МТЗ первой ступени с независимой время - токовой характеристикой. Действует постоянно  " />
+        <Signal Name="RAW_BMRZ_2_W40467_DP" UUID="B02A68A444E3D24ECA896E860D95FF6C" Type="UINT" Global="TRUE" Comment=" Уставка по току для второго пускового органа МТЗ первой ступени первой ступени с независимой время - токовой характеристикой. Используется функцией БМТЗ  " />
+        <Signal Name="RAW_BMRZ_2_W40468_DP" UUID="FBEA1D4B4C734969F85FF0A8AAB39BDD" Type="UINT" Global="TRUE" Comment=" Уставка по току для МТЗ второй ступени с независимой время - токовой характеристикой  " />
+        <Signal Name="RAW_BMRZ_2_W40469_DP" UUID="F20357424DDB427CF8CD529B58ED6C43" Type="UINT" Global="TRUE" Comment=" Уставка по току для МТЗ второй ступени с обратнозависимой время - токовой характеристикой  " />
+        <Signal Name="RAW_BMRZ_2_W40470_DP" UUID="DFD14C5E4A56FFF5F86C8DAB870024F5" Type="UINT" Global="TRUE" Comment=' Уставка по выдержке времени для пер-вого элемента МТЗ первой ступени (выда-ча БМРЗ выходного сигнала &quot;Откл. СВ&quot;). Обязательное условие Т1 &lt; Т2  ' />
+        <Signal Name="RAW_BMRZ_2_W40471_DP" UUID="EED7A6DD4939AB959D932EAD97FB2D17" Type="UINT" Global="TRUE" Comment=' Уставка по выдержки времени для второго элемента МТЗ первой ступени (выдача БМРЗ выходного сигнала &quot;Откл&quot;)  ' />
+        <Signal Name="RAW_BMRZ_2_W40472_DP" UUID="C5EF5FA24FD7CEF0AB6BA2B01D9ABF26" Type="UINT" Global="TRUE" Comment=" Уставка по выдержке времени для МТЗ второй ступени с независимой время - токовой характеристикой  " />
+        <Signal Name="RAW_BMRZ_2_W40473_DP" UUID="51F1B35C4CCA3D06D04D589302E67CDD" Type="UINT" Global="TRUE" Comment=" Уставка по выдержке времени для МТЗ второй ступени с обратнозависимой время - токовой характеристикой при величине тока, равной 10 I3  " />
+        <Signal Name="RAW_BMRZ_2_W40474_DP" UUID="D94A822F431FE954A104CF8E07335B93" Type="UINT" Global="TRUE" Comment=" Уставка по току для ДР первой ступени с независимой время - токовой характерис­тикой  " />
+        <Signal Name="RAW_BMRZ_2_W40475_DP" UUID="8610A2DC40A0FD1B717ABFBC9ABDB28D" Type="UINT" Global="TRUE" Comment=" Уставка по току для ДР первой ступени с независимой время - токовой характерис­тикой при включении статической нагрузки  " />
+        <Signal Name="RAW_BMRZ_2_W40476_DP" UUID="004297C8402C80B4778A09B1D88B441C" Type="UINT" Global="TRUE" Comment=" Уставка по току обратной последова­тельности для ДР первой ступени с неза­висимой время - токовой характеристикой  " />
+        <Signal Name="RAW_BMRZ_2_W40477_DP" UUID="4537F1274FFE79332B4EBCB9DB716D32" Type="UINT" Global="TRUE" Comment=" Уставка по току для ДР первой ступени с независимой время - токовой характерис­тикой, равная номинальному току источ­ника питания ввода 0,4 кВ (трансформа­тора или генератора)  " />
+        <Signal Name="RAW_BMRZ_2_W40478_DP" UUID="440BBD4948D6CC65B365E687F5003BD3" Type="UINT" Global="TRUE" Comment=" Уставка по току для ДР второй ступени с обратнозависимой время - токовой характеристикой  " />
+        <Signal Name="RAW_BMRZ_2_W40479_DP" UUID="771D61CB46FE47F6E2224586300A81F3" Type="UINT" Global="TRUE" Comment=" Уставка по выдержке времени для ДР второй ступени с обратнозависимой время - токовой характеристикой при величине тока, равной 10 I3  " />
+        <Signal Name="RAW_BMRZ_2_W40480_DP" UUID="CD0B09694E4A4B5D4944B181EC17DA8F" Type="UINT" Global="TRUE" Comment=' Уставка по первому элементу выдержки времени для ДР первой ступени с выдачей блоком выходного сигнала &quot;Откл. СВ&quot;. Обязательное условие Тдр1 &lt; Тдр2  ' />
+        <Signal Name="RAW_BMRZ_2_W40481_DP" UUID="D9F159D0474CE6CDDBC9F2AAF9E70484" Type="UINT" Global="TRUE" Comment=' Уставка по второму элементу выдержки времени для ДР первой ступени (выдача БМРЗ выходного сигнала &quot;Откл.&quot;)  ' />
+        <Signal Name="RAW_BMRZ_2_W40482_DP" UUID="FA8F84A34BB377C52687B0B33AF2E4BB" Type="UINT" Global="TRUE" Comment=" Уставка по току обратной последова­тельности для ТЗНП с независимой время - токовой характеристикой  " />
+        <Signal Name="RAW_BMRZ_2_W40483_DP" UUID="2B6F187249F96FAB0FC6D89F9DF2C10E" Type="UINT" Global="TRUE" Comment=' Уставка по выдержке времени для первого элемента ТЗНП (выдача БМРЗ выходного сигнала &quot;Откл. СВ&quot;). Обязательное условие То1 &lt; То2  ' />
+        <Signal Name="RAW_BMRZ_2_W40484_DP" UUID="6B0801DD412A48D355939EACEA4B5F59" Type="UINT" Global="TRUE" Comment=' Уставка по выдержке времени для второго элемента ТЗНП (выдача БМРЗ выходного сигнала &quot;Откл&quot;)  ' />
+        <Signal Name="RAW_BMRZ_2_W40485_DP" UUID="82A7619B4A69C68E31113C8A8BE7DE31" Type="UINT" Global="TRUE" Comment=" Уставка по выдержке времени срабатывания АВР АВ  " />
+        <Signal Name="RAW_BMRZ_2_W40486_DP" UUID="44BFF4A3403BD6A3507B559B0D1B1FDD" Type="UINT" Global="TRUE" Comment=" Уставка по выдержке времени срабатывания ВНР АВ  " />
+        <Signal Name="RAW_BMRZ_2_W40487_DP" UUID="2E9039A14C14A3B3E8F9BB8867C1B492" Type="UINT" Global="TRUE" Comment=" Уставка по напряжению обратной последовательности ввода для РАВР  " />
+        <Signal Name="RAW_BMRZ_2_W40488_DP" UUID="ED15EBDD48239D884CD86AA5385C5505" Type="UINT" Global="TRUE" Comment=" Уставка по напряжению обратной последовательности секции для РАВР  " />
+        <Signal Name="RAW_BMRZ_2_W40489_DP" UUID="D66A11294FD6ED3C475C0FB8E4D35E4F" Type="UINT" Global="TRUE" Comment=" Уставка назначения контрольного выхода  " />
+        <Signal Name="RAW_BMRZ_2_ZAPAVRVNZ_DP" UUID="98BECB2340DA2B7335FA719EED004AC7" Type="BOOL" Global="TRUE" Comment=" Запрет АВР от внешних защит  " />
+        <Signal Name="RAW_BMRZ_ANGLE_AP" UUID="D20AEEC5427A6C0EE5E3F0B8F5757309" Type="INT" Global="TRUE" Comment="Текущее значение угла между I1 U1  " />
+        <Signal Name="RAW_BMRZ_AVOTK_DP" UUID="DDB5563E483551FBE765239F633AB80C" Type="BOOL" Global="TRUE" Comment="Аварийное отключение  " />
+        <Signal Name="RAW_BMRZ_AVRSVVKL_DP" UUID="8B7B06354728BD7BB83BA8B77E550489" Type="BOOL" Global="TRUE" Comment="АВР СВ включено  " />
+        <Signal Name="RAW_BMRZ_BLDRBMTZ_DP" UUID="9BF9DB6F4F7ABD15CB541CABF08236DD" Type="BOOL" Global="TRUE" Comment="Блокировка функций ДР и БМТЗ при параллельной работе ВВ и АВ  " />
+        <Signal Name="RAW_BMRZ_BLOCKAVRAV_DP" UUID="796FB3B44E56DD13B99A0E87FCB55738" Type="BOOL" Global="TRUE" Comment="Блокировка АВР АВ  " />
+        <Signal Name="RAW_BMRZ_BMTZ_DP" UUID="E2BF2F4141DB9017DA55118A7E292FD1" Type="BOOL" Global="TRUE" Comment="БМТЗ  " />
+        <Signal Name="RAW_BMRZ_COSFI_AP" UUID="E2659AD248B24A03268B75B0CB8220DF" Type="INT" Global="TRUE" Comment="Текущее значение cos φ  " />
+        <Signal Name="RAW_BMRZ_DUVKL_DP" UUID="A2CB43134A30CD76CD49B6920375F255" Type="BOOL" Global="TRUE" Comment="ДУ включено  " />
+        <Signal Name="RAW_BMRZ_FREQ__AP" UUID="B5A718EB48884199549FA88623D6C55A" Type="INT" Global="TRUE" Comment="Текущее значение частоты тока в сети  " />
+        <Signal Name="RAW_BMRZ_I0MAX_CP" UUID="9D367CC44E2B2CCF73604CBA8C42BE34" Type="INT" Global="TRUE" Comment="Максимальное значение тока нулевой последовательности  " />
+        <Signal Name="RAW_BMRZ_I0_AP" UUID="CD8730C6405FB83ABA506BB5F104C6AB" Type="INT" Global="TRUE" Comment="Текущее значение тока нулевой последовательности  " />
+        <Signal Name="RAW_BMRZ_IACPR_AP" UUID="B2BD08EB446398BEA2347482775A664E" Type="INT" Global="TRUE" Comment="Текущее значение активной составляющей тока прямой последовательности  " />
+        <Signal Name="RAW_BMRZ_IAMAXPO_CP" UUID="65113874401E7951589887B49F0D1378" Type="INT" Global="TRUE" Comment="Максимальный ток при последнем отключении Фаза A  " />
+        <Signal Name="RAW_BMRZ_IAMAX_CP" UUID="748275A448CFF5388B04D1B45350E124" Type="INT" Global="TRUE" Comment="Максимальное значение тока фазы А  " />
+        <Signal Name="RAW_BMRZ_IATEK_AP" UUID="28E9ABFB45ADC2E6888D4E905A837EC8" Type="INT" Global="TRUE" Comment="Текущее значение тока фазы А  " />
+        <Signal Name="RAW_BMRZ_IBMAXPO_CP" UUID="A44E7EA74AF0DB4B1EA29EA0DFF603E0" Type="INT" Global="TRUE" Comment="Максимальный ток при последнем отключении Фаза B  " />
+        <Signal Name="RAW_BMRZ_IBMAX_CP" UUID="FD2953E6456A657F792D6AB6557ADB8E" Type="INT" Global="TRUE" Comment="Максимальное значение тока фазы В  " />
+        <Signal Name="RAW_BMRZ_IBTEK_AP" UUID="9B070A244D957AF306D7ED9D15D314C5" Type="INT" Global="TRUE" Comment="Текущее значение тока фазы В  " />
+        <Signal Name="RAW_BMRZ_ICMAXPO_CP" UUID="0BC5D6874D0975D0D7F5449171A39DF4" Type="INT" Global="TRUE" Comment="Максимальный ток при последнем отключении Фаза C  " />
+        <Signal Name="RAW_BMRZ_ICMAX_CP" UUID="94490E8F4C2B39FD7B7A0990DA00814D" Type="INT" Global="TRUE" Comment="Максимальное значение тока фазы С  " />
+        <Signal Name="RAW_BMRZ_ICTEK_AP" UUID="99CF93CB49FFB02B9FC242879A12BF7E" Type="INT" Global="TRUE" Comment="Текущее значение тока фазы С  " />
+        <Signal Name="RAW_BMRZ_IOB_AP" UUID="430C9AAB4B444ACEB1E0669E002A37ED" Type="INT" Global="TRUE" Comment="Текущее значение тока обратной последовательности  " />
+        <Signal Name="RAW_BMRZ_IPR_AP" UUID="4095244947FB0CADA51D13877784EA92" Type="INT" Global="TRUE" Comment="Текущее значение тока прямой последовательности  " />
+        <Signal Name="RAW_BMRZ_IREPR_AP" UUID="E3793E3C4C55514E078AC7A4B0ED55DB" Type="INT" Global="TRUE" Comment="Текущее значение реактивной составляющей тока прямой последовательности  " />
+        <Signal Name="RAW_BMRZ_KOLPTZNP_CP" UUID="995577724D48827F5CBFD3BE00B59DBF" Type="INT" Global="TRUE" Comment="Количество пусков ТЗНП  " />
+        <Signal Name="RAW_BMRZ_KPAVR_CP" UUID="188278404F6DCEAC21E66782FC4233DD" Type="INT" Global="TRUE" Comment="Количество пусков АВР  " />
+        <Signal Name="RAW_BMRZ_KPDR_CP" UUID="CB53BA4F42BB128DF486DA968E6AB567" Type="INT" Global="TRUE" Comment="Количество пусков ДР  " />
+        <Signal Name="RAW_BMRZ_KPMTZI1ST_CP" UUID="FABA4555472E3702324A98881423FA3B" Type="INT" Global="TRUE" Comment="Количество пусков МТЗ I&gt;&gt;  " />
+        <Signal Name="RAW_BMRZ_KPMTZI2ST_CP" UUID="E991B3AE48D685A4ECEBD9A730D07CEB" Type="INT" Global="TRUE" Comment="Количество пусков МТЗ I&gt;  " />
+        <Signal Name="RAW_BMRZ_KSAVRAV_CP" UUID="6A703C4D402A9FA772127CAA355D693A" Type="INT" Global="TRUE" Comment="Количество срабатываний АВР AB  " />
+        <Signal Name="RAW_BMRZ_KSBMTZ_CP" UUID="0BF8608448497D1AC775C3BB303D6877" Type="INT" Global="TRUE" Comment="Количество срабатываний БМТЗ  " />
+        <Signal Name="RAW_BMRZ_KSDROTKSV_CP" UUID="ECE51F294AECE64EA6BD79B49638FAD2" Type="INT" Global="TRUE" Comment="Количество срабатываний ДР на отключение СВ  " />
+        <Signal Name="RAW_BMRZ_KSDROTKVV_CP" UUID="27D1CE724447744257D07C9B75709E08" Type="INT" Global="TRUE" Comment="Количество срабатываний ДР на отключение ВВ  " />
+        <Signal Name="RAW_BMRZ_KSMTZI1STSV_CP" UUID="ACBC50C54B471F3B0D18009E725C3144" Type="INT" Global="TRUE" Comment="Количество срабатываний МТЗ I&gt;&gt; на отключение СВ  " />
+        <Signal Name="RAW_BMRZ_KSMTZI1STVV_CP" UUID="0515BF28477849900544D386ABD9FB57" Type="INT" Global="TRUE" Comment="Количество срабатываний МТЗ I&gt;&gt; на отключение ВВ  " />
+        <Signal Name="RAW_BMRZ_KSMTZI2STK13_CP" UUID="2909A1BB4E12A95FA66B409BB2AD4596" Type="INT" Global="TRUE" Comment="Количество срабатываний МТЗ I&gt; на К 13  " />
+        <Signal Name="RAW_BMRZ_KSMTZI2STVV_CP" UUID="458C93FA414CFEBE0728DDB1043BF451" Type="INT" Global="TRUE" Comment="Количество срабатываний МТЗ I&gt; на отключение ВВ  " />
+        <Signal Name="RAW_BMRZ_KSTZNPSV_CP" UUID="A7BC25A34E67AEC4F22754A9B82BCB1C" Type="INT" Global="TRUE" Comment="Количество срабатываний ТЗНП на отключение СВ  " />
+        <Signal Name="RAW_BMRZ_KSTZNPVV_CP" UUID="27E964B244C82F59FE6BDAAC2B199399" Type="INT" Global="TRUE" Comment="Количество срабатываний ТЗНП на отключение ВВ  " />
+        <Signal Name="RAW_BMRZ_KVIT_CO" UUID="27F2D49F4936F6365C9E84BB381F51E2" Type="BOOL" Global="TRUE" Comment="Квитирование  " />
+        <Signal Name="RAW_BMRZ_KVIT_DP" UUID="49726A8E451FB107F493E493DFF303BE" Type="BOOL" Global="TRUE" Comment="Квитирование  " />
+        <Signal Name="RAW_BMRZ_NBB1(2)_DP" UUID="9E945190451F64CB83549EAE2C4671CB" Type="BOOL" Global="TRUE" Comment="Неисправность цепей управления ВВ1(2)  " />
+        <Signal Name="RAW_BMRZ_NBMRZ_DP" UUID="7D1F72F54605A8D6DD089597907A65FC" Type="BOOL" Global="TRUE" Comment="Неисправность БМРЗ  " />
+        <Signal Name="RAW_BMRZ_NEZVNR_CP" UUID="10CDE68F4F8A6149ED70A098B9B36278" Type="BOOL" Global="TRUE" Comment="Незавершенное ВНР  " />
+        <Signal Name="RAW_BMRZ_NVV_CP" UUID="BFE39ECA481B8BE8D0876B84D237C23B" Type="BOOL" Global="TRUE" Comment="Неисправность ВВ  " />
+        <Signal Name="RAW_BMRZ_OTKAVRAV_DP" UUID="BD9207BC4BF51855AE03439DC96E94AA" Type="BOOL" Global="TRUE" Comment="Отключение АВР АВ  " />
+        <Signal Name="RAW_BMRZ_OTKAVRSV_CP" UUID="77ED41A346FA33226D64AEACB5C03AE7" Type="BOOL" Global="TRUE" Comment="Отключение от АВР СВ  " />
+        <Signal Name="RAW_BMRZ_OTKKL_DP" UUID="2A50FF13424FBC93E4812C8CA89E0C7C" Type="BOOL" Global="TRUE" Comment="Команда «Отключить» от ключа  " />
+        <Signal Name="RAW_BMRZ_OTKLSVVNR_DP" UUID="570B65294BB431290C65F384053E8847" Type="BOOL" Global="TRUE" Comment="Отключить СВ от ВНР  " />
+        <Signal Name="RAW_BMRZ_OTKLSVZASH_DP" UUID="5173E9DC437388BF9F48368131B8DD8E" Type="BOOL" Global="TRUE" Comment="Отключить СВ от защит  " />
+        <Signal Name="RAW_BMRZ_OTKLTRAN_DP" UUID="901AC5754F189667C1D1638D656FFCF8" Type="BOOL" Global="TRUE" Comment="Отключить трансформатор  " />
+        <Signal Name="RAW_BMRZ_OTKTR_CP" UUID="1FBB7BE84E4793F17C364980DCD47A6B" Type="BOOL" Global="TRUE" Comment="Отключение ТР  " />
+        <Signal Name="RAW_BMRZ_OTKVVAVR_CP" UUID="CB063C214651C62E27C5ACB63DB22526" Type="BOOL" Global="TRUE" Comment="Отключение ВВ по АВР  " />
+        <Signal Name="RAW_BMRZ_OTKVV_AP" UUID="CB1BD6C445C7316A4DE8C8AA7567ABA7" Type="INT" Global="TRUE" Comment="Отключить ВВ  " />
+        <Signal Name="RAW_BMRZ_OTKVV_DP" UUID="950E3C0A41E458626D6CD0991C3CE216" Type="BOOL" Global="TRUE" Comment="Отключить ВВ  " />
+        <Signal Name="RAW_BMRZ_OTKV_CO" UUID="E7ACDC9444EF0970CD651FAE7D092B95" Type="BOOL" Global="TRUE" Comment="Отключить выключатель  " />
+        <Signal Name="RAW_BMRZ_PAC3F_AP" UUID="345574D54E5E2BE6BD9C61958540AE38" Type="INT" Global="TRUE" Comment="Текущее значение активной трехфазной мощности  " />
+        <Signal Name="RAW_BMRZ_PACOB_AP" UUID="BD2CB5B24D5FD6B5CE2A569B591BA6B2" Type="INT" Global="TRUE" Comment="Текущее значение активной составляющей мощности обратной последовательности  " />
+        <Signal Name="RAW_BMRZ_PEREGR_DP" UUID="F5D961A547CD1ED0C031CDBBF0CCD00A" Type="BOOL" Global="TRUE" Comment="Перегрузка  " />
+        <Signal Name="RAW_BMRZ_PPL3F_AP" UUID="36E37EC7406636463678DCB9D5EE82B1" Type="INT" Global="TRUE" Comment="Текущее значение полной трехфазной мощности  " />
+        <Signal Name="RAW_BMRZ_PRE3F_AP" UUID="A9122AE040486AA97B5A249B8FFC1D39" Type="INT" Global="TRUE" Comment="Текущее значение реактивной фазной мощности  " />
+        <Signal Name="RAW_BMRZ_R40466_DP" UUID="819BC42B4467E88D4D5B8981241AB86E" Type="UINT" Global="TRUE" Comment="Уставка по току для первого пускового органа МТЗ первой ступени с независимой время - токовой характеристикой. Действует постоянно " />
+        <Signal Name="RAW_BMRZ_R40467_DP" UUID="D393708645FC34E6934182A3695367C4" Type="UINT" Global="TRUE" Comment="Уставка по току для второго пускового органа МТЗ первой ступени первой ступени с независимой время - токовой характеристикой. Используется функцией БМТЗ " />
+        <Signal Name="RAW_BMRZ_R40468_DP" UUID="30AE1C52417A2A5865485184F991BA36" Type="UINT" Global="TRUE" Comment="Уставка по току для МТЗ второй ступени с независимой время - токовой характеристикой " />
+        <Signal Name="RAW_BMRZ_R40469_DP" UUID="FFB6F9AF419B5812EA55BD876BB8B2D2" Type="UINT" Global="TRUE" Comment="Уставка по току для МТЗ второй ступени с обратнозависимой время - токовой характеристикой " />
+        <Signal Name="RAW_BMRZ_R40470_DP" UUID="E02F49624B34FAE5C31812872BC2BD24" Type="UINT" Global="TRUE" Comment='Уставка по выдержке времени для пер-вого элемента МТЗ первой ступени (выда-ча БМРЗ выходного сигнала &quot;Откл. СВ&quot;). Обязательное условие Т1 &lt; Т2 ' />
+        <Signal Name="RAW_BMRZ_R40471_DP" UUID="2EC465584E67332150F516ABB1747FF6" Type="UINT" Global="TRUE" Comment='Уставка по выдержки времени для второго элемента МТЗ первой ступени (выдача БМРЗ выходного сигнала &quot;Откл&quot;) ' />
+        <Signal Name="RAW_BMRZ_R40472_DP" UUID="BA8B623B425E4CE49C0506AD2DE82D72" Type="UINT" Global="TRUE" Comment="Уставка по выдержке времени для МТЗ второй ступени с независимой время - токовой характеристикой " />
+        <Signal Name="RAW_BMRZ_R40473_DP" UUID="63497F5E4B077C47B185288E0EA03551" Type="UINT" Global="TRUE" Comment="Уставка по выдержке времени для МТЗ второй ступени с обратнозависимой время - токовой характеристикой при величине тока, равной 10 I3 " />
+        <Signal Name="RAW_BMRZ_R40474_DP" UUID="A69F37734819093EB09C788A4126EE9A" Type="UINT" Global="TRUE" Comment="Уставка по току для ДР первой ступени с независимой время - токовой характерис­тикой " />
+        <Signal Name="RAW_BMRZ_R40475_DP" UUID="FE9AD1874089476629C5E79F48D36ACA" Type="UINT" Global="TRUE" Comment="Уставка по току для ДР первой ступени с независимой время - токовой характерис­тикой при включении статической нагрузки " />
+        <Signal Name="RAW_BMRZ_R40476_DP" UUID="0E407B684F5A8C33158629A280247FB2" Type="UINT" Global="TRUE" Comment="Уставка по току обратной последова­тельности для ДР первой ступени с неза­висимой время - токовой характеристикой " />
+        <Signal Name="RAW_BMRZ_R40477_DP" UUID="2579A82F43AD47665372749C5AF0F533" Type="UINT" Global="TRUE" Comment="Уставка по току для ДР первой ступени с независимой время - токовой характерис­тикой, равная номинальному току источ­ника питания ввода 0,4 кВ (трансформа­тора или генератора) " />
+        <Signal Name="RAW_BMRZ_R40478_DP" UUID="113636F84CDD9BED9121A296943F4337" Type="UINT" Global="TRUE" Comment="Уставка по току для ДР второй ступени с обратнозависимой время - токовой характеристикой " />
+        <Signal Name="RAW_BMRZ_R40479_DP" UUID="8C19EB0E473025338F5A51A49C1CF4EF" Type="UINT" Global="TRUE" Comment="Уставка по выдержке времени для ДР второй ступени с обратнозависимой время - токовой характеристикой при величине тока, равной 10 I3 " />
+        <Signal Name="RAW_BMRZ_R40480_DP" UUID="C2945DAF439BDCADF3CBA39104135225" Type="UINT" Global="TRUE" Comment='Уставка по первому элементу выдержки времени для ДР первой ступени с выдачей блоком выходного сигнала &quot;Откл. СВ&quot;. Обязательное условие Тдр1 &lt; Тдр2 ' />
+        <Signal Name="RAW_BMRZ_R40481_DP" UUID="F7C134D141A227AF0922E7A3615AE6C7" Type="UINT" Global="TRUE" Comment='Уставка по второму элементу выдержки времени для ДР первой ступени (выдача БМРЗ выходного сигнала &quot;Откл.&quot;) ' />
+        <Signal Name="RAW_BMRZ_R40482_DP" UUID="DD09DACA4A33EB5CD48FDC9C0608C8BF" Type="UINT" Global="TRUE" Comment="Уставка по току обратной последова­тельности для ТЗНП с независимой время - токовой характеристикой " />
+        <Signal Name="RAW_BMRZ_R40483_DP" UUID="1B3A6F6040F28FA37BF2409B18C5D58A" Type="UINT" Global="TRUE" Comment='Уставка по выдержке времени для первого элемента ТЗНП (выдача БМРЗ выходного сигнала &quot;Откл. СВ&quot;). Обязательное условие То1 &lt; То2 ' />
+        <Signal Name="RAW_BMRZ_R40484_DP" UUID="CD05C9AC47C563B88BFD29BA59AF4244" Type="UINT" Global="TRUE" Comment='Уставка по выдержке времени для второго элемента ТЗНП (выдача БМРЗ выходного сигнала &quot;Откл&quot;) ' />
+        <Signal Name="RAW_BMRZ_R40485_DP" UUID="7C48F10E4AFF082BB89ECC81EC060085" Type="UINT" Global="TRUE" Comment="Уставка по выдержке времени срабатывания АВР АВ " />
+        <Signal Name="RAW_BMRZ_R40486_DP" UUID="6BCCBC11487281ECD45294835D531314" Type="UINT" Global="TRUE" Comment="Уставка по выдержке времени срабатывания ВНР АВ " />
+        <Signal Name="RAW_BMRZ_R40487_DP" UUID="FC145A724205020D82ACC6A10D3F3AE0" Type="UINT" Global="TRUE" Comment="Уставка по напряжению обратной последовательности ввода для РАВР " />
+        <Signal Name="RAW_BMRZ_R40488_DP" UUID="D42EC31D4CAB9540CF982AAF09E81CF7" Type="UINT" Global="TRUE" Comment="Уставка по напряжению обратной последовательности секции для РАВР " />
+        <Signal Name="RAW_BMRZ_R40489_DP" UUID="524158354CE31546BBBEBE9AE36B82CB" Type="UINT" Global="TRUE" Comment="Уставка назначения контрольного выхода " />
+        <Signal Name="RAW_BMRZ_RAZAVRBMRZ_DP" UUID="4DE897C0495A62EAC23CF2862776AB43" Type="BOOL" Global="TRUE" Comment="Разрешение АВР БМРЗ – 0,4ВВ соседней секции  " />
+        <Signal Name="RAW_BMRZ_RAZAVRSV2VV_DP" UUID="3A5EF3464F4F66FBFE7A98979A23C52B" Type="BOOL" Global="TRUE" Comment="Разрешение АВР СВ второго ввода  " />
+        <Signal Name="RAW_BMRZ_RPOVOTK_DP" UUID="294E3B3A4E7C47331E8B518CA025169D" Type="BOOL" Global="TRUE" Comment="РПО «Выключатель отключен»  " />
+        <Signal Name="RAW_BMRZ_RPVVKLST_DP" UUID="52D855454D1690757FD078974B908257" Type="BOOL" Global="TRUE" Comment="РПВ во включенном состоянии  " />
+        <Signal Name="RAW_BMRZ_RPVVKL_DP" UUID="941BBA6F4858C4FCA1B0708F62EE48C3" Type="BOOL" Global="TRUE" Comment="РПВ «Выключатель включен»  " />
+        <Signal Name="RAW_BMRZ_RPVVKL_DP_1" UUID="CBC6E48647DBC8A61D1BE59B3D1A927D" Type="BOOL" Global="TRUE" Comment="РПВ «Выключатель включен»  " />
+        <Signal Name="RAW_BMRZ_Reg_Block_ID" UUID="41BCA2354AC02E92F659D8B431FCE4A3" Type="UINT" ArraySize="1" Global="TRUE" Comment="Номер конфигурации " />
+        <Signal Name="RAW_BMRZ_Reg_Cmd_WinRd_Only" UUID="DEE15E5349C3F05DF19D53820DD9D4F9" Type="DWORD" Global="TRUE" Comment="Управление окном обмена“Только чтение”" />
+        <Signal Name="RAW_BMRZ_Reg_Cmd_WinWrRd_DP" UUID="8C517AA0411C3072EDF6DD86FB1EA69D" Type="DWORD" Global="TRUE" Comment="Регистры  команд управления окном обмена“Запись/чтение” " />
+        <Signal Name="RAW_BMRZ_Reg_DataCtrl1" UUID="9F1F73824162A6E236C6B9BAA7640EFB" Type="BYTE" ArraySize="8" Global="TRUE" Comment="Параметры&#x0A;команды управления БМРЗ" />
+        <Signal Name="RAW_BMRZ_Reg_NET_KTr_1" UUID="ACA1D5B24FA83AB7231BA08829AE33DA" Type="REAL" Global="TRUE" Comment="Коэф. для Текущее значение тока фазы А " />
+        <Signal Name="RAW_BMRZ_Reg_NET_KTr_10" UUID="01C073B2472A658B6F472CBE97E8E915" Type="REAL" Global="TRUE" Comment="Коэф. для Текущее значение напряжения фазы С секции " />
+        <Signal Name="RAW_BMRZ_Reg_NET_KTr_11" UUID="093235EE450712617AAA628C21716F37" Type="REAL" Global="TRUE" Comment="Коэф. для Текущее значение тока прямой последовательности " />
+        <Signal Name="RAW_BMRZ_Reg_NET_KTr_12" UUID="26C939E6402C45A8AB569D86F1EB5C04" Type="REAL" Global="TRUE" Comment="Коэф. для Текущее значение тока обратной последовательности " />
+        <Signal Name="RAW_BMRZ_Reg_NET_KTr_13" UUID="6DA87F2C4F3FE109B7E607B6D5831616" Type="REAL" Global="TRUE" Comment="Коэф. для Текущее значение напряжения прямой последовательности. " />
+        <Signal Name="RAW_BMRZ_Reg_NET_KTr_14" UUID="F950F7F14EF0AEE9DD66038BAAC596B5" Type="REAL" Global="TRUE" Comment="Коэф. для Текущее значение напряжения обратной последовательности. " />
+        <Signal Name="RAW_BMRZ_Reg_NET_KTr_15" UUID="A663A9A4475A2A4ADB49448C8F32CAFB" Type="REAL" Global="TRUE" Comment="Коэф. для Текущее значение активной составляющей тока прямой последовательности " />
+        <Signal Name="RAW_BMRZ_Reg_NET_KTr_16" UUID="4713873241122146DA5B3FBDE31C40F7" Type="REAL" Global="TRUE" Comment="Коэф. для Текущее значение реактивной составляющей тока прямой последовательности " />
+        <Signal Name="RAW_BMRZ_Reg_NET_KTr_17" UUID="5F1AB5884A010D1FF69FFD96B105BD65" Type="REAL" Global="TRUE" Comment="Коэф. для Текущее значение угла между 11и U1 " />
+        <Signal Name="RAW_BMRZ_Reg_NET_KTr_18" UUID="E80AB756413B719C6B11AAB468D16968" Type="REAL" Global="TRUE" Comment="Коэф. для Текущее значение активной составляющей мощности обратной последовательности " />
+        <Signal Name="RAW_BMRZ_Reg_NET_KTr_19" UUID="1EA6A884428C85CAD5D2FAB015EF5055" Type="REAL" Global="TRUE" Comment="Коэф. для Текущее значение активной трехфазной мощности " />
+        <Signal Name="RAW_BMRZ_Reg_NET_KTr_2" UUID="C13BE11B476DA1CD356AFE800D03671C" Type="REAL" Global="TRUE" Comment="Коэф. для Текущее значение тока фазы В " />
+        <Signal Name="RAW_BMRZ_Reg_NET_KTr_20" UUID="43B156434538964807D017B3D8FB733C" Type="REAL" Global="TRUE" Comment="Коэф. для Текущее значение реактивной фазной мощности " />
+        <Signal Name="RAW_BMRZ_Reg_NET_KTr_21" UUID="A35989D7454F2742BC28F3AA39FEA91F" Type="REAL" Global="TRUE" Comment="Коэф. для Текущее значение полной трехфазной мощности " />
+        <Signal Name="RAW_BMRZ_Reg_NET_KTr_22" UUID="84C99E9246A6D39B352A068655E985B8" Type="REAL" Global="TRUE" Comment="Коэф. для Текущее значение cos Ф " />
+        <Signal Name="RAW_BMRZ_Reg_NET_KTr_23" UUID="4DBE6B2B4A4EED016BDE25B2C13DB8CF" Type="REAL" Global="TRUE" Comment="Коэф. для Текущее значение напряжения обратной последовательности ввода. " />
+        <Signal Name="RAW_BMRZ_Reg_NET_KTr_24" UUID="51D22B61496ED0BB665330B1D78E3F49" Type="REAL" Global="TRUE" Comment="Коэф. для Текущее значение частоты тока в сети " />
+        <Signal Name="RAW_BMRZ_Reg_NET_KTr_3" UUID="ED51375E40532739F7466D856100836D" Type="REAL" Global="TRUE" Comment="Коэф. для Текущее значение тока фазы С " />
+        <Signal Name="RAW_BMRZ_Reg_NET_KTr_4" UUID="9863F60B441178888D5D1C87B92776F8" Type="REAL" Global="TRUE" Comment="Коэф. для Текущее значение тока нулевой последовательности " />
+        <Signal Name="RAW_BMRZ_Reg_NET_KTr_5" UUID="A9B674164672C81C69515D8E83A34EB2" Type="REAL" Global="TRUE" Comment="Коэф. для Текущее значение напряжения фазы А ввода " />
+        <Signal Name="RAW_BMRZ_Reg_NET_KTr_6" UUID="D380B533447BE9169FA891AFB7C15CB3" Type="REAL" Global="TRUE" Comment="Коэф. для Текущее значение напряжения фазы В ввода " />
+        <Signal Name="RAW_BMRZ_Reg_NET_KTr_7" UUID="5867D1C641EB61C9F51EF5AC4F88D3F7" Type="REAL" Global="TRUE" Comment="Коэф. для Текущее значение напряжения фазы С ввода " />
+        <Signal Name="RAW_BMRZ_Reg_NET_KTr_8" UUID="109F1C7F41C2BE060BDF0A8DF3135502" Type="REAL" Global="TRUE" Comment="Коэф. для Текущее значение напряжения фазы А секции " />
+        <Signal Name="RAW_BMRZ_Reg_NET_KTr_9" UUID="5C13A1454BF58EB6ED8CB99A2BA7F9B5" Type="REAL" Global="TRUE" Comment="Коэф. для Текущее значение напряжения фазы В секции " />
+        <Signal Name="RAW_BMRZ_Reg_NetCmd_Result" UUID="F3AF29324EBC5BD4CB5728AB53C11445" Type="INT" Global="TRUE" Comment="Код исполнения&#x0A;команды" />
+        <Signal Name="RAW_BMRZ_Reg_NetCtrl" UUID="ABAABFA6436CADB9740ECEB278DD891F" Type="DWORD" Global="TRUE" Comment="Регистр команд управления выключателем" />
+        <Signal Name="RAW_BMRZ_Reg_NetCtrl1" UUID="A5D258174C1C8D455F9645B2FC0C329D" Type="DWORD" Global="TRUE" Comment="Регистр команд управления БМРЗ" />
+        <Signal Name="RAW_BMRZ_Reg_NetCtrl1_R" UUID="6863EBB34EA040B92BC6339E4298B17B" Type="DWORD" Global="TRUE" Comment="Регистр команд управления БМРЗ" />
+        <Signal Name="RAW_BMRZ_Reg_NetCtrl_R" UUID="323428E94D4BBBB110B894AA467A48F3" Type="DWORD" Global="TRUE" Comment="Регистр команд управления выключателем" />
+        <Signal Name="RAW_BMRZ_Reg_Slave_ID" UUID="E7E41DE04074A4E5F0BB74BCA91CD3B4" Type="BYTE" ArraySize="32" Global="TRUE" Comment="Идентификатор " />
+        <Signal Name="RAW_BMRZ_Reg_Time" UUID="2F68DBC0438EB86B1E8CC4AB9E853C32" Type="BYTE" ArraySize="8" Global="TRUE" Comment="Астрономическое время встроенных часов- календаря " />
+        <Signal Name="RAW_BMRZ_Reg_Version" UUID="BAE8C81548909AFC302A4C8F0A2581D6" Type="UINT" ArraySize="1" Global="TRUE" Comment="Версия сетевого драйвера " />
+        <Signal Name="RAW_BMRZ_SBROSINFAV_CO" UUID="0BA1BF0149C5BBF68F4DED8B0CB5BE56" Type="BOOL" Global="TRUE" Comment="Сброс информации об авариях  " />
+        <Signal Name="RAW_BMRZ_SBROSINF_CO" UUID="D7093564492436817DAB728A7DDE1426" Type="BOOL" Global="TRUE" Comment="Сброс накопительной информации  " />
+        <Signal Name="RAW_BMRZ_SBROSOSC_CO" UUID="79947CBE46EDE920DC86A9A3B80E7535" Type="BOOL" Global="TRUE" Comment="Сброс осциллограммы  " />
+        <Signal Name="RAW_BMRZ_SBROSPM_CO" UUID="183FD7934C468F03883327BF953A497A" Type="BOOL" Global="TRUE" Comment="Сброс показаний максиметра  " />
+        <Signal Name="RAW_BMRZ_SIGPDGZ_DP" UUID="0B6C21164D5E4DE715441D857A72A2CC" Type="BOOL" Global="TRUE" Comment="Сигнал пуска ДгЗ  " />
+        <Signal Name="RAW_BMRZ_SIGSRDGZ_DP" UUID="28C259E34BEEABD771E55DA33C8414B3" Type="BOOL" Global="TRUE" Comment="Сигнал срабатывания дуговой защиты  " />
+        <Signal Name="RAW_BMRZ_SR1STMTZSV_CP" UUID="8172D0AE4DC35F6F0EFD2398EEC9D4B8" Type="BOOL" Global="TRUE" Comment="Срабатывание первой ступени МТЗ на отключение СВ (МТЗ&gt;&gt;)  " />
+        <Signal Name="RAW_BMRZ_SR1STMTZ_CP" UUID="BE85A3B64278C713D24443AFE51DDCE0" Type="BOOL" Global="TRUE" Comment="Срабатывание первой ступени МТЗ на отключение (МТЗ&gt;&gt;)  " />
+        <Signal Name="RAW_BMRZ_SR2STMTZ_CP" UUID="D939D3EF4007F804B0E1AFA4EC25C0F4" Type="BOOL" Global="TRUE" Comment="Срабатывание второй ступени МТЗ на отключение (МТЗ&gt;&gt;)  " />
+        <Signal Name="RAW_BMRZ_SRAVTAVR_DP" UUID="C209DE274C669989897975BBEE6D7AB6" Type="BOOL" Global="TRUE" Comment="Срабатывание автоматики АВР  " />
+        <Signal Name="RAW_BMRZ_SRCHSTMTZ_CP" UUID="602149E340100A0F4FAF69AF5FE75979" Type="BOOL" Global="TRUE" Comment="Срабатывание чувствительной ступени МТЗ (Перегрузка)  " />
+        <Signal Name="RAW_BMRZ_SRDROTKSV_CP" UUID="B3B6B5844097CAA9642CED836584B7D8" Type="BOOL" Global="TRUE" Comment="Срабатывание ДР на отключение СВ  " />
+        <Signal Name="RAW_BMRZ_SRDROTK_CP" UUID="61B962AC48996DFE2AA27AAD078460EC" Type="BOOL" Global="TRUE" Comment="Срабатывание ДР на отключение  " />
+        <Signal Name="RAW_BMRZ_SRTZNPOTKSV_CP" UUID="AAD6D1824E79071DF7CA91B0CDD7605E" Type="BOOL" Global="TRUE" Comment="Срабатывание ТЗНП на отключение СВ  " />
+        <Signal Name="RAW_BMRZ_SRTZNPOTK_CP" UUID="FB37085549AB27B1CF7BCAA5DCA90A2F" Type="BOOL" Global="TRUE" Comment="Срабатывание ТЗНП на отключение  " />
+        <Signal Name="RAW_BMRZ_SUMIOTKA_CP" UUID="DBAD454846EF17BC508C7B9CFC799B21" Type="REAL" Global="TRUE" Comment="Суммарный ток отключений Фаза А  " />
+        <Signal Name="RAW_BMRZ_SUMIOTKB_CP" UUID="C7AE4DA841985F46B13101B011C506B0" Type="REAL" Global="TRUE" Comment="Суммарный ток отключений Фаза B  " />
+        <Signal Name="RAW_BMRZ_SUMIOTKC_CP" UUID="B5E787DA4A7AC34C4D72CDACA02BF1F1" Type="REAL" Global="TRUE" Comment="Суммарный ток отключений Фаза C  " />
+        <Signal Name="RAW_BMRZ_SUMKOLOTK_CP" UUID="667E361C426FAEA741C67593C0D562C9" Type="INT" Global="TRUE" Comment="Суммарное количество отключений  " />
+        <Signal Name="RAW_BMRZ_SVOTK_DP" UUID="8E2F0EC742A341E1B1F155808A433284" Type="BOOL" Global="TRUE" Comment="СВ отключен  " />
+        <Signal Name="RAW_BMRZ_SVVKL_DP" UUID="02E1E4EC473CCFF5E8CCE1940E2D8690" Type="BOOL" Global="TRUE" Comment="СВ включен  " />
+        <Signal Name="RAW_BMRZ_TELVVVIK_DP" UUID="DE20D35F4DF073603945AFBE1F0D9B50" Type="BOOL" Global="TRUE" Comment="Тележка ВВ выкачена  " />
+        <Signal Name="RAW_BMRZ_TTRPOV_DP" UUID="04747CA74273E0756B82A99AA8E292E7" Type="BOOL" Global="TRUE" Comment="Температура трансформатора повышена (устанавливается в единицу при превышении порогового уровня температуры)  " />
+        <Signal Name="RAW_BMRZ_UAS_AP" UUID="4BE6DF74429CA714D86403BAA6C4017F" Type="INT" Global="TRUE" Comment="Текущее значение напряжения фазы А (на секции)  " />
+        <Signal Name="RAW_BMRZ_UAVV_AP" UUID="919C9BA149337B38A8DD95B460112CF0" Type="INT" Global="TRUE" Comment="Текущее значение напряжения фазы А ввода  " />
+        <Signal Name="RAW_BMRZ_UBS_AP" UUID="DC1405C6492785E22BA54D85D66E4CA9" Type="INT" Global="TRUE" Comment="Текущее значение напряжения фазы В (на секции)  " />
+        <Signal Name="RAW_BMRZ_UBVV_AP" UUID="D3283E1149D0403D7F9DD2BA63688399" Type="INT" Global="TRUE" Comment="Текущее значение напряжения фазы В ввода  " />
+        <Signal Name="RAW_BMRZ_UCS_AP" UUID="9F6579EF46E1E751ECC62DB8A1D094CC" Type="INT" Global="TRUE" Comment="Текущее значение напряжения фазы С (на секции)  " />
+        <Signal Name="RAW_BMRZ_UCVV_AP" UUID="DD2D9E25441D29FF7D6BA4AC45EDAF6B" Type="INT" Global="TRUE" Comment="Текущее значение напряжения фазы С ввода  " />
+        <Signal Name="RAW_BMRZ_UOBVV_AP" UUID="CE2773364FEDADA0A79738993436FEE4" Type="INT" Global="TRUE" Comment="Текущее значение напряжения напряжения обратной последовательности ввода (до выключателя)  " />
+        <Signal Name="RAW_BMRZ_UOB_AP" UUID="D4E8E56D4F489A36FA9DE28F4E54DB44" Type="INT" Global="TRUE" Comment="Текущее значение напряжения обратной последовательности.  " />
+        <Signal Name="RAW_BMRZ_UPR_AP" UUID="6F6337D44F8888923A55FAA841654C81" Type="INT" Global="TRUE" Comment="Текущее значение напряжения прямой последовательности.  " />
+        <Signal Name="RAW_BMRZ_VAVOTK_CP" UUID="902CB5414ECF0EE80B1BE48BA9CBFABC" Type="BOOL" Global="TRUE" Comment="Аварийное отключение  " />
+        <Signal Name="RAW_BMRZ_VIZKTP_DP" UUID="5E4186604EE030ED1B76CB89E13A8F08" Type="BOOL" Global="TRUE" Comment="Вызов в КТП  " />
+        <Signal Name="RAW_BMRZ_VKLAVRAV_DP" UUID="4D39B7BD43B1E358299EABBCC4E8B733" Type="BOOL" Global="TRUE" Comment="Включение по АВР АВ  " />
+        <Signal Name="RAW_BMRZ_VKLKL_DP" UUID="CD4256C84EA7E4FB4025BFB56456A510" Type="BOOL" Global="TRUE" Comment="Команда «Включить» от ключа  " />
+        <Signal Name="RAW_BMRZ_VKLSVAVRAV_DP" UUID="C17E648E46C2E97D9ADD4EBDD5A56B43" Type="BOOL" Global="TRUE" Comment="Включить СВ по АВР АВ  " />
+        <Signal Name="RAW_BMRZ_VKLVV_AP" UUID="B47C7DD142AC2C071C438E99AC400769" Type="INT" Global="TRUE" Comment="Включить ВВ  " />
+        <Signal Name="RAW_BMRZ_VKLVV_DP" UUID="1D913A324EB640627C5EA8A7CC09BC0F" Type="BOOL" Global="TRUE" Comment="Включить ВВ  " />
+        <Signal Name="RAW_BMRZ_VKLV_CO" UUID="33105C0F47B4534E247F448D0A0EE2E7" Type="BOOL" Global="TRUE" Comment="Включить выключатель  " />
+        <Signal Name="RAW_BMRZ_VNBMRZ_CP" UUID="5BC3CAA1452793F6093A6EB7DFBCECDE" Type="BOOL" Global="TRUE" Comment="Неисправность БМРЗ  " />
+        <Signal Name="RAW_BMRZ_VNR_CP" UUID="60D5B0354F75FC7905C07C8E7635D66F" Type="BOOL" Global="TRUE" Comment="ВНР  " />
+        <Signal Name="RAW_BMRZ_VOTK_DP" UUID="B64B4FC645D7BA5ABE9B9A9FE8DFE8E5" Type="BOOL" Global="TRUE" Comment="Выключатель отключен  " />
+        <Signal Name="RAW_BMRZ_VREMSBROSA_CP" UUID="EF1161864E3A752E5F09379A564EA9AC" Type="BYTE" ArraySize="8" Global="TRUE" Comment="Астрономическое время последнего сброса накопительной информации" />
+        <Signal Name="RAW_BMRZ_VVKL_DP" UUID="1B2BA9674AB02B8187D0A695EE2F8204" Type="BOOL" Global="TRUE" Comment="Выключатель включен " />
+        <Signal Name="RAW_BMRZ_W40466_DP" UUID="CD61D6244E5D0894718683B4C8FB38CF" Type="UINT" Global="TRUE" Comment="Уставка по току для первого пускового органа МТЗ первой ступени с независимой время - токовой характеристикой. Действует постоянно " />
+        <Signal Name="RAW_BMRZ_W40467_DP" UUID="029B9F2F4EF205B2F6BBC6B8017059A2" Type="UINT" Global="TRUE" Comment="Уставка по току для второго пускового органа МТЗ первой ступени первой ступени с независимой время - токовой характеристикой. Используется функцией БМТЗ " />
+        <Signal Name="RAW_BMRZ_W40468_DP" UUID="E926350447886BD35F3B8BA742DDC099" Type="UINT" Global="TRUE" Comment="Уставка по току для МТЗ второй ступени с независимой время - токовой характеристикой " />
+        <Signal Name="RAW_BMRZ_W40469_DP" UUID="E97380FD4B5B49BE0DCE74A71AD7127C" Type="UINT" Global="TRUE" Comment="Уставка по току для МТЗ второй ступени с обратнозависимой время - токовой характеристикой " />
+        <Signal Name="RAW_BMRZ_W40470_DP" UUID="4D6104094140501CB62EFC858AB8E47B" Type="UINT" Global="TRUE" Comment='Уставка по выдержке времени для пер-вого элемента МТЗ первой ступени (выда-ча БМРЗ выходного сигнала &quot;Откл. СВ&quot;). Обязательное условие Т1 &lt; Т2 ' />
+        <Signal Name="RAW_BMRZ_W40471_DP" UUID="E88F147846F137C9A2A1D9BC228938D0" Type="UINT" Global="TRUE" Comment='Уставка по выдержки времени для второго элемента МТЗ первой ступени (выдача БМРЗ выходного сигнала &quot;Откл&quot;) ' />
+        <Signal Name="RAW_BMRZ_W40472_DP" UUID="EB6F0A9C4329E94F04AD52B92408A289" Type="UINT" Global="TRUE" Comment="Уставка по выдержке времени для МТЗ второй ступени с независимой время - токовой характеристикой " />
+        <Signal Name="RAW_BMRZ_W40473_DP" UUID="484A175C413C045664704B9022C1D546" Type="UINT" Global="TRUE" Comment="Уставка по выдержке времени для МТЗ второй ступени с обратнозависимой время - токовой характеристикой при величине тока, равной 10 I3 " />
+        <Signal Name="RAW_BMRZ_W40474_DP" UUID="DE6DA065411F79AC19617C9213088DFC" Type="UINT" Global="TRUE" Comment="Уставка по току для ДР первой ступени с независимой время - токовой характерис­тикой " />
+        <Signal Name="RAW_BMRZ_W40475_DP" UUID="0E7115AF42640705820B91AA7281F270" Type="UINT" Global="TRUE" Comment="Уставка по току для ДР первой ступени с независимой время - токовой характерис­тикой при включении статической нагрузки " />
+        <Signal Name="RAW_BMRZ_W40476_DP" UUID="2B20871146BBA17D1E01E3868D218026" Type="UINT" Global="TRUE" Comment="Уставка по току обратной последова­тельности для ДР первой ступени с неза­висимой время - токовой характеристикой " />
+        <Signal Name="RAW_BMRZ_W40477_DP" UUID="3900AE024AD76EDE244811A1B6E89CCF" Type="UINT" Global="TRUE" Comment="Уставка по току для ДР первой ступени с независимой время - токовой характерис­тикой, равная номинальному току источ­ника питания ввода 0,4 кВ (трансформа­тора или генератора) " />
+        <Signal Name="RAW_BMRZ_W40478_DP" UUID="1ADA527844CFA5DC787984A27D0F7E15" Type="UINT" Global="TRUE" Comment="Уставка по току для ДР второй ступени с обратнозависимой время - токовой характеристикой " />
+        <Signal Name="RAW_BMRZ_W40479_DP" UUID="9C398E684592C9A19DC5B2A3C0CF1740" Type="UINT" Global="TRUE" Comment="Уставка по выдержке времени для ДР второй ступени с обратнозависимой время - токовой характеристикой при величине тока, равной 10 I3 " />
+        <Signal Name="RAW_BMRZ_W40480_DP" UUID="8B5F225F49926B91A1E423A903006CEF" Type="UINT" Global="TRUE" Comment='Уставка по первому элементу выдержки времени для ДР первой ступени с выдачей блоком выходного сигнала &quot;Откл. СВ&quot;. Обязательное условие Тдр1 &lt; Тдр2 ' />
+        <Signal Name="RAW_BMRZ_W40481_DP" UUID="834A1A7C4C4CB12970BACCBF7E78A9F5" Type="UINT" Global="TRUE" Comment='Уставка по второму элементу выдержки времени для ДР первой ступени (выдача БМРЗ выходного сигнала &quot;Откл.&quot;) ' />
+        <Signal Name="RAW_BMRZ_W40482_DP" UUID="B3F9D7AA471EC088A97A71B1549575DF" Type="UINT" Global="TRUE" Comment="Уставка по току обратной последова­тельности для ТЗНП с независимой время - токовой характеристикой " />
+        <Signal Name="RAW_BMRZ_W40483_DP" UUID="75F4B1614B0E5DCC81BCC4853F944ACA" Type="UINT" Global="TRUE" Comment='Уставка по выдержке времени для первого элемента ТЗНП (выдача БМРЗ выходного сигнала &quot;Откл. СВ&quot;). Обязательное условие То1 &lt; То2 ' />
+        <Signal Name="RAW_BMRZ_W40484_DP" UUID="CFD48F4D4D103690A3437D97487011AB" Type="UINT" Global="TRUE" Comment='Уставка по выдержке времени для второго элемента ТЗНП (выдача БМРЗ выходного сигнала &quot;Откл&quot;) ' />
+        <Signal Name="RAW_BMRZ_W40485_DP" UUID="350C52CC4CF5BF3316B8E98864D5E7CF" Type="UINT" Global="TRUE" Comment="Уставка по выдержке времени срабатывания АВР АВ " />
+        <Signal Name="RAW_BMRZ_W40486_DP" UUID="459C4C08466F536A61736FB788F6702E" Type="UINT" Global="TRUE" Comment="Уставка по выдержке времени срабатывания ВНР АВ " />
+        <Signal Name="RAW_BMRZ_W40487_DP" UUID="7DD4553245FBABFC9D5B28A2E060A57B" Type="UINT" Global="TRUE" Comment="Уставка по напряжению обратной последовательности ввода для РАВР " />
+        <Signal Name="RAW_BMRZ_W40488_DP" UUID="8E2A191A43976E0EB72331942D48DA8A" Type="UINT" Global="TRUE" Comment="Уставка по напряжению обратной последовательности секции для РАВР " />
+        <Signal Name="RAW_BMRZ_W40489_DP" UUID="B7E387AD4D3E6E329AE1BC8B3C80788D" Type="UINT" Global="TRUE" Comment="Уставка назначения контрольного выхода " />
+        <Signal Name="RAW_BMRZ_ZAPAVRVNZ_DP" UUID="3F70FC1B44DDB9A6BB4C0CBAB2460632" Type="BOOL" Global="TRUE" Comment="Запрет АВР от внешних защит " />
+        <Signal Name="S_KTP_P07_BMPA_DS_DP" UUID="CAB7FE424EDD47971D72478A003E02E1" Type="USINT" Global="TRUE" Comment=" АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМПА . Определение достоверности " />
+        <Signal Name="S_KTP_P07_BVV1_Cmd_Rd_Set_CO" UUID="89A9A5724DE9DC1225390E88FE3B502E" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ1. Чтение уставок и конфигурации от оператора " />
+        <Signal Name="S_KTP_P07_BVV1_Cmd_Wr_Set_CO" UUID="79BA274B402D8793506F74936459E1B7" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ1. Запись уставок и конфигурации от оператора " />
+        <Signal Name="S_KTP_P07_BVV1_DS_DP" UUID="71E8847C449910E9622D3CA6220E0402" Type="USINT" Global="TRUE" Comment=" АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ1. Определение достоверности " />
+        <Signal Name="S_KTP_P07_BVV2_Cmd_Rd_Set_CO" UUID="9C87D0F74DEFAE2E2A5703B15F427317" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ2.Чтение уставок и конфигурации от оператора  " />
+        <Signal Name="S_KTP_P07_BVV2_Cmd_Wr_Set_CO" UUID="03EF71FA4944C0AB9194E5BA0F58C6D9" Type="BOOL" Global="TRUE" Comment=" АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ2. Запись уставок и конфигурации от оператора  " />
+        <Signal Name="S_KTP_P07_BVV2_DS_DP" UUID="40C0CE054C9CCC8643B390AA54715359" Type="USINT" Global="TRUE" Comment=" АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ2 Определение достоверности " />
+        <Signal Name="S_KTP_P07_BVV2_Reg_Time_Set_CO" UUID="A137C2FC4BBFED3C1EB4E180178B56F3" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ2. Установка текущего астрономического времени " />
+    </InterfaceList>
+</SubAppType>

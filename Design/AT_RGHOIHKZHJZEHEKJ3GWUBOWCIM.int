@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE SubAppType v. 1.3 >
+<SubAppType Name="Command_TVS" Kind="APPLICATION.LUA" Args="" Comment="Управление ИМ объектов ТВС" UUID="636459A84FB5E9F702D07987BACCD894">
+    <InterfaceList>
+        <Signal Name="S_TVS_KU_SHIBOTKR_DP" UUID="027C0E014AC3EDCFB0A926947331F2C5" Type="BOOL" Global="TRUE" Comment="ТВС_КУ_Шибер открыт" />
+        <Signal Name="RAW_TVS_KU_OTKRSHIB_CO" UUID="5827D8B94975613DB1C95A9B33A6DA3A" Type="BOOL" Global="TRUE" Comment="Панель ТВС_КУ_Шибер открыть" />
+        <Signal Name="RAW_TVS_KU_ZAKRSHIB_CO" UUID="B0B2C42F4293CDAC5929F4A063D36273" Type="BOOL" Global="TRUE" Comment="Панель ТВС_КУ_Шибер закрыть" />
+        <Signal Name="S_TVS_KU_OTKRSHIB_CO" UUID="A1E17DCA4A0C8A5B34FFB2845C577F78" Type="BOOL" Global="TRUE" Comment="ТВС_КУ_Шибер открыть" />
+        <Signal Name="S_TVS_KU_ZAKRSHIB_CO" UUID="755348AA4B809B6B5AA2F08A12E43FC2" Type="BOOL" Global="TRUE" Comment="ТВС_КУ_Шибер закрыть" />
+        <Signal Name="@PID" UUID="C5DC74B249C38D5190FCC58C392205FA" Type="STRING" />
+        <Signal Name="@STATE" UUID="1FEE41C34B4A9DBD4360EA8336C8CD9D" Type="STRING" />
+        <Signal Name="@COMMAND" UUID="C27FFA5D4AC1E33B63B7B5BADFB10047" Type="STRING" />
+        <Signal Name="@COMMAND_VALUE" UUID="031CDD464D371455247CFD8C2008992F" Type="STRING" />
+        <Signal Name="@MESSAGE" UUID="DCEE91A448AD58D175E39CB4A038DFC4" Type="STRING" />
+        <Signal Name="@MESSAGE_FRAMEWORK" UUID="F2B5C5204DB7A80292ADC8B9BE5DF07D" Type="STRING" />
+        <Signal Name="@EVENT" UUID="F9E118434E3447DB4368FF890CACBF57" Type="STRING" />
+        <Signal Name="@RESERVE" UUID="373CED1A41F9DE3EDCBB7FA532C3E6CC" Type="BOOL" />
+        <Signal Name="@WINDOW" UUID="312A49A749C6B460848F96A7A4C7823F" Type="TWINDOW" ArraySize="32" InitialValue="[(VISIBLE:=TRUE, X:=0, Y:=0, WIDTH:=640, HEIGHT:=480, FLAGS:=0)]" />
+    </InterfaceList>
+</SubAppType>

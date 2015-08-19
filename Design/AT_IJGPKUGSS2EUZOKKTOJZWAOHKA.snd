@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Sound >
+<Configuration SoundShift="100">
+    <FileList>
+        <File Signal="Local_1" SignalUUID="1462075440C962B1DB06D3B6BFC7BB94" Path="Sounds/WARNING2.WAV" />
+        <File Signal="Local" SignalUUID="552B50044C9BDD0F1C283BA8B6ACA121" Path="Sounds/WARNING2.WAV" />
+        <File Signal="SOUND_CRITICAL" SignalUUID="AB732043442E764A0CFECDAE0674F180" Path="Sounds/WARNING2.WAV" />
+    </FileList>
+</Configuration>

@@ -1,0 +1,29 @@
+<Data>
+	<BasicFBType Name="TAnalogToString" UUID="2BCF9164441768F18C3FD6BEAD3E9259">
+		<InterfaceList>
+			<EventInputs>
+				<Event Name="UPDATE" UUID="95BC47CB41CDE23B30B1BFBE46C1F0AC" />
+			</EventInputs>
+			<InputVars>
+				<VarDeclaration Name="VAL" Type="REAL" InitialValue="0" UUID="064E86E944AAAB01FEE47A84607C73A8" changeEvent="UPDATE" changeEventUUID="95BC47CB41CDE23B30B1BFBE46C1F0AC" />
+				<VarDeclaration Name="PREC" Type="UINT" InitialValue="0" UUID="4CFB31874220B5C7F5A9D1AF300EECE4" changeEvent="UPDATE" changeEventUUID="95BC47CB41CDE23B30B1BFBE46C1F0AC" />
+			</InputVars>
+			<OutputVars>
+				<VarDeclaration Name="OUT" Type="STRING" InitialValue="&apos;&apos;" UUID="48532F4D4E0579509DBF6F951FF51432" />
+			</OutputVars>
+		</InterfaceList>
+		<BasicFB>
+			<Algorithm Name="A_REC" UUID="7A732A394C268A886D5B9AA2EE1EF36D">
+				<ST Text="OUT := FORMAT_REAL(VAL,PREC);" />
+			</Algorithm>
+			<ECC>
+				<ECState Name="INIT" UUID="ECFDC5F747DBCE9B6EA615B4D3020375" />
+				<ECState Name="RECALC" UUID="88A175D1449EF93A62FD9AB52FFAA250">
+					<ECAction Algorithm="A_REC" AlgorithmUUID="7A732A394C268A886D5B9AA2EE1EF36D" />
+				</ECState>
+				<ECTransition Source="INIT" SourceUUID="ECFDC5F747DBCE9B6EA615B4D3020375" Destination="RECALC" DestinationUUID="88A175D1449EF93A62FD9AB52FFAA250" Condition="UPDATE" />
+				<ECTransition Source="RECALC" SourceUUID="88A175D1449EF93A62FD9AB52FFAA250" Destination="INIT" DestinationUUID="ECFDC5F747DBCE9B6EA615B4D3020375" Condition="BOOL#1" />
+			</ECC>
+		</BasicFB>
+	</BasicFBType>
+</Data>

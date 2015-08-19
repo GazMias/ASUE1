@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE TrendViewer v. 1.0 >
+<Configuration>
+    <Windows>
+        <Window Title="I" Period="1000" TextColor="#000000" GridColor="#000000" BkgColor="#c0c0c0" FixedBkgColor="#F0F0F0" VerticalSplitter="FALSE" SplitterPos="0" />
+        <Window Title="U" Period="1000" TextColor="#000000" GridColor="#000000" BkgColor="#c0c0c0" FixedBkgColor="#F0F0F0" VerticalSplitter="FALSE" SplitterPos="0" />
+        <Window Title="P" Period="1000" TextColor="#000000" GridColor="#000000" BkgColor="#c0c0c0" FixedBkgColor="#F0F0F0" VerticalSplitter="FALSE" SplitterPos="0" />
+        <Window Title="ANGLE" Period="1000" TextColor="#000000" GridColor="#000000" BkgColor="#c0c0c0" FixedBkgColor="#F0F0F0" VerticalSplitter="FALSE" SplitterPos="0" />
+        <Window Title="FREQ" Period="1000" TextColor="#000000" GridColor="#000000" BkgColor="#c0c0c0" FixedBkgColor="#F0F0F0" VerticalSplitter="FALSE" SplitterPos="0" />
+        <Window Title="COS" Period="1000" TextColor="#000000" GridColor="#000000" BkgColor="#c0c0c0" FixedBkgColor="#F0F0F0" VerticalSplitter="FALSE" SplitterPos="0" />
+        <Window Title="T" Period="1000" TextColor="#000000" GridColor="#000000" BkgColor="#c0c0c0" FixedBkgColor="#F0F0F0" VerticalSplitter="FALSE" SplitterPos="0">
+            <Trend ItemName="S_ZRU_P11_XT7_1A_AI" CellIndex="0" Min="-50" Max="50" Color="#0000ff" Title="Температура в ЗРУ-10кВ" LineWidth="2" HideScale="FALSE" />
+            <Trend ItemName="D_USO_NEISP_5_CP" CellIndex="0" Min="-50" Max="50" Color="#ff35ff" Title="Недостоверность сигнала" LineWidth="2" HideScale="TRUE" />
+            <Trend ItemName="S_KTP_P07_XT7_2A_AI" CellIndex="0" Min="-50" Max="50" Color="#005500" Title="Температура в КТП" LineWidth="0" HideScale="FALSE" />
+        </Window>
+    </Windows>
+</Configuration>

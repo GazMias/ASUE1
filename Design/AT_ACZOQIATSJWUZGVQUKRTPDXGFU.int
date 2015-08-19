@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE SubAppType v. 1.3 >
+<SubAppType Name="Command_BMRZ" Kind="APPLICATION.LUA" Args="" Comment="Обработка команд управления БМРЗ" UUID="F63286044A774CF6993D79A1478EB864">
+    <InterfaceList>
+        <Signal Name="@COMMAND" UUID="D4E9EE544A16AB6210F4F5A43E5A2356" Type="STRING" />
+        <Signal Name="@COMMAND_VALUE" UUID="46AB7E3E47BDF60259241CA2F6BB1540" Type="STRING" />
+        <Signal Name="@EVENT" UUID="D3F08F8E49E17DFEC8A25B8D88266E89" Type="STRING" />
+        <Signal Name="@MESSAGE" UUID="F33C0DB74AB3B0AE1984DF8854CF217C" Type="STRING" Usage="output" />
+        <Signal Name="@MESSAGE_FRAMEWORK" UUID="137430F64E010AEDBE71FFB9C9DC0164" Type="STRING" Usage="output" />
+        <Signal Name="@PID" UUID="F673CADE4F6B58BBE0C75BAA0915ABDC" Type="STRING" Usage="output" />
+        <Signal Name="@RESERVE" UUID="DEC500E64A88D9A4F24A30A27021AF91" Type="BOOL" />
+        <Signal Name="@STATE" UUID="9DF2844B47C1C0BD34B0859D2370FE1C" Type="STRING" Usage="output" />
+        <Signal Name="RAW_BMRZ_Cmd_Rd_Set_CO_UP" UUID="8FD4BFD1487BDF4D987D568460489157" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ1. Чтение уставок и конфигурации Обновить" />
+        <Signal Name="RAW_BMRZ_Cmd_Wr_Set_CO_UP" UUID="1ED36EBC422CC62CC514CD9E63DEA20F" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ1. Запись уставок и конфигурации Обновить" />
+        <Signal Name="RAW_BMRZ_2_Cmd_Rd_Set_CO_UP" UUID="C2692B854CFBA79EAF5FC5BA4102A960" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ2.Чтение уставок и конфигурации Обновить " />
+        <Signal Name="RAW_BMRZ_2_Cmd_Wr_Set_CO_UP" UUID="166681D64D578E9F63F50798742E8905" Type="BOOL" Global="TRUE" Comment=" АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ2. Запись уставок и конфигурации Обновить " />
+        <Signal Name="RAW_BMPA_Reg_NetCtrl1_UP" UUID="B02EA5764D206309A4C5479028DB1C05" Type="BOOL" Global="TRUE" Comment="Регистр команд управления БМРЗ " />
+        <Signal Name="RAW_BMRZ_2_Reg_NetCtrl1_UP" UUID="1FB9564A428AE8455B90CDA853979740" Type="BOOL" Global="TRUE" Comment=" Регистр команд управления БМРЗ " />
+        <Signal Name="RAW_BMRZ_Reg_NetCtrl1_UP" UUID="4F20933042EEFC3152F4E0ABA8AC1ED3" Type="BOOL" Global="TRUE" Comment="Регистр команд управления БМРЗ" />
+        <Signal Name="S_KTP_P07_BMPA_Reg_Time_Set_UP" UUID="FF0C32A640B4D3FA1DE5238B30D6331B" Type="BOOL" Global="TRUE" Comment="Установка текущего астрономического времени " />
+        <Signal Name="S_KTP_P07_BVV1_Reg_Time_Set_UP" UUID="E27BC1C7467A6B6D2E7C099D061B147A" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ1. Установка текущего астрономического времени" />
+        <Signal Name="S_KTP_P07_BVV2_Reg_Time_Set_UP" UUID="5AF1B27741B56278E081EE9D86D8E8B7" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ2. Установка текущего астрономического времени " />
+        <Signal Name="S_KTP_P07_BVV2_Reg_Time_Set_AV" UUID="031E3E404EA3BE2298367786E27BA4C6" Type="BOOL" Global="TRUE" Comment=" АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ2. Установка текущего астрономического времени автоматически " />
+        <Signal Name="RAW_BMRZ_2_Reg_Block_ID" UUID="F511777B469AA9286C4FCDA0A8786E70" Type="UINT" ArraySize="1" Global="TRUE" Comment=" Номер конфигурации  " />
+        <Signal Name="RAW_BMRZ_2_Reg_Cmd_WinRd_Only" UUID="A16DB70D45998E6895363D91691DD37E" Type="DWORD" Global="TRUE" Comment=" Управление окном обмена Только чтение " />
+        <Signal Name="RAW_BMRZ_2_Reg_Cmd_WinWrRd_DP" UUID="F74A85D148C013C26119FBABCF994EED" Type="DWORD" Global="TRUE" Comment=" Регистры  команд управления окном обмена Запись чтение " />
+        <Signal Name="RAW_BMRZ_2_Reg_Ctrl_WinRdOnly_DP" UUID="177CEA8D4D340CCB37F14CA227A9A1DD" Type="DWORD" Global="TRUE" Comment=" Регистры  данных команд  управле-ния окном обмена  Только чтение  " />
+        <Signal Name="RAW_BMRZ_2_Reg_Ctrl_WinWrRd_DP" UUID="BAFF4B844F5218ACFEDCDCAFAC039171" Type="DWORD" Global="TRUE" Comment=" Регистры  данных команд  управления окном обмена Запись чтение " />
+        <Signal Name="RAW_BMRZ_2_Reg_DataCtrl1" UUID="FC863A6B48D1D0DEA11D23BFCF7A1BB4" Type="BYTE" ArraySize="8" Global="TRUE" Comment=" Параметры команды управления БМРЗ " />
+        <Signal Name="RAW_BMRZ_2_Reg_NET_KTr_1" UUID="6D6E556A4E0300C907FC4EB4E766E940" Type="REAL" Global="TRUE" Comment=" Коэф. для Текущее значение тока фазы А  " />
+        <Signal Name="RAW_BMRZ_2_Reg_NET_KTr_10" UUID="81BF65B04FC3534FEF5278A2C2A554E5" Type="REAL" Global="TRUE" Comment=" Коэф. для Текущее значение напряжения фазы С секции  " />
+        <Signal Name="RAW_BMRZ_2_Reg_NET_KTr_11" UUID="70469A6D444F93E7F28208ABEB31F43F" Type="REAL" Global="TRUE" Comment=" Коэф. для Текущее значение тока прямой последовательности  " />
+        <Signal Name="RAW_BMRZ_2_Reg_NET_KTr_12" UUID="68FAEC3E471FD3054A4EE1B5148E4E92" Type="REAL" Global="TRUE" Comment=" Коэф. для Текущее значение тока обратной последовательности  " />
+        <Signal Name="RAW_BMRZ_2_Reg_NET_KTr_13" UUID="6A85657E44E5639FC7A07D91EA96D764" Type="REAL" Global="TRUE" Comment=" Коэф. для Текущее значение напряжения прямой последовательности.  " />
+        <Signal Name="RAW_BMRZ_2_Reg_NET_KTr_14" UUID="8EF7B741438EE087F74F96AA55DF4143" Type="REAL" Global="TRUE" Comment=" Коэф. для Текущее значение напряжения обратной последовательности.  " />
+        <Signal Name="RAW_BMRZ_2_Reg_NET_KTr_15" UUID="039F0D91459A8BB40038FDAD9FDAE1CD" Type="REAL" Global="TRUE" Comment=" Коэф. для Текущее значение активной составляющей тока прямой последовательности  " />
+        <Signal Name="RAW_BMRZ_2_Reg_NET_KTr_16" UUID="DCCBCCAC4C2C1298689737B4CF650036" Type="REAL" Global="TRUE" Comment=" Коэф. для Текущее значение реактивной составляющей тока прямой последовательности  " />
+        <Signal Name="RAW_BMRZ_2_Reg_NET_KTr_17" UUID="2B953CA34E51D0482CC506A08E816777" Type="REAL" Global="TRUE" Comment=" Коэф. для Текущее значение угла между 11и U1  " />
+        <Signal Name="RAW_BMRZ_2_Reg_NET_KTr_18" UUID="570A10814C7AEAE822348FB3CA0E20E6" Type="REAL" Global="TRUE" Comment=" Коэф. для Текущее значение активной составляющей мощности обратной последовательности  " />
+        <Signal Name="RAW_BMRZ_2_Reg_NET_KTr_19" UUID="0289583E4C19613B5DBAD4BC93BDADDC" Type="REAL" Global="TRUE" Comment=" Коэф. для Текущее значение активной трехфазной мощности  " />
+        <Signal Name="RAW_BMRZ_2_Reg_NET_KTr_2" UUID="F21027AF47DDC754FA580286BEBBC638" Type="REAL" Global="TRUE" Comment=" Коэф. для Текущее значение тока фазы В  " />
+        <Signal Name="RAW_BMRZ_2_Reg_NET_KTr_20" UUID="D6BC4602404799FCF9BCAD80134F6029" Type="REAL" Global="TRUE" Comment=" Коэф. для Текущее значение реактивной фазной мощности  " />
+        <Signal Name="RAW_BMRZ_2_Reg_NET_KTr_21" UUID="AC6F10B94D90CCB2F86111B0E8B52B18" Type="REAL" Global="TRUE" Comment=" Коэф. для Текущее значение полной трехфазной мощности  " />
+        <Signal Name="RAW_BMRZ_2_Reg_NET_KTr_22" UUID="DB65CF2044E2A46C175F55B7C637E1C5" Type="REAL" Global="TRUE" Comment=" Коэф. для Текущее значение cos Ф  " />
+        <Signal Name="RAW_BMRZ_2_Reg_NET_KTr_23" UUID="6465AAA54F6A8F345E0B528F5923E689" Type="REAL" Global="TRUE" Comment=" Коэф. для Текущее значение напряжения обратной последовательности ввода.  " />
+        <Signal Name="RAW_BMRZ_2_Reg_NET_KTr_24" UUID="DF8880E14D597E18679F08ACE90EE234" Type="REAL" Global="TRUE" Comment=" Коэф. для Текущее значение частоты тока в сети  " />
+        <Signal Name="RAW_BMRZ_2_Reg_NET_KTr_3" UUID="1F477CE44B32353426F6AFAE444CBAC1" Type="REAL" Global="TRUE" Comment=" Коэф. для Текущее значение тока фазы С  " />
+        <Signal Name="RAW_BMRZ_2_Reg_NET_KTr_4" UUID="F16C2697448819EED312B8B56FA7917F" Type="REAL" Global="TRUE" Comment=" Коэф. для Текущее значение тока нулевой последовательности  " />
+        <Signal Name="RAW_BMRZ_2_Reg_NET_KTr_5" UUID="60F9F67F486EF16CB87B3A98589BB489" Type="REAL" Global="TRUE" Comment=" Коэф. для Текущее значение напряжения фазы А ввода  " />
+        <Signal Name="RAW_BMRZ_2_Reg_NET_KTr_6" UUID="6786FF9C4A0B85966C61D89749C4DAD6" Type="REAL" Global="TRUE" Comment=" Коэф. для Текущее значение напряжения фазы В ввода  " />
+        <Signal Name="RAW_BMRZ_2_Reg_NET_KTr_7" UUID="C9B237DC490DD01895BBEDBCE85A043D" Type="REAL" Global="TRUE" Comment=" Коэф. для Текущее значение напряжения фазы С ввода  " />
+        <Signal Name="RAW_BMRZ_2_Reg_NET_KTr_8" UUID="398582F549CEAB8E796D8EB001ACE3F1" Type="REAL" Global="TRUE" Comment=" Коэф. для Текущее значение напряжения фазы А секции  " />
+        <Signal Name="RAW_BMRZ_2_Reg_NET_KTr_9" UUID="65025D74438579D22A629480E54C3750" Type="REAL" Global="TRUE" Comment=" Коэф. для Текущее значение напряжения фазы В секции  " />
+        <Signal Name="RAW_BMRZ_2_Reg_NetCmd_Result" UUID="6D7B68054350D0678C62C28DBB89EA12" Type="INT" Global="TRUE" Comment=" Код исполнения команды " />
+        <Signal Name="RAW_BMRZ_2_Reg_NetCtrl" UUID="BED763ED43D25F404CF8399BB00E49B2" Type="DWORD" Global="TRUE" Comment=" Регистр команд управления выключателем " />
+        <Signal Name="RAW_BMRZ_2_Reg_NetCtrl1" UUID="2C27E9BF42CA5EBED36911B12E0DCD24" Type="DWORD" Global="TRUE" Comment=" Регистр команд управления БМРЗ " />
+        <Signal Name="RAW_BMRZ_2_Reg_NetCtrl1_R" UUID="BFCF9D944AB6C98D4FE49F869F230994" Type="DWORD" Global="TRUE" Comment=" Регистр команд управления БМРЗ " />
+        <Signal Name="RAW_BMRZ_2_Reg_NetCtrl_R" UUID="83D770DF4C07996302D0FC818006D949" Type="DWORD" Global="TRUE" Comment=" Регистр команд управления выключателем " />
+        <Signal Name="RAW_BMRZ_2_Reg_Slave_ID" UUID="30D23AA344B31CD6E31D63B280557125" Type="BYTE" ArraySize="32" Global="TRUE" Comment=" Идентификатор  " />
+        <Signal Name="RAW_BMRZ_2_Reg_Time" UUID="70D72D1742044351A7ADDFB3A56ED98A" Type="BYTE" ArraySize="8" Global="TRUE" Comment=" Астрономическое время встроенных часов- календаря  " />
+        <Signal Name="RAW_BMRZ_2_Diff_Time" UUID="3C213A394E3F48F4150BE185F69C2CAE" Type="LREAL" Global="TRUE" Comment=" Разница между системным временем и временем прибора " />
+        <Signal Name="RAW_BMRZ_Diff_Time" UUID="5C088301424019852893A994EE6D8E99" Type="LREAL" Global="TRUE" Comment="Разница между системным временем и временем прибора" />
+        <Signal Name="RAW_BMRZ_Reg_Block_ID" UUID="41BCA2354AC02E92F659D8B431FCE4A3" Type="UINT" ArraySize="1" Global="TRUE" Comment="Номер конфигурации " />
+        <Signal Name="RAW_BMRZ_Reg_Cmd_WinRd_Only" UUID="DEE15E5349C3F05DF19D53820DD9D4F9" Type="DWORD" Global="TRUE" Comment="Управление окном обмена“Только чтение”" />
+        <Signal Name="RAW_BMRZ_Reg_Cmd_WinWrRd_DP" UUID="8C517AA0411C3072EDF6DD86FB1EA69D" Type="DWORD" Global="TRUE" Comment="Регистры  команд управления окном обмена“Запись/чтение” " />
+        <Signal Name="RAW_BMRZ_Reg_DataCtrl1" UUID="9F1F73824162A6E236C6B9BAA7640EFB" Type="BYTE" ArraySize="8" Global="TRUE" Comment="Параметры&#x0A;команды управления БМРЗ" />
+        <Signal Name="RAW_BMRZ_Reg_NetCmd_Result" UUID="F3AF29324EBC5BD4CB5728AB53C11445" Type="INT" Global="TRUE" Comment="Код исполнения&#x0A;команды" />
+        <Signal Name="RAW_BMRZ_Reg_NetCtrl" UUID="ABAABFA6436CADB9740ECEB278DD891F" Type="DWORD" Global="TRUE" Comment="Регистр команд управления выключателем" />
+        <Signal Name="RAW_BMRZ_Reg_NetCtrl1" UUID="A5D258174C1C8D455F9645B2FC0C329D" Type="DWORD" Global="TRUE" Comment="Регистр команд управления БМРЗ" />
+        <Signal Name="RAW_BMRZ_Reg_NetCtrl1_R" UUID="6863EBB34EA040B92BC6339E4298B17B" Type="DWORD" Global="TRUE" Comment="Регистр команд управления БМРЗ" />
+        <Signal Name="RAW_BMRZ_Reg_NetCtrl_R" UUID="323428E94D4BBBB110B894AA467A48F3" Type="DWORD" Global="TRUE" Comment="Регистр команд управления выключателем" />
+        <Signal Name="RAW_BMRZ_Reg_Time" UUID="2F68DBC0438EB86B1E8CC4AB9E853C32" Type="BYTE" ArraySize="8" Global="TRUE" Comment="Астрономическое время встроенных часов- календаря " />
+        <Signal Name="S_KTP_P07_BVV1_Cmd_Rd_Nak_CO" UUID="BA56DF96498A7BCAA3A853ADF8CDC722" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ1. Чтение  накопи-тельной  инфор-мации" />
+        <Signal Name="S_KTP_P07_BVV1_Cmd_Rd_Set_CO" UUID="89A9A5724DE9DC1225390E88FE3B502E" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ1. Чтение уставок и конфигурации от оператора " />
+        <Signal Name="S_KTP_P07_BVV1_Cmd_Wr_Set_CO" UUID="79BA274B402D8793506F74936459E1B7" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ1. Запись уставок и конфигурации от оператора " />
+        <Signal Name="S_KTP_P07_BVV1_KVIT_CO" UUID="4A10342043B215FAD696359C9E8FBFA7" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ1. Квитирование " />
+        <Signal Name="S_KTP_P07_BVV1_OTKV_CO" UUID="D870412A49214F77AE058198FBB9ADB0" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ1. Отключить выключатель " />
+        <Signal Name="S_KTP_P07_BVV1_Reg_Time_Set_AV" UUID="B22236E647CD7E6547BDDC9CEDA0F8CA" Type="BOOL" Global="TRUE" Comment="Установка текущего астрономического времени автоматически" />
+        <Signal Name="S_KTP_P07_BVV1_Reg_Time_Set_CO" UUID="52930CA84DCFE5F5043B42BAAA4E8969" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ1. Установка текущего астрономического времени" />
+        <Signal Name="S_KTP_P07_BVV1_SBROSINFAV_CO" UUID="B38A5C4147337C8B4C5950B220A149C2" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ1. Сброс информации об авариях " />
+        <Signal Name="S_KTP_P07_BVV1_SBROSINF_CO" UUID="923A76F04C08D068A9F1B9B81BFE4FF3" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ1. Сброс накопительной информации " />
+        <Signal Name="S_KTP_P07_BVV1_SBROSOSC_CO" UUID="6FE1113E4D4821347F93998F345E6482" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ1. Сброс осциллограммы " />
+        <Signal Name="S_KTP_P07_BVV1_SBROSPM_CO" UUID="9CAB8F8348B99BCA77F73DBE8C9D963D" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ1. Сброс показаний максиметра " />
+        <Signal Name="S_KTP_P07_BVV1_SysCmd_T_Cor_AV" UUID="8775EF604438B70F57A41193AB5F88BC" Type="BOOL" Global="TRUE" Comment="Коррекция астрономического времени автоматически" />
+        <Signal Name="S_KTP_P07_BVV1_SysCmd_T_Cor_CO" UUID="05CBDECA4B843C0495017BBD605E78F8" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ1. Коррекция астрономического времени" />
+        <Signal Name="S_KTP_P07_BVV1_VKLV_CO" UUID="46F4EA9E4800B11A7B8BE2BC0D5DBCA6" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ1. Включить выключатель " />
+        <Signal Name="S_KTP_P07_BVV2_Cmd_Rd_Nak_CO" UUID="9FC73FAC492AE5A2006F479BD57671F1" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ2. Чтение  накопи-тельной  информации " />
+        <Signal Name="S_KTP_P07_BVV2_Cmd_Rd_Set_CO" UUID="9C87D0F74DEFAE2E2A5703B15F427317" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ2.Чтение уставок и конфигурации от оператора  " />
+        <Signal Name="S_KTP_P07_BVV2_Cmd_Wr_Set_CO" UUID="03EF71FA4944C0AB9194E5BA0F58C6D9" Type="BOOL" Global="TRUE" Comment=" АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ2. Запись уставок и конфигурации от оператора  " />
+        <Signal Name="S_KTP_P07_BVV2_KVIT_CO" UUID="AE96AF0E4B238882378499B1ED8F6F86" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ2. Квитирование " />
+        <Signal Name="S_KTP_P07_BVV2_OTKV_CO" UUID="6E3B3BF1405E3FCF4757E89E46231DA4" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ2. Отключить выключатель " />
+        <Signal Name="S_KTP_P07_BVV2_Reg_Time_Set_CO" UUID="A137C2FC4BBFED3C1EB4E180178B56F3" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ2. Установка текущего астрономического времени " />
+        <Signal Name="S_KTP_P07_BVV2_SBROSINFAV_CO" UUID="82AB147E4F81D6A578EF8F8D19E65635" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ2. Сброс информации об авариях " />
+        <Signal Name="S_KTP_P07_BVV2_SBROSINF_CO" UUID="A2B993C74DA4F25198054B90B82CE697" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ2. Сброс накопительной информации " />
+        <Signal Name="S_KTP_P07_BVV2_SBROSOSC_CO" UUID="3A0977D54DF4F8017BDAC39BFF7BD3B7" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ2. Сброс осциллограммы " />
+        <Signal Name="S_KTP_P07_BVV2_SBROSPM_CO" UUID="46DE572F441A7FED56204D83DEAB0322" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ2. Сброс показаний максиметра " />
+        <Signal Name="S_KTP_P07_BVV2_SysCmd_T_Cor_CO" UUID="2E7FE362465FE6DC2CD1CAA186981E3E" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ2. Коррекция астрономического времени " />
+        <Signal Name="S_KTP_P07_BVV2_VKLV_CO" UUID="F9418E1D47344DB98344F18F19EC8129" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ2. Включить выключатель " />
+    </InterfaceList>
+</SubAppType>

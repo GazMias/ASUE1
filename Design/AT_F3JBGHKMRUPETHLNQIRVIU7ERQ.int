@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE SubAppType v. 1.3 >
+<SubAppType Name="ARHIVE_SONET" Kind="ARCHIVE" Args="" Comment="" UUID="960DB809456148FC8EB197812D64E4AE">
+    <InterfaceList>
+        <Signal Name="S_ZRU_P11_XT7_1A_AI" UUID="771F2DD04A5B657C01B22E81E5C17AF1" Type="REAL" Global="TRUE" Comment="ЗРУ-10кВ. Температура в помещении ЗРУ" />
+        <Signal Name="S_KTP_P07_XT7_2A_AI" UUID="41E9458D4546E92A36661B9727F3E987" Type="REAL" Global="TRUE" Comment="КТП c БМРЗ. Температура в помещении КТП" />
+        <Signal Name="@PID" UUID="7C50764A41A137692BF6A4AE00F531DE" Type="STRING" />
+        <Signal Name="@STATE" UUID="0ABC80B84D57D6C5A91845B16896B3C1" Type="STRING" />
+        <Signal Name="@COMMAND" UUID="B59719AA40D35DC7AC28C68DA3745279" Type="STRING" />
+        <Signal Name="@COMMAND_VALUE" UUID="143467B049EF9FE544D361A2974778D9" Type="STRING" />
+        <Signal Name="@MESSAGE" UUID="8EE4DCC745A463CFE9EFA7BA3E7D430B" Type="STRING" />
+        <Signal Name="@MESSAGE_FRAMEWORK" UUID="C352E74F4FE17B7EB7710A8A0E4FE2EB" Type="STRING" />
+        <Signal Name="@EVENT" UUID="8C7F9B2341A8E03EAA6206B33F6F3775" Type="STRING" />
+        <Signal Name="@RESERVE" UUID="38436FC04C8A2760C56661A317FE14E1" Type="BOOL" />
+    </InterfaceList>
+</SubAppType>

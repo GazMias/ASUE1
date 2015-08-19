@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE SubAppType v. 1.3 >
+<SubAppType Name="Event_Processing_Analog" Kind="APPLICATION.LUA" Args="" Comment="" UUID="B3E92FB8417B64E79B69B19B9B6DAD8C">
+    <InterfaceList>
+        <Signal Name="@COMMAND" UUID="35ADC40249E299C575F7EEA45CC3A282" Type="STRING" />
+        <Signal Name="@COMMAND_VALUE" UUID="D490BDCF499E1EE0DCD3D1AD2F6BA4EF" Type="STRING" />
+        <Signal Name="@EVENT" UUID="E93A71BD4B0E6223E0E65892E8F9AE76" Type="STRING" />
+        <Signal Name="@MESSAGE" UUID="46060E8A482BBD5D672F37AC8FA0A94B" Type="STRING" Usage="output" />
+        <Signal Name="@MESSAGE_FRAMEWORK" UUID="A9CC555D4B3198AA3D16C5AA24148EF8" Type="STRING" Usage="output" />
+        <Signal Name="@PID" UUID="1CF4025C46E2800C7F52CC8A4658462C" Type="STRING" Usage="output" />
+        <Signal Name="@RESERVE" UUID="076D5F6C466808BB9CB2859AE3BB2D85" Type="BOOL" />
+        <Signal Name="@STATE" UUID="4A5050854BECCB4A3D3F4F949693B4C3" Type="STRING" Usage="output" />
+        <Signal Name="GLOBAL_KVIT" UUID="6C138E91424A81E43DD7A2B54F0C55D7" Type="BOOL" Global="TRUE" Comment="Квитирование общее" />
+        <Signal Name="SOUND_CRITICAL" UUID="AB732043442E764A0CFECDAE0674F180" Type="BOOL" Global="TRUE" Comment="Звуковая сигнализация ALARM" />
+        <Signal Name="SOUND_WARNING" UUID="04DBB02C4EE20E3E689948BFF072B6B4" Type="BOOL" Global="TRUE" Comment="Звуковая сигнализация WARNING" />
+        <Signal Name="S_KTP_P07_BVV1_AVOTK_DP" UUID="50310E6641B1DBED131DCB8DDA5687A5" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ1. Аварийное отключение " />
+        <Signal Name="S_KTP_P07_BVV1_IATEK1_AP" UUID="DB2F6C404975C90E6ABAE18384C536C7" Type="LREAL" Global="TRUE" Comment="ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ1. Текущее значение тока фазы А Предупредительная уставка " />
+        <Signal Name="S_KTP_P07_BVV1_IATEK1_AP_LL" UUID="28FCAE824342D1D923EE278388970B6A" Type="LREAL" InitialValue="25" Global="TRUE" Comment="10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ1. Текущее значение тока фазы А Предупредительная уставка  " />
+        <Signal Name="S_KTP_P07_BVV1_IATEK1_AP_L" UUID="310F1A904EE6E9402AB48983CCE7AC15" Type="LREAL" InitialValue="50" Global="TRUE" Comment="ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ1. Текущее значение тока фазы А Предупредительная уставка " />
+        <Signal Name="S_KTP_P07_BVV1_IATEK1_AP_H" UUID="3F02B35943FF01D536C5F48FBEC51D25" Type="LREAL" InitialValue="75" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ1. Текущее значение тока фазы А Предупредительная уставка" />
+        <Signal Name="S_KTP_P07_BVV1_IATEK1_AP_HH" UUID="6568A6C6447F45163574D2B3178414B7" Type="LREAL" InitialValue="100" Global="TRUE" Comment="ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ1. Текущее значение тока фазы А Предупредительная уставка " />
+       
+    </InterfaceList>
+</SubAppType>

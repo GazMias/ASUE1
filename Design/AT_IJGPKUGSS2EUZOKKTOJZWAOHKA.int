@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE SubAppType v. 1.3 >
+<SubAppType Name="SOUND_CRITICAL" Kind="SOUND" Args="" Comment="" UUID="CCD87896497DEB381D91A2A9D81AA4F7">
+    <InterfaceList>
+        <Signal Name="SOUND_CRITICAL" UUID="AB732043442E764A0CFECDAE0674F180" Type="BOOL" Global="TRUE" Comment="Звуковая сигнализация ALARM" />
+        <Signal Name="@COMMAND" UUID="0458A44A4DD4FC3CAF611283DA3C57A0" Type="STRING" />
+        <Signal Name="@COMMAND_VALUE" UUID="213ED2DA4E5EEC0AD08E7990C32975C0" Type="STRING" />
+        <Signal Name="@EVENT" UUID="F940F4EA476189985C8864A76F3F758B" Type="STRING" />
+        <Signal Name="@MESSAGE" UUID="F84A1D124C39504881895E81718D787A" Type="STRING" Usage="output" />
+        <Signal Name="@MESSAGE_FRAMEWORK" UUID="AA4B19814A999E6169A3E3980DEAF262" Type="STRING" Usage="output" />
+        <Signal Name="@PID" UUID="CBF2B1724975A0C48DCDFD9BAF6A690D" Type="STRING" Usage="output" />
+        <Signal Name="@RESERVE" UUID="E1657D11407EEB91310DB79A2F7C8F28" Type="BOOL" />
+        <Signal Name="@STATE" UUID="DDC3BD954AF94A2B29B13B8EFF329183" Type="STRING" Usage="output" />
+        <Signal Name="Local" UUID="552B50044C9BDD0F1C283BA8B6ACA121" Type="BOOL" OptionallyConnected="TRUE" />
+        <Signal Name="Local_1" UUID="1462075440C962B1DB06D3B6BFC7BB94" Type="BOOL" OptionallyConnected="TRUE" />
+    </InterfaceList>
+</SubAppType>

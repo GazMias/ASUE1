@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE SubAppType v. 1.3 >
+<SubAppType Name="Processing_SONET_AI" Kind="APPLICATION.LUA" Args="" Comment="" UUID="1A045EEA4F59D620D3D648B919506E47">
+    <InterfaceList>
+        <Signal Name="RAW_USO_SNT_XT7_1A_AI" UUID="44DF1DAF4D8FF5248DADDD8E9AB66549" Type="REAL" Global="TRUE" Comment="ЗРУ-10кВ. Температура в помещении ЗРУ. Необработанный" />
+        <Signal Name="RAW_USO_SNT_XT7_2A_AI" UUID="A9ABF4934BBE536ABCE7968360D2B5B3" Type="REAL" Global="TRUE" Comment="КТП c БМРЗ. Температура в помещении КТП. . Необработанный" />
+        <Signal Name="S_ZRU_P11_XT7_1A_AI_OL" UUID="FBB686B34DD260B5B1F819B8AACDA64D" Type="BOOL" Global="TRUE" Comment="ЗРУ-10кВ. Температура в помещении ЗРУ. Обрыв" />
+        <Signal Name="S_ZRU_P11_XT7_1A_AI_KZ" UUID="4F417E7744AD789913DD52B75AC2C6B5" Type="BOOL" Global="TRUE" Comment="ЗРУ-10кВ. Температура в помещении ЗРУ. Короткое замыкание" />
+        <Signal Name="S_KTP_P07_XT7_2A_AI_OL" UUID="8E7F5CA6469490495F49AE918DB6EB57" Type="BOOL" Global="TRUE" Comment="КТП c БМРЗ. Температура в помещении КТП. Обрыв" />
+        <Signal Name="S_KTP_P07_XT7_2A_AI_KZ" UUID="71EFC2FE4059112550F4AE8ADF5C8D73" Type="BOOL" Global="TRUE" Comment="КТП c БМРЗ. Температура в помещении КТП. Короткое замыкание" />
+        <Signal Name="@PID" UUID="3FC673E041976B5EE60C47877812478E" Type="STRING" />
+        <Signal Name="@STATE" UUID="8D89676A46B2D4429DD030A13D74A7BA" Type="STRING" />
+        <Signal Name="@COMMAND" UUID="2348F97F45A4561BB9CC89B8127BF2A8" Type="STRING" />
+        <Signal Name="@COMMAND_VALUE" UUID="D000E8D9455E8D16DAE63B9E48E7D928" Type="STRING" />
+        <Signal Name="@MESSAGE" UUID="EDDF6661498EF2036A107BAF10592278" Type="STRING" />
+        <Signal Name="@MESSAGE_FRAMEWORK" UUID="4FB8AE224781D49C06F7F3B2EEE8CA94" Type="STRING" />
+        <Signal Name="@EVENT" UUID="CD2D20B941F2FEF6BFE3AE86C4FC33F3" Type="STRING" />
+        <Signal Name="@RESERVE" UUID="654EC39F46DA3079FB066EAA0E25F396" Type="BOOL" />
+        <Signal Name="S_ZRU_P11_XT7_1A_AI" UUID="771F2DD04A5B657C01B22E81E5C17AF1" Type="REAL" DSP="62F467DE4EE3A0CEA7E33A8B4112BECC" Global="TRUE" Comment="ЗРУ-10кВ. Температура в помещении ЗРУ" />
+        <Signal Name="S_KTP_P07_XT7_2A_AI" UUID="41E9458D4546E92A36661B9727F3E987" Type="REAL" DSP="62F467DE4EE3A0CEA7E33A8B4112BECC" Global="TRUE" Comment="КТП c БМРЗ. Температура в помещении КТП" />
+        <Signal Name="S_RM_A10503_AI" UUID="E2EC00B04CD6BB00B51B8F82ACC8AE1B" Type="REAL" Global="TRUE" Comment="Показания расходомера " />
+    </InterfaceList>
+</SubAppType>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ReportEngine >
+<Configuration>
+    <ReportList>
+        <Report Equation="MakeReport1=TRUE" Printer="" Template="report5.htm" Print="FALSE" ShowPreview="TRUE" Archive="" FileNameTemplate="" Comment="Расход электроэнергии" Landscape="FALSE" MarginTop="10" MarginLeft="10" MarginRight="10" MarginBottom="10" PageSize="A4" />
+        <Report Equation="MakeReport2=TRUE" Printer="" Template="report7.htm" Print="FALSE" ShowPreview="TRUE" Archive="" FileNameTemplate="" Comment="Часовой расход" Landscape="FALSE" MarginTop="10" MarginLeft="10" MarginRight="10" MarginBottom="10" PageSize="A4" />
+        <Report Equation="MakeReport3=TRUE" Printer="" Template="report7.htm" Print="FALSE" ShowPreview="TRUE" Archive="" FileNameTemplate="" Comment="Расход на месяц" Landscape="FALSE" MarginTop="10" MarginLeft="10" MarginRight="10" MarginBottom="10" PageSize="A4" />
+        <Report Equation="MakeReport4=TRUE" Printer="" Template="reportPotrebP.htm" Print="FALSE" ShowPreview="TRUE" Archive="" FileNameTemplate="" Comment="Потребление P" Landscape="FALSE" MarginTop="10" MarginLeft="10" MarginRight="10" MarginBottom="10" PageSize="A4" />
+        <Report Equation="MakeReport5=TRUE" Printer="" Template="reportPotrebQ.htm" Print="FALSE" ShowPreview="TRUE" Archive="" FileNameTemplate="" Comment="Потребление Q" Landscape="FALSE" MarginTop="10" MarginLeft="10" MarginRight="10" MarginBottom="10" PageSize="A4" />
+        <Report Equation="MakeReport6=TRUE" Printer="" Template="reportPotrebS.htm" Print="FALSE" ShowPreview="TRUE" Archive="" FileNameTemplate="" Comment="Потребление S" Landscape="FALSE" MarginTop="10" MarginLeft="10" MarginRight="10" MarginBottom="10" PageSize="A4" />
+    </ReportList>
+</Configuration>

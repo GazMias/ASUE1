@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Type v. 1.0 >
+<Type Name="TArray_Loc_Osc_Sepam" Kind="Struct" UUID="F9E84E524CC841797882E5B4B961B6CC">
+    <Fields>
+        <Field Name="sepam" Type="94CD427C4FB607A0C990D9B2947C4BB8" UUID="A4EE8B4A4F93ED13EFB471AFDA7DC982" ArraySize="1" />
+    </Fields>
+</Type>

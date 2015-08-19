@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE SubAppType v. 1.3 >
+<SubAppType Name="Check_connection_break1" Kind="APPLICATION.LUA" Args="" Comment="" UUID="771E28CE4B2B4FE0509786B59AE85640">
+    <InterfaceList>
+        <Signal Name="@PID" UUID="C5DC74B249C38D5190FCC58C392205FA" Type="STRING" />
+        <Signal Name="@STATE" UUID="1FEE41C34B4A9DBD4360EA8336C8CD9D" Type="STRING" />
+        <Signal Name="@COMMAND" UUID="C27FFA5D4AC1E33B63B7B5BADFB10047" Type="STRING" />
+        <Signal Name="@COMMAND_VALUE" UUID="031CDD464D371455247CFD8C2008992F" Type="STRING" />
+        <Signal Name="@MESSAGE" UUID="DCEE91A448AD58D175E39CB4A038DFC4" Type="STRING" />
+        <Signal Name="@MESSAGE_FRAMEWORK" UUID="F2B5C5204DB7A80292ADC8B9BE5DF07D" Type="STRING" />
+        <Signal Name="@EVENT" UUID="F9E118434E3447DB4368FF890CACBF57" Type="STRING" />
+        <Signal Name="@RESERVE" UUID="373CED1A41F9DE3EDCBB7FA532C3E6CC" Type="BOOL" />
+        <Signal Name="@WINDOW" UUID="312A49A749C6B460848F96A7A4C7823F" Type="TWINDOW" ArraySize="32" InitialValue="[(VISIBLE:=TRUE, X:=0, Y:=0, WIDTH:=640, HEIGHT:=480, FLAGS:=0)]" />
+        <Signal Name="Check_changes_Server1" UUID="81631D14492A576D149D639CB890F136" Type="INT" />
+        <Signal Name="Check_changes_ARM1" UUID="6F238CC24B170441715C5691F77CF32D" Type="INT" />
+        <Signal Name="Check_changes_ARM2" UUID="F31F55A94EC3C66B59553CB4B95D33FE" Type="INT" />
+        <Signal Name="Check_changes_PLC" UUID="6EB514E04175E79BA05DBF8B9E46DE70" Type="INT" />
+        <Signal Name="Connect_check_Server1" UUID="7FF4F3C943540E91BC9814BB855B692E" Type="INT" Global="TRUE" />
+        <Signal Name="Connect_check_ARM1" UUID="08245C634CF72A038A1E3B829BED54D3" Type="INT" Global="TRUE" />
+        <Signal Name="Connect_check_ARM2" UUID="E8DC70424C497200BACF7BA195AEC094" Type="INT" Global="TRUE" />
+        <Signal Name="Connect_check_PLC" UUID="3155307248E7992494EC6CBF0FA08FB2" Type="INT" Global="TRUE" />
+        <Signal Name="Break_Server1" UUID="A4D53A114682764AFEAF4F86B9CB655F" Type="BOOL" Global="TRUE" />
+        <Signal Name="Break_ARM1" UUID="9028DB25483267AFF70CB1AEB06BECD4" Type="BOOL" Global="TRUE" />
+        <Signal Name="Break_ARM2" UUID="63866587427743ECDF7DCC812228005A" Type="BOOL" Global="TRUE" />
+        <Signal Name="Break_PLC" UUID="B54CDF324ED1D0B5E84DD48A6B2ECDBE" Type="BOOL" Global="TRUE" />
+        <Signal Name="Check_changes_Server2" UUID="04DB65D44610A2F4E1C38C8B695D3D7F" Type="INT" />
+        <Signal Name="Connect_check_Server2" UUID="E1A43EB2431BCED567DD6CBFEAC67B6B" Type="INT" Global="TRUE" />
+        <Signal Name="Break_Server2" UUID="5224A807430C999DD4D39782FFE0B2C4" Type="BOOL" Global="TRUE" />
+    </InterfaceList>
+</SubAppType>

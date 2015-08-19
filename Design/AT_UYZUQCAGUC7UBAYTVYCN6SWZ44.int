@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE SubAppType v. 1.3 >
+<SubAppType Name="Collect_Moxa" Kind="DRIVER.SNMP" Args="" Comment="" UUID="A951286848741D4A1B379992190B9665">
+    <InterfaceList>
+        <Signal Name="D_MAI_USO_NPR_ifOperStatus1" UUID="1CB06E244153736A2AF502A40B73E3ED" Type="INT" Global="TRUE" Comment="Диагностика Главная УСО АСУЭ нПорт5450. состояние интерфейса Локальной сети" />
+        <Signal Name="D_MAI_USO_NPR_ifOperStatus2" UUID="B1D79BCD432381AC25257A9BF6C3DE31" Type="INT" Global="TRUE" Comment="Диагностика Главная УСО АСУЭ нПорт5450. состояние интерфейса последовательного порта 1" />
+        <Signal Name="D_MAI_USO_NPR_ifOperStatus3" UUID="D9BCE00F4247DE0AB2DFFEA771BD1BA7" Type="INT" Global="TRUE" Comment="Диагностика Главная УСО АСУЭ нПорт5450. состояние интерфейса последовательного порта 2" />
+        <Signal Name="D_MAI_USO_NPR_ifOperStatus4" UUID="50EA82B1424523FB486294A3A676E5B5" Type="INT" Global="TRUE" Comment="Диагностика Главная УСО АСУЭ нПорт5450. состояние интерфейса последовательного порта 3" />
+        <Signal Name="D_MAI_USO_NPR_ifOperStatus5" UUID="875D0F2A405A8860F37571B44EE38028" Type="INT" Global="TRUE" Comment="Диагностика Главная УСО АСУЭ нПорт5450. состояние интерфейса последовательного порта 4" />
+        <Signal Name="@PID" UUID="C5DC74B249C38D5190FCC58C392205FA" Type="STRING" />
+        <Signal Name="@STATE" UUID="1FEE41C34B4A9DBD4360EA8336C8CD9D" Type="STRING" />
+        <Signal Name="@COMMAND" UUID="C27FFA5D4AC1E33B63B7B5BADFB10047" Type="STRING" />
+        <Signal Name="@COMMAND_VALUE" UUID="031CDD464D371455247CFD8C2008992F" Type="STRING" />
+        <Signal Name="@MESSAGE" UUID="DCEE91A448AD58D175E39CB4A038DFC4" Type="STRING" />
+        <Signal Name="@MESSAGE_FRAMEWORK" UUID="F2B5C5204DB7A80292ADC8B9BE5DF07D" Type="STRING" />
+        <Signal Name="@EVENT" UUID="F9E118434E3447DB4368FF890CACBF57" Type="STRING" />
+        <Signal Name="@RESERVE" UUID="373CED1A41F9DE3EDCBB7FA532C3E6CC" Type="BOOL" />
+        <Signal Name="Local" UUID="9CBA2227405F36FC4E0CEC846AB146E0" Type="INT" />
+        <Signal Name="Local_1" UUID="06B45F3A492E7E1B6E0A819B0767EFDF" Type="INT" />
+        <Signal Name="Local_2" UUID="FC0E91064E1124265CC62084E5BA35A0" Type="INT" />
+        <Signal Name="Local_3" UUID="AB63AEB749A64F0D74FDBD993DC72B04" Type="INT" />
+        <Signal Name="Local_5" UUID="A70007B24F0FDAE4489D57A30FCF789F" Type="INT" />
+        <Signal Name="Local_4" UUID="A896CEDF44E5CD20C466238270BC5F63" Type="INT" />
+        <Signal Name="hway1" UUID="314F04DD41772E5E7D191EBF349D5201" Type="INT" />
+        <Signal Name="hway2" UUID="FB06CC074A18F0CF172E7B9304C0BC1F" Type="INT" />
+        <Signal Name="hway3" UUID="DF1CCF084B8B8A43C69F5BAF9E0826B8" Type="INT" />
+        <Signal Name="hway4" UUID="EF95F4DA4E70FCAEC9B3C798F416EEEF" Type="INT" />
+        <Signal Name="hway5" UUID="631EB9504E1EE86BB392E8BBE5C2DA75" Type="INT" />
+        <Signal Name="hway6" UUID="C8596A9C47DDF700461DFC91678CAE04" Type="INT" />
+        <Signal Name="HW_ST" UUID="742C3DD34229FA4175D42E85CD74AA7A" Type="INT" />
+    </InterfaceList>
+</SubAppType>

@@ -1,0 +1,452 @@
+<Data>
+	<GraphicsCompositeFBType Name="SVODKA" UUID="129B3ABA48C4C3C9062282A6A45B02C6">
+		<InterfaceList>
+			<InputVars>
+				<VarDeclaration Name="HourTable" Type="REAL" ArraySize="24" InitialValue="[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]" UUID="C6E32ED14F7191A6842F4DBD7D13E9F0" />
+				<VarDeclaration Name="HourTableItog" Type="REAL" ArraySize="4" InitialValue="[0,0,0,0]" UUID="B20B77E646E761C2A9D7AF8006C800E3" />
+				<VarDeclaration Name="WeekTable" Type="REAL" ArraySize="7" InitialValue="[0,0,0,0,0,0,0]" UUID="EBCD82D5420B4BBC18BE17A316EFBD26" />
+				<VarDeclaration Name="WeekTableItog" Type="REAL" ArraySize="4" InitialValue="[0,0,0,0]" UUID="83DFDCED46C778B7555C998C710E09E9" />
+				<VarDeclaration Name="PointZero" Type="UINT" InitialValue="0" UUID="F227A0934034C1F9ACF6A288468B3497" />
+			</InputVars>
+			<OutputVars>
+				<VarDeclaration Name="MakeReport2" Type="BOOL" InitialValue="FALSE" UUID="FF80055545E4B7AFE07EE99E916738B0" />
+				<VarDeclaration Name="MakeReport3" Type="BOOL" InitialValue="FALSE" UUID="074152A2497C971B751F4FBBD22F16AB" />
+			</OutputVars>
+		</InterfaceList>
+		<FBNetwork>
+			<FB Name="Rect4" Type="TRect" TypeUUID="F7E51ED74EFBA9A42A277B98B74ED3C9" UUID="78E95DC74EA7EB78252A5A81F4353E1B" X="-1309.15175928787" Y="-700.102336618723">
+				<VarValue Variable="pos" Value="(x:=0,y:=0)" />
+				<VarValue Variable="zValue" Value="-100" />
+				<VarValue Variable="size" Value="(width:=1920,height:=816)" />
+				<VarValue Variable="bg_color" Value="#FFC0C0C0" />
+				<VarValue Variable="frame_width" Value="1" />
+			</FB>
+			<FB Name="TableSvodka0" Type="TTableHour" TypeUUID="B6E352F042EDF567261CF2BE5280C171" UUID="2B74A7D44B36E1C9A61B22885155644E" X="-845.25" Y="-931.625">
+				<VarValue Variable="pos" Value="(x:=606,y:=75)" />
+			</FB>
+			<FB Name="Button1" Type="TButton" TypeUUID="0F57322141F376E0BB5CF4AD901DF0A4" UUID="EE963A134EBB84759D15D8913B3F1A05" X="-547" Y="-38">
+				<VarValue Variable="pos" Value="(x:=593,y:=788)" />
+				<VarValue Variable="zValue" Value="-99" />
+				<VarValue Variable="size" Value="(width:=110,height:=23)" />
+				<VarValue Variable="text" Value="&apos;Отчет&apos;" />
+			</FB>
+			<FB Name="Text0" Type="TText" TypeUUID="141A69704AFF8CD225334CAEE94C0543" UUID="E7F613A146A490E6518296A4F34AE002">
+				<VarValue Variable="pos" Value="(x:=606.488937759413,y:=32.4655716729928)" />
+				<VarValue Variable="zValue" Value="-99" />
+				<VarValue Variable="size" Value="(width:=116.54956432277,height:=47.9330309872636)" />
+				<VarValue Variable="text" Value="&apos;Стоки от КНС $n (расходомер 1)&apos;" />
+				<VarValue Variable="font" Value="(family:=&apos;MS Shell Dlg 2&apos;,size:=10,bold:=TRUE,italic:=FALSE,underline:=FALSE,strikeout:=FALSE)" />
+				<VarValue Variable="alignment" Value="8" />
+			</FB>
+			<FB Name="Text0_0" Type="TText" TypeUUID="141A69704AFF8CD225334CAEE94C0543" UUID="0163833145AC75DEC8D7C38A786C0C92" X="20" Y="20">
+				<VarValue Variable="pos" Value="(x:=384.488937759413,y:=0.465571672992809)" />
+				<VarValue Variable="zValue" Value="-99" />
+				<VarValue Variable="size" Value="(width:=553.903026927645,height:=47.9330309872636)" />
+				<VarValue Variable="text" Value="&apos;Часовая сводка (интегральные показатели)&apos;" />
+				<VarValue Variable="font" Value="(family:=&apos;MS Shell Dlg 2&apos;,size:=14,bold:=TRUE,italic:=FALSE,underline:=FALSE,strikeout:=FALSE)" />
+				<VarValue Variable="alignment" Value="8" />
+			</FB>
+			<FB Name="Text0_1" Type="TText" TypeUUID="141A69704AFF8CD225334CAEE94C0543" UUID="90028617499FFF0AA033798569431698" X="20" Y="20">
+				<VarValue Variable="pos" Value="(x:=567.421107325397,y:=78.4655716729928)" />
+				<VarValue Variable="zValue" Value="-99" />
+				<VarValue Variable="size" Value="(width:=43.9300180793658,height:=21.1205127800715)" />
+				<VarValue Variable="text" Value="&apos;00-01&apos;" />
+				<VarValue Variable="font" Value="(family:=&apos;MS Shell Dlg 2&apos;,size:=10,bold:=TRUE,italic:=FALSE,underline:=FALSE,strikeout:=FALSE)" />
+				<VarValue Variable="alignment" Value="8" />
+			</FB>
+			<FB Name="Text0_1_0" Type="TText" TypeUUID="141A69704AFF8CD225334CAEE94C0543" UUID="0408BD1347634F27099D078CFE0A21F5" X="40" Y="40">
+				<VarValue Variable="pos" Value="(x:=567.442908953786,y:=103.465571672993)" />
+				<VarValue Variable="zValue" Value="-99" />
+				<VarValue Variable="size" Value="(width:=43.9300180793658,height:=21.1205127800715)" />
+				<VarValue Variable="text" Value="&apos;01-02&apos;" />
+				<VarValue Variable="font" Value="(family:=&apos;MS Shell Dlg 2&apos;,size:=10,bold:=TRUE,italic:=FALSE,underline:=FALSE,strikeout:=FALSE)" />
+				<VarValue Variable="alignment" Value="8" />
+			</FB>
+			<FB Name="Text0_1_0_0" Type="TText" TypeUUID="141A69704AFF8CD225334CAEE94C0543" UUID="583C1823445611E5597E648831258EB1" X="60" Y="60">
+				<VarValue Variable="pos" Value="(x:=567.442908953786,y:=153.465571672993)" />
+				<VarValue Variable="zValue" Value="-99" />
+				<VarValue Variable="size" Value="(width:=43.9300180793658,height:=21.1205127800715)" />
+				<VarValue Variable="text" Value="&apos;03-04&apos;" />
+				<VarValue Variable="font" Value="(family:=&apos;MS Shell Dlg 2&apos;,size:=10,bold:=TRUE,italic:=FALSE,underline:=FALSE,strikeout:=FALSE)" />
+				<VarValue Variable="alignment" Value="8" />
+			</FB>
+			<FB Name="Text0_1_1" Type="TText" TypeUUID="141A69704AFF8CD225334CAEE94C0543" UUID="AB184CFC4821593FA4628CBB1A52D081" X="40" Y="40">
+				<VarValue Variable="pos" Value="(x:=567.442908953786,y:=128.465571672993)" />
+				<VarValue Variable="zValue" Value="-99" />
+				<VarValue Variable="size" Value="(width:=43.9300180793658,height:=21.1205127800715)" />
+				<VarValue Variable="text" Value="&apos;02-03&apos;" />
+				<VarValue Variable="font" Value="(family:=&apos;MS Shell Dlg 2&apos;,size:=10,bold:=TRUE,italic:=FALSE,underline:=FALSE,strikeout:=FALSE)" />
+				<VarValue Variable="alignment" Value="8" />
+			</FB>
+			<FB Name="Text0_1_1_0" Type="TText" TypeUUID="141A69704AFF8CD225334CAEE94C0543" UUID="DEA4A7B3410368603D01CEB9C580023E" X="60" Y="60">
+				<VarValue Variable="pos" Value="(x:=567.442908953786,y:=229.465571672993)" />
+				<VarValue Variable="zValue" Value="-99" />
+				<VarValue Variable="size" Value="(width:=43.9300180793658,height:=21.1205127800715)" />
+				<VarValue Variable="text" Value="&apos;06-07&apos;" />
+				<VarValue Variable="font" Value="(family:=&apos;MS Shell Dlg 2&apos;,size:=10,bold:=TRUE,italic:=FALSE,underline:=FALSE,strikeout:=FALSE)" />
+				<VarValue Variable="alignment" Value="8" />
+			</FB>
+			<FB Name="Text0_1_0_0_0" Type="TText" TypeUUID="141A69704AFF8CD225334CAEE94C0543" UUID="A7951854444CCAD8CCF3019DF561268C" X="80" Y="80">
+				<VarValue Variable="pos" Value="(x:=567.442908953786,y:=254.465571672993)" />
+				<VarValue Variable="zValue" Value="-99" />
+				<VarValue Variable="size" Value="(width:=43.9300180793658,height:=21.1205127800715)" />
+				<VarValue Variable="text" Value="&apos;07-08&apos;" />
+				<VarValue Variable="font" Value="(family:=&apos;MS Shell Dlg 2&apos;,size:=10,bold:=TRUE,italic:=FALSE,underline:=FALSE,strikeout:=FALSE)" />
+				<VarValue Variable="alignment" Value="8" />
+			</FB>
+			<FB Name="Text0_1_0_1" Type="TText" TypeUUID="141A69704AFF8CD225334CAEE94C0543" UUID="05651C094A710CD5E03BB089EA40BD5B" X="60" Y="60">
+				<VarValue Variable="pos" Value="(x:=567.442908953786,y:=204.465571672993)" />
+				<VarValue Variable="zValue" Value="-99" />
+				<VarValue Variable="size" Value="(width:=43.9300180793658,height:=21.1205127800715)" />
+				<VarValue Variable="text" Value="&apos;05-06&apos;" />
+				<VarValue Variable="font" Value="(family:=&apos;MS Shell Dlg 2&apos;,size:=10,bold:=TRUE,italic:=FALSE,underline:=FALSE,strikeout:=FALSE)" />
+				<VarValue Variable="alignment" Value="8" />
+			</FB>
+			<FB Name="Text0_1_2" Type="TText" TypeUUID="141A69704AFF8CD225334CAEE94C0543" UUID="79C0FABC45679110D2F268BB9E932665" X="40" Y="40">
+				<VarValue Variable="pos" Value="(x:=567.421107325397,y:=179.465571672993)" />
+				<VarValue Variable="zValue" Value="-99" />
+				<VarValue Variable="size" Value="(width:=43.9300180793658,height:=21.1205127800715)" />
+				<VarValue Variable="text" Value="&apos;04-05&apos;" />
+				<VarValue Variable="font" Value="(family:=&apos;MS Shell Dlg 2&apos;,size:=10,bold:=TRUE,italic:=FALSE,underline:=FALSE,strikeout:=FALSE)" />
+				<VarValue Variable="alignment" Value="8" />
+			</FB>
+			<FB Name="Text0_1_1_1" Type="TText" TypeUUID="141A69704AFF8CD225334CAEE94C0543" UUID="298D5D524F0855B76AC94DB51A9DE822" X="60" Y="60">
+				<VarValue Variable="pos" Value="(x:=567.442908953786,y:=328.465571672993)" />
+				<VarValue Variable="zValue" Value="-99" />
+				<VarValue Variable="size" Value="(width:=43.9300180793658,height:=21.1205127800715)" />
+				<VarValue Variable="text" Value="&apos;10-11&apos;" />
+				<VarValue Variable="font" Value="(family:=&apos;MS Shell Dlg 2&apos;,size:=10,bold:=TRUE,italic:=FALSE,underline:=FALSE,strikeout:=FALSE)" />
+				<VarValue Variable="alignment" Value="8" />
+			</FB>
+			<FB Name="Text0_1_1_0_0" Type="TText" TypeUUID="141A69704AFF8CD225334CAEE94C0543" UUID="44F219FC404088910E885CAF9131A2CE" X="80" Y="80">
+				<VarValue Variable="pos" Value="(x:=567.442908953786,y:=428.465571672993)" />
+				<VarValue Variable="zValue" Value="-99" />
+				<VarValue Variable="size" Value="(width:=43.9300180793658,height:=21.1205127800715)" />
+				<VarValue Variable="text" Value="&apos;14-15&apos;" />
+				<VarValue Variable="font" Value="(family:=&apos;MS Shell Dlg 2&apos;,size:=10,bold:=TRUE,italic:=FALSE,underline:=FALSE,strikeout:=FALSE)" />
+				<VarValue Variable="alignment" Value="8" />
+			</FB>
+			<FB Name="Text0_1_0_0_1" Type="TText" TypeUUID="141A69704AFF8CD225334CAEE94C0543" UUID="0FB2E10E441DECC6980366B744D9933A" X="80" Y="80">
+				<VarValue Variable="pos" Value="(x:=567.442908953786,y:=353.465571672993)" />
+				<VarValue Variable="zValue" Value="-99" />
+				<VarValue Variable="size" Value="(width:=43.9300180793658,height:=21.1205127800715)" />
+				<VarValue Variable="text" Value="&apos;11-12&apos;" />
+				<VarValue Variable="font" Value="(family:=&apos;MS Shell Dlg 2&apos;,size:=10,bold:=TRUE,italic:=FALSE,underline:=FALSE,strikeout:=FALSE)" />
+				<VarValue Variable="alignment" Value="8" />
+			</FB>
+			<FB Name="Text0_1_0_0_0_0" Type="TText" TypeUUID="141A69704AFF8CD225334CAEE94C0543" UUID="AD9F16654AF2CF7D2654F7940DC0357B" X="100" Y="100">
+				<VarValue Variable="pos" Value="(x:=567.442908953786,y:=453.465571672993)" />
+				<VarValue Variable="zValue" Value="-99" />
+				<VarValue Variable="size" Value="(width:=43.9300180793658,height:=21.1205127800715)" />
+				<VarValue Variable="text" Value="&apos;15-16&apos;" />
+				<VarValue Variable="font" Value="(family:=&apos;MS Shell Dlg 2&apos;,size:=10,bold:=TRUE,italic:=FALSE,underline:=FALSE,strikeout:=FALSE)" />
+				<VarValue Variable="alignment" Value="8" />
+			</FB>
+			<FB Name="Text0_1_0_2" Type="TText" TypeUUID="141A69704AFF8CD225334CAEE94C0543" UUID="9BD63D314AE412CBE94C788BB5CD8B7A" X="60" Y="60">
+				<VarValue Variable="pos" Value="(x:=567.442908953786,y:=303.465571672993)" />
+				<VarValue Variable="zValue" Value="-99" />
+				<VarValue Variable="size" Value="(width:=43.9300180793658,height:=21.1205127800715)" />
+				<VarValue Variable="text" Value="&apos;09-10&apos;" />
+				<VarValue Variable="font" Value="(family:=&apos;MS Shell Dlg 2&apos;,size:=10,bold:=TRUE,italic:=FALSE,underline:=FALSE,strikeout:=FALSE)" />
+				<VarValue Variable="alignment" Value="8" />
+			</FB>
+			<FB Name="Text0_1_0_1_0" Type="TText" TypeUUID="141A69704AFF8CD225334CAEE94C0543" UUID="432A191E41827C266E49F6BC36523696" X="80" Y="80">
+				<VarValue Variable="pos" Value="(x:=567.442908953786,y:=404.465571672993)" />
+				<VarValue Variable="zValue" Value="-99" />
+				<VarValue Variable="size" Value="(width:=43.9300180793658,height:=21.1205127800715)" />
+				<VarValue Variable="text" Value="&apos;13-14&apos;" />
+				<VarValue Variable="font" Value="(family:=&apos;MS Shell Dlg 2&apos;,size:=10,bold:=TRUE,italic:=FALSE,underline:=FALSE,strikeout:=FALSE)" />
+				<VarValue Variable="alignment" Value="8" />
+			</FB>
+			<FB Name="Text0_1_2_0" Type="TText" TypeUUID="141A69704AFF8CD225334CAEE94C0543" UUID="2F2CB85041E13EE17E49DBBAA9AB8C4E" X="60" Y="60">
+				<VarValue Variable="pos" Value="(x:=567.421107325397,y:=379.465571672993)" />
+				<VarValue Variable="zValue" Value="-99" />
+				<VarValue Variable="size" Value="(width:=43.9300180793658,height:=21.1205127800715)" />
+				<VarValue Variable="text" Value="&apos;12-13&apos;" />
+				<VarValue Variable="font" Value="(family:=&apos;MS Shell Dlg 2&apos;,size:=10,bold:=TRUE,italic:=FALSE,underline:=FALSE,strikeout:=FALSE)" />
+				<VarValue Variable="alignment" Value="8" />
+			</FB>
+			<FB Name="Text0_1_3" Type="TText" TypeUUID="141A69704AFF8CD225334CAEE94C0543" UUID="0D09B7D3405D90E1A5507E839C10F43F" X="40" Y="40">
+				<VarValue Variable="pos" Value="(x:=567.421107325397,y:=278.465571672993)" />
+				<VarValue Variable="zValue" Value="-99" />
+				<VarValue Variable="size" Value="(width:=43.9300180793658,height:=21.1205127800715)" />
+				<VarValue Variable="text" Value="&apos;08-09&apos;" />
+				<VarValue Variable="font" Value="(family:=&apos;MS Shell Dlg 2&apos;,size:=10,bold:=TRUE,italic:=FALSE,underline:=FALSE,strikeout:=FALSE)" />
+				<VarValue Variable="alignment" Value="8" />
+			</FB>
+			<FB Name="Text0_1_2_0_0" Type="TText" TypeUUID="141A69704AFF8CD225334CAEE94C0543" UUID="DB28987F408A3B7AEACA2EA904796638" X="80" Y="80">
+				<VarValue Variable="pos" Value="(x:=567.421107325397,y:=603.465571672993)" />
+				<VarValue Variable="zValue" Value="-99" />
+				<VarValue Variable="size" Value="(width:=43.9300180793658,height:=21.1205127800715)" />
+				<VarValue Variable="text" Value="&apos;21-22&apos;" />
+				<VarValue Variable="font" Value="(family:=&apos;MS Shell Dlg 2&apos;,size:=10,bold:=TRUE,italic:=FALSE,underline:=FALSE,strikeout:=FALSE)" />
+				<VarValue Variable="alignment" Value="8" />
+			</FB>
+			<FB Name="Text0_1_1_0_0_0" Type="TText" TypeUUID="141A69704AFF8CD225334CAEE94C0543" UUID="59C712E44D747795D6BEEEB82EAF0163" X="100" Y="100">
+				<VarValue Variable="pos" Value="(x:=567.442908953786,y:=652.465571672993)" />
+				<VarValue Variable="zValue" Value="-99" />
+				<VarValue Variable="size" Value="(width:=43.9300180793658,height:=21.1205127800715)" />
+				<VarValue Variable="text" Value="&apos;23-24&apos;" />
+				<VarValue Variable="font" Value="(family:=&apos;MS Shell Dlg 2&apos;,size:=10,bold:=TRUE,italic:=FALSE,underline:=FALSE,strikeout:=FALSE)" />
+				<VarValue Variable="alignment" Value="8" />
+			</FB>
+			<FB Name="Text0_1_3_0" Type="TText" TypeUUID="141A69704AFF8CD225334CAEE94C0543" UUID="6AB033E04DB5CF270BEBD88D3D71929E" X="60" Y="60">
+				<VarValue Variable="pos" Value="(x:=567.421107325397,y:=502.465571672993)" />
+				<VarValue Variable="zValue" Value="-99" />
+				<VarValue Variable="size" Value="(width:=43.9300180793658,height:=21.1205127800715)" />
+				<VarValue Variable="text" Value="&apos;17-18&apos;" />
+				<VarValue Variable="font" Value="(family:=&apos;MS Shell Dlg 2&apos;,size:=10,bold:=TRUE,italic:=FALSE,underline:=FALSE,strikeout:=FALSE)" />
+				<VarValue Variable="alignment" Value="8" />
+			</FB>
+			<FB Name="Text0_1_0_0_1_0" Type="TText" TypeUUID="141A69704AFF8CD225334CAEE94C0543" UUID="BA5B1A744B6912057DA2728F61C5B0E0" X="100" Y="100">
+				<VarValue Variable="pos" Value="(x:=567.442908953786,y:=578.465571672993)" />
+				<VarValue Variable="zValue" Value="-99" />
+				<VarValue Variable="size" Value="(width:=43.9300180793658,height:=21.1205127800715)" />
+				<VarValue Variable="text" Value="&apos;20-21&apos;" />
+				<VarValue Variable="font" Value="(family:=&apos;MS Shell Dlg 2&apos;,size:=10,bold:=TRUE,italic:=FALSE,underline:=FALSE,strikeout:=FALSE)" />
+				<VarValue Variable="alignment" Value="8" />
+			</FB>
+			<FB Name="Text0_1_0_0_0_1" Type="TText" TypeUUID="141A69704AFF8CD225334CAEE94C0543" UUID="2CC55EE847134864788832A2518B2E3A" X="100" Y="100">
+				<VarValue Variable="pos" Value="(x:=567.442908953786,y:=478.465571672993)" />
+				<VarValue Variable="zValue" Value="-99" />
+				<VarValue Variable="size" Value="(width:=43.9300180793658,height:=21.1205127800715)" />
+				<VarValue Variable="text" Value="&apos;16-17&apos;" />
+				<VarValue Variable="font" Value="(family:=&apos;MS Shell Dlg 2&apos;,size:=10,bold:=TRUE,italic:=FALSE,underline:=FALSE,strikeout:=FALSE)" />
+				<VarValue Variable="alignment" Value="8" />
+			</FB>
+			<FB Name="Text0_1_0_2_0" Type="TText" TypeUUID="141A69704AFF8CD225334CAEE94C0543" UUID="DFE36D214BADD6F9C6312FA094326B9F" X="80" Y="80">
+				<VarValue Variable="pos" Value="(x:=567.442908953786,y:=527.465571672993)" />
+				<VarValue Variable="zValue" Value="-99" />
+				<VarValue Variable="size" Value="(width:=43.9300180793658,height:=21.1205127800715)" />
+				<VarValue Variable="text" Value="&apos;18-19&apos;" />
+				<VarValue Variable="font" Value="(family:=&apos;MS Shell Dlg 2&apos;,size:=10,bold:=TRUE,italic:=FALSE,underline:=FALSE,strikeout:=FALSE)" />
+				<VarValue Variable="alignment" Value="8" />
+			</FB>
+			<FB Name="Text0_1_0_1_0_0" Type="TText" TypeUUID="141A69704AFF8CD225334CAEE94C0543" UUID="84E5209B4B75EAAC94F2E7BA91BB2A84" X="100" Y="100">
+				<VarValue Variable="pos" Value="(x:=567.442908953786,y:=628.465571672993)" />
+				<VarValue Variable="zValue" Value="-99" />
+				<VarValue Variable="size" Value="(width:=43.9300180793658,height:=21.1205127800715)" />
+				<VarValue Variable="text" Value="&apos;22-23&apos;" />
+				<VarValue Variable="font" Value="(family:=&apos;MS Shell Dlg 2&apos;,size:=10,bold:=TRUE,italic:=FALSE,underline:=FALSE,strikeout:=FALSE)" />
+				<VarValue Variable="alignment" Value="8" />
+			</FB>
+			<FB Name="Text0_1_1_1_0" Type="TText" TypeUUID="141A69704AFF8CD225334CAEE94C0543" UUID="583D0588470DB3B820C6218BC2D1D206" X="80" Y="80">
+				<VarValue Variable="pos" Value="(x:=567.442908953786,y:=552.465571672993)" />
+				<VarValue Variable="zValue" Value="-99" />
+				<VarValue Variable="size" Value="(width:=43.9300180793658,height:=21.1205127800715)" />
+				<VarValue Variable="text" Value="&apos;19-20&apos;" />
+				<VarValue Variable="font" Value="(family:=&apos;MS Shell Dlg 2&apos;,size:=10,bold:=TRUE,italic:=FALSE,underline:=FALSE,strikeout:=FALSE)" />
+				<VarValue Variable="alignment" Value="8" />
+			</FB>
+			<FB Name="TableItog0" Type="TTableItog" TypeUUID="C6C61A714729A04E30B0FE857827134A" UUID="6698803E4ABA7C4969EF4EA173C5CB4C" X="-844" Y="-265">
+				<VarValue Variable="pos" Value="(x:=607,y:=683)" />
+				<VarValue Variable="zValue" Value="-99" />
+			</FB>
+			<FB Name="Text0_1_2_0_0_0" Type="TText" TypeUUID="141A69704AFF8CD225334CAEE94C0543" UUID="D555646A4142367D92FA52A62D44F3AF" X="100" Y="100">
+				<VarValue Variable="pos" Value="(x:=517.421107325397,y:=716.465571672993)" />
+				<VarValue Variable="zValue" Value="-99" />
+				<VarValue Variable="size" Value="(width:=95.9124858620964,height:=21.1205127800715)" />
+				<VarValue Variable="text" Value="&apos;Средний&apos;" />
+				<VarValue Variable="font" Value="(family:=&apos;MS Shell Dlg 2&apos;,size:=10,bold:=TRUE,italic:=FALSE,underline:=FALSE,strikeout:=FALSE)" />
+				<VarValue Variable="alignment" Value="8" />
+			</FB>
+			<FB Name="Text0_1_1_0_0_0_0" Type="TText" TypeUUID="141A69704AFF8CD225334CAEE94C0543" UUID="24DAE3F940F46123003FFF8404796E05" X="120" Y="120">
+				<VarValue Variable="pos" Value="(x:=517.442908953786,y:=765.465571672993)" />
+				<VarValue Variable="zValue" Value="-99" />
+				<VarValue Variable="size" Value="(width:=95.9124858620964,height:=21.1205127800715)" />
+				<VarValue Variable="text" Value="&apos;Максимум&apos;" />
+				<VarValue Variable="font" Value="(family:=&apos;MS Shell Dlg 2&apos;,size:=10,bold:=TRUE,italic:=FALSE,underline:=FALSE,strikeout:=FALSE)" />
+				<VarValue Variable="alignment" Value="8" />
+			</FB>
+			<FB Name="Text0_1_0_1_0_0_0" Type="TText" TypeUUID="141A69704AFF8CD225334CAEE94C0543" UUID="C78ADE8C431FEE232E2B89ACD5F195AC" X="120" Y="120">
+				<VarValue Variable="pos" Value="(x:=517.442908953786,y:=741.465571672993)" />
+				<VarValue Variable="zValue" Value="-99" />
+				<VarValue Variable="size" Value="(width:=95.9124858620964,height:=21.1205127800715)" />
+				<VarValue Variable="text" Value="&apos;Минимум&apos;" />
+				<VarValue Variable="font" Value="(family:=&apos;MS Shell Dlg 2&apos;,size:=10,bold:=TRUE,italic:=FALSE,underline:=FALSE,strikeout:=FALSE)" />
+				<VarValue Variable="alignment" Value="8" />
+			</FB>
+			<FB Name="Text0_1_0_0_1_0_0" Type="TText" TypeUUID="141A69704AFF8CD225334CAEE94C0543" UUID="B4909262404EF20B53AE8AA90015392F" X="120" Y="120">
+				<VarValue Variable="pos" Value="(x:=517.442908953786,y:=691.465571672993)" />
+				<VarValue Variable="zValue" Value="-99" />
+				<VarValue Variable="size" Value="(width:=95.9124858620964,height:=21.1205127800715)" />
+				<VarValue Variable="text" Value="&apos;Сумма&apos;" />
+				<VarValue Variable="font" Value="(family:=&apos;MS Shell Dlg 2&apos;,size:=10,bold:=TRUE,italic:=FALSE,underline:=FALSE,strikeout:=FALSE)" />
+				<VarValue Variable="alignment" Value="8" />
+			</FB>
+			<FB Name="Text0_1_0_0_1_0_0_0" Type="TText" TypeUUID="141A69704AFF8CD225334CAEE94C0543" UUID="2618430444DD476EF8C4938C25C4E127" X="140" Y="140">
+				<VarValue Variable="pos" Value="(x:=1096.44290895379,y:=260.465571672993)" />
+				<VarValue Variable="zValue" Value="-99" />
+				<VarValue Variable="size" Value="(width:=95.9124858620964,height:=21.1205127800715)" />
+				<VarValue Variable="text" Value="&apos;Сумма&apos;" />
+				<VarValue Variable="font" Value="(family:=&apos;MS Shell Dlg 2&apos;,size:=10,bold:=TRUE,italic:=FALSE,underline:=FALSE,strikeout:=FALSE)" />
+				<VarValue Variable="alignment" Value="8" />
+			</FB>
+			<FB Name="TableItog0_0" Type="TTableItog" TypeUUID="C6C61A714729A04E30B0FE857827134A" UUID="CFAD8944451DB3FC7A51F28B41FD04D7" X="-394" Y="-508">
+				<VarValue Variable="pos" Value="(x:=1186,y:=259)" />
+				<VarValue Variable="zValue" Value="-99" />
+			</FB>
+			<FB Name="Text0_1_1_2" Type="TText" TypeUUID="141A69704AFF8CD225334CAEE94C0543" UUID="30B8886D4C90F5A80073D0A7888CD01B" X="60" Y="60">
+				<VarValue Variable="pos" Value="(x:=1074.17185810422,y:=128.465571672993)" />
+				<VarValue Variable="zValue" Value="-99" />
+				<VarValue Variable="size" Value="(width:=94.349385866808,height:=21.1205127800715)" />
+				<VarValue Variable="text" Value="&apos;Среда&apos;" />
+				<VarValue Variable="font" Value="(family:=&apos;MS Shell Dlg 2&apos;,size:=10,bold:=TRUE,italic:=FALSE,underline:=FALSE,strikeout:=FALSE)" />
+				<VarValue Variable="alignment" Value="8" />
+			</FB>
+			<FB Name="Text0_0_0" Type="TText" TypeUUID="141A69704AFF8CD225334CAEE94C0543" UUID="432DD38A49B149DCD823888C0053E2AD" X="40" Y="40">
+				<VarValue Variable="pos" Value="(x:=936.488937759413,y:=-0.53442832700722)" />
+				<VarValue Variable="zValue" Value="-99" />
+				<VarValue Variable="size" Value="(width:=517.599742889223,height:=47.9330309872636)" />
+				<VarValue Variable="text" Value="&apos;Недельная сводка (интегральные показатели)&apos;" />
+				<VarValue Variable="font" Value="(family:=&apos;MS Shell Dlg 2&apos;,size:=14,bold:=TRUE,italic:=FALSE,underline:=FALSE,strikeout:=FALSE)" />
+				<VarValue Variable="alignment" Value="8" />
+			</FB>
+			<FB Name="Text0_1_0_1_0_0_0_0" Type="TText" TypeUUID="141A69704AFF8CD225334CAEE94C0543" UUID="E7CFE7A54E76F28B7B9A409D5A2C411B" X="140" Y="140">
+				<VarValue Variable="pos" Value="(x:=1096.44290895379,y:=310.465571672993)" />
+				<VarValue Variable="zValue" Value="-99" />
+				<VarValue Variable="size" Value="(width:=95.9124858620964,height:=21.1205127800715)" />
+				<VarValue Variable="text" Value="&apos;Минимум&apos;" />
+				<VarValue Variable="font" Value="(family:=&apos;MS Shell Dlg 2&apos;,size:=10,bold:=TRUE,italic:=FALSE,underline:=FALSE,strikeout:=FALSE)" />
+				<VarValue Variable="alignment" Value="8" />
+			</FB>
+			<FB Name="Text0_1_2_1" Type="TText" TypeUUID="141A69704AFF8CD225334CAEE94C0543" UUID="EB67761D42CBC9D73E41A98BF9E755D5" X="60" Y="60">
+				<VarValue Variable="pos" Value="(x:=1079.97049651,y:=177.465571672993)" />
+				<VarValue Variable="zValue" Value="-99" />
+				<VarValue Variable="size" Value="(width:=96.6506994319253,height:=21.1205127800715)" />
+				<VarValue Variable="text" Value="&apos;Пятница&apos;" />
+				<VarValue Variable="font" Value="(family:=&apos;MS Shell Dlg 2&apos;,size:=10,bold:=TRUE,italic:=FALSE,underline:=FALSE,strikeout:=FALSE)" />
+				<VarValue Variable="alignment" Value="8" />
+			</FB>
+			<FB Name="Text0_1_0_0_2" Type="TText" TypeUUID="141A69704AFF8CD225334CAEE94C0543" UUID="81E787474901213396A720B4FA9A92BB" X="80" Y="80">
+				<VarValue Variable="pos" Value="(x:=1079.33170500827,y:=153.465571672993)" />
+				<VarValue Variable="zValue" Value="-99" />
+				<VarValue Variable="size" Value="(width:=97.4147373241487,height:=21.1205127800715)" />
+				<VarValue Variable="text" Value="&apos;Четверг&apos;" />
+				<VarValue Variable="font" Value="(family:=&apos;MS Shell Dlg 2&apos;,size:=10,bold:=TRUE,italic:=FALSE,underline:=FALSE,strikeout:=FALSE)" />
+				<VarValue Variable="alignment" Value="8" />
+			</FB>
+			<FB Name="Text0_2" Type="TText" TypeUUID="141A69704AFF8CD225334CAEE94C0543" UUID="D184A2684D0552D0A6F894BB44EDC56F" X="20" Y="20">
+				<VarValue Variable="pos" Value="(x:=1184.48893775941,y:=32.4655716729928)" />
+				<VarValue Variable="zValue" Value="-99" />
+				<VarValue Variable="size" Value="(width:=116.54956432277,height:=47.9330309872636)" />
+				<VarValue Variable="text" Value="&apos;Стоки от КНС $n (расходомер 1)&apos;" />
+				<VarValue Variable="font" Value="(family:=&apos;MS Shell Dlg 2&apos;,size:=10,bold:=TRUE,italic:=FALSE,underline:=FALSE,strikeout:=FALSE)" />
+				<VarValue Variable="alignment" Value="8" />
+			</FB>
+			<FB Name="Text0_1_1_0_0_0_0_0" Type="TText" TypeUUID="141A69704AFF8CD225334CAEE94C0543" UUID="C6822CEF442C16E4173D37A8748A78E2" X="140" Y="140">
+				<VarValue Variable="pos" Value="(x:=1096.44290895379,y:=334.465571672993)" />
+				<VarValue Variable="zValue" Value="-99" />
+				<VarValue Variable="size" Value="(width:=95.9124858620964,height:=21.1205127800715)" />
+				<VarValue Variable="text" Value="&apos;Максимум&apos;" />
+				<VarValue Variable="font" Value="(family:=&apos;MS Shell Dlg 2&apos;,size:=10,bold:=TRUE,italic:=FALSE,underline:=FALSE,strikeout:=FALSE)" />
+				<VarValue Variable="alignment" Value="8" />
+			</FB>
+			<FB Name="Text0_1_0_1_1" Type="TText" TypeUUID="141A69704AFF8CD225334CAEE94C0543" UUID="B25C256847CBA66D0728E699EBD215CB" X="80" Y="80">
+				<VarValue Variable="pos" Value="(x:=1085.32617584967,y:=204.465571672993)" />
+				<VarValue Variable="zValue" Value="-99" />
+				<VarValue Variable="size" Value="(width:=84.8470296966519,height:=21.1205127800715)" />
+				<VarValue Variable="text" Value="&apos;Суббота&apos;" />
+				<VarValue Variable="font" Value="(family:=&apos;MS Shell Dlg 2&apos;,size:=10,bold:=TRUE,italic:=FALSE,underline:=FALSE,strikeout:=FALSE)" />
+				<VarValue Variable="alignment" Value="8" />
+			</FB>
+			<FB Name="Text0_1_0_3" Type="TText" TypeUUID="141A69704AFF8CD225334CAEE94C0543" UUID="A7684E6D46772335E80302B044919B23" X="60" Y="60">
+				<VarValue Variable="pos" Value="(x:=1079.1487846585,y:=103.465571672993)" />
+				<VarValue Variable="zValue" Value="-99" />
+				<VarValue Variable="size" Value="(width:=95.9803780242844,height:=21.1205127800715)" />
+				<VarValue Variable="text" Value="&apos;Вторник&apos;" />
+				<VarValue Variable="font" Value="(family:=&apos;MS Shell Dlg 2&apos;,size:=10,bold:=TRUE,italic:=FALSE,underline:=FALSE,strikeout:=FALSE)" />
+				<VarValue Variable="alignment" Value="8" />
+			</FB>
+			<FB Name="TableWeek0" Type="TTableWeek" TypeUUID="C426F91C469A7DE14C04549B1FA5FCE9" UUID="8184A2D94887D6A5AF844D8202B06480" X="-395" Y="-913">
+				<VarValue Variable="pos" Value="(x:=1186,y:=77)" />
+				<VarValue Variable="zValue" Value="-99" />
+			</FB>
+			<FB Name="Button1_0" Type="TButton" TypeUUID="0F57322141F376E0BB5CF4AD901DF0A4" UUID="9724FE5E4035E3077C93DAA39A8D2FF1" X="-549" Y="295">
+				<VarValue Variable="pos" Value="(x:=1174,y:=367)" />
+				<VarValue Variable="zValue" Value="-99" />
+				<VarValue Variable="size" Value="(width:=110,height:=23)" />
+				<VarValue Variable="text" Value="&apos;Отчет&apos;" />
+			</FB>
+			<FB Name="Text0_1_2_0_0_0_0" Type="TText" TypeUUID="141A69704AFF8CD225334CAEE94C0543" UUID="18B6B6244795ACA13F0217B7213FB5BF" X="120" Y="120">
+				<VarValue Variable="pos" Value="(x:=1096.4211073254,y:=285.465571672993)" />
+				<VarValue Variable="zValue" Value="-99" />
+				<VarValue Variable="size" Value="(width:=95.9124858620964,height:=21.1205127800715)" />
+				<VarValue Variable="text" Value="&apos;Средний&apos;" />
+				<VarValue Variable="font" Value="(family:=&apos;MS Shell Dlg 2&apos;,size:=10,bold:=TRUE,italic:=FALSE,underline:=FALSE,strikeout:=FALSE)" />
+				<VarValue Variable="alignment" Value="8" />
+			</FB>
+			<FB Name="Text0_1_1_0_1" Type="TText" TypeUUID="141A69704AFF8CD225334CAEE94C0543" UUID="6864D9E2410D56289E15AABD424C651A" X="80" Y="80">
+				<VarValue Variable="pos" Value="(x:=1092.02023192905,y:=229.465571672993)" />
+				<VarValue Variable="zValue" Value="-99" />
+				<VarValue Variable="size" Value="(width:=99.1976359538019,height:=21.1205127800715)" />
+				<VarValue Variable="text" Value="&apos;Воскресенье&apos;" />
+				<VarValue Variable="font" Value="(family:=&apos;MS Shell Dlg 2&apos;,size:=10,bold:=TRUE,italic:=FALSE,underline:=FALSE,strikeout:=FALSE)" />
+				<VarValue Variable="alignment" Value="8" />
+			</FB>
+			<FB Name="Text0_1_4" Type="TText" TypeUUID="141A69704AFF8CD225334CAEE94C0543" UUID="61A77A7A4ABBE6738B23809B7DAA3420" X="40" Y="40">
+				<VarValue Variable="pos" Value="(x:=1095.03719088739,y:=80.4655716729928)" />
+				<VarValue Variable="zValue" Value="-99" />
+				<VarValue Variable="size" Value="(width:=99.0379268005998,height:=21.1205127800715)" />
+				<VarValue Variable="text" Value="&apos;Понедельник&apos;" />
+				<VarValue Variable="font" Value="(family:=&apos;MS Shell Dlg 2&apos;,size:=10,bold:=TRUE,italic:=FALSE,underline:=FALSE,strikeout:=FALSE)" />
+				<VarValue Variable="alignment" Value="8" />
+			</FB>
+			<FB Name="E_SR0" Type="E_SR" TypeUUID="39E55F8C48BC877B0DC793824FF29DCB" UUID="9EC0635E4183DDF9024D9EB1ADB86B27" X="-346.75" Y="-38.25" />
+			<FB Name="E_SR1" Type="E_SR" TypeUUID="39E55F8C48BC877B0DC793824FF29DCB" UUID="1C69FCF14E20712DC98729B03A8A1368" X="-342.75" Y="305.75" />
+			<EventConnections>
+				<Connection Source="Button1.mouseLBPress" Destination="E_SR0.S" SourceUUID="EE963A134EBB84759D15D8913B3F1A05.299295AF47A6CCAC26009C964C5B47C5" DestinationUUID="9EC0635E4183DDF9024D9EB1ADB86B27.CA109EE94AEC00A1D0AAFA857E3712F8" dx1="13.75" dx2="10" dy="-0.25" />
+				<Connection Source="Button1.mouseLBRelease" Destination="E_SR0.R" SourceUUID="EE963A134EBB84759D15D8913B3F1A05.8DE6001343803CF639F332B16CC30079" DestinationUUID="9EC0635E4183DDF9024D9EB1ADB86B27.7DA8AA7346A8B200581116B130862F54" dx1="10" dx2="13.75" dy="-0.25" />
+				<Connection Source="Button1_0.mouseLBPress" Destination="E_SR1.S" SourceUUID="9724FE5E4035E3077C93DAA39A8D2FF1.299295AF47A6CCAC26009C964C5B47C5" DestinationUUID="1C69FCF14E20712DC98729B03A8A1368.CA109EE94AEC00A1D0AAFA857E3712F8" dx1="10" dx2="19.75" dy="10.75" />
+				<Connection Source="Button1_0.mouseLBRelease" Destination="E_SR1.R" SourceUUID="9724FE5E4035E3077C93DAA39A8D2FF1.8DE6001343803CF639F332B16CC30079" DestinationUUID="1C69FCF14E20712DC98729B03A8A1368.7DA8AA7346A8B200581116B130862F54" dx1="10" dx2="19.75" dy="10.75" />
+			</EventConnections>
+			<DataConnections>
+				<Connection Source="HourTable[0]" Destination="TableSvodka0.tablestr1" SourceUUID="C6E32ED14F7191A6842F4DBD7D13E9F0[0]" DestinationUUID="2B74A7D44B36E1C9A61B22885155644E.8F3826A5469B8A1F47868E8B35CA0420" />
+				<Connection Source="HourTable[1]" Destination="TableSvodka0.tablestr2" SourceUUID="C6E32ED14F7191A6842F4DBD7D13E9F0[1]" DestinationUUID="2B74A7D44B36E1C9A61B22885155644E.C4B57D1748B8AC70490B9780EAD85E76" />
+				<Connection Source="HourTable[2]" Destination="TableSvodka0.tablestr3" SourceUUID="C6E32ED14F7191A6842F4DBD7D13E9F0[2]" DestinationUUID="2B74A7D44B36E1C9A61B22885155644E.414B263C45471F11145887BC818F92E5" />
+				<Connection Source="HourTable[3]" Destination="TableSvodka0.tablestr4" SourceUUID="C6E32ED14F7191A6842F4DBD7D13E9F0[3]" DestinationUUID="2B74A7D44B36E1C9A61B22885155644E.2F894682470D3C59859CDAAD3D8D77D6" />
+				<Connection Source="HourTable[4]" Destination="TableSvodka0.tablestr5" SourceUUID="C6E32ED14F7191A6842F4DBD7D13E9F0[4]" DestinationUUID="2B74A7D44B36E1C9A61B22885155644E.37A7A0BA443C24FED6CA2C9D99A8B4E1" />
+				<Connection Source="HourTable[5]" Destination="TableSvodka0.tablestr6" SourceUUID="C6E32ED14F7191A6842F4DBD7D13E9F0[5]" DestinationUUID="2B74A7D44B36E1C9A61B22885155644E.19C4044B4C03F728022CC9BE89D74375" />
+				<Connection Source="HourTable[6]" Destination="TableSvodka0.tablestr7" SourceUUID="C6E32ED14F7191A6842F4DBD7D13E9F0[6]" DestinationUUID="2B74A7D44B36E1C9A61B22885155644E.E12B637A4BF9E34DF1C114B11A6C47AD" />
+				<Connection Source="HourTable[7]" Destination="TableSvodka0.tablestr8" SourceUUID="C6E32ED14F7191A6842F4DBD7D13E9F0[7]" DestinationUUID="2B74A7D44B36E1C9A61B22885155644E.99DD3398430F82EF17D1199A76B730CD" />
+				<Connection Source="HourTable[8]" Destination="TableSvodka0.tablestr9" SourceUUID="C6E32ED14F7191A6842F4DBD7D13E9F0[8]" DestinationUUID="2B74A7D44B36E1C9A61B22885155644E.C8E3B62A4A1C6688B7C7AE91C1E2E3A0" />
+				<Connection Source="HourTable[9]" Destination="TableSvodka0.tablestr10" SourceUUID="C6E32ED14F7191A6842F4DBD7D13E9F0[9]" DestinationUUID="2B74A7D44B36E1C9A61B22885155644E.308DA4A643E01F1F31BE9999B92866B5" />
+				<Connection Source="HourTable[10]" Destination="TableSvodka0.tablestr11" SourceUUID="C6E32ED14F7191A6842F4DBD7D13E9F0[10]" DestinationUUID="2B74A7D44B36E1C9A61B22885155644E.6BBD9E464B22088C70AFA9B1642D90EB" />
+				<Connection Source="HourTable[11]" Destination="TableSvodka0.tablestr12" SourceUUID="C6E32ED14F7191A6842F4DBD7D13E9F0[11]" DestinationUUID="2B74A7D44B36E1C9A61B22885155644E.7F13788B4361B72CF6E21D82869F5A64" />
+				<Connection Source="HourTable[12]" Destination="TableSvodka0.tablestr13" SourceUUID="C6E32ED14F7191A6842F4DBD7D13E9F0[12]" DestinationUUID="2B74A7D44B36E1C9A61B22885155644E.EEB092E04E05D11C3C83FFBAE37FBD38" />
+				<Connection Source="HourTable[13]" Destination="TableSvodka0.tablestr14" SourceUUID="C6E32ED14F7191A6842F4DBD7D13E9F0[13]" DestinationUUID="2B74A7D44B36E1C9A61B22885155644E.415C83E74B9DE842239F619C77D6DE6A" />
+				<Connection Source="HourTable[14]" Destination="TableSvodka0.tablestr15" SourceUUID="C6E32ED14F7191A6842F4DBD7D13E9F0[14]" DestinationUUID="2B74A7D44B36E1C9A61B22885155644E.FB96D4344BC47D9F6E1B1480FF3C117C" />
+				<Connection Source="HourTable[15]" Destination="TableSvodka0.tablestr16" SourceUUID="C6E32ED14F7191A6842F4DBD7D13E9F0[15]" DestinationUUID="2B74A7D44B36E1C9A61B22885155644E.54CE9369451B758818880F9CABA1DAD2" />
+				<Connection Source="HourTable[16]" Destination="TableSvodka0.tablestr17" SourceUUID="C6E32ED14F7191A6842F4DBD7D13E9F0[16]" DestinationUUID="2B74A7D44B36E1C9A61B22885155644E.37D0B94F4568A7AC5B9B04B045B9030F" />
+				<Connection Source="HourTable[17]" Destination="TableSvodka0.tablestr18" SourceUUID="C6E32ED14F7191A6842F4DBD7D13E9F0[17]" DestinationUUID="2B74A7D44B36E1C9A61B22885155644E.6B31260840125838305EF283D58F4701" />
+				<Connection Source="HourTable[18]" Destination="TableSvodka0.tablestr19" SourceUUID="C6E32ED14F7191A6842F4DBD7D13E9F0[18]" DestinationUUID="2B74A7D44B36E1C9A61B22885155644E.D08C4FE0434BC9E17620D4A9891FD973" />
+				<Connection Source="HourTable[19]" Destination="TableSvodka0.tablestr20" SourceUUID="C6E32ED14F7191A6842F4DBD7D13E9F0[19]" DestinationUUID="2B74A7D44B36E1C9A61B22885155644E.A4C8787145AC1AFD22CFA1BD44F40A78" />
+				<Connection Source="HourTable[20]" Destination="TableSvodka0.tablestr21" SourceUUID="C6E32ED14F7191A6842F4DBD7D13E9F0[20]" DestinationUUID="2B74A7D44B36E1C9A61B22885155644E.E2B1074B446D927D6B4B19BB8C55B7D3" />
+				<Connection Source="HourTable[21]" Destination="TableSvodka0.tablestr22" SourceUUID="C6E32ED14F7191A6842F4DBD7D13E9F0[21]" DestinationUUID="2B74A7D44B36E1C9A61B22885155644E.3DAA8CF14CA9175EC8A1A6AE0DB505AE" />
+				<Connection Source="HourTable[22]" Destination="TableSvodka0.tablestr23" SourceUUID="C6E32ED14F7191A6842F4DBD7D13E9F0[22]" DestinationUUID="2B74A7D44B36E1C9A61B22885155644E.2725EF84448B9285C4E70085F7D54685" />
+				<Connection Source="HourTable[23]" Destination="TableSvodka0.tablestr24" SourceUUID="C6E32ED14F7191A6842F4DBD7D13E9F0[23]" DestinationUUID="2B74A7D44B36E1C9A61B22885155644E.89065CA244ECD3161313E1B7A9D4A57D" />
+				<Connection Source="HourTableItog[0]" Destination="TableItog0.tablestr1" SourceUUID="B20B77E646E761C2A9D7AF8006C800E3[0]" DestinationUUID="6698803E4ABA7C4969EF4EA173C5CB4C.8F3826A5469B8A1F47868E8B35CA0420" />
+				<Connection Source="HourTableItog[1]" Destination="TableItog0.tablestr2" SourceUUID="B20B77E646E761C2A9D7AF8006C800E3[1]" DestinationUUID="6698803E4ABA7C4969EF4EA173C5CB4C.C4B57D1748B8AC70490B9780EAD85E76" />
+				<Connection Source="HourTableItog[2]" Destination="TableItog0.tablestr3" SourceUUID="B20B77E646E761C2A9D7AF8006C800E3[2]" DestinationUUID="6698803E4ABA7C4969EF4EA173C5CB4C.414B263C45471F11145887BC818F92E5" />
+				<Connection Source="HourTableItog[3]" Destination="TableItog0.tablestr4" SourceUUID="B20B77E646E761C2A9D7AF8006C800E3[3]" DestinationUUID="6698803E4ABA7C4969EF4EA173C5CB4C.2F894682470D3C59859CDAAD3D8D77D6" />
+				<Connection Source="WeekTable[0]" Destination="TableWeek0.tablestr1" SourceUUID="EBCD82D5420B4BBC18BE17A316EFBD26[0]" DestinationUUID="8184A2D94887D6A5AF844D8202B06480.8F3826A5469B8A1F47868E8B35CA0420" />
+				<Connection Source="WeekTable[1]" Destination="TableWeek0.tablestr2" SourceUUID="EBCD82D5420B4BBC18BE17A316EFBD26[1]" DestinationUUID="8184A2D94887D6A5AF844D8202B06480.C4B57D1748B8AC70490B9780EAD85E76" />
+				<Connection Source="WeekTable[2]" Destination="TableWeek0.tablestr3" SourceUUID="EBCD82D5420B4BBC18BE17A316EFBD26[2]" DestinationUUID="8184A2D94887D6A5AF844D8202B06480.414B263C45471F11145887BC818F92E5" />
+				<Connection Source="WeekTable[3]" Destination="TableWeek0.tablestr4" SourceUUID="EBCD82D5420B4BBC18BE17A316EFBD26[3]" DestinationUUID="8184A2D94887D6A5AF844D8202B06480.2F894682470D3C59859CDAAD3D8D77D6" />
+				<Connection Source="WeekTable[4]" Destination="TableWeek0.tablestr5" SourceUUID="EBCD82D5420B4BBC18BE17A316EFBD26[4]" DestinationUUID="8184A2D94887D6A5AF844D8202B06480.37A7A0BA443C24FED6CA2C9D99A8B4E1" />
+				<Connection Source="WeekTable[5]" Destination="TableWeek0.tablestr6" SourceUUID="EBCD82D5420B4BBC18BE17A316EFBD26[5]" DestinationUUID="8184A2D94887D6A5AF844D8202B06480.19C4044B4C03F728022CC9BE89D74375" />
+				<Connection Source="WeekTable[6]" Destination="TableWeek0.tablestr7" SourceUUID="EBCD82D5420B4BBC18BE17A316EFBD26[6]" DestinationUUID="8184A2D94887D6A5AF844D8202B06480.E12B637A4BF9E34DF1C114B11A6C47AD" />
+				<Connection Source="WeekTableItog[0]" Destination="TableItog0_0.tablestr1" SourceUUID="83DFDCED46C778B7555C998C710E09E9[0]" DestinationUUID="CFAD8944451DB3FC7A51F28B41FD04D7.8F3826A5469B8A1F47868E8B35CA0420" />
+				<Connection Source="WeekTableItog[1]" Destination="TableItog0_0.tablestr2" SourceUUID="83DFDCED46C778B7555C998C710E09E9[1]" DestinationUUID="CFAD8944451DB3FC7A51F28B41FD04D7.C4B57D1748B8AC70490B9780EAD85E76" />
+				<Connection Source="WeekTableItog[2]" Destination="TableItog0_0.tablestr3" SourceUUID="83DFDCED46C778B7555C998C710E09E9[2]" DestinationUUID="CFAD8944451DB3FC7A51F28B41FD04D7.414B263C45471F11145887BC818F92E5" />
+				<Connection Source="WeekTableItog[3]" Destination="TableItog0_0.tablestr4" SourceUUID="83DFDCED46C778B7555C998C710E09E9[3]" DestinationUUID="CFAD8944451DB3FC7A51F28B41FD04D7.2F894682470D3C59859CDAAD3D8D77D6" />
+				<Connection Source="PointZero" Destination="TableSvodka0.Num_array" SourceUUID="F227A0934034C1F9ACF6A288468B3497" DestinationUUID="2B74A7D44B36E1C9A61B22885155644E.736BE5574566BD6C2ACE42AC63D68781" />
+				<Connection Source="PointZero" Destination="TableItog0.Num_array" SourceUUID="F227A0934034C1F9ACF6A288468B3497" DestinationUUID="6698803E4ABA7C4969EF4EA173C5CB4C.736BE5574566BD6C2ACE42AC63D68781" />
+				<Connection Source="PointZero" Destination="TableWeek0.Num_array" SourceUUID="F227A0934034C1F9ACF6A288468B3497" DestinationUUID="8184A2D94887D6A5AF844D8202B06480.736BE5574566BD6C2ACE42AC63D68781" />
+				<Connection Source="PointZero" Destination="TableItog0_0.Num_array" SourceUUID="F227A0934034C1F9ACF6A288468B3497" DestinationUUID="CFAD8944451DB3FC7A51F28B41FD04D7.736BE5574566BD6C2ACE42AC63D68781" />
+				<Connection Source="E_SR0.Q" Destination="MakeReport2" SourceUUID="9EC0635E4183DDF9024D9EB1ADB86B27.5758CA974978140FA5F3308319BA6292" DestinationUUID="FF80055545E4B7AFE07EE99E916738B0" />
+				<Connection Source="E_SR1.Q" Destination="MakeReport3" SourceUUID="1C69FCF14E20712DC98729B03A8A1368.5758CA974978140FA5F3308319BA6292" DestinationUUID="074152A2497C971B751F4FBBD22F16AB" />
+			</DataConnections>
+		</FBNetwork>
+	</GraphicsCompositeFBType>
+</Data>

@@ -1,0 +1,625 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Driver.MODBUS v. 1.3 >
+<Configuration Slave="FALSE" TCP="FALSE">
+    <Devices CommConfig="COM7,19200,8,2,NONE">
+        <Device Address="1" RetryCount="3" RetryDelay="100000" SymbolTimeout="100000" ResponseTimeout="200000" InterpacketDelay="5000" MaxStatus="100" MaxRegs="100">
+            <Group Name="PRESET_MULTIPLY_REGISTERS_0" Function="PRESET_MULTIPLY_REGISTERS" UpdatePeriod="1000000" />
+            <Group Name="READ_INPUT_REGISTERS_0" Function="READ_INPUT_REGISTERS" UpdatePeriod="6000000" />
+            <Group Name="READ_INPUT_REGISTERS_1" Function="READ_INPUT_REGISTERS" UpdatePeriod="1000000" />
+            <Group Name="READ_INPUT_REGISTERS_2" Function="READ_INPUT_REGISTERS" UpdatePeriod="10000000" />
+            <Group Name="Чтение_уставок" Function="READ_INPUT_REGISTERS" UpdatePeriod="0" />
+            <Group Name="Запись_уставок" Function="PRESET_MULTIPLY_REGISTERS" UpdatePeriod="0" />
+            <Group Name="Регистры данных" Function="PRESET_MULTIPLY_REGISTERS" UpdatePeriod="0" />
+            <Group Name="Регистры команд" Function="PRESET_MULTIPLY_REGISTERS" UpdatePeriod="0" />
+        </Device>
+        <Device Address="2" RetryCount="3" RetryDelay="100000" SymbolTimeout="100000" ResponseTimeout="200000" InterpacketDelay="5000" MaxStatus="100" MaxRegs="100">
+            <Group Name="PRESET_MULTIPLY_REGISTERS_0" Function="PRESET_MULTIPLY_REGISTERS" UpdatePeriod="1000000" />
+            <Group Name="READ_INPUT_REGISTERS_0" Function="READ_INPUT_REGISTERS" UpdatePeriod="6000000" />
+            <Group Name="READ_INPUT_REGISTERS_1" Function="READ_INPUT_REGISTERS" UpdatePeriod="1000000" />
+            <Group Name="READ_INPUT_REGISTERS_2" Function="READ_INPUT_REGISTERS" UpdatePeriod="10000000" />
+            <Group Name="Чтение_уставок" Function="READ_INPUT_REGISTERS" UpdatePeriod="0" />
+            <Group Name="Запись_уставок" Function="PRESET_MULTIPLY_REGISTERS" UpdatePeriod="0" />
+            <Group Name="Регистры данных" Function="PRESET_MULTIPLY_REGISTERS" UpdatePeriod="0" />
+            <Group Name="Регистры команд" Function="PRESET_MULTIPLY_REGISTERS" UpdatePeriod="0" />
+        </Device>
+        <Device Address="3" RetryCount="3" RetryDelay="100000" SymbolTimeout="100000" ResponseTimeout="200000" InterpacketDelay="5000" MaxStatus="100" MaxRegs="100">
+            <Group Name="READ_INPUT_REGISTERS_0" Function="READ_INPUT_REGISTERS" UpdatePeriod="1000000" />
+            <Group Name="PRESET_MULTIPLY_REGISTERS_0" Function="PRESET_MULTIPLY_REGISTERS" UpdatePeriod="1000000" />
+        </Device>
+    </Devices>
+    <Crossconnect>
+        <Connection ItemName="S_KTP_P07_BVV1_DS_DP" Device="1.status" Channel="" UUID="71E8847C449910E9622D3CA6220E0402" />
+        <Connection ItemName="RAW_BMRZ_Reg_Cmd_WinWrRd_DP" Device="1" Channel="721:ULONG_DCBA" Group="PRESET_MULTIPLY_REGISTERS_0" UUID="8C517AA0411C3072EDF6DD86FB1EA69D" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_NetCtrl" Device="1" Channel="412:LONG_DCBA" Group="PRESET_MULTIPLY_REGISTERS_0" UUID="ABAABFA6436CADB9740ECEB278DD891F" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_Cmd_WinRd_Only" Device="1" Channel="725:LONG_DCBA" Group="PRESET_MULTIPLY_REGISTERS_0" UUID="DEE15E5349C3F05DF19D53820DD9D4F9" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_Block_ID[0]" Device="1" Channel="0:USHORT_BA" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="41BCA2354AC02E92F659D8B431FCE4A3[0]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_Slave_ID[1]" Device="1" Channel="1:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="E7E41DE04074A4E5F0BB74BCA91CD3B4[1]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_Slave_ID[0]" Device="1" Channel="1.8:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="E7E41DE04074A4E5F0BB74BCA91CD3B4[0]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_Slave_ID[19]" Device="1" Channel="10:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="E7E41DE04074A4E5F0BB74BCA91CD3B4[19]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_Slave_ID[18]" Device="1" Channel="10.8:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="E7E41DE04074A4E5F0BB74BCA91CD3B4[18]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_Slave_ID[21]" Device="1" Channel="11:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="E7E41DE04074A4E5F0BB74BCA91CD3B4[21]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_Slave_ID[20]" Device="1" Channel="11.8:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="E7E41DE04074A4E5F0BB74BCA91CD3B4[20]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_Slave_ID[23]" Device="1" Channel="12:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="E7E41DE04074A4E5F0BB74BCA91CD3B4[23]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_Slave_ID[22]" Device="1" Channel="12.8:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="E7E41DE04074A4E5F0BB74BCA91CD3B4[22]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_Slave_ID[25]" Device="1" Channel="13:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="E7E41DE04074A4E5F0BB74BCA91CD3B4[25]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_Slave_ID[24]" Device="1" Channel="13.8:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="E7E41DE04074A4E5F0BB74BCA91CD3B4[24]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_Slave_ID[27]" Device="1" Channel="14:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="E7E41DE04074A4E5F0BB74BCA91CD3B4[27]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_Slave_ID[26]" Device="1" Channel="14.8:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="E7E41DE04074A4E5F0BB74BCA91CD3B4[26]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_Slave_ID[29]" Device="1" Channel="15:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="E7E41DE04074A4E5F0BB74BCA91CD3B4[29]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_Slave_ID[28]" Device="1" Channel="15.8:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="E7E41DE04074A4E5F0BB74BCA91CD3B4[28]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_Slave_ID[31]" Device="1" Channel="16:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="E7E41DE04074A4E5F0BB74BCA91CD3B4[31]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_Slave_ID[30]" Device="1" Channel="16.8:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="E7E41DE04074A4E5F0BB74BCA91CD3B4[30]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_Version[0]" Device="1" Channel="17:USHORT_BA" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="BAE8C81548909AFC302A4C8F0A2581D6[0]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_Slave_ID[3]" Device="1" Channel="2:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="E7E41DE04074A4E5F0BB74BCA91CD3B4[3]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_Slave_ID[2]" Device="1" Channel="2.8:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="E7E41DE04074A4E5F0BB74BCA91CD3B4[2]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_Slave_ID[5]" Device="1" Channel="3:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="E7E41DE04074A4E5F0BB74BCA91CD3B4[5]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_Slave_ID[4]" Device="1" Channel="3.8:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="E7E41DE04074A4E5F0BB74BCA91CD3B4[4]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_Slave_ID[7]" Device="1" Channel="4:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="E7E41DE04074A4E5F0BB74BCA91CD3B4[7]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_Slave_ID[6]" Device="1" Channel="4.8:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="E7E41DE04074A4E5F0BB74BCA91CD3B4[6]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_Slave_ID[9]" Device="1" Channel="5:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="E7E41DE04074A4E5F0BB74BCA91CD3B4[9]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_Slave_ID[8]" Device="1" Channel="5.8:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="E7E41DE04074A4E5F0BB74BCA91CD3B4[8]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_Slave_ID[11]" Device="1" Channel="6:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="E7E41DE04074A4E5F0BB74BCA91CD3B4[11]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_Slave_ID[10]" Device="1" Channel="6.8:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="E7E41DE04074A4E5F0BB74BCA91CD3B4[10]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_Slave_ID[13]" Device="1" Channel="7:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="E7E41DE04074A4E5F0BB74BCA91CD3B4[13]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_Slave_ID[12]" Device="1" Channel="7.8:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="E7E41DE04074A4E5F0BB74BCA91CD3B4[12]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_Slave_ID[15]" Device="1" Channel="8:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="E7E41DE04074A4E5F0BB74BCA91CD3B4[15]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_Slave_ID[14]" Device="1" Channel="8.8:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="E7E41DE04074A4E5F0BB74BCA91CD3B4[14]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_Slave_ID[17]" Device="1" Channel="9:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="E7E41DE04074A4E5F0BB74BCA91CD3B4[17]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_Slave_ID[16]" Device="1" Channel="9.8:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="E7E41DE04074A4E5F0BB74BCA91CD3B4[16]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_IAMAX_CP" Device="1" Channel="139:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="748275A448CFF5388B04D1B45350E124" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_IBMAX_CP" Device="1" Channel="140:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="FD2953E6456A657F792D6AB6557ADB8E" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_ICMAX_CP" Device="1" Channel="141:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="94490E8F4C2B39FD7B7A0990DA00814D" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_I0MAX_CP" Device="1" Channel="142:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="9D367CC44E2B2CCF73604CBA8C42BE34" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_Time[1]" Device="1" Channel="19:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_1" UUID="2F68DBC0438EB86B1E8CC4AB9E853C32[1]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_Time[0]" Device="1" Channel="19.8:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_1" UUID="2F68DBC0438EB86B1E8CC4AB9E853C32[0]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_Time[3]" Device="1" Channel="20:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_1" UUID="2F68DBC0438EB86B1E8CC4AB9E853C32[3]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_Time[2]" Device="1" Channel="20.8:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_1" UUID="2F68DBC0438EB86B1E8CC4AB9E853C32[2]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_Time[5]" Device="1" Channel="21:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_1" UUID="2F68DBC0438EB86B1E8CC4AB9E853C32[5]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_Time[4]" Device="1" Channel="21.8:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_1" UUID="2F68DBC0438EB86B1E8CC4AB9E853C32[4]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_Time[7]" Device="1" Channel="22:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_1" UUID="2F68DBC0438EB86B1E8CC4AB9E853C32[7]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_Time[6]" Device="1" Channel="22.8:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_1" UUID="2F68DBC0438EB86B1E8CC4AB9E853C32[6]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_NetCmd_Result" Device="1" Channel="279:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="F3AF29324EBC5BD4CB5728AB53C11445" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_VNBMRZ_CP" Device="1" Channel="28:BIT" Group="READ_INPUT_REGISTERS_1" UUID="5BC3CAA1452793F6093A6EB7DFBCECDE" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_NVV_CP" Device="1" Channel="28.1:BIT" Group="READ_INPUT_REGISTERS_1" UUID="BFE39ECA481B8BE8D0876B84D237C23B" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_SR1STMTZ_CP" Device="1" Channel="28.10:BIT" Group="READ_INPUT_REGISTERS_1" UUID="BE85A3B64278C713D24443AFE51DDCE0" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_SRTZNPOTKSV_CP" Device="1" Channel="28.11:BIT" Group="READ_INPUT_REGISTERS_1" UUID="AAD6D1824E79071DF7CA91B0CDD7605E" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_SRDROTKSV_CP" Device="1" Channel="28.12:BIT" Group="READ_INPUT_REGISTERS_1" UUID="B3B6B5844097CAA9642CED836584B7D8" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_SR2STMTZ_CP" Device="1" Channel="28.13:BIT" Group="READ_INPUT_REGISTERS_1" UUID="D939D3EF4007F804B0E1AFA4EC25C0F4" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_OTKVVAVR_CP" Device="1" Channel="28.14:BIT" Group="READ_INPUT_REGISTERS_1" UUID="CB063C214651C62E27C5ACB63DB22526" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_SRDROTK_CP" Device="1" Channel="28.15:BIT" Group="READ_INPUT_REGISTERS_1" UUID="61B962AC48996DFE2AA27AAD078460EC" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_OTKTR_CP" Device="1" Channel="28.2:BIT" Group="READ_INPUT_REGISTERS_1" UUID="1FBB7BE84E4793F17C364980DCD47A6B" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_OTKAVRSV_CP" Device="1" Channel="28.3:BIT" Group="READ_INPUT_REGISTERS_1" UUID="77ED41A346FA33226D64AEACB5C03AE7" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_SRTZNPOTK_CP" Device="1" Channel="28.4:BIT" Group="READ_INPUT_REGISTERS_1" UUID="FB37085549AB27B1CF7BCAA5DCA90A2F" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_VNR_CP" Device="1" Channel="28.5:BIT" Group="READ_INPUT_REGISTERS_1" UUID="60D5B0354F75FC7905C07C8E7635D66F" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_NEZVNR_CP" Device="1" Channel="28.6:BIT" Group="READ_INPUT_REGISTERS_1" UUID="10CDE68F4F8A6149ED70A098B9B36278" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_VAVOTK_CP" Device="1" Channel="28.7:BIT" Group="READ_INPUT_REGISTERS_1" UUID="902CB5414ECF0EE80B1BE48BA9CBFABC" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_SR1STMTZSV_CP" Device="1" Channel="28.8:BIT" Group="READ_INPUT_REGISTERS_1" UUID="8172D0AE4DC35F6F0EFD2398EEC9D4B8" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_SRCHSTMTZ_CP" Device="1" Channel="28.9:BIT" Group="READ_INPUT_REGISTERS_1" UUID="602149E340100A0F4FAF69AF5FE75979" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_SUMIOTKA_CP" Device="1" Channel="280:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_1" UUID="DBAD454846EF17BC508C7B9CFC799B21" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_SUMIOTKB_CP" Device="1" Channel="282:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_1" UUID="C7AE4DA841985F46B13101B011C506B0" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_SUMIOTKC_CP" Device="1" Channel="284:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_1" UUID="B5E787DA4A7AC34C4D72CDACA02BF1F1" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_IAMAXPO_CP" Device="1" Channel="286:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="65113874401E7951589887B49F0D1378" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_IBMAXPO_CP" Device="1" Channel="287:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="A44E7EA74AF0DB4B1EA29EA0DFF603E0" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_ICMAXPO_CP" Device="1" Channel="288:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="0BC5D6874D0975D0D7F5449171A39DF4" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_SUMKOLOTK_CP" Device="1" Channel="289:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="667E361C426FAEA741C67593C0D562C9" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_KOLPTZNP_CP" Device="1" Channel="290:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="995577724D48827F5CBFD3BE00B59DBF" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_KSTZNPVV_CP" Device="1" Channel="291:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="27E964B244C82F59FE6BDAAC2B199399" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_KSTZNPSV_CP" Device="1" Channel="292:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="A7BC25A34E67AEC4F22754A9B82BCB1C" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_KPMTZI1ST_CP" Device="1" Channel="293:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="FABA4555472E3702324A98881423FA3B" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_KSMTZI1STVV_CP" Device="1" Channel="294:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="0515BF28477849900544D386ABD9FB57" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_KSMTZI1STSV_CP" Device="1" Channel="295:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="ACBC50C54B471F3B0D18009E725C3144" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_KPMTZI2ST_CP" Device="1" Channel="296:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="E991B3AE48D685A4ECEBD9A730D07CEB" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_KSMTZI2STVV_CP" Device="1" Channel="297:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="458C93FA414CFEBE0728DDB1043BF451" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_KSMTZI2STK13_CP" Device="1" Channel="298:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="2909A1BB4E12A95FA66B409BB2AD4596" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_KPDR_CP" Device="1" Channel="299:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="CB53BA4F42BB128DF486DA968E6AB567" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_KSDROTKSV_CP" Device="1" Channel="300:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="ECE51F294AECE64EA6BD79B49638FAD2" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_KSDROTKVV_CP" Device="1" Channel="301:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="27D1CE724447744257D07C9B75709E08" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_KSBMTZ_CP" Device="1" Channel="302:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="0BF8608448497D1AC775C3BB303D6877" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_KPAVR_CP" Device="1" Channel="303:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="188278404F6DCEAC21E66782FC4233DD" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_KSAVRAV_CP" Device="1" Channel="304:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="6A703C4D402A9FA772127CAA355D693A" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_IATEK_AP" Device="1" Channel="33:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="28E9ABFB45ADC2E6888D4E905A837EC8" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_IBTEK_AP" Device="1" Channel="34:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="9B070A244D957AF306D7ED9D15D314C5" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_ICTEK_AP" Device="1" Channel="35:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="99CF93CB49FFB02B9FC242879A12BF7E" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_I0_AP" Device="1" Channel="36:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="CD8730C6405FB83ABA506BB5F104C6AB" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_UAVV_AP" Device="1" Channel="37:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="919C9BA149337B38A8DD95B460112CF0" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_UBVV_AP" Device="1" Channel="38:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="D3283E1149D0403D7F9DD2BA63688399" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_UCVV_AP" Device="1" Channel="39:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="DD2D9E25441D29FF7D6BA4AC45EDAF6B" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_UAS_AP" Device="1" Channel="40:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="4BE6DF74429CA714D86403BAA6C4017F" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_UBS_AP" Device="1" Channel="41:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="DC1405C6492785E22BA54D85D66E4CA9" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_NetCtrl_R" Device="1" Channel="412:LONG_DCBA" Filter="0" Group="READ_INPUT_REGISTERS_1" UUID="323428E94D4BBBB110B894AA467A48F3" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_NetCtrl1_R" Device="1" Channel="419:LONG_DCBA" Group="READ_INPUT_REGISTERS_1" UUID="6863EBB34EA040B92BC6339E4298B17B" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_UCS_AP" Device="1" Channel="42:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="9F6579EF46E1E751ECC62DB8A1D094CC" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_IPR_AP" Device="1" Channel="43:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="4095244947FB0CADA51D13877784EA92" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_IOB_AP" Device="1" Channel="44:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="430C9AAB4B444ACEB1E0669E002A37ED" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_UPR_AP" Device="1" Channel="45:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="6F6337D44F8888923A55FAA841654C81" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_UOB_AP" Device="1" Channel="46:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="D4E8E56D4F489A36FA9DE28F4E54DB44" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_IACPR_AP" Device="1" Channel="47:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="B2BD08EB446398BEA2347482775A664E" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_IREPR_AP" Device="1" Channel="48:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="E3793E3C4C55514E078AC7A4B0ED55DB" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_ANGLE_AP" Device="1" Channel="49:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="D20AEEC5427A6C0EE5E3F0B8F5757309" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_PACOB_AP" Device="1" Channel="50:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="BD2CB5B24D5FD6B5CE2A569B591BA6B2" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_PAC3F_AP" Device="1" Channel="51:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="345574D54E5E2BE6BD9C61958540AE38" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_PRE3F_AP" Device="1" Channel="52:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="A9122AE040486AA97B5A249B8FFC1D39" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_PPL3F_AP" Device="1" Channel="53:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="36E37EC7406636463678DCB9D5EE82B1" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_COSFI_AP" Device="1" Channel="54:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="E2659AD248B24A03268B75B0CB8220DF" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_UOBVV_AP" Device="1" Channel="55:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="CE2773364FEDADA0A79738993436FEE4" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_FREQ__AP" Device="1" Channel="56:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="B5A718EB48884199549FA88623D6C55A" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_VKLKL_DP" Device="1" Channel="922.7:BIT" Group="READ_INPUT_REGISTERS_1" UUID="CD4256C84EA7E4FB4025BFB56456A510" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_OTKKL_DP" Device="1" Channel="922.6:BIT" Group="READ_INPUT_REGISTERS_1" UUID="2A50FF13424FBC93E4812C8CA89E0C7C" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_VVKL_DP" Device="1" Channel="922.10:BIT" Group="READ_INPUT_REGISTERS_1" UUID="1B2BA9674AB02B8187D0A695EE2F8204" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_RPVVKLST_DP" Device="1" Channel="922.11:BIT" Group="READ_INPUT_REGISTERS_1" UUID="52D855454D1690757FD078974B908257" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_BLDRBMTZ_DP" Device="1" Channel="922.12:BIT" Group="READ_INPUT_REGISTERS_1" UUID="9BF9DB6F4F7ABD15CB541CABF08236DD" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_TTRPOV_DP" Device="1" Channel="922.13:BIT" Group="READ_INPUT_REGISTERS_1" UUID="04747CA74273E0756B82A99AA8E292E7" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_RAZAVRBMRZ_DP" Device="1" Channel="922.14:BIT" Group="READ_INPUT_REGISTERS_1" UUID="4DE897C0495A62EAC23CF2862776AB43" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_SVOTK_DP" Device="1" Channel="922.15:BIT" Group="READ_INPUT_REGISTERS_1" UUID="8E2F0EC742A341E1B1F155808A433284" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_VKLAVRAV_DP" Device="1" Channel="922.5:BIT" Group="READ_INPUT_REGISTERS_1" UUID="4D39B7BD43B1E358299EABBCC4E8B733" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_OTKAVRAV_DP" Device="1" Channel="922.4:BIT" Group="READ_INPUT_REGISTERS_1" UUID="BD9207BC4BF51855AE03439DC96E94AA" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_AVRSVVKL_DP" Device="1" Channel="922.3:BIT" Group="READ_INPUT_REGISTERS_1" UUID="8B7B06354728BD7BB83BA8B77E550489" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_DUVKL_DP" Device="1" Channel="922.2:BIT" Group="READ_INPUT_REGISTERS_1" UUID="A2CB43134A30CD76CD49B6920375F255" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_ZAPAVRVNZ_DP" Device="1" Channel="922.1:BIT" Group="READ_INPUT_REGISTERS_1" UUID="3F70FC1B44DDB9A6BB4C0CBAB2460632" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_SVVKL_DP" Device="1" Channel="922:BIT" Group="READ_INPUT_REGISTERS_1" UUID="02E1E4EC473CCFF5E8CCE1940E2D8690" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_TELVVVIK_DP" Device="1" Channel="922.8:BIT" Group="READ_INPUT_REGISTERS_1" UUID="DE20D35F4DF073603945AFBE1F0D9B50" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_VOTK_DP" Device="1" Channel="922.9:BIT" Group="READ_INPUT_REGISTERS_1" UUID="B64B4FC645D7BA5ABE9B9A9FE8DFE8E5" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_KVIT_DP" Device="1" Channel="923.8:BIT" Group="READ_INPUT_REGISTERS_1" UUID="49726A8E451FB107F493E493DFF303BE" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_SIGSRDGZ_DP" Device="1" Channel="923.9:BIT" Group="READ_INPUT_REGISTERS_1" UUID="28C259E34BEEABD771E55DA33C8414B3" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_OTKLTRAN_DP" Device="1" Channel="928.7:BIT" Group="READ_INPUT_REGISTERS_1" UUID="901AC5754F189667C1D1638D656FFCF8" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_OTKLSVVNR_DP" Device="1" Channel="928.6:BIT" Group="READ_INPUT_REGISTERS_1" UUID="570B65294BB431290C65F384053E8847" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_OTKLSVZASH_DP" Device="1" Channel="928.13:BIT" Group="READ_INPUT_REGISTERS_1" UUID="5173E9DC437388BF9F48368131B8DD8E" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_SRAVTAVR_DP" Device="1" Channel="928.12:BIT" Group="READ_INPUT_REGISTERS_1" UUID="C209DE274C669989897975BBEE6D7AB6" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_NBB1(2)_DP" Device="1" Channel="928.11:BIT" Group="READ_INPUT_REGISTERS_1" UUID="9E945190451F64CB83549EAE2C4671CB" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_VIZKTP_DP" Device="1" Channel="928.10:BIT" Group="READ_INPUT_REGISTERS_1" UUID="5E4186604EE030ED1B76CB89E13A8F08" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_VKLSVAVRAV_DP" Device="1" Channel="928.9:BIT" Group="READ_INPUT_REGISTERS_1" UUID="C17E648E46C2E97D9ADD4EBDD5A56B43" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_SIGPDGZ_DP" Device="1" Channel="928.8:BIT" Group="READ_INPUT_REGISTERS_1" UUID="0B6C21164D5E4DE715441D857A72A2CC" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_RAZAVRSV2VV_DP" Device="1" Channel="928.5:BIT" Group="READ_INPUT_REGISTERS_1" UUID="3A5EF3464F4F66FBFE7A98979A23C52B" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_RPVVKL_DP" Device="1" Channel="928.4:BIT" Group="READ_INPUT_REGISTERS_1" UUID="941BBA6F4858C4FCA1B0708F62EE48C3" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_BMTZ_DP" Device="1" Channel="928.2:BIT" Group="READ_INPUT_REGISTERS_1" UUID="E2BF2F4141DB9017DA55118A7E292FD1" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_PEREGR_DP" Device="1" Channel="928.1:BIT" Group="READ_INPUT_REGISTERS_1" UUID="F5D961A547CD1ED0C031CDBBF0CCD00A" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_OTKVV_DP" Device="1" Channel="928.15:BIT" Group="READ_INPUT_REGISTERS_1" UUID="950E3C0A41E458626D6CD0991C3CE216" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_VKLVV_DP" Device="1" Channel="928.14:BIT" Group="READ_INPUT_REGISTERS_1" UUID="1D913A324EB640627C5EA8A7CC09BC0F" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_NBMRZ_DP" Device="1" Channel="929.6:BIT" Group="READ_INPUT_REGISTERS_1" UUID="7D1F72F54605A8D6DD089597907A65FC" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_AVOTK_DP" Device="1" Channel="929.7:BIT" Group="READ_INPUT_REGISTERS_1" UUID="DDB5563E483551FBE765239F633AB80C" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_RPOVOTK_DP" Device="1" Channel="929.10:BIT" Group="READ_INPUT_REGISTERS_1" UUID="294E3B3A4E7C47331E8B518CA025169D" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_BLOCKAVRAV_DP" Device="1" Channel="929.11:BIT" Group="READ_INPUT_REGISTERS_1" UUID="796FB3B44E56DD13B99A0E87FCB55738" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_RPVVKL_DP_1" Device="1" Channel="929.9:BIT" Group="READ_INPUT_REGISTERS_1" UUID="CBC6E48647DBC8A61D1BE59B3D1A927D" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_NET_KTr_1" Device="1" Channel="195:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_2" UUID="ACA1D5B24FA83AB7231BA08829AE33DA" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_NET_KTr_2" Device="1" Channel="197:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_2" UUID="C13BE11B476DA1CD356AFE800D03671C" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_NET_KTr_3" Device="1" Channel="199:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_2" UUID="ED51375E40532739F7466D856100836D" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_NET_KTr_4" Device="1" Channel="201:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_2" UUID="9863F60B441178888D5D1C87B92776F8" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_NET_KTr_5" Device="1" Channel="203:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_2" UUID="A9B674164672C81C69515D8E83A34EB2" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_NET_KTr_6" Device="1" Channel="205:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_2" UUID="D380B533447BE9169FA891AFB7C15CB3" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_NET_KTr_7" Device="1" Channel="207:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_2" UUID="5867D1C641EB61C9F51EF5AC4F88D3F7" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_NET_KTr_8" Device="1" Channel="209:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_2" UUID="109F1C7F41C2BE060BDF0A8DF3135502" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_NET_KTr_9" Device="1" Channel="211:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_2" UUID="5C13A1454BF58EB6ED8CB99A2BA7F9B5" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_NET_KTr_10" Device="1" Channel="213:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_2" UUID="01C073B2472A658B6F472CBE97E8E915" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_NET_KTr_11" Device="1" Channel="215:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_2" UUID="093235EE450712617AAA628C21716F37" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_NET_KTr_12" Device="1" Channel="217:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_2" UUID="26C939E6402C45A8AB569D86F1EB5C04" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_NET_KTr_13" Device="1" Channel="219:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_2" UUID="6DA87F2C4F3FE109B7E607B6D5831616" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_NET_KTr_14" Device="1" Channel="221:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_2" UUID="F950F7F14EF0AEE9DD66038BAAC596B5" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_NET_KTr_15" Device="1" Channel="223:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_2" UUID="A663A9A4475A2A4ADB49448C8F32CAFB" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_NET_KTr_16" Device="1" Channel="225:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_2" UUID="4713873241122146DA5B3FBDE31C40F7" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_NET_KTr_17" Device="1" Channel="227:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_2" UUID="5F1AB5884A010D1FF69FFD96B105BD65" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_NET_KTr_18" Device="1" Channel="229:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_2" UUID="E80AB756413B719C6B11AAB468D16968" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_NET_KTr_19" Device="1" Channel="231:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_2" UUID="1EA6A884428C85CAD5D2FAB015EF5055" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_NET_KTr_20" Device="1" Channel="233:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_2" UUID="43B156434538964807D017B3D8FB733C" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_NET_KTr_21" Device="1" Channel="235:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_2" UUID="A35989D7454F2742BC28F3AA39FEA91F" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_NET_KTr_22" Device="1" Channel="237:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_2" UUID="84C99E9246A6D39B352A068655E985B8" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_NET_KTr_23" Device="1" Channel="239:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_2" UUID="4DBE6B2B4A4EED016BDE25B2C13DB8CF" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_NET_KTr_24" Device="1" Channel="241:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_2" UUID="51D22B61496ED0BB665330B1D78E3F49" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_VREMSBROSA_CP[1]" Device="1" Channel="305:BYTE" Group="READ_INPUT_REGISTERS_2" UUID="EF1161864E3A752E5F09379A564EA9AC[1]" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_VREMSBROSA_CP[0]" Device="1" Channel="305.8:BYTE" Group="READ_INPUT_REGISTERS_2" UUID="EF1161864E3A752E5F09379A564EA9AC[0]" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_VREMSBROSA_CP[3]" Device="1" Channel="306:BYTE" Group="READ_INPUT_REGISTERS_2" UUID="EF1161864E3A752E5F09379A564EA9AC[3]" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_VREMSBROSA_CP[2]" Device="1" Channel="306.8:BYTE" Group="READ_INPUT_REGISTERS_2" UUID="EF1161864E3A752E5F09379A564EA9AC[2]" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_VREMSBROSA_CP[5]" Device="1" Channel="307:BYTE" Group="READ_INPUT_REGISTERS_2" UUID="EF1161864E3A752E5F09379A564EA9AC[5]" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_VREMSBROSA_CP[4]" Device="1" Channel="307.8:BYTE" Group="READ_INPUT_REGISTERS_2" UUID="EF1161864E3A752E5F09379A564EA9AC[4]" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_VREMSBROSA_CP[7]" Device="1" Channel="308:BYTE" Group="READ_INPUT_REGISTERS_2" UUID="EF1161864E3A752E5F09379A564EA9AC[7]" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_VREMSBROSA_CP[6]" Device="1" Channel="308.8:BYTE" Group="READ_INPUT_REGISTERS_2" UUID="EF1161864E3A752E5F09379A564EA9AC[6]" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_Cmd_Rd_Set_CO_UP" Device="1" Channel="Group.update" Group="Чтение_уставок" UUID="8FD4BFD1487BDF4D987D568460489157" />
+        <Connection ItemName="RAW_BMRZ_W40466_DP" Device="1" Channel="465:USHORT_BA" Group="Чтение_уставок" UUID="CD61D6244E5D0894718683B4C8FB38CF" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_W40467_DP" Device="1" Channel="466:USHORT_BA" Group="Чтение_уставок" UUID="029B9F2F4EF205B2F6BBC6B8017059A2" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_W40468_DP" Device="1" Channel="467:USHORT_BA" Group="Чтение_уставок" UUID="E926350447886BD35F3B8BA742DDC099" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_W40469_DP" Device="1" Channel="468:USHORT_BA" Group="Чтение_уставок" UUID="E97380FD4B5B49BE0DCE74A71AD7127C" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_W40470_DP" Device="1" Channel="469:USHORT_BA" Group="Чтение_уставок" UUID="4D6104094140501CB62EFC858AB8E47B" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_W40471_DP" Device="1" Channel="470:USHORT_BA" Group="Чтение_уставок" UUID="E88F147846F137C9A2A1D9BC228938D0" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_W40472_DP" Device="1" Channel="471:USHORT_BA" Group="Чтение_уставок" UUID="EB6F0A9C4329E94F04AD52B92408A289" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_W40473_DP" Device="1" Channel="472:USHORT_BA" Group="Чтение_уставок" UUID="484A175C413C045664704B9022C1D546" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_W40474_DP" Device="1" Channel="473:USHORT_BA" Group="Чтение_уставок" UUID="DE6DA065411F79AC19617C9213088DFC" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_W40475_DP" Device="1" Channel="474:USHORT_BA" Group="Чтение_уставок" UUID="0E7115AF42640705820B91AA7281F270" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_W40476_DP" Device="1" Channel="475:USHORT_BA" Group="Чтение_уставок" UUID="2B20871146BBA17D1E01E3868D218026" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_W40477_DP" Device="1" Channel="476:USHORT_BA" Group="Чтение_уставок" UUID="3900AE024AD76EDE244811A1B6E89CCF" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_W40478_DP" Device="1" Channel="477:USHORT_BA" Group="Чтение_уставок" UUID="1ADA527844CFA5DC787984A27D0F7E15" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_W40479_DP" Device="1" Channel="478:USHORT_BA" Group="Чтение_уставок" UUID="9C398E684592C9A19DC5B2A3C0CF1740" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_W40480_DP" Device="1" Channel="479:USHORT_BA" Group="Чтение_уставок" UUID="8B5F225F49926B91A1E423A903006CEF" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_W40481_DP" Device="1" Channel="480:USHORT_BA" Group="Чтение_уставок" UUID="834A1A7C4C4CB12970BACCBF7E78A9F5" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_W40482_DP" Device="1" Channel="481:USHORT_BA" Group="Чтение_уставок" UUID="B3F9D7AA471EC088A97A71B1549575DF" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_W40483_DP" Device="1" Channel="482:USHORT_BA" Group="Чтение_уставок" UUID="75F4B1614B0E5DCC81BCC4853F944ACA" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_W40484_DP" Device="1" Channel="483:USHORT_BA" Group="Чтение_уставок" UUID="CFD48F4D4D103690A3437D97487011AB" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_W40485_DP" Device="1" Channel="484:USHORT_BA" Group="Чтение_уставок" UUID="350C52CC4CF5BF3316B8E98864D5E7CF" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_W40486_DP" Device="1" Channel="485:USHORT_BA" Group="Чтение_уставок" UUID="459C4C08466F536A61736FB788F6702E" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_W40487_DP" Device="1" Channel="486:USHORT_BA" Group="Чтение_уставок" UUID="7DD4553245FBABFC9D5B28A2E060A57B" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_W40488_DP" Device="1" Channel="487:USHORT_BA" Group="Чтение_уставок" UUID="8E2A191A43976E0EB72331942D48DA8A" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_W40489_DP" Device="1" Channel="488:USHORT_BA" Group="Чтение_уставок" UUID="B7E387AD4D3E6E329AE1BC8B3C80788D" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_Cmd_Wr_Set_CO_UP" Device="1" Channel="Group.update" Group="Запись_уставок" UUID="1ED36EBC422CC62CC514CD9E63DEA20F" />
+        <Connection ItemName="RAW_BMRZ_W40466_DP" Device="1" Channel="465:USHORT_BA" Group="Запись_уставок" UUID="CD61D6244E5D0894718683B4C8FB38CF" UpdatePeriod="11010000" />
+        <Connection ItemName="RAW_BMRZ_W40467_DP" Device="1" Channel="466:USHORT_BA" Group="Запись_уставок" UUID="029B9F2F4EF205B2F6BBC6B8017059A2" UpdatePeriod="11020000" />
+        <Connection ItemName="RAW_BMRZ_W40468_DP" Device="1" Channel="467:USHORT_BA" Group="Запись_уставок" UUID="E926350447886BD35F3B8BA742DDC099" UpdatePeriod="11030000" />
+        <Connection ItemName="RAW_BMRZ_W40469_DP" Device="1" Channel="468:USHORT_BA" Group="Запись_уставок" UUID="E97380FD4B5B49BE0DCE74A71AD7127C" UpdatePeriod="11040000" />
+        <Connection ItemName="RAW_BMRZ_W40470_DP" Device="1" Channel="469:USHORT_BA" Group="Запись_уставок" UUID="4D6104094140501CB62EFC858AB8E47B" UpdatePeriod="11050000" />
+        <Connection ItemName="RAW_BMRZ_W40471_DP" Device="1" Channel="470:USHORT_BA" Group="Запись_уставок" UUID="E88F147846F137C9A2A1D9BC228938D0" UpdatePeriod="11060000" />
+        <Connection ItemName="RAW_BMRZ_W40472_DP" Device="1" Channel="471:USHORT_BA" Group="Запись_уставок" UUID="EB6F0A9C4329E94F04AD52B92408A289" UpdatePeriod="11070000" />
+        <Connection ItemName="RAW_BMRZ_W40473_DP" Device="1" Channel="472:USHORT_BA" Group="Запись_уставок" UUID="484A175C413C045664704B9022C1D546" UpdatePeriod="11080000" />
+        <Connection ItemName="RAW_BMRZ_W40474_DP" Device="1" Channel="473:USHORT_BA" Group="Запись_уставок" UUID="DE6DA065411F79AC19617C9213088DFC" UpdatePeriod="11090000" />
+        <Connection ItemName="RAW_BMRZ_W40475_DP" Device="1" Channel="474:USHORT_BA" Group="Запись_уставок" UUID="0E7115AF42640705820B91AA7281F270" UpdatePeriod="11100000" />
+        <Connection ItemName="RAW_BMRZ_W40476_DP" Device="1" Channel="475:USHORT_BA" Group="Запись_уставок" UUID="2B20871146BBA17D1E01E3868D218026" UpdatePeriod="11120000" />
+        <Connection ItemName="RAW_BMRZ_W40477_DP" Device="1" Channel="476:USHORT_BA" Group="Запись_уставок" UUID="3900AE024AD76EDE244811A1B6E89CCF" UpdatePeriod="11130000" />
+        <Connection ItemName="RAW_BMRZ_W40478_DP" Device="1" Channel="477:USHORT_BA" Group="Запись_уставок" UUID="1ADA527844CFA5DC787984A27D0F7E15" UpdatePeriod="11140000" />
+        <Connection ItemName="RAW_BMRZ_W40479_DP" Device="1" Channel="478:USHORT_BA" Group="Запись_уставок" UUID="9C398E684592C9A19DC5B2A3C0CF1740" UpdatePeriod="11150000" />
+        <Connection ItemName="RAW_BMRZ_W40480_DP" Device="1" Channel="479:USHORT_BA" Group="Запись_уставок" UUID="8B5F225F49926B91A1E423A903006CEF" UpdatePeriod="11160000" />
+        <Connection ItemName="RAW_BMRZ_W40481_DP" Device="1" Channel="480:USHORT_BA" Group="Запись_уставок" UUID="834A1A7C4C4CB12970BACCBF7E78A9F5" UpdatePeriod="11170000" />
+        <Connection ItemName="RAW_BMRZ_W40482_DP" Device="1" Channel="481:USHORT_BA" Group="Запись_уставок" UUID="B3F9D7AA471EC088A97A71B1549575DF" UpdatePeriod="11180000" />
+        <Connection ItemName="RAW_BMRZ_W40483_DP" Device="1" Channel="482:USHORT_BA" Group="Запись_уставок" UUID="75F4B1614B0E5DCC81BCC4853F944ACA" UpdatePeriod="11190000" />
+        <Connection ItemName="RAW_BMRZ_W40484_DP" Device="1" Channel="483:USHORT_BA" Group="Запись_уставок" UUID="CFD48F4D4D103690A3437D97487011AB" UpdatePeriod="11200000" />
+        <Connection ItemName="RAW_BMRZ_W40485_DP" Device="1" Channel="484:USHORT_BA" Group="Запись_уставок" UUID="350C52CC4CF5BF3316B8E98864D5E7CF" UpdatePeriod="11210000" />
+        <Connection ItemName="RAW_BMRZ_W40486_DP" Device="1" Channel="485:USHORT_BA" Group="Запись_уставок" UUID="459C4C08466F536A61736FB788F6702E" UpdatePeriod="11220000" />
+        <Connection ItemName="RAW_BMRZ_W40487_DP" Device="1" Channel="486:USHORT_BA" Group="Запись_уставок" UUID="7DD4553245FBABFC9D5B28A2E060A57B" UpdatePeriod="11230000" />
+        <Connection ItemName="RAW_BMRZ_W40488_DP" Device="1" Channel="487:USHORT_BA" Group="Запись_уставок" UUID="8E2A191A43976E0EB72331942D48DA8A" UpdatePeriod="11240000" />
+        <Connection ItemName="RAW_BMRZ_W40489_DP" Device="1" Channel="488:USHORT_BA" Group="Запись_уставок" UUID="B7E387AD4D3E6E329AE1BC8B3C80788D" UpdatePeriod="11250000" />
+        <Connection ItemName="S_KTP_P07_BVV1_Reg_Time_Set_UP" Device="1" Channel="Group.update" Group="Регистры данных" UUID="E27BC1C7467A6B6D2E7C099D061B147A" />
+        <Connection ItemName="RAW_BMRZ_Reg_DataCtrl1[1]" Device="1" Channel="415:BYTE" Filter="0" Group="Регистры данных" UUID="9F1F73824162A6E236C6B9BAA7640EFB[1]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_DataCtrl1[0]" Device="1" Channel="415.8:BYTE" Filter="0" Group="Регистры данных" UUID="9F1F73824162A6E236C6B9BAA7640EFB[0]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_DataCtrl1[3]" Device="1" Channel="416:BYTE" Filter="0" Group="Регистры данных" UUID="9F1F73824162A6E236C6B9BAA7640EFB[3]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_DataCtrl1[2]" Device="1" Channel="416.8:BYTE" Filter="0" Group="Регистры данных" UUID="9F1F73824162A6E236C6B9BAA7640EFB[2]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_DataCtrl1[5]" Device="1" Channel="417:BYTE" Filter="0" Group="Регистры данных" UUID="9F1F73824162A6E236C6B9BAA7640EFB[5]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_DataCtrl1[4]" Device="1" Channel="417.8:BYTE" Filter="0" Group="Регистры данных" UUID="9F1F73824162A6E236C6B9BAA7640EFB[4]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_DataCtrl1[7]" Device="1" Channel="418:BYTE" Filter="0" Group="Регистры данных" UUID="9F1F73824162A6E236C6B9BAA7640EFB[7]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_Reg_DataCtrl1[6]" Device="1" Channel="418.8:BYTE" Filter="0" Group="Регистры данных" UUID="9F1F73824162A6E236C6B9BAA7640EFB[6]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_NetCtrl1_UP" Device="1" Channel="Group.update" Group="Регистры команд" UUID="B02EA5764D206309A4C5479028DB1C05" />
+        <Connection ItemName="RAW_BMRZ_Reg_NetCtrl1" Device="1" Channel="419:LONG_DCBA" Group="Регистры команд" UUID="A5D258174C1C8D455F9645B2FC0C329D" UpdatePeriod="1000000" />
+        <Connection ItemName="S_KTP_P07_BVV2_DS_DP" Device="2.status" Channel="" UUID="40C0CE054C9CCC8643B390AA54715359" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_Cmd_WinWrRd_DP" Device="2" Channel="721:ULONG_DCBA" Group="PRESET_MULTIPLY_REGISTERS_0" UUID="F74A85D148C013C26119FBABCF994EED" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_NetCtrl" Device="2" Channel="412:LONG_DCBA" Group="PRESET_MULTIPLY_REGISTERS_0" UUID="BED763ED43D25F404CF8399BB00E49B2" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_Cmd_WinRd_Only" Device="2" Channel="725:LONG_DCBA" Group="PRESET_MULTIPLY_REGISTERS_0" UUID="A16DB70D45998E6895363D91691DD37E" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_Block_ID[0]" Device="2" Channel="0:USHORT_BA" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="F511777B469AA9286C4FCDA0A8786E70[0]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_Slave_ID[1]" Device="2" Channel="1:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="30D23AA344B31CD6E31D63B280557125[1]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_Slave_ID[0]" Device="2" Channel="1.8:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="30D23AA344B31CD6E31D63B280557125[0]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_Slave_ID[19]" Device="2" Channel="10:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="30D23AA344B31CD6E31D63B280557125[19]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_Slave_ID[18]" Device="2" Channel="10.8:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="30D23AA344B31CD6E31D63B280557125[18]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_Slave_ID[21]" Device="2" Channel="11:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="30D23AA344B31CD6E31D63B280557125[21]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_Slave_ID[20]" Device="2" Channel="11.8:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="30D23AA344B31CD6E31D63B280557125[20]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_Slave_ID[23]" Device="2" Channel="12:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="30D23AA344B31CD6E31D63B280557125[23]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_Slave_ID[22]" Device="2" Channel="12.8:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="30D23AA344B31CD6E31D63B280557125[22]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_Slave_ID[25]" Device="2" Channel="13:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="30D23AA344B31CD6E31D63B280557125[25]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_Slave_ID[24]" Device="2" Channel="13.8:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="30D23AA344B31CD6E31D63B280557125[24]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_Slave_ID[27]" Device="2" Channel="14:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="30D23AA344B31CD6E31D63B280557125[27]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_Slave_ID[26]" Device="2" Channel="14.8:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="30D23AA344B31CD6E31D63B280557125[26]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_Slave_ID[29]" Device="2" Channel="15:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="30D23AA344B31CD6E31D63B280557125[29]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_Slave_ID[28]" Device="2" Channel="15.8:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="30D23AA344B31CD6E31D63B280557125[28]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_Slave_ID[31]" Device="2" Channel="16:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="30D23AA344B31CD6E31D63B280557125[31]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_Slave_ID[30]" Device="2" Channel="16.8:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="30D23AA344B31CD6E31D63B280557125[30]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_Version[0]" Device="2" Channel="17:USHORT_BA" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="F51AE40947E13A7FDE7F8EB027B7F9C8[0]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_Slave_ID[3]" Device="2" Channel="2:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="30D23AA344B31CD6E31D63B280557125[3]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_Slave_ID[2]" Device="2" Channel="2.8:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="30D23AA344B31CD6E31D63B280557125[2]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_Slave_ID[5]" Device="2" Channel="3:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="30D23AA344B31CD6E31D63B280557125[5]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_Slave_ID[4]" Device="2" Channel="3.8:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="30D23AA344B31CD6E31D63B280557125[4]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_Slave_ID[7]" Device="2" Channel="4:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="30D23AA344B31CD6E31D63B280557125[7]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_Slave_ID[6]" Device="2" Channel="4.8:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="30D23AA344B31CD6E31D63B280557125[6]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_Slave_ID[9]" Device="2" Channel="5:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="30D23AA344B31CD6E31D63B280557125[9]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_Slave_ID[8]" Device="2" Channel="5.8:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="30D23AA344B31CD6E31D63B280557125[8]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_Slave_ID[11]" Device="2" Channel="6:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="30D23AA344B31CD6E31D63B280557125[11]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_Slave_ID[10]" Device="2" Channel="6.8:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="30D23AA344B31CD6E31D63B280557125[10]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_Slave_ID[13]" Device="2" Channel="7:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="30D23AA344B31CD6E31D63B280557125[13]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_Slave_ID[12]" Device="2" Channel="7.8:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="30D23AA344B31CD6E31D63B280557125[12]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_Slave_ID[15]" Device="2" Channel="8:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="30D23AA344B31CD6E31D63B280557125[15]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_Slave_ID[14]" Device="2" Channel="8.8:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="30D23AA344B31CD6E31D63B280557125[14]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_Slave_ID[17]" Device="2" Channel="9:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="30D23AA344B31CD6E31D63B280557125[17]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_Slave_ID[16]" Device="2" Channel="9.8:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_0" UUID="30D23AA344B31CD6E31D63B280557125[16]" UpdatePeriod="6000000" />
+        <Connection ItemName="RAW_BMRZ_2_IAMAX_CP" Device="2" Channel="139:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="F6E37BC243E3FBEA87C4CC93E4DE7DA9" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_IBMAX_CP" Device="2" Channel="140:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="B45F73E54704D84D8D2F2D95CBC44D69" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_ICMAX_CP" Device="2" Channel="141:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="153DAEA743D016FD9CE00AB80A517226" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_I0MAX_CP" Device="2" Channel="142:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="17AEDF9D42385D74839111BC3EF58D7C" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_Time[1]" Device="2" Channel="19:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_1" UUID="70D72D1742044351A7ADDFB3A56ED98A[1]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_Time[0]" Device="2" Channel="19.8:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_1" UUID="70D72D1742044351A7ADDFB3A56ED98A[0]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_Time[3]" Device="2" Channel="20:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_1" UUID="70D72D1742044351A7ADDFB3A56ED98A[3]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_Time[2]" Device="2" Channel="20.8:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_1" UUID="70D72D1742044351A7ADDFB3A56ED98A[2]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_Time[5]" Device="2" Channel="21:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_1" UUID="70D72D1742044351A7ADDFB3A56ED98A[5]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_Time[4]" Device="2" Channel="21.8:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_1" UUID="70D72D1742044351A7ADDFB3A56ED98A[4]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_Time[7]" Device="2" Channel="22:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_1" UUID="70D72D1742044351A7ADDFB3A56ED98A[7]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_Time[6]" Device="2" Channel="22.8:BYTE" Filter="0" Group="READ_INPUT_REGISTERS_1" UUID="70D72D1742044351A7ADDFB3A56ED98A[6]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_NetCmd_Result" Device="2" Channel="279:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="6D7B68054350D0678C62C28DBB89EA12" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_VNBMRZ_CP" Device="2" Channel="28:BIT" Group="READ_INPUT_REGISTERS_1" UUID="0D58E45E4118BA9F09DD58BD522EFAF2" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_NVV_CP" Device="2" Channel="28.1:BIT" Group="READ_INPUT_REGISTERS_1" UUID="9CAC5D26419FC981C625B6A437B33917" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_SR1STMTZ_CP" Device="2" Channel="28.10:BIT" Group="READ_INPUT_REGISTERS_1" UUID="845CEB6544B7A1A6AA9987BE045406F2" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_SRTZNPOTKSV_CP" Device="2" Channel="28.11:BIT" Group="READ_INPUT_REGISTERS_1" UUID="81F6B000416E5C5C480958971C54DB1C" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_SRDROTKSV_CP" Device="2" Channel="28.12:BIT" Group="READ_INPUT_REGISTERS_1" UUID="4186B570437D15428D00BB8C2F4A4EDE" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_SR2STMTZ_CP" Device="2" Channel="28.13:BIT" Group="READ_INPUT_REGISTERS_1" UUID="8931945B4F193E8AE352FAA4FADBB9D8" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_OTKVVAVR_CP" Device="2" Channel="28.14:BIT" Group="READ_INPUT_REGISTERS_1" UUID="AEA9D0B64580C8D4CB58FFBA4929A505" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_SRDROTK_CP" Device="2" Channel="28.15:BIT" Group="READ_INPUT_REGISTERS_1" UUID="F80D57214D22BE63C68DCBA495D1D7FF" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_OTKTR_CP" Device="2" Channel="28.2:BIT" Group="READ_INPUT_REGISTERS_1" UUID="1B7AF7DB4B9BFB644AF3BC8776E645E7" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_OTKAVRSV_CP" Device="2" Channel="28.3:BIT" Group="READ_INPUT_REGISTERS_1" UUID="C73A9D104288F7DC68094EA272118252" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_SRTZNPOTK_CP" Device="2" Channel="28.4:BIT" Group="READ_INPUT_REGISTERS_1" UUID="52499454469F89E0C77D44AD6AFCEE1D" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_VNR_CP" Device="2" Channel="28.5:BIT" Group="READ_INPUT_REGISTERS_1" UUID="0E07A2DB492E75D900FB36A91EEC5958" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_NEZVNR_CP" Device="2" Channel="28.6:BIT" Group="READ_INPUT_REGISTERS_1" UUID="C397740B4966B18457C1D191F3FEB1BB" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_VAVOTK_CP" Device="2" Channel="28.7:BIT" Group="READ_INPUT_REGISTERS_1" UUID="B0D3A69A4FAC796743A2D49E36790E0D" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_SR1STMTZSV_CP" Device="2" Channel="28.8:BIT" Group="READ_INPUT_REGISTERS_1" UUID="D47A0E10413BDA9AD725B8AFDFE411C2" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_SRCHSTMTZ_CP" Device="2" Channel="28.9:BIT" Group="READ_INPUT_REGISTERS_1" UUID="5AF95D064027D7558AD8ADB5505A987F" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_SUMIOTKA_CP" Device="2" Channel="280:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_1" UUID="99A24C1A4444298BB6E88DAC53892EBE" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_SUMIOTKB_CP" Device="2" Channel="282:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_1" UUID="1976615C423ED0ABD24BCD840FEC28C2" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_SUMIOTKC_CP" Device="2" Channel="284:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_1" UUID="F58436FB456C2139DFC16BAFFB1A3CF2" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_IAMAXPO_CP" Device="2" Channel="286:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="B625D2E74E47C402B2FC9E807EB8450B" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_IBMAXPO_CP" Device="2" Channel="287:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="6AFB57E64807BE1E10F041956CAF8B68" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_ICMAXPO_CP" Device="2" Channel="288:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="BC32F39D409E015AA6FCD99FC27F071A" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_SUMKOLOTK_CP" Device="2" Channel="289:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="A6E916004967EE224A37D6BB90C7EB5A" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_KOLPTZNP_CP" Device="2" Channel="290:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="DDE8DB93428D3CFD6A7FBC867A5A4C2E" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_KSTZNPVV_CP" Device="2" Channel="291:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="F42FAD0649C2D8AA795BD38628B9CAA4" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_KSTZNPSV_CP" Device="2" Channel="292:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="3C3003DD4DDE457596AB90A993FF18BA" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_KPMTZI1ST_CP" Device="2" Channel="293:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="C1AE8EF54ADB4EDB754A90B9778C96B9" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_KSMTZI1STVV_CP" Device="2" Channel="294:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="A8282C8C404B6F8E36CF7F8262EB3DF2" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_KSMTZI1STSV_CP" Device="2" Channel="295:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="EF826A394B558A6F34D633A5287B64A3" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_KPMTZI2ST_CP" Device="2" Channel="296:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="9C5C0B86492CC715293744B7E13E8F29" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_KSMTZI2STVV_CP" Device="2" Channel="297:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="282BE3414C50E457B313CCB766C59B10" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_KSMTZI2STK13_CP" Device="2" Channel="298:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="456FEB3B41B5C18F243D429227796008" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_KPDR_CP" Device="2" Channel="299:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="F3EB9A6248D18DD07499E5B1DCCC932C" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_KSDROTKSV_CP" Device="2" Channel="300:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="78CEE28B44541A0FB8452BAFC50B5362" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_KSDROTKVV_CP" Device="2" Channel="301:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="43AC16684949F0FD484C6286CB7870C0" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_KSBMTZ_CP" Device="2" Channel="302:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="36E4CD1048D5605146ECA7A45E50D017" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_KPAVR_CP" Device="2" Channel="303:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="F5FA43DA4F95AA78C5FBD596926CBD7F" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_KSAVRAV_CP" Device="2" Channel="304:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="F911EF664DF185EE6BA284A03C43D413" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_IATEK_AP" Device="2" Channel="33:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="28D7F9B349961B16AB71F3BB54F21FC2" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_IBTEK_AP" Device="2" Channel="34:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="0D1134794771E8AD0A6F90B410431BE7" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_ICTEK_AP" Device="2" Channel="35:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="28BD866A4D8405AEC6D6BBB414CDFAFE" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_I0_AP" Device="2" Channel="36:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="45B8D5DA4C52400A60BF219C59E4FC3F" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_UAVV_AP" Device="2" Channel="37:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="2615F1C64E9233A8D45B478EAC73A17B" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_UBVV_AP" Device="2" Channel="38:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="E9286C0A447D8776E22D6395AC7AE5EE" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_UCVV_AP" Device="2" Channel="39:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="7112ED00457D5FE594D3C19346D8D34C" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_UAS_AP" Device="2" Channel="40:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="914D35674F7799B0DCA228857EB6B7FA" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_UBS_AP" Device="2" Channel="41:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="557D4E6849EB3A4C943A93B4EBB6669B" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_NetCtrl_R" Device="2" Channel="412:LONG_DCBA" Filter="0" Group="READ_INPUT_REGISTERS_1" UUID="83D770DF4C07996302D0FC818006D949" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_NetCtrl1_R" Device="2" Channel="419:LONG_DCBA" Group="READ_INPUT_REGISTERS_1" UUID="BFCF9D944AB6C98D4FE49F869F230994" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_UCS_AP" Device="2" Channel="42:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="387CDDCB41C024D42C8CFEAAD58B1D1A" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_IPR_AP" Device="2" Channel="43:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="B52279744E0C2E5D93E20DA0CEFB6AE1" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_IOB_AP" Device="2" Channel="44:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="E20E1F6F457569B7CBCD2AA826FBE7F6" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_UPR_AP" Device="2" Channel="45:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="D8EA56AF4F31A94E80528D98A6C3B66E" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_UOB_AP" Device="2" Channel="46:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="58649C9F4D0440579CFEABB2E629FF18" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_IACPR_AP" Device="2" Channel="47:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="2C888437479339BD0A1E768E4284E33F" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_IREPR_AP" Device="2" Channel="48:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="607AD6204ABF6C7162CCFE94DF4565DA" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_ANGLE_AP" Device="2" Channel="49:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="19BC05D74B6B910632E815BD548DCEC7" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_PACOB_AP" Device="2" Channel="50:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="CBB8005042C526DCAF749D8B807B2C87" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_PAC3F_AP" Device="2" Channel="51:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="CCF6A6FA418EDC5CA263B4A1CDE18809" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_PRE3F_AP" Device="2" Channel="52:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="0558E93F410D8C963AF418826EB1DF7E" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_PPL3F_AP" Device="2" Channel="53:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="07CF4ED744A2235F3F95EEA4F1E17237" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_COSFI_AP" Device="2" Channel="54:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="5B1CC7CC4091191FE05410B1F1370552" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_UOBVV_AP" Device="2" Channel="55:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="EB609FBA4A37A77A3318D5B366221050" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_FREQ__AP" Device="2" Channel="56:SHORT_BA" Group="READ_INPUT_REGISTERS_1" UUID="E64939814B41BD9763DDAFBD73D7440D" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_VKLKL_DP" Device="2" Channel="922.7:BIT" Group="READ_INPUT_REGISTERS_1" UUID="A58C33594B678206485A4DA2528E0A90" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_OTKKL_DP" Device="2" Channel="922.6:BIT" Group="READ_INPUT_REGISTERS_1" UUID="DC51BF794903EF6B1CA512B6659FA436" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_VVKL_DP" Device="2" Channel="922.10:BIT" Group="READ_INPUT_REGISTERS_1" UUID="9B61BFDE436B2E22FEA0719807AB5ACD" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_RPVVKLST_DP" Device="2" Channel="922.11:BIT" Group="READ_INPUT_REGISTERS_1" UUID="4460FA0F4AF4A07D6824848B8F3A3559" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_BLDRBMTZ_DP" Device="2" Channel="922.12:BIT" Group="READ_INPUT_REGISTERS_1" UUID="05C17317464F2B9875F747A26D963B10" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_TTRPOV_DP" Device="2" Channel="922.13:BIT" Group="READ_INPUT_REGISTERS_1" UUID="E28195E64871C35FF325749E94FCCCD0" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_RAZAVRBMRZ_DP" Device="2" Channel="922.14:BIT" Group="READ_INPUT_REGISTERS_1" UUID="4B805A944AE3B8B0A2F66AA228513C91" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_SVOTK_DP" Device="2" Channel="922.15:BIT" Group="READ_INPUT_REGISTERS_1" UUID="400DA65A4B8DDDD88D8ACD9A37F4BE13" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_VKLAVRAV_DP" Device="2" Channel="922.5:BIT" Group="READ_INPUT_REGISTERS_1" UUID="91139D0E4317C07F165CAB876B8AB428" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_OTKAVRAV_DP" Device="2" Channel="922.4:BIT" Group="READ_INPUT_REGISTERS_1" UUID="D1BF2E2E49DC3BBFE305AAA1BBE99231" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_AVRSVVKL_DP" Device="2" Channel="922.3:BIT" Group="READ_INPUT_REGISTERS_1" UUID="F3B0755F4842A040B6DDB686B7489ED4" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_DUVKL_DP" Device="2" Channel="922.2:BIT" Group="READ_INPUT_REGISTERS_1" UUID="20973DC749BC822C3368FB9BFB69AF5D" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_ZAPAVRVNZ_DP" Device="2" Channel="922.1:BIT" Group="READ_INPUT_REGISTERS_1" UUID="98BECB2340DA2B7335FA719EED004AC7" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_SVVKL_DP" Device="2" Channel="922:BIT" Group="READ_INPUT_REGISTERS_1" UUID="80373CAB45696C4CD0E05684F40B1029" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_TELVVVIK_DP" Device="2" Channel="922.8:BIT" Group="READ_INPUT_REGISTERS_1" UUID="952903FC4910D0AEE321AA82427B12A8" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_VOTK_DP" Device="2" Channel="922.9:BIT" Group="READ_INPUT_REGISTERS_1" UUID="E5296BB14C1BB75AD7AE409D3C2A99A1" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_KVIT_DP" Device="2" Channel="923.8:BIT" Group="READ_INPUT_REGISTERS_1" UUID="45364E604EF19B41493D6D876C8B741F" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_SIGSRDGZ_DP" Device="2" Channel="923.9:BIT" Group="READ_INPUT_REGISTERS_1" UUID="EF6154CD4B710D09582D0982ECB3E51D" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_OTKLTRAN_DP" Device="2" Channel="928.7:BIT" Group="READ_INPUT_REGISTERS_1" UUID="12DA30844DAC4797FE695EA28D913B67" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_OTKLSVVNR_DP" Device="2" Channel="928.6:BIT" Group="READ_INPUT_REGISTERS_1" UUID="FE33F5674670ED17BF8BB1B49B7533C2" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_OTKLSVZASH_DP" Device="2" Channel="928.13:BIT" Group="READ_INPUT_REGISTERS_1" UUID="23F9AE4B48AF8FAD72A620BBDB6A0360" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_SRAVTAVR_DP" Device="2" Channel="928.12:BIT" Group="READ_INPUT_REGISTERS_1" UUID="2010507E40C30827978C7A80595EB204" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_NBB1(2)_DP" Device="2" Channel="928.11:BIT" Group="READ_INPUT_REGISTERS_1" UUID="6C7E079F4060DBFDD549C7B55DD19BD8" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_VIZKTP_DP" Device="2" Channel="928.10:BIT" Group="READ_INPUT_REGISTERS_1" UUID="BB0646D4449601CD58CC169E1E75A34A" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_VKLSVAVRAV_DP" Device="2" Channel="928.9:BIT" Group="READ_INPUT_REGISTERS_1" UUID="ADF514274C7A9B182B6644A37351368A" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_SIGPDGZ_DP" Device="2" Channel="928.8:BIT" Group="READ_INPUT_REGISTERS_1" UUID="75357D7640106C83807F52B32CF6ADF9" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_RAZAVRSV2VV_DP" Device="2" Channel="928.5:BIT" Group="READ_INPUT_REGISTERS_1" UUID="AD419AF442F0BBEFB5E759A65293209D" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_RPVVKL_DP" Device="2" Channel="928.4:BIT" Group="READ_INPUT_REGISTERS_1" UUID="78B2DD444B47B9578B22358C1AB96EB1" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_BMTZ_DP" Device="2" Channel="928.2:BIT" Group="READ_INPUT_REGISTERS_1" UUID="11AE692245E6893367B14BB4AEE1F8EC" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_PEREGR_DP" Device="2" Channel="928.1:BIT" Group="READ_INPUT_REGISTERS_1" UUID="544C43954467C7C31F1B43919691E683" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_OTKVV_DP" Device="2" Channel="928.15:BIT" Group="READ_INPUT_REGISTERS_1" UUID="0C396A19487E205C222F099F18720562" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_VKLVV_DP" Device="2" Channel="928.14:BIT" Group="READ_INPUT_REGISTERS_1" UUID="2233E4ED42C201B25C4DF081F42E3CD8" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_NBMRZ_DP" Device="2" Channel="929.6:BIT" Group="READ_INPUT_REGISTERS_1" UUID="02B729354E7B14AC0D31CAAF34B14EB7" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_AVOTK_DP" Device="2" Channel="929.7:BIT" Group="READ_INPUT_REGISTERS_1" UUID="9873EC7C4C7DD3F7E7478582741D6BE3" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_RPOVOTK_DP" Device="2" Channel="929.10:BIT" Group="READ_INPUT_REGISTERS_1" UUID="7A2438214A020FB10CDEB19FFFAC2365" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_BLOCKAVRAV_DP" Device="2" Channel="929.11:BIT" Group="READ_INPUT_REGISTERS_1" UUID="2A2EBAF04D851B19218851899B466A1D" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_RPVVKL_DP_1" Device="2" Channel="929.9:BIT" Group="READ_INPUT_REGISTERS_1" UUID="3DB339264B2C21DAB1D98AB50ED9736E" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_NET_KTr_1" Device="2" Channel="195:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_2" UUID="6D6E556A4E0300C907FC4EB4E766E940" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_NET_KTr_2" Device="2" Channel="197:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_2" UUID="F21027AF47DDC754FA580286BEBBC638" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_NET_KTr_3" Device="2" Channel="199:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_2" UUID="1F477CE44B32353426F6AFAE444CBAC1" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_NET_KTr_4" Device="2" Channel="201:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_2" UUID="F16C2697448819EED312B8B56FA7917F" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_NET_KTr_5" Device="2" Channel="203:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_2" UUID="60F9F67F486EF16CB87B3A98589BB489" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_NET_KTr_6" Device="2" Channel="205:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_2" UUID="6786FF9C4A0B85966C61D89749C4DAD6" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_NET_KTr_7" Device="2" Channel="207:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_2" UUID="C9B237DC490DD01895BBEDBCE85A043D" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_NET_KTr_8" Device="2" Channel="209:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_2" UUID="398582F549CEAB8E796D8EB001ACE3F1" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_NET_KTr_9" Device="2" Channel="211:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_2" UUID="65025D74438579D22A629480E54C3750" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_NET_KTr_10" Device="2" Channel="213:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_2" UUID="81BF65B04FC3534FEF5278A2C2A554E5" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_NET_KTr_11" Device="2" Channel="215:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_2" UUID="70469A6D444F93E7F28208ABEB31F43F" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_NET_KTr_12" Device="2" Channel="217:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_2" UUID="68FAEC3E471FD3054A4EE1B5148E4E92" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_NET_KTr_13" Device="2" Channel="219:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_2" UUID="6A85657E44E5639FC7A07D91EA96D764" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_NET_KTr_14" Device="2" Channel="221:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_2" UUID="8EF7B741438EE087F74F96AA55DF4143" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_NET_KTr_15" Device="2" Channel="223:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_2" UUID="039F0D91459A8BB40038FDAD9FDAE1CD" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_NET_KTr_16" Device="2" Channel="225:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_2" UUID="DCCBCCAC4C2C1298689737B4CF650036" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_NET_KTr_17" Device="2" Channel="227:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_2" UUID="2B953CA34E51D0482CC506A08E816777" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_NET_KTr_18" Device="2" Channel="229:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_2" UUID="570A10814C7AEAE822348FB3CA0E20E6" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_NET_KTr_19" Device="2" Channel="231:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_2" UUID="0289583E4C19613B5DBAD4BC93BDADDC" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_NET_KTr_20" Device="2" Channel="233:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_2" UUID="D6BC4602404799FCF9BCAD80134F6029" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_NET_KTr_21" Device="2" Channel="235:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_2" UUID="AC6F10B94D90CCB2F86111B0E8B52B18" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_NET_KTr_22" Device="2" Channel="237:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_2" UUID="DB65CF2044E2A46C175F55B7C637E1C5" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_NET_KTr_23" Device="2" Channel="239:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_2" UUID="6465AAA54F6A8F345E0B528F5923E689" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_NET_KTr_24" Device="2" Channel="241:FLOAT_DCBA" Group="READ_INPUT_REGISTERS_2" UUID="DF8880E14D597E18679F08ACE90EE234" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_VREMSBROSA_CP[1]" Device="2" Channel="305:BYTE" Group="READ_INPUT_REGISTERS_2" UUID="E3F58B3F428EBD2AD5EBD89B817E163B[1]" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_VREMSBROSA_CP[0]" Device="2" Channel="305.8:BYTE" Group="READ_INPUT_REGISTERS_2" UUID="E3F58B3F428EBD2AD5EBD89B817E163B[0]" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_VREMSBROSA_CP[3]" Device="2" Channel="306:BYTE" Group="READ_INPUT_REGISTERS_2" UUID="E3F58B3F428EBD2AD5EBD89B817E163B[3]" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_VREMSBROSA_CP[2]" Device="2" Channel="306.8:BYTE" Group="READ_INPUT_REGISTERS_2" UUID="E3F58B3F428EBD2AD5EBD89B817E163B[2]" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_VREMSBROSA_CP[5]" Device="2" Channel="307:BYTE" Group="READ_INPUT_REGISTERS_2" UUID="E3F58B3F428EBD2AD5EBD89B817E163B[5]" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_VREMSBROSA_CP[4]" Device="2" Channel="307.8:BYTE" Group="READ_INPUT_REGISTERS_2" UUID="E3F58B3F428EBD2AD5EBD89B817E163B[4]" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_VREMSBROSA_CP[7]" Device="2" Channel="308:BYTE" Group="READ_INPUT_REGISTERS_2" UUID="E3F58B3F428EBD2AD5EBD89B817E163B[7]" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_VREMSBROSA_CP[6]" Device="2" Channel="308.8:BYTE" Group="READ_INPUT_REGISTERS_2" UUID="E3F58B3F428EBD2AD5EBD89B817E163B[6]" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_Cmd_Rd_Set_CO_UP" Device="2" Channel="Group.update" Group="Чтение_уставок" UUID="C2692B854CFBA79EAF5FC5BA4102A960" />
+        <Connection ItemName="RAW_BMRZ_2_W40466_DP" Device="2" Channel="465:USHORT_BA" Group="Чтение_уставок" UUID="53ECD3644EB484F3C50029AA91553D53" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_W40467_DP" Device="2" Channel="466:USHORT_BA" Group="Чтение_уставок" UUID="B02A68A444E3D24ECA896E860D95FF6C" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_W40468_DP" Device="2" Channel="467:USHORT_BA" Group="Чтение_уставок" UUID="FBEA1D4B4C734969F85FF0A8AAB39BDD" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_W40469_DP" Device="2" Channel="468:USHORT_BA" Group="Чтение_уставок" UUID="F20357424DDB427CF8CD529B58ED6C43" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_W40470_DP" Device="2" Channel="469:USHORT_BA" Group="Чтение_уставок" UUID="DFD14C5E4A56FFF5F86C8DAB870024F5" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_W40471_DP" Device="2" Channel="470:USHORT_BA" Group="Чтение_уставок" UUID="EED7A6DD4939AB959D932EAD97FB2D17" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_W40472_DP" Device="2" Channel="471:USHORT_BA" Group="Чтение_уставок" UUID="C5EF5FA24FD7CEF0AB6BA2B01D9ABF26" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_W40473_DP" Device="2" Channel="472:USHORT_BA" Group="Чтение_уставок" UUID="51F1B35C4CCA3D06D04D589302E67CDD" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_W40474_DP" Device="2" Channel="473:USHORT_BA" Group="Чтение_уставок" UUID="D94A822F431FE954A104CF8E07335B93" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_W40475_DP" Device="2" Channel="474:USHORT_BA" Group="Чтение_уставок" UUID="8610A2DC40A0FD1B717ABFBC9ABDB28D" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_W40476_DP" Device="2" Channel="475:USHORT_BA" Group="Чтение_уставок" UUID="004297C8402C80B4778A09B1D88B441C" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_W40477_DP" Device="2" Channel="476:USHORT_BA" Group="Чтение_уставок" UUID="4537F1274FFE79332B4EBCB9DB716D32" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_W40478_DP" Device="2" Channel="477:USHORT_BA" Group="Чтение_уставок" UUID="440BBD4948D6CC65B365E687F5003BD3" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_W40479_DP" Device="2" Channel="478:USHORT_BA" Group="Чтение_уставок" UUID="771D61CB46FE47F6E2224586300A81F3" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_W40480_DP" Device="2" Channel="479:USHORT_BA" Group="Чтение_уставок" UUID="CD0B09694E4A4B5D4944B181EC17DA8F" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_W40481_DP" Device="2" Channel="480:USHORT_BA" Group="Чтение_уставок" UUID="D9F159D0474CE6CDDBC9F2AAF9E70484" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_W40482_DP" Device="2" Channel="481:USHORT_BA" Group="Чтение_уставок" UUID="FA8F84A34BB377C52687B0B33AF2E4BB" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_W40483_DP" Device="2" Channel="482:USHORT_BA" Group="Чтение_уставок" UUID="2B6F187249F96FAB0FC6D89F9DF2C10E" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_W40484_DP" Device="2" Channel="483:USHORT_BA" Group="Чтение_уставок" UUID="6B0801DD412A48D355939EACEA4B5F59" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_W40485_DP" Device="2" Channel="484:USHORT_BA" Group="Чтение_уставок" UUID="82A7619B4A69C68E31113C8A8BE7DE31" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_W40486_DP" Device="2" Channel="485:USHORT_BA" Group="Чтение_уставок" UUID="44BFF4A3403BD6A3507B559B0D1B1FDD" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_W40487_DP" Device="2" Channel="486:USHORT_BA" Group="Чтение_уставок" UUID="2E9039A14C14A3B3E8F9BB8867C1B492" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_W40488_DP" Device="2" Channel="487:USHORT_BA" Group="Чтение_уставок" UUID="ED15EBDD48239D884CD86AA5385C5505" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_W40489_DP" Device="2" Channel="488:USHORT_BA" Group="Чтение_уставок" UUID="D66A11294FD6ED3C475C0FB8E4D35E4F" UpdatePeriod="10000000" />
+        <Connection ItemName="RAW_BMRZ_2_Cmd_Wr_Set_CO_UP" Device="2" Channel="Group.update" Group="Запись_уставок" UUID="166681D64D578E9F63F50798742E8905" />
+        <Connection ItemName="RAW_BMRZ_2_W40466_DP" Device="2" Channel="465:USHORT_BA" Group="Запись_уставок" UUID="53ECD3644EB484F3C50029AA91553D53" UpdatePeriod="11010000" />
+        <Connection ItemName="RAW_BMRZ_2_W40467_DP" Device="2" Channel="466:USHORT_BA" Group="Запись_уставок" UUID="B02A68A444E3D24ECA896E860D95FF6C" UpdatePeriod="11020000" />
+        <Connection ItemName="RAW_BMRZ_2_W40468_DP" Device="2" Channel="467:USHORT_BA" Group="Запись_уставок" UUID="FBEA1D4B4C734969F85FF0A8AAB39BDD" UpdatePeriod="11030000" />
+        <Connection ItemName="RAW_BMRZ_2_W40469_DP" Device="2" Channel="468:USHORT_BA" Group="Запись_уставок" UUID="F20357424DDB427CF8CD529B58ED6C43" UpdatePeriod="11040000" />
+        <Connection ItemName="RAW_BMRZ_2_W40470_DP" Device="2" Channel="469:USHORT_BA" Group="Запись_уставок" UUID="DFD14C5E4A56FFF5F86C8DAB870024F5" UpdatePeriod="11050000" />
+        <Connection ItemName="RAW_BMRZ_2_W40471_DP" Device="2" Channel="470:USHORT_BA" Group="Запись_уставок" UUID="EED7A6DD4939AB959D932EAD97FB2D17" UpdatePeriod="11060000" />
+        <Connection ItemName="RAW_BMRZ_2_W40472_DP" Device="2" Channel="471:USHORT_BA" Group="Запись_уставок" UUID="C5EF5FA24FD7CEF0AB6BA2B01D9ABF26" UpdatePeriod="11070000" />
+        <Connection ItemName="RAW_BMRZ_2_W40473_DP" Device="2" Channel="472:USHORT_BA" Group="Запись_уставок" UUID="51F1B35C4CCA3D06D04D589302E67CDD" UpdatePeriod="11080000" />
+        <Connection ItemName="RAW_BMRZ_2_W40474_DP" Device="2" Channel="473:USHORT_BA" Group="Запись_уставок" UUID="D94A822F431FE954A104CF8E07335B93" UpdatePeriod="11090000" />
+        <Connection ItemName="RAW_BMRZ_2_W40475_DP" Device="2" Channel="474:USHORT_BA" Group="Запись_уставок" UUID="8610A2DC40A0FD1B717ABFBC9ABDB28D" UpdatePeriod="11100000" />
+        <Connection ItemName="RAW_BMRZ_2_W40476_DP" Device="2" Channel="475:USHORT_BA" Group="Запись_уставок" UUID="004297C8402C80B4778A09B1D88B441C" UpdatePeriod="11120000" />
+        <Connection ItemName="RAW_BMRZ_2_W40477_DP" Device="2" Channel="476:USHORT_BA" Group="Запись_уставок" UUID="4537F1274FFE79332B4EBCB9DB716D32" UpdatePeriod="11130000" />
+        <Connection ItemName="RAW_BMRZ_2_W40478_DP" Device="2" Channel="477:USHORT_BA" Group="Запись_уставок" UUID="440BBD4948D6CC65B365E687F5003BD3" UpdatePeriod="11140000" />
+        <Connection ItemName="RAW_BMRZ_2_W40479_DP" Device="2" Channel="478:USHORT_BA" Group="Запись_уставок" UUID="771D61CB46FE47F6E2224586300A81F3" UpdatePeriod="11150000" />
+        <Connection ItemName="RAW_BMRZ_2_W40480_DP" Device="2" Channel="479:USHORT_BA" Group="Запись_уставок" UUID="CD0B09694E4A4B5D4944B181EC17DA8F" UpdatePeriod="11160000" />
+        <Connection ItemName="RAW_BMRZ_2_W40481_DP" Device="2" Channel="480:USHORT_BA" Group="Запись_уставок" UUID="D9F159D0474CE6CDDBC9F2AAF9E70484" UpdatePeriod="11170000" />
+        <Connection ItemName="RAW_BMRZ_2_W40482_DP" Device="2" Channel="481:USHORT_BA" Group="Запись_уставок" UUID="FA8F84A34BB377C52687B0B33AF2E4BB" UpdatePeriod="11180000" />
+        <Connection ItemName="RAW_BMRZ_2_W40483_DP" Device="2" Channel="482:USHORT_BA" Group="Запись_уставок" UUID="2B6F187249F96FAB0FC6D89F9DF2C10E" UpdatePeriod="11190000" />
+        <Connection ItemName="RAW_BMRZ_2_W40484_DP" Device="2" Channel="483:USHORT_BA" Group="Запись_уставок" UUID="6B0801DD412A48D355939EACEA4B5F59" UpdatePeriod="11200000" />
+        <Connection ItemName="RAW_BMRZ_2_W40485_DP" Device="2" Channel="484:USHORT_BA" Group="Запись_уставок" UUID="82A7619B4A69C68E31113C8A8BE7DE31" UpdatePeriod="11210000" />
+        <Connection ItemName="RAW_BMRZ_2_W40486_DP" Device="2" Channel="485:USHORT_BA" Group="Запись_уставок" UUID="44BFF4A3403BD6A3507B559B0D1B1FDD" UpdatePeriod="11220000" />
+        <Connection ItemName="RAW_BMRZ_2_W40487_DP" Device="2" Channel="486:USHORT_BA" Group="Запись_уставок" UUID="2E9039A14C14A3B3E8F9BB8867C1B492" UpdatePeriod="11230000" />
+        <Connection ItemName="RAW_BMRZ_2_W40488_DP" Device="2" Channel="487:USHORT_BA" Group="Запись_уставок" UUID="ED15EBDD48239D884CD86AA5385C5505" UpdatePeriod="11240000" />
+        <Connection ItemName="RAW_BMRZ_2_W40489_DP" Device="2" Channel="488:USHORT_BA" Group="Запись_уставок" UUID="D66A11294FD6ED3C475C0FB8E4D35E4F" UpdatePeriod="11250000" />
+        <Connection ItemName="S_KTP_P07_BVV2_Reg_Time_Set_UP" Device="2" Channel="Group.update" Group="Регистры данных" UUID="5AF1B27741B56278E081EE9D86D8E8B7" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_DataCtrl1[1]" Device="2" Channel="415:BYTE" Filter="0" Group="Регистры данных" UUID="FC863A6B48D1D0DEA11D23BFCF7A1BB4[1]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_DataCtrl1[0]" Device="2" Channel="415.8:BYTE" Filter="0" Group="Регистры данных" UUID="FC863A6B48D1D0DEA11D23BFCF7A1BB4[0]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_DataCtrl1[3]" Device="2" Channel="416:BYTE" Filter="0" Group="Регистры данных" UUID="FC863A6B48D1D0DEA11D23BFCF7A1BB4[3]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_DataCtrl1[2]" Device="2" Channel="416.8:BYTE" Filter="0" Group="Регистры данных" UUID="FC863A6B48D1D0DEA11D23BFCF7A1BB4[2]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_DataCtrl1[5]" Device="2" Channel="417:BYTE" Filter="0" Group="Регистры данных" UUID="FC863A6B48D1D0DEA11D23BFCF7A1BB4[5]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_DataCtrl1[4]" Device="2" Channel="417.8:BYTE" Filter="0" Group="Регистры данных" UUID="FC863A6B48D1D0DEA11D23BFCF7A1BB4[4]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_DataCtrl1[7]" Device="2" Channel="418:BYTE" Filter="0" Group="Регистры данных" UUID="FC863A6B48D1D0DEA11D23BFCF7A1BB4[7]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_DataCtrl1[6]" Device="2" Channel="418.8:BYTE" Filter="0" Group="Регистры данных" UUID="FC863A6B48D1D0DEA11D23BFCF7A1BB4[6]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_NetCtrl1_UP" Device="2" Channel="Group.update" Group="Регистры команд" UUID="1FB9564A428AE8455B90CDA853979740" />
+        <Connection ItemName="RAW_BMRZ_2_Reg_NetCtrl1" Device="2" Channel="419:LONG_DCBA" Group="Регистры команд" UUID="2C27E9BF42CA5EBED36911B12E0DCD24" UpdatePeriod="1000000" />
+        <Connection ItemName="S_KTP_P07_BMPA_DS_DP" Device="3.status" Channel="" UUID="CAB7FE424EDD47971D72478A003E02E1" />
+        <Connection ItemName="RAW_BMPA_Reg_Block_ID[0]" Device="3" Channel="0:USHORT_BA" Group="READ_INPUT_REGISTERS_0" UUID="7240711B4F63796F4DDA68A8D3645A27[0]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_M33C01_DI" Device="3" Channel="25.8:BIT" Group="READ_INPUT_REGISTERS_0" UUID="790D8BFD49FC1200923BD1A5E62DB451" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_M34C09_DO" Device="3" Channel="26.3:BIT" Group="READ_INPUT_REGISTERS_0" UUID="407785A04739ECC880E45DA22FC2D974" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_M41C01_DI" Device="3" Channel="25:BIT" Group="READ_INPUT_REGISTERS_0" UUID="C7594985424802860B77109684560A2E" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_M41C03_DI" Device="3" Channel="25.1:BIT" Group="READ_INPUT_REGISTERS_0" UUID="74BCEAE84487D9E0B6A37D85320F3A27" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_M41C05_DI" Device="3" Channel="25.2:BIT" Group="READ_INPUT_REGISTERS_0" UUID="8C03A5BE44230709A36293863858689D" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_M41C07_DI" Device="3" Channel="25.3:BIT" Group="READ_INPUT_REGISTERS_0" UUID="10059456431E59E20E4F86A104BB79D1" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_M41C09_DI" Device="3" Channel="25.4:BIT" Group="READ_INPUT_REGISTERS_0" UUID="09C419674670B08D3ED59CA8A5119ACE" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_M41C11_DI" Device="3" Channel="25.5:BIT" Group="READ_INPUT_REGISTERS_0" UUID="490A8F5F4DFD1292297A08B9293B3093" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_M41C13_DI" Device="3" Channel="25.6:BIT" Group="READ_INPUT_REGISTERS_0" UUID="48678E544292BCAACEF343843EAE783A" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_M41C15_DI" Device="3" Channel="25.7:BIT" Group="READ_INPUT_REGISTERS_0" UUID="C27CBFF3491678B6DD6C8D9D583358D2" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_M42C01_DI" Device="3" Channel="27.15:BIT" Group="READ_INPUT_REGISTERS_0" UUID="486C9BAD41BBAAC9A1B873881AE8007A" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_M42C03_DI" Device="3" Channel="27.14:BIT" Group="READ_INPUT_REGISTERS_0" UUID="8E878C7A486EEA7F45D293A140FA0D9D" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_M42C05_DO" Device="3" Channel="27.12:BIT" Group="READ_INPUT_REGISTERS_0" UUID="B973073946246238C7C20D829FF3260B" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_M42C07_DO" Device="3" Channel="27.13:BIT" Group="READ_INPUT_REGISTERS_0" UUID="8B6D88264B52D0EEB0FF30A7142E11F3" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_M42C09_DO" Device="3" Channel="27.8:BIT" Group="READ_INPUT_REGISTERS_0" UUID="F2D70C7C47412CFBEB6B4688970F2CA5" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_M42C11_DO" Device="3" Channel="27.9:BIT" Group="READ_INPUT_REGISTERS_0" UUID="110E12BA4E8BC394337B879A5F5AC6D9" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_M42C13_DO" Device="3" Channel="27.10:BIT" Group="READ_INPUT_REGISTERS_0" UUID="29BDF49E421B5F3ADDF048AF738BF5F6" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_M42C15_DO" Device="3" Channel="27.11:BIT" Group="READ_INPUT_REGISTERS_0" UUID="3B96F1A5496D1800CB73B7AAD99E7DF0" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_M43C01_DI" Device="3" Channel="26.8:BIT" Group="READ_INPUT_REGISTERS_0" UUID="F13438114B304DC35BD94F90B64D0E14" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_M43C03_DI" Device="3" Channel="26.9:BIT" Group="READ_INPUT_REGISTERS_0" UUID="9691D086436B7C54B02455804176EB93" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_M43C05_DI" Device="3" Channel="26.10:BIT" Group="READ_INPUT_REGISTERS_0" UUID="9DD451154D764760AAC060AF6012C92A" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_M43C07_DI" Device="3" Channel="26.11:BIT" Group="READ_INPUT_REGISTERS_0" UUID="01E3C56945B022D2263DB4809FA8792B" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_M43C09_DI" Device="3" Channel="26.12:BIT" Group="READ_INPUT_REGISTERS_0" UUID="7A8984EE45CF23F692CEBCAC75DEE146" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_M43C11_DI" Device="3" Channel="26.13:BIT" Group="READ_INPUT_REGISTERS_0" UUID="B1B8CFD146639227AF08ABA15FF19EC2" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_M43C13_DI" Device="3" Channel="26.14:BIT" Group="READ_INPUT_REGISTERS_0" UUID="F490C6834AFE892D9CFE4480DA708A95" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_M43C15_DI" Device="3" Channel="26.15:BIT" Group="READ_INPUT_REGISTERS_0" UUID="09A475ED480879DDE4B446B51452D9EA" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_M44C01_DO" Device="3" Channel="27.7:BIT" Group="READ_INPUT_REGISTERS_0" UUID="D62923FC4258E0F48F439D8115AE8278" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_M44C03_DO" Device="3" Channel="27.6:BIT" Group="READ_INPUT_REGISTERS_0" UUID="6D5460A54A72BF31F2FA77AFB848F5A3" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_M44C05_DO" Device="3" Channel="27.4:BIT" Group="READ_INPUT_REGISTERS_0" UUID="EA37DFDD444B65D876F3E6947964254B" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_M44C07_DO" Device="3" Channel="27.5:BIT" Group="READ_INPUT_REGISTERS_0" UUID="0CDA376C4FAAD257AE0B18865BC89CCC" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_M44C09_DO" Device="3" Channel="27.3:BIT" Group="READ_INPUT_REGISTERS_0" UUID="04150A2A40D9B296EC68769E09C1728D" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_M44C11_DO" Device="3" Channel="27.2:BIT" Group="READ_INPUT_REGISTERS_0" UUID="8069177E42917AD5E03170838B3A328F" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_M44C13_DO" Device="3" Channel="27.1:BIT" Group="READ_INPUT_REGISTERS_0" UUID="B9AEF9534F9A68BA6C20E385186DB611" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_SUMKOLOTKV_CP" Device="3" Channel="289:SHORT_BA" Group="READ_INPUT_REGISTERS_0" UUID="6D3AE2EB49FC10CC83069E9F69609B64" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_VREMSBROSA_CP[0]" Device="3" Channel="290.8:BYTE" Group="READ_INPUT_REGISTERS_0" UUID="67B90B5D45D4B3D161F3399DF3F9745E[0]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_VREMSBROSA_CP[1]" Device="3" Channel="290:BYTE" Group="READ_INPUT_REGISTERS_0" UUID="67B90B5D45D4B3D161F3399DF3F9745E[1]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_VREMSBROSA_CP[2]" Device="3" Channel="291.8:BYTE" Group="READ_INPUT_REGISTERS_0" UUID="67B90B5D45D4B3D161F3399DF3F9745E[2]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_VREMSBROSA_CP[3]" Device="3" Channel="291:BYTE" Group="READ_INPUT_REGISTERS_0" UUID="67B90B5D45D4B3D161F3399DF3F9745E[3]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_VREMSBROSA_CP[4]" Device="3" Channel="292.8:BYTE" Group="READ_INPUT_REGISTERS_0" UUID="67B90B5D45D4B3D161F3399DF3F9745E[4]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_VREMSBROSA_CP[5]" Device="3" Channel="292:BYTE" Group="READ_INPUT_REGISTERS_0" UUID="67B90B5D45D4B3D161F3399DF3F9745E[5]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_VREMSBROSA_CP[6]" Device="3" Channel="293.8:BYTE" Group="READ_INPUT_REGISTERS_0" UUID="67B90B5D45D4B3D161F3399DF3F9745E[6]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_VREMSBROSA_CP[7]" Device="3" Channel="293:BYTE" Group="READ_INPUT_REGISTERS_0" UUID="67B90B5D45D4B3D161F3399DF3F9745E[7]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_NetCmd_Result" Device="3" Channel="279:SHORT_BA" Group="READ_INPUT_REGISTERS_0" UUID="27A2C3C94F08E40617D0448DC69C708C" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_Version[0]" Device="3" Channel="17:USHORT_BA" Group="READ_INPUT_REGISTERS_0" UUID="7DACEE36406C140531CFF1BEB0312C6E[0]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_Slave_ID[0]" Device="3" Channel="1.8:BYTE" Group="READ_INPUT_REGISTERS_0" UUID="9809651147552BB9389CBA876A2FDDAE[0]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_Slave_ID[1]" Device="3" Channel="1:BYTE" Group="READ_INPUT_REGISTERS_0" UUID="9809651147552BB9389CBA876A2FDDAE[1]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_Slave_ID[2]" Device="3" Channel="2.8:BYTE" Group="READ_INPUT_REGISTERS_0" UUID="9809651147552BB9389CBA876A2FDDAE[2]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_Slave_ID[3]" Device="3" Channel="2:BYTE" Group="READ_INPUT_REGISTERS_0" UUID="9809651147552BB9389CBA876A2FDDAE[3]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_Slave_ID[4]" Device="3" Channel="3.8:BYTE" Group="READ_INPUT_REGISTERS_0" UUID="9809651147552BB9389CBA876A2FDDAE[4]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_Slave_ID[5]" Device="3" Channel="3:BYTE" Group="READ_INPUT_REGISTERS_0" UUID="9809651147552BB9389CBA876A2FDDAE[5]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_Slave_ID[6]" Device="3" Channel="4.8:BYTE" Group="READ_INPUT_REGISTERS_0" UUID="9809651147552BB9389CBA876A2FDDAE[6]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_Slave_ID[7]" Device="3" Channel="4:BYTE" Group="READ_INPUT_REGISTERS_0" UUID="9809651147552BB9389CBA876A2FDDAE[7]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_Slave_ID[8]" Device="3" Channel="5.8:BYTE" Group="READ_INPUT_REGISTERS_0" UUID="9809651147552BB9389CBA876A2FDDAE[8]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_Slave_ID[9]" Device="3" Channel="5:BYTE" Group="READ_INPUT_REGISTERS_0" UUID="9809651147552BB9389CBA876A2FDDAE[9]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_Slave_ID[10]" Device="3" Channel="6.8:BYTE" Group="READ_INPUT_REGISTERS_0" UUID="9809651147552BB9389CBA876A2FDDAE[10]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_Slave_ID[11]" Device="3" Channel="6:BYTE" Group="READ_INPUT_REGISTERS_0" UUID="9809651147552BB9389CBA876A2FDDAE[11]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_Slave_ID[12]" Device="3" Channel="7.8:BYTE" Group="READ_INPUT_REGISTERS_0" UUID="9809651147552BB9389CBA876A2FDDAE[12]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_Slave_ID[13]" Device="3" Channel="7:BYTE" Group="READ_INPUT_REGISTERS_0" UUID="9809651147552BB9389CBA876A2FDDAE[13]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_Slave_ID[14]" Device="3" Channel="8.8:BYTE" Group="READ_INPUT_REGISTERS_0" UUID="9809651147552BB9389CBA876A2FDDAE[14]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_Slave_ID[15]" Device="3" Channel="8:BYTE" Group="READ_INPUT_REGISTERS_0" UUID="9809651147552BB9389CBA876A2FDDAE[15]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_Slave_ID[16]" Device="3" Channel="9.8:BYTE" Group="READ_INPUT_REGISTERS_0" UUID="9809651147552BB9389CBA876A2FDDAE[16]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_Slave_ID[17]" Device="3" Channel="9:BYTE" Group="READ_INPUT_REGISTERS_0" UUID="9809651147552BB9389CBA876A2FDDAE[17]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_Slave_ID[18]" Device="3" Channel="10.8:BYTE" Group="READ_INPUT_REGISTERS_0" UUID="9809651147552BB9389CBA876A2FDDAE[18]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_Slave_ID[19]" Device="3" Channel="10:BYTE" Group="READ_INPUT_REGISTERS_0" UUID="9809651147552BB9389CBA876A2FDDAE[19]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_Slave_ID[20]" Device="3" Channel="11.8:BYTE" Group="READ_INPUT_REGISTERS_0" UUID="9809651147552BB9389CBA876A2FDDAE[20]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_Slave_ID[21]" Device="3" Channel="11:BYTE" Group="READ_INPUT_REGISTERS_0" UUID="9809651147552BB9389CBA876A2FDDAE[21]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_Slave_ID[22]" Device="3" Channel="12.8:BYTE" Group="READ_INPUT_REGISTERS_0" UUID="9809651147552BB9389CBA876A2FDDAE[22]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_Slave_ID[23]" Device="3" Channel="12:BYTE" Group="READ_INPUT_REGISTERS_0" UUID="9809651147552BB9389CBA876A2FDDAE[23]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_Slave_ID[24]" Device="3" Channel="13.8:BYTE" Group="READ_INPUT_REGISTERS_0" UUID="9809651147552BB9389CBA876A2FDDAE[24]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_Slave_ID[25]" Device="3" Channel="13:BYTE" Group="READ_INPUT_REGISTERS_0" UUID="9809651147552BB9389CBA876A2FDDAE[25]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_Slave_ID[26]" Device="3" Channel="14.8:BYTE" Group="READ_INPUT_REGISTERS_0" UUID="9809651147552BB9389CBA876A2FDDAE[26]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_Slave_ID[27]" Device="3" Channel="14:BYTE" Group="READ_INPUT_REGISTERS_0" UUID="9809651147552BB9389CBA876A2FDDAE[27]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_Slave_ID[28]" Device="3" Channel="15.8:BYTE" Group="READ_INPUT_REGISTERS_0" UUID="9809651147552BB9389CBA876A2FDDAE[28]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_Slave_ID[29]" Device="3" Channel="15:BYTE" Group="READ_INPUT_REGISTERS_0" UUID="9809651147552BB9389CBA876A2FDDAE[29]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_Slave_ID[30]" Device="3" Channel="16.8:BYTE" Group="READ_INPUT_REGISTERS_0" UUID="9809651147552BB9389CBA876A2FDDAE[30]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_Slave_ID[31]" Device="3" Channel="16:BYTE" Group="READ_INPUT_REGISTERS_0" UUID="9809651147552BB9389CBA876A2FDDAE[31]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_Time[0]" Device="3" Channel="19.8:BYTE" Group="READ_INPUT_REGISTERS_0" UUID="3640F31047C4A672250F41AF360380CF[0]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_Time[1]" Device="3" Channel="19:BYTE" Group="READ_INPUT_REGISTERS_0" UUID="3640F31047C4A672250F41AF360380CF[1]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_Time[2]" Device="3" Channel="20.8:BYTE" Group="READ_INPUT_REGISTERS_0" UUID="3640F31047C4A672250F41AF360380CF[2]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_Time[3]" Device="3" Channel="20:BYTE" Group="READ_INPUT_REGISTERS_0" UUID="3640F31047C4A672250F41AF360380CF[3]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_Time[4]" Device="3" Channel="21.8:BYTE" Group="READ_INPUT_REGISTERS_0" UUID="3640F31047C4A672250F41AF360380CF[4]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_Time[5]" Device="3" Channel="21:BYTE" Group="READ_INPUT_REGISTERS_0" UUID="3640F31047C4A672250F41AF360380CF[5]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_Time[6]" Device="3" Channel="22.8:BYTE" Group="READ_INPUT_REGISTERS_0" UUID="3640F31047C4A672250F41AF360380CF[6]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_Time[7]" Device="3" Channel="22:BYTE" Group="READ_INPUT_REGISTERS_0" UUID="3640F31047C4A672250F41AF360380CF[7]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_40029_15_DP" Device="3" Channel="28.15:BIT" Group="READ_INPUT_REGISTERS_0" UUID="314F9A1A48CBD5C9580469802786ADCB" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_40029_14_DP" Device="3" Channel="28.14:BIT" Group="READ_INPUT_REGISTERS_0" UUID="64223D2F4B15B6C46AD2B9AF16BDD47C" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_40029_00_DP" Device="3" Channel="28:BIT" Group="READ_INPUT_REGISTERS_0" UUID="09852D51493A6160C753CBBF803EC3BE" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_40029_01_DP" Device="3" Channel="28.1:BIT" Group="READ_INPUT_REGISTERS_0" UUID="2AB3B9534B452A375568E4AB7AF19380" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_40029_07_DP" Device="3" Channel="28.7:BIT" Group="READ_INPUT_REGISTERS_0" UUID="76D325A943A179F7A1794B9DBE70E184" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_M34C15_DP" Device="3" Channel="26:BIT" Group="READ_INPUT_REGISTERS_0" UUID="384A6FB84DFB0BD9EDB86C81A7CA42B4" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_DataCtrl1[0]" Device="3" Channel="415.8:BYTE" Group="PRESET_MULTIPLY_REGISTERS_0" UUID="C34B46F24F6A9E8C9BC4579DCA2E1DDE[0]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_DataCtrl1[1]" Device="3" Channel="415:BYTE" Group="PRESET_MULTIPLY_REGISTERS_0" UUID="C34B46F24F6A9E8C9BC4579DCA2E1DDE[1]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_DataCtrl1[2]" Device="3" Channel="416.8:BYTE" Group="PRESET_MULTIPLY_REGISTERS_0" UUID="C34B46F24F6A9E8C9BC4579DCA2E1DDE[2]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_DataCtrl1[3]" Device="3" Channel="416:BYTE" Group="PRESET_MULTIPLY_REGISTERS_0" UUID="C34B46F24F6A9E8C9BC4579DCA2E1DDE[3]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_DataCtrl1[4]" Device="3" Channel="417.8:BYTE" Group="PRESET_MULTIPLY_REGISTERS_0" UUID="C34B46F24F6A9E8C9BC4579DCA2E1DDE[4]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_DataCtrl1[5]" Device="3" Channel="417:BYTE" Group="PRESET_MULTIPLY_REGISTERS_0" UUID="C34B46F24F6A9E8C9BC4579DCA2E1DDE[5]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_DataCtrl1[6]" Device="3" Channel="418.8:BYTE" Group="PRESET_MULTIPLY_REGISTERS_0" UUID="C34B46F24F6A9E8C9BC4579DCA2E1DDE[6]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_DataCtrl1[7]" Device="3" Channel="418:BYTE" Group="PRESET_MULTIPLY_REGISTERS_0" UUID="C34B46F24F6A9E8C9BC4579DCA2E1DDE[7]" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_Cmd_WinRd_Only" Device="3" Channel="725:LONG_DCBA" Group="PRESET_MULTIPLY_REGISTERS_0" UUID="140CB69B4F4BFADDAFA43E9095401BF8" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_NetCtrl" Device="3" Channel="412:LONG_DCBA" Group="PRESET_MULTIPLY_REGISTERS_0" UUID="923777C64702989B1189B198A0AB3295" UpdatePeriod="1000000" />
+        <Connection ItemName="RAW_BMPA_Reg_NetCtrl1" Device="3" Channel="419:LONG_DCBA" Group="PRESET_MULTIPLY_REGISTERS_0" UUID="85752E3F4B7739E2EAA7D2A8535A1141" UpdatePeriod="1000000" />
+    </Crossconnect>
+</Configuration>

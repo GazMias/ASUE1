@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE SubAppType v. 1.3 >
+<SubAppType Name="Command_KTP_S7" Kind="APPLICATION.LUA" Args="" Comment="Обработка команд управления КТП с ПЛК S7-300" UUID="1FA452D14DAA3689D100D39B6E133A59">
+    <InterfaceList>
+        <Signal Name="RAW_S7_P05_COMMAND1_CO" UUID="080B000E4C84ADCDD55DAF9EC545E89A" Type="WORD" Global="TRUE" Comment="Панель №5_ПЛК_S7-300_Слово управления 1" />
+        <Signal Name="RAW_S7_P05_COMMAND2_CO" UUID="64DDA2D84FC072A454B987917F231AFE" Type="WORD" Global="TRUE" Comment="Панель №5_ПЛК_S7-300_Слово управления 2" />
+        <Signal Name="S_KTP_P05_AV1_OSTADS_CO" UUID="AB72507E43525F5391A8C5B33717859E" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №5_Аварийный ввод 1. Останов АДЭС " />
+        <Signal Name="S_KTP_P05_AV1_OTKAVRAV_CO" UUID="9766E5904A82D2282618DF946D25701F" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №5_Аварийный ввод 1. Отключить АВР AВ " />
+        <Signal Name="S_KTP_P05_AV1_OTKVAV_CO" UUID="CF7567AF45C231E4E568E78CDEA7F89C" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №5_Аварийный ввод 1. Отключить BАВ " />
+        <Signal Name="S_KTP_P05_AV1_PADS_CO" UUID="152BAC574C37BCDDC3829E8604C87391" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №5_Аварийный ввод 1. Пуск АДЭС " />
+        <Signal Name="S_KTP_P05_AV1_VKLAVRAV_CO" UUID="4B37F2DC4813BD71340A69B9B6EB2450" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №5_Аварийный ввод 1. Включить АВР AВ " />
+        <Signal Name="S_KTP_P05_AV1_VKLVAV_CO" UUID="713A9D6449382E24A2049284E0F8D4B7" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №5_Аварийный ввод 1. Включить BАВ " />
+        <Signal Name="S_KTP_P05_AV2_OSTADS_CO" UUID="1BDF377843671F5D92B4E198F7361664" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №5_Аварийный ввод 2. Останов АДЭС " />
+        <Signal Name="S_KTP_P05_AV2_OTKAVRAV_CO" UUID="8DBE7F6744A1DDE275039188532EC937" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №5_Аварийный ввод 2. Отключить АВР AВ " />
+        <Signal Name="S_KTP_P05_AV2_OTKVAV_CO" UUID="968D80E0444041071F289EBA953D8AA2" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №5_Аварийный ввод 2. Отключить BАВ " />
+        <Signal Name="S_KTP_P05_AV2_PADS_CO" UUID="08EBC2CC442424AC5E3F31800CC1EB14" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №5_Аварийный ввод 2. Пуск АДЭС " />
+        <Signal Name="S_KTP_P05_AV2_VKLAVRAV_CO" UUID="9DD0872E42086FF6FC2531A25F81ACB9" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №5_Аварийный ввод 2. Включить АВР AВ " />
+        <Signal Name="S_KTP_P05_AV2_VKLVAV_CO" UUID="029AE80146BDAFB77044ADB1D8A578F6" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №5_Аварийный ввод 2. Включить BАВ " />
+        <Signal Name="S_KTP_P05_SV_OTKAVRSV_CO" UUID="4F7E7AA14C4F79D7FE66C898C35C6188" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №5_Секционный выключатель. Отключить АВР СВ " />
+        <Signal Name="S_KTP_P05_SV_OTKSV_CO" UUID="1864CDDA406F334A575E91902BAE0B01" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №5_Секционный выключатель. Отключить CB " />
+        <Signal Name="S_KTP_P05_SV_VKLAVRSV_CO" UUID="A0CAB9024F7C04A74346019F6DAB0DD7" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №5_Секционный выключатель. Включить АВР СВ " />
+        <Signal Name="S_KTP_P05_SV_VKLSV_CO" UUID="A3850D484B889C916345E58277D7C4E8" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №5_Секционный выключатель. Включить CB " />
+        <Signal Name="S_KTP_P05_VV1_OTKVV_CO" UUID="4B2618A341EFC560C9AED19FB0CE3E85" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №5_Ввод 1. Отключить ВВ " />
+        <Signal Name="S_KTP_P05_VV1_VKLVV_CO" UUID="1C2EFF184308B09E74CB889DF89917FB" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №5_Ввод 1. Включить ВВ " />
+        <Signal Name="S_KTP_P05_VV2_OTKVV_CO" UUID="FF484349454309E348231BB381854010" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №5_Ввод 2. Отключить ВВ " />
+        <Signal Name="S_KTP_P05_VV2_VKLVV_CO" UUID="CCBEA3BF43A2F25EFC3E2BB79367E4D1" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №5_Ввод 2. Включить ВВ " />
+        <Signal Name="S_KTP_P05_PU_RESET_CO" UUID="156663564D132246404865B37416D442" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №5_ПУ_СБРОС АВАРИИ" />
+        <Signal Name="@PID" UUID="4EB2040545AFFA0F6038BFBBC76C1A5E" Type="STRING" />
+        <Signal Name="@STATE" UUID="59F3AB00489B3752C3B7F18631DAD058" Type="STRING" />
+        <Signal Name="@COMMAND" UUID="3CE0E45C47A249EDA0C10AB290AB4D40" Type="STRING" />
+        <Signal Name="@COMMAND_VALUE" UUID="08DFBCFA4FC46F2A9221449BF7A1CAB5" Type="STRING" />
+        <Signal Name="@MESSAGE" UUID="0FF94F964BEB19540872D482B8EE953F" Type="STRING" />
+        <Signal Name="@MESSAGE_FRAMEWORK" UUID="BBB1ECD842099BDF0BD21B963EFC4434" Type="STRING" />
+        <Signal Name="@EVENT" UUID="C345A62F4291BB162C46CEA9AB671D66" Type="STRING" />
+        <Signal Name="@RESERVE" UUID="5999F4D343258BC13A4ABFB8EC39C3DB" Type="BOOL" />
+       
+    </InterfaceList>
+</SubAppType>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Archive v. 1.0 >
+<Configuration Path="">
+    <Items>
+        <Item ItemName="771F2DD04A5B657C01B22E81E5C17AF1" Period="10" Samples="8640000" />
+        <Item ItemName="1B6D9FF84C210423CDD5E69215CB082E" Period="1000" Samples="86400" />
+        <Item ItemName="31D0C0444C10EA8BDEA64984BAED35EB" Period="1000" Samples="86400" />
+    </Items>
+</Configuration>
