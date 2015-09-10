@@ -10,16 +10,16 @@
         <Signal Name="@PID" UUID="D98CCCA048123A3990CE28BA2442EEDB" Type="STRING" Usage="output" />
         <Signal Name="@RESERVE" UUID="5D52909144116B02810BF3B0E6EB40EB" Type="BOOL" />
         <Signal Name="@STATE" UUID="3CC5FE6A4A2BAE847DEDE68CA7A407CE" Type="STRING" Usage="output" />
-        <Signal Name="RAW_BMPA_Reg_NetCtrl1_UP" UUID="B02EA5764D206309A4C5479028DB1C05" Type="BOOL" Global="TRUE" Comment="Регистр команд управления БМРЗ " />
-        <Signal Name="RAW_BMRZ_2_Reg_NetCtrl1_UP" UUID="1FB9564A428AE8455B90CDA853979740" Type="BOOL" Global="TRUE" Comment=" Регистр команд управления БМРЗ " />
-        <Signal Name="RAW_BMRZ_Reg_NetCtrl1_UP" UUID="4F20933042EEFC3152F4E0ABA8AC1ED3" Type="BOOL" Global="TRUE" Comment="Регистр команд управления БМРЗ" />
-        <Signal Name="S_KTP_P07_BMPA_Reg_Time_Set_UP" UUID="FF0C32A640B4D3FA1DE5238B30D6331B" Type="BOOL" Global="TRUE" Comment="Установка текущего астрономического времени " />
-        <Signal Name="S_KTP_P07_BVV1_Reg_Time_Set_UP" UUID="E27BC1C7467A6B6D2E7C099D061B147A" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ1. Установка текущего астрономического времени" />
-        <Signal Name="S_KTP_P07_BVV2_Reg_Time_Set_UP" UUID="5AF1B27741B56278E081EE9D86D8E8B7" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ2. Установка текущего астрономического времени " />
-        <Signal Name="RAW_BMRZ_Cmd_Rd_Set_CO_UP" UUID="8FD4BFD1487BDF4D987D568460489157" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ1. Чтение уставок и конфигурации Обновить" />
-        <Signal Name="RAW_BMRZ_Cmd_Wr_Set_CO_UP" UUID="1ED36EBC422CC62CC514CD9E63DEA20F" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ1. Запись уставок и конфигурации Обновить" />
-        <Signal Name="RAW_BMRZ_2_Cmd_Rd_Set_CO_UP" UUID="C2692B854CFBA79EAF5FC5BA4102A960" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ2.Чтение уставок и конфигурации Обновить " />
-        <Signal Name="RAW_BMRZ_2_Cmd_Wr_Set_CO_UP" UUID="166681D64D578E9F63F50798742E8905" Type="BOOL" Global="TRUE" Comment=" АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ2. Запись уставок и конфигурации Обновить " />
+        <Signal Name="RAW_BMPA_Reg_NetCtrl1_UP" UUID="B02EA5764D206309A4C5479028DB1C05" Type="BOOL" Global="TRUE" Comment="Регистр команд управления БМРЗ update" />
+        <Signal Name="RAW_BMRZ_2_Reg_NetCtrl1_UP" UUID="1FB9564A428AE8455B90CDA853979740" Type="BOOL" Global="TRUE" Comment=" Регистр команд управления БМРЗ update" />
+        <Signal Name="RAW_BMRZ_Reg_NetCtrl1_UP" UUID="4F20933042EEFC3152F4E0ABA8AC1ED3" Type="BOOL" Global="TRUE" Comment="Регистр команд управления БМРЗ update" />
+        <Signal Name="S_KTP_P07_BMPA_Reg_Time_Set_UP" UUID="FF0C32A640B4D3FA1DE5238B30D6331B" Type="BOOL" Global="TRUE" Comment="Установка текущего астрономического времени update" />
+        <Signal Name="S_KTP_P07_BVV1_Reg_Time_Set_UP" UUID="E27BC1C7467A6B6D2E7C099D061B147A" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ1. Установка текущего астрономического времени update" />
+        <Signal Name="S_KTP_P07_BVV2_Reg_Time_Set_UP" UUID="5AF1B27741B56278E081EE9D86D8E8B7" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ2. Установка текущего астрономического времени  update" />
+        <Signal Name="RAW_BMRZ_Cmd_Rd_Set_CO_UP" UUID="8FD4BFD1487BDF4D987D568460489157" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ1. Чтение уставок и конфигурации Обновить update" />
+        <Signal Name="RAW_BMRZ_Cmd_Wr_Set_CO_UP" UUID="1ED36EBC422CC62CC514CD9E63DEA20F" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ1. Запись уставок и конфигурации Обновить update" />
+        <Signal Name="RAW_BMRZ_2_Cmd_Rd_Set_CO_UP" UUID="C2692B854CFBA79EAF5FC5BA4102A960" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ2.Чтение уставок и конфигурации Обновить  update" />
+        <Signal Name="RAW_BMRZ_2_Cmd_Wr_Set_CO_UP" UUID="166681D64D578E9F63F50798742E8905" Type="BOOL" Global="TRUE" Comment=" АСУ ЭС_КТП 10/0,4 кВ_Панель №7_БМРЗ-0,4 ВВ2. Запись уставок и конфигурации Обновить update" />
         <Signal Name="RAW_BMPA_40029_00_DP" UUID="09852D51493A6160C753CBBF803EC3BE" Type="BOOL" Global="TRUE" Comment="Неисправность БМПА ВЫЗОВ  " />
         <Signal Name="RAW_BMPA_40029_01_DP" UUID="2AB3B9534B452A375568E4AB7AF19380" Type="BOOL" Global="TRUE" Comment="Неисправность ЦУ ВЫЗОВ  " />
         <Signal Name="RAW_BMPA_40029_07_DP" UUID="76D325A943A179F7A1794B9DBE70E184" Type="BOOL" Global="TRUE" Comment="Аварийное отключение  " />

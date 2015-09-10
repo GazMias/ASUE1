@@ -12,8 +12,8 @@
         <Signal Name="@STATE" UUID="876614BB4BCB1A8E0D3676AD00F25CC8" Type="STRING" Usage="output" />
         <Signal Name="RAW_SEPAM_VV1_EVENT_WORD_NUMB_CP" UUID="4D2080A64778A8B5E655DCBD296A7A09" Type="BYTE" Global="TRUE" Comment="Событие_слово обмена_Номер обмена_" />
         <Signal Name="RAW_SEPAM_VV1_EVENT_WORD_QUANT_CP" UUID="82889A4E4384DE12E78D03BAE8073F98" Type="BYTE" Global="TRUE" Comment="Событие_слово обмена_Количество событий_" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_WORD_WR_UP" UUID="A6C591B54D119486BEEAA7960250964A" Type="BOOL" Global="TRUE" Comment="Событие_слово обмена Обновить" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_WORD_WR_ST" UUID="4F6CC2C74D1654F3D6FA0E80D8E1CD46" Type="BOOL" Global="TRUE" Comment="Событие_слово обмена Состояние" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_WORD_WR_UP" UUID="A6C591B54D119486BEEAA7960250964A" Type="BOOL" Global="TRUE" Comment="Событие_слово обмена Обновить update" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_WORD_WR_ST" UUID="4F6CC2C74D1654F3D6FA0E80D8E1CD46" Type="WORD" Global="TRUE" Comment="Событие_слово обмена Состояние статус" />
         <Signal Name="RAW_SEPAM_VV1_EVENT_N1_TYPE_CP" UUID="1FF049224E845B93AB382D867CEA5FC4" Type="WORD" Global="TRUE" Comment="Событие_событие номер 1_тип события_" />
         <Signal Name="RAW_SEPAM_VV1_EVENT_N1_ADRESS_CP" UUID="74CED6964B76B0EFEFD8A3B2389BC50E" Type="WORD" Global="TRUE" Comment="Событие_событие номер 1_адрес события_" />
         <Signal Name="RAW_SEPAM_VV1_EVENT_N1_RESERV_CP" UUID="009DCCF0430809396BD60C9AC5463836" Type="WORD" Global="TRUE" Comment="Событие_событие номер 1_резерв_" />
@@ -58,8 +58,8 @@
         <Signal Name="RAW_SEPAM_VV1_EVENT_N4_TIME_HOUR_CP" UUID="C4A7B6C249CB5FBA7BE5418E4168BBA6" Type="BYTE" Global="TRUE" Comment="Событие_событие номер 4_время события_часы" />
         <Signal Name="RAW_SEPAM_VV1_EVENT_N4_TIME_MIN_CP" UUID="B58E73E5422B9E9DFDFDDCB64C7ECF59" Type="BYTE" Global="TRUE" Comment="Событие_событие номер 4_время события_минуты" />
         <Signal Name="RAW_SEPAM_VV1_EVENT_N4_TIME_MS_CP" UUID="D86B50DA484081A8E32C04B488530789" Type="WORD" Global="TRUE" Comment="Событие_событие номер 4_время события_миллисекунды" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_NN_UP" UUID="733F10314114802634B304ADAC5A94B6" Type="BOOL" Global="TRUE" Comment="Группа Событие_событие номер N Обновить" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_NN_ST" UUID="A29264474DA92D43F1630399FDABE2CD" Type="BOOL" Global="TRUE" Comment="Группа Событие_событие номер N Состояние" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_NN_UP" UUID="733F10314114802634B304ADAC5A94B6" Type="BOOL" Global="TRUE" Comment="Группа Событие_событие номер N Обновить update" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_NN_ST" UUID="A29264474DA92D43F1630399FDABE2CD" Type="WORD" Global="TRUE" Comment="Группа Событие_событие номер N Состояние статус" />
         <Signal Name="RAW_SEPAM_VV1_OSCIL_READING_CP" UUID="1BEBAC164DB79A6AD7C13A96FDF0BEB4" Type="BOOL" Global="TRUE" Comment="сигнал о записи осциллограммы(true - запись идёт, false-прекращена)" />
         <Signal Name="RAW_SEPAM_VV1_OSCIL_DATA_SCHIT_CP" UUID="1A8A94824CA8E532D7CB5384368013A3" Type="DWORD" ArraySize="62" Global="TRUE" Comment="данные записей. в зоне считывания" />
         <Signal Name="RAW_SEPAM_VV1_OSCIL_MANUAL_ZAPUSK_STC" UUID="5BD78B614DE2A6B952DA838E493F3D3B" Type="BOOL" Global="TRUE" Comment="ручной запуск записи осциллограмм аварийных режимов STC" />
@@ -188,15 +188,15 @@
         <Signal Name="RAW_SEPAM_OLS80_Reg_Time_Write" UUID="07E557A442426E6E588454808102307F" Type="BYTE" ArraySize="5" Global="TRUE" Comment="время встроенных часов- календаря    " />
         <Signal Name="RAW_SEPAM_OLS80_UST_RD" UUID="FAECE2194B8A8EEE24299D8DE697769D" Type="WORD" ArraySize="62" Global="TRUE" Comment="считывание регулировок" />
         <Signal Name="RAW_SEPAM_OLS80_UST_RD_1" UUID="103C30724F1BE17D095E82902E701DA5" Type="WORD" Global="TRUE" />
-        <Signal Name="RAW_SEPAM_OLS80_UST_RD_ST" UUID="74BA594845FC13648A9453B431DA72C6" Type="BOOL" Global="TRUE" Comment="считывание регулировок в драйвере" />
-        <Signal Name="RAW_SEPAM_OLS80_UST_RD_UP" UUID="FF57A6E949C210DE90A96D9A52CBF826" Type="BOOL" Global="TRUE" Comment="считывание регулировок в драйвере статус" />
-        <Signal Name="RAW_SEPAM_OLS80_UST_WORD" UUID="6E5435204C31680400DE28A0B0D01A2B" Type="WORD" Global="TRUE" Comment="запрос на считывание" />
-        <Signal Name="RAW_SEPAM_OLS80_UST_WORD_ST" UUID="74B196464251871692DB29AC3E986B64" Type="BOOL" Global="TRUE" Comment="запрос на считывание в драйвере статус" />
-        <Signal Name="RAW_SEPAM_OLS80_UST_WORD_UP" UUID="71874A7D4E0A1AB07F4A279E22547928" Type="BOOL" Global="TRUE" Comment="запрос на считывание в драйвере" />
+        <Signal Name="RAW_SEPAM_OLS80_UST_RD_ST" UUID="74BA594845FC13648A9453B431DA72C6" Type="WORD" Global="TRUE" Comment="считывание регулировок в драйвере статус" />
+        <Signal Name="RAW_SEPAM_OLS80_UST_RD_UP" UUID="FF57A6E949C210DE90A96D9A52CBF826" Type="BOOL" Global="TRUE" Comment="считывание регулировок в драйвере update" />
+        <Signal Name="RAW_SEPAM_OLS80_UST_WORD" UUID="6E5435204C31680400DE28A0B0D01A2B" Type="WORD" Global="TRUE" Comment="обозначение функции" />
+        <Signal Name="RAW_SEPAM_OLS80_UST_WORD_ST" UUID="74B196464251871692DB29AC3E986B64" Type="WORD" Global="TRUE" Comment="обозначение функции в драйвере статус" />
+        <Signal Name="RAW_SEPAM_OLS80_UST_WORD_UP" UUID="71874A7D4E0A1AB07F4A279E22547928" Type="BOOL" Global="TRUE" Comment="обозначение функции в драйвере update" />
         <Signal Name="RAW_SEPAM_OLS80_UST_WR" UUID="3BDB165A4628470C5A50B2846F7903BB" Type="WORD" ArraySize="62" Global="TRUE" Comment="телерегулировки" />
         <Signal Name="RAW_SEPAM_OLS80_UST_WR_1" UUID="643F09FF4C0696C2E54FAA9A48CDF74B" Type="WORD" Global="TRUE" />
-        <Signal Name="RAW_SEPAM_OLS80_UST_WR_ST" UUID="13FC29C548C1851E17496DBD563E931B" Type="BOOL" Global="TRUE" Comment="запись телерегулировки в драйвере статус" />
-        <Signal Name="RAW_SEPAM_OLS80_UST_WR_UP" UUID="3B66FFBB479FC3179E0CBE99FD817572" Type="BOOL" Global="TRUE" Comment="запись телерегулировки в драйвере" />
+        <Signal Name="RAW_SEPAM_OLS80_UST_WR_ST" UUID="13FC29C548C1851E17496DBD563E931B" Type="WORD" Global="TRUE" Comment="запись телерегулировки в драйвере статус" />
+        <Signal Name="RAW_SEPAM_OLS80_UST_WR_UP" UUID="3B66FFBB479FC3179E0CBE99FD817572" Type="BOOL" Global="TRUE" Comment="запись телерегулировки в драйвере update" />
         <Signal Name="RAW_SEPAM_SHTN_3088_0_DP" UUID="555A5CB1452541F027A2F5B59806EE45" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Выключатель ввода или СВ включен " />
         <Signal Name="RAW_SEPAM_SHTN_3088_10_DP" UUID="4B33A1D643159B187793E594EAA72669" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Сигнал из ввода «U обр. послед. больше» " />
         <Signal Name="RAW_SEPAM_SHTN_3088_11_DP" UUID="12E9DC9B42D2641850F1B784ABAAC375" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Авт. выкл. доп. обмотки ТН отключен " />
@@ -243,19 +243,19 @@
         <Signal Name="RAW_SEPAM_SHTN_Reg_Time_Write" UUID="9E40CA3445149B387E0A66873F8DCF16" Type="BYTE" ArraySize="5" Global="TRUE" Comment="время встроенных часов- календаря    " />
         <Signal Name="RAW_SEPAM_SHTN_UST_RD" UUID="52B40F7D4A3DD648808382A946B391FB" Type="WORD" ArraySize="62" Global="TRUE" Comment="считывание регулировок" />
         <Signal Name="RAW_SEPAM_SHTN_UST_RD_1" UUID="272EC02E4E7CD28FAD5AEFA214BA0475" Type="WORD" Global="TRUE" />
-        <Signal Name="RAW_SEPAM_SHTN_UST_RD_ST" UUID="4456D1A54D372F2E6A5D20A55C1E60AA" Type="BOOL" Global="TRUE" Comment="считывание регулировок в драйвере" />
-        <Signal Name="RAW_SEPAM_SHTN_UST_RD_UP" UUID="982BF7A34640D1207E7906A74B794E6E" Type="BOOL" Global="TRUE" Comment="считывание регулировок в драйвере статус" />
-        <Signal Name="RAW_SEPAM_SHTN_UST_WORD" UUID="2AEBC7D84F71D54ACEE38DAB0FFB5910" Type="WORD" Global="TRUE" Comment="запрос на считывание" />
-        <Signal Name="RAW_SEPAM_SHTN_UST_WORD_ST" UUID="9A01B4BD42E0B9E706ED34A05426D97F" Type="BOOL" Global="TRUE" Comment="запрос на считывание в драйвере статус" />
-        <Signal Name="RAW_SEPAM_SHTN_UST_WORD_UP" UUID="CAA8D3E248FEB4F299EDD688F67845B0" Type="BOOL" Global="TRUE" Comment="запрос на считывание в драйвере" />
+        <Signal Name="RAW_SEPAM_SHTN_UST_RD_ST" UUID="4456D1A54D372F2E6A5D20A55C1E60AA" Type="WORD" Global="TRUE" Comment="считывание регулировок в драйвере статус" />
+        <Signal Name="RAW_SEPAM_SHTN_UST_RD_UP" UUID="982BF7A34640D1207E7906A74B794E6E" Type="BOOL" Global="TRUE" Comment="считывание регулировок в драйвере update " />
+        <Signal Name="RAW_SEPAM_SHTN_UST_WORD" UUID="2AEBC7D84F71D54ACEE38DAB0FFB5910" Type="WORD" Global="TRUE" Comment="обозначение функции" />
+        <Signal Name="RAW_SEPAM_SHTN_UST_WORD_ST" UUID="9A01B4BD42E0B9E706ED34A05426D97F" Type="WORD" Global="TRUE" Comment="обозначение функции в драйвере статус" />
+        <Signal Name="RAW_SEPAM_SHTN_UST_WORD_UP" UUID="CAA8D3E248FEB4F299EDD688F67845B0" Type="BOOL" Global="TRUE" Comment="обозначение функции в драйвере update" />
         <Signal Name="RAW_SEPAM_SHTN_64006_AP" UUID="A007D4B54682075BD6AC899597246F9F" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Линейное напряжение U21 " />
         <Signal Name="RAW_SEPAM_SHTN_64007_AP" UUID="50ABEB3247E347682D792BB528A75F40" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Линейное напряжение U32 " />
         <Signal Name="RAW_SEPAM_SHTN_64008_AP" UUID="3D804B234BEFBFC4058A83B4F3E407D9" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Линейное напряжение U13 " />
         <Signal Name="RAW_SEPAM_SHTN_64009_AP" UUID="3CA1536B421C98F0FE6F33A68FC81E4E" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Частота " />
         <Signal Name="RAW_SEPAM_SHTN_UST_WR" UUID="C39C865E447067C7C9F26C83A932FC41" Type="WORD" ArraySize="62" Global="TRUE" Comment="телерегулировки" />
         <Signal Name="RAW_SEPAM_SHTN_UST_WR_1" UUID="5968620B438A5A9C003A1A91488D4F57" Type="WORD" Global="TRUE" />
-        <Signal Name="RAW_SEPAM_SHTN_UST_WR_ST" UUID="F1DB33B1434A52B4448D978F3E6AF23D" Type="BOOL" Global="TRUE" Comment="запись телерегулировки в драйвере статус" />
-        <Signal Name="RAW_SEPAM_SHTN_UST_WR_UP" UUID="94F943854657E48CFFF91487FC990557" Type="BOOL" Global="TRUE" Comment="запись телерегулировки в драйвере" />
+        <Signal Name="RAW_SEPAM_SHTN_UST_WR_ST" UUID="F1DB33B1434A52B4448D978F3E6AF23D" Type="WORD" Global="TRUE" Comment="запись телерегулировки в драйвере статус" />
+        <Signal Name="RAW_SEPAM_SHTN_UST_WR_UP" UUID="94F943854657E48CFFF91487FC990557" Type="BOOL" Global="TRUE" Comment="запись телерегулировки в драйвере update" />
         <Signal Name="RAW_SEPAM_UST_RD" UUID="97264208477209457844AC9325818C69" Type="UINT" ArraySize="125" Global="TRUE" Comment="Зона считывания настроек (уставок)" />
         <Signal Name="RAW_SEPAM_UST_RD_FUNC" UUID="0162EE7C4BAAEFAA42B819BBB703DD8D" Type="INT" Global="TRUE" Comment="Обозначение функции " />
         <Signal Name="RAW_SEPAM_UST_RD_WORD" UUID="11F44ACE47DFA4AF5E10BC9617039CCE" Type="INT" Global="TRUE" Comment="Слово обмена для чтения настроек" />
@@ -365,15 +365,15 @@
         <Signal Name="RAW_SEPAM_VV1_Reg_Time_Write_1" UUID="A87C4418441A804922A4CB8A69B40A63" Type="BYTE" ArraySize="5" Global="TRUE" Comment="время встроенных часов- календаря    " />
         <Signal Name="RAW_SEPAM_VV1_UST_RD" UUID="95494BC84C6D549BB77053B0874C1514" Type="WORD" ArraySize="62" Global="TRUE" Comment="считывание регулировок" />
         <Signal Name="RAW_SEPAM_VV1_UST_RD_1" UUID="467FB972435FFA0463895FACFA34ACB9" Type="WORD" Global="TRUE" />
-        <Signal Name="RAW_SEPAM_VV1_UST_RD_ST" UUID="1976E9D04F4ED894C8CEF082C9C95D60" Type="BOOL" Global="TRUE" Comment="считывание регулировок в драйвере" />
-        <Signal Name="RAW_SEPAM_VV1_UST_RD_UP" UUID="1E48462F42E3535034E17DA2E57B815D" Type="BOOL" Global="TRUE" Comment="считывание регулировок в драйвере статус" />
-        <Signal Name="RAW_SEPAM_VV1_UST_WORD" UUID="E762A3004BAF7C1A0BB76AA81BFB612E" Type="WORD" Global="TRUE" Comment="запрос на считывание" />
-        <Signal Name="RAW_SEPAM_VV1_UST_WORD_ST" UUID="33CF521143450E9CF0E392826D3D988A" Type="BOOL" Global="TRUE" Comment="запрос на считывание в драйвере статус" />
-        <Signal Name="RAW_SEPAM_VV1_UST_WORD_UP" UUID="509394AC411557BD23E569B393984C1D" Type="BOOL" Global="TRUE" Comment="запрос на считывание в драйвере" />
+        <Signal Name="RAW_SEPAM_VV1_UST_RD_ST" UUID="1976E9D04F4ED894C8CEF082C9C95D60" Type="WORD" Global="TRUE" Comment="считывание регулировок в драйвере статус" />
+        <Signal Name="RAW_SEPAM_VV1_UST_RD_UP" UUID="1E48462F42E3535034E17DA2E57B815D" Type="BOOL" Global="TRUE" Comment="считывание регулировок в драйвере update" />
+        <Signal Name="RAW_SEPAM_VV1_UST_WORD" UUID="E762A3004BAF7C1A0BB76AA81BFB612E" Type="WORD" Global="TRUE" Comment="обозначение функции" />
+        <Signal Name="RAW_SEPAM_VV1_UST_WORD_ST" UUID="33CF521143450E9CF0E392826D3D988A" Type="WORD" Global="TRUE" Comment="обозначение функции в драйвере статус" />
+        <Signal Name="RAW_SEPAM_VV1_UST_WORD_UP" UUID="509394AC411557BD23E569B393984C1D" Type="BOOL" Global="TRUE" Comment="обозначение функции в драйвере update" />
         <Signal Name="RAW_SEPAM_VV1_UST_WR" UUID="5C0EEBAC4D6A8474C46F20875F8B9041" Type="WORD" ArraySize="62" Global="TRUE" Comment="телерегулировки" />
         <Signal Name="RAW_SEPAM_VV1_UST_WR_1" UUID="FC295AFF450A3507C89C9A9F303D92E0" Type="WORD" Global="TRUE" />
-        <Signal Name="RAW_SEPAM_VV1_UST_WR_ST" UUID="9E1462F049AC3CB60AB1EF924CC3C43E" Type="BOOL" Global="TRUE" Comment="запись телерегулировки в драйвере статус" />
-        <Signal Name="RAW_SEPAM_VV1_UST_WR_UP" UUID="6FB9B5694AC0CBDED65AF084EFACFBCB" Type="BOOL" Global="TRUE" Comment="запись телерегулировки в драйвере" />
+        <Signal Name="RAW_SEPAM_VV1_UST_WR_ST" UUID="9E1462F049AC3CB60AB1EF924CC3C43E" Type="WORD" Global="TRUE" Comment="запись телерегулировки в драйвере статус" />
+        <Signal Name="RAW_SEPAM_VV1_UST_WR_UP" UUID="6FB9B5694AC0CBDED65AF084EFACFBCB" Type="BOOL" Global="TRUE" Comment="запись телерегулировки в драйвере update" />
         <Signal Name="S_ZRU_P11_OL1_DS_DP" UUID="33C1507A4581128E09C1878511193EAC" Type="USINT" Global="TRUE" Comment=" АСУ ЭС_ЗРУ 10 кВ_Панель №11_ОЛ1. Определение достоверности " />
         <Signal Name="S_ZRU_P11_OL2_DS_DP" UUID="DD25205845E1E48C35EDF2AB93C60C25" Type="USINT" Global="TRUE" Comment=" АСУ ЭС_ЗРУ 10 кВ_Панель №11_ОЛ2. Определение достоверности " />
         <Signal Name="S_ZRU_P11_STN_DS_DP" UUID="74FF8E0B482BA4268EA8C0B867400FDD" Type="USINT" Global="TRUE" Comment=" АСУ ЭС_ЗРУ 10 кВ_Панель №11_ШТН. Определение достоверности " />

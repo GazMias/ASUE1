@@ -5,8 +5,8 @@
         <Signal Name="USER_NAME_OUT" UUID="6635F88B4D85282B72705FAD3B99E079" Type="STRING" Global="TRUE" />
         <Signal Name="RAW_SEPAM_VV1_EVENT_WORD_NUMB_CP" UUID="4D2080A64778A8B5E655DCBD296A7A09" Type="BYTE" Global="TRUE" Comment="Событие_слово обмена_Номер обмена_" />
         <Signal Name="RAW_SEPAM_VV1_EVENT_WORD_QUANT_CP" UUID="82889A4E4384DE12E78D03BAE8073F98" Type="BYTE" Global="TRUE" Comment="Событие_слово обмена_Количество событий_" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_WORD_WR_UP" UUID="A6C591B54D119486BEEAA7960250964A" Type="BOOL" Global="TRUE" Comment="Событие_слово обмена Обновить" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_WORD_WR_ST" UUID="4F6CC2C74D1654F3D6FA0E80D8E1CD46" Type="BOOL" Global="TRUE" Comment="Событие_слово обмена Состояние" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_WORD_WR_UP" UUID="A6C591B54D119486BEEAA7960250964A" Type="BOOL" Global="TRUE" Comment="Событие_слово обмена Обновить update" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_WORD_WR_ST" UUID="4F6CC2C74D1654F3D6FA0E80D8E1CD46" Type="WORD" Global="TRUE" Comment="Событие_слово обмена Состояние статус" />
         <Signal Name="RAW_SEPAM_VV1_EVENT_N1_TYPE_CP" UUID="1FF049224E845B93AB382D867CEA5FC4" Type="WORD" Global="TRUE" Comment="Событие_событие номер 1_тип события_" />
         <Signal Name="RAW_SEPAM_VV1_EVENT_N1_ADRESS_CP" UUID="74CED6964B76B0EFEFD8A3B2389BC50E" Type="WORD" Global="TRUE" Comment="Событие_событие номер 1_адрес события_" />
         <Signal Name="RAW_SEPAM_VV1_EVENT_N1_RESERV_CP" UUID="009DCCF0430809396BD60C9AC5463836" Type="WORD" Global="TRUE" Comment="Событие_событие номер 1_резерв_" />
@@ -51,8 +51,8 @@
         <Signal Name="RAW_SEPAM_VV1_EVENT_N4_TIME_HOUR_CP" UUID="C4A7B6C249CB5FBA7BE5418E4168BBA6" Type="BYTE" Global="TRUE" Comment="Событие_событие номер 4_время события_часы" />
         <Signal Name="RAW_SEPAM_VV1_EVENT_N4_TIME_MIN_CP" UUID="B58E73E5422B9E9DFDFDDCB64C7ECF59" Type="BYTE" Global="TRUE" Comment="Событие_событие номер 4_время события_минуты" />
         <Signal Name="RAW_SEPAM_VV1_EVENT_N4_TIME_MS_CP" UUID="D86B50DA484081A8E32C04B488530789" Type="WORD" Global="TRUE" Comment="Событие_событие номер 4_время события_миллисекунды" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_NN_UP" UUID="733F10314114802634B304ADAC5A94B6" Type="BOOL" Global="TRUE" Comment="Группа Событие_событие номер N Обновить" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_NN_ST" UUID="A29264474DA92D43F1630399FDABE2CD" Type="BOOL" Global="TRUE" Comment="Группа Событие_событие номер N Состояние" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_NN_UP" UUID="733F10314114802634B304ADAC5A94B6" Type="BOOL" Global="TRUE" Comment="Группа Событие_событие номер N Обновить update" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_NN_ST" UUID="A29264474DA92D43F1630399FDABE2CD" Type="WORD" Global="TRUE" Comment="Группа Событие_событие номер N Состояние статус" />
         <Signal Name="@PID" UUID="525C07554FA78B425D8CBDB3C768E476" Type="STRING" />
         <Signal Name="@STATE" UUID="CF6F1D494028DB78145E37AB3A9071D5" Type="STRING" />
         <Signal Name="@COMMAND" UUID="126DB24245DD04FD63A4F2A8E927A8BD" Type="STRING" />
