@@ -3,8 +3,12 @@
 <Node Name="ARM_RZA" Comment="" Disabled="FALSE" Address="127.0.0.1" TargetPath="" UUID="2221DAC241487E1A22BC2BA13B85DBD1">
     <InterfaceList>
         <SubApp Name="DEBUG_SEPAM" Type="8FF64E734FA2FF7DBB454B8A71A3FC9B" Args="" ConnectionTimeout="2000" ExecTimeout="10000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="E661421B4E07BB0FCB5D018BBB4CDB4F" />
-        <SubApp Name="Oscilogramm_Sepam" Type="76784BCB49980CEAC0BDC18494904FB5" Args="" ConnectionTimeout="2000" ExecTimeout="10000" ShutdownTimeout="0" GoodResult="0" Comment="" UUID="4E5EB44343CD54A9495D169018C0DDC0" />
+        <SubApp Name="Event_Sepam" Type="DD50132D4D741A6E978E269BEDA700F8" Args="" ConnectionTimeout="2000" ExecTimeout="10000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="5004173F468993A92A048FBC1E4FF4E4" />
+        <SubApp Name="Event_Logger" Type="3FEA47F04C448F6B6B771694A2A6F12F" Args="" ConnectionTimeout="2000" ExecTimeout="10000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="8379BD5A426433317063CC9CD416CEAD" />
         <SubApp Name="interface" Type="01E79B314099080F773B1DAF8A9FCB3C" Args="" ConnectionTimeout="2000" ExecTimeout="10000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="4DC278074B776906E588EBBAAA2BC77B" />
-        <SubApp Name="hernia" Type="1C83AD8741BB504C4C53F980BDB9F156" Args="" ConnectionTimeout="2000" ExecTimeout="10000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="B998E6E2472A4AAE121997B0127AE4F5" />
+        <SubApp Name="EVENT_VIEWER" Type="0B96E06A462B2E673A41A89754E690F6" Args="" ConnectionTimeout="2000" ExecTimeout="10000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="C9E552D244B222B88830F98E7AA40E94" />
+        <SubApp Name="Processing_SEPAMS80_VV" Type="EFCBC8EF4AA578F916B27CB2E338FEAF" Args="" ConnectionTimeout="2000" ExecTimeout="10000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="E977782B4574E49D38F19BA3859943DD" />
+        <SubApp Name="Processing_SEPAMS80_SHTN" Type="DB25C098486A2173EA9C97885DAA0B41" Args="" ConnectionTimeout="2000" ExecTimeout="10000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="3133B3F746E73298BAEBC2910AB35B13" />
+        <SubApp Name="Processing_SEPAMS80_OL" Type="312E1C69413B86E17468A59032E1E143" Args="" ConnectionTimeout="2000" ExecTimeout="10000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="4C68E0064070A3CFA69F7C9F697F57EC" />
     </InterfaceList>
 </Node>
