@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE Driver.MODBUS v. 1.3 >
 <Configuration Slave="FALSE" TCP="FALSE">
-    <Devices CommConfig="COM1,19200,8,2,NONE">
-        <Device Address="1" RetryCount="1" RetryDelay="100000" SymbolTimeout="100000" ResponseTimeout="3000000" InterpacketDelay="5000" MaxStatus="125" MaxRegs="125">
+    <Devices CommConfig="COM3,19200,8,2,NONE">
+        <Device Address="1" RetryCount="1" RetryDelay="1000000" SymbolTimeout="50000" ResponseTimeout="2000000" InterpacketDelay="5000" MaxStatus="125" MaxRegs="125">
             <Group Name="обозначение функции" Function="PRESET_MULTIPLY_REGISTERS" UpdatePeriod="0" />
             <Group Name="Зона считывания регулировок" Function="READ_HOLDING_REGISTERS" UpdatePeriod="0" />
             <Group Name="Зона телерегулировки" Function="PRESET_MULTIPLY_REGISTERS" UpdatePeriod="0" />
@@ -10,7 +10,7 @@
             <Group Name="Чтение аналоговых сигналов" Function="READ_INPUT_REGISTERS" UpdatePeriod="1000000" />
             <Group Name="Команды" Function="PRESET_MULTIPLY_REGISTERS" UpdatePeriod="1000000" />
         </Device>
-        <Device Address="4" RetryCount="3" RetryDelay="5000" SymbolTimeout="50000" ResponseTimeout="200000" InterpacketDelay="5000" MaxStatus="125" MaxRegs="125">
+        <Device Address="2" RetryCount="1" RetryDelay="1000000" SymbolTimeout="50000" ResponseTimeout="2000000" InterpacketDelay="5000" MaxStatus="125" MaxRegs="125">
             <Group Name="обозначение функции" Function="PRESET_MULTIPLY_REGISTERS" UpdatePeriod="0" />
             <Group Name="Зона считывания регулировок" Function="READ_HOLDING_REGISTERS" UpdatePeriod="0" />
             <Group Name="Зона телерегулировки" Function="PRESET_MULTIPLY_REGISTERS" UpdatePeriod="0" />
@@ -28,7 +28,7 @@
             <Group Name="слово обмена" Function="PRESET_MULTIPLY_REGISTERS" UpdatePeriod="0" />
             <Group Name="Группа Событие" Function="READ_HOLDING_REGISTERS" UpdatePeriod="0" />
         </Device>
-        <Device Address="3" RetryCount="3" RetryDelay="3000" SymbolTimeout="50000" ResponseTimeout="200000" InterpacketDelay="3000" MaxStatus="125" MaxRegs="125">
+        <Device Address="3" RetryCount="1" RetryDelay="1000000" SymbolTimeout="50000" ResponseTimeout="2000000" InterpacketDelay="5000" MaxStatus="125" MaxRegs="125">
             <Group Name="обозначение функции" Function="PRESET_MULTIPLY_REGISTERS" UpdatePeriod="0" />
             <Group Name="Зона считывания регулировок" Function="READ_HOLDING_REGISTERS" UpdatePeriod="0" />
             <Group Name="Зона телерегулировки" Function="PRESET_MULTIPLY_REGISTERS" UpdatePeriod="0" />
@@ -936,6 +936,5 @@
         <Connection ItemName="RAW_SEPAM_OLS80_3209_1_CO" Device="3" Channel="3209.1:BIT" Group="Команды" UUID="0AB9142C4846456A73EF708B5CD59C20" />
         <Connection ItemName="RAW_SEPAM_OLS80_3209_2_CO" Device="3" Channel="3209.2:BIT" Group="Команды" UUID="452A35C1429602AB4FE3BA8CE60E0087" />
         <Connection ItemName="RAW_SEPAM_OLS80_3209_3_CO" Device="3" Channel="3209.3:BIT" Group="Команды" UUID="850B552B42D9CB417A19F78AEDD220A8" />
->>>>>>> origin/master
     </Crossconnect>
 </Configuration>

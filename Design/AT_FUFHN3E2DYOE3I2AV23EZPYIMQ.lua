@@ -1,19 +1,20 @@
-local time_source  --источник метки времени (ПЛК\Сервер)
+--local time_source  --источник метки времени (ПЛК\Сервер)
 local AS=10000  --аварии
 local WS=10100 --предупреждения
 local TS=101  --телесигнализация
-local CO=102 --команды
-local NS=30000 --неквитируемые сигналы
-local DS=30100 --недостоверность
-local RAW=30109 --недостоверность
+--local CO=102 --команды
+--local NS=30000 --неквитируемые сигналы
+--local DS=30100 --недостоверность
+--local RAW=30109 --необработанный сигнал
 local OBMEN_NN_OLD=0
-local user=Core["USER_NAME_OUT"] -- текущее имя  пользователя
-
-local objects=					--Список объектов для ФЛАГОВ состояния и строки сообщения
+local user="" -- текущее имя  пользователя
+OBMEN_NN_OLD=0
+--[[local objects=					--Список объектов 
 {
 ["RAW_SEPAM_VV1_"]="S_ZRU_P11_VV1_"
-}
-local EDB = {
+}]]--
+local EDB = --база данных событий
+{
 ["49408"]={["hex"]= "C100",["msg"]="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_РПВ (Реле положения «Включено») ", ["cat"]=TS},
 ["49409"]={["hex"]= "C101",["msg"]="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Отключение от ДГЗ, УРОВ ", ["cat"]=AS},
 ["49419"]={["hex"]= "C10B",["msg"]="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Отключение от защит трансформатора ", ["cat"]=AS},
@@ -68,59 +69,37 @@ local EDB = {
 ["51665"]={["hex"]= "C9D1",["msg"]="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Неисправность трансформатора напряжения ", ["cat"]=WS},
 ["51694"]={["hex"]= "C9EE",["msg"]="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Срабатывание ДГЗ ячейки ввода ", ["cat"]=AS},
 ["51688"]={["hex"]= "C9E8",["msg"]="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Контроль неисправности цепи включения введен ", ["cat"]=TS},
-
-
 }
-local function Event_update(Name)	
-Core[Name[1].."EVENT_NN_UP"]=1
+
+local function Group_WriteRead(UpdateVariable, StatusVariable)--функция записи или чтения группы сигналов в драйвере modbus
+	  Core[UpdateVariable]=true --установить переменную обновнения группы сигналов в драйвере modbus в true
+	  while Core[UpdateVariable]==true do os.sleep(0.1) end --подождать пока эта переменная равна true
+	  if Core[UpdateVariable]==false then --если переменную обновнения группы сигналов в драйвере modbus равна false то
+		if Core[StatusVariable]~=0 then Core.addLogMsg(StatusVariable.." - ошибка чтения/записи группы в драйвере modbus: "..Core[StatusVariable]) end --и если переменная статуса группы сигналов в драйвере modbus не равна нулю, записать в лог струку аварийного сообщения
 	  end
---[[	  local RAW_Base =--Список суффиксов флагов состояний, коментариев и строк сообщений 
-{
-     ["EVENT_WORD_NUMB_CP"]= {["Comment"]="Событие_слово обмена_Номер обмена_", ["eval"]= function(Name) end},
-     ["EVENT_WORD_QUANT_CP"]={["Comment"]="Событие_слово обмена_Количество событий_", ["eval"]= function(Name) end},
-}]]--
-local function add_Event(signal,time_source) --функция генерирования сообщения в журнал.
-local timestamp = { year, mouth, day, hour, min, sec, usec } --структура метки времени события
-local DT --метка времени
-local user --имя текущего пользователя
-
-			 DT = os.time(timestamp)  --метка времени сигнала (PLC)
-	 		
-		if Core[signal]==true then
-				Core.addEvent(msg , catergory , 1, sign_source..time_source, user, signal.."_1", DT) --появление события
-		else 	Core.addEvent(msg, catergory, 0, sign_source..time_source, user, signal.."_0", DT) --появление события
-		 
-			
-		 end	
-end
-
-local function CheckStack()--функция проверки стека на переполнение
-
-	  end -- of CheckStack
+	  end -- of Group_WriteRead
 
 
-local function ReadStack () --функция считывания стека событий
-local timestamp={} -- метка времени
-local SignalName=""
-local Signal=""
-local sig_source=""
-local msg
-local EVENT_NN=0
-local OBMEN_NN=0
-local NN=0
-local adr=0
-local data
-local msg=""
-	Core["RAW_SEPAM_VV1_".."EVENT_NN_UP"]=1
-	os.sleep(1)
-	OBMEN_NN=Core.RAW_SEPAM_VV1_EVENT_WORD_NUMB_CP
-	if OBMEN_NN~=0  then
-	for EVENT_NN=1,Core.RAW_SEPAM_VV1_EVENT_WORD_QUANT_CP do
-		if Core["RAW_SEPAM_VV1_EVENT_N"..tostring(EVENT_NN).."_TYPE_CP"]==2048 then
-		signal=Core["RAW_SEPAM_VV1_EVENT_N"..tostring(EVENT_NN).."_ADRESS_CP"]
-		SignalName="S_ZRU_P11_VV1_"..string.sub (signal,1,4).."_"..string.sub (signal,-1).."_DP"
-			if EDB[tostring(Core["RAW_SEPAM_VV1_EVENT_N"..tostring(EVENT_NN).."_ADRESS_CP"])]~=nil then
-			-- получаем метку времени события
+local function ReadStack () --функция считывания событий
+local DT="" -- метка времени
+
+local timestamp={["day"]=""} -- метка времени
+local SignalName=""--переменная для получения имени сигнала
+local signal=""--переменная для получения имени сигнала
+local EVENT_N=0--переменная для получения количества событий
+local EVENT_NN=0--переменная для получения количества событий
+local OBMEN_NN=0--переменная для получения количества обменов
+local msg=""--переменная для получения строки сообщения
+	Group_WriteRead("RAW_SEPAM_VV1_".."EVENT_NN_UP","RAW_SEPAM_VV1_".."EVENT_NN_ST")--сначала прочитать группу сигналов в драйвере modbus, отвечающую за количество обменов и событий
+	OBMEN_NN=Core["RAW_SEPAM_VV1_EVENT_WORD_NUMB_CP"]--определить количество обменов в приборе
+	if (OBMEN_NN~=OBMEN_NN_OLD) and (Core.RAW_SEPAM_VV1_EVENT_WORD_QUANT_CP~=0)  then--если количество обменов в приборе не равно предидущему то
+do
+	EVENT_N=Core.RAW_SEPAM_VV1_EVENT_WORD_QUANT_CP
+	for EVENT_NN=EVENT_N, 1, -1 do--в цикле от количества событий до 1
+		if Core["RAW_SEPAM_VV1_EVENT_N"..tostring(EVENT_NN).."_TYPE_CP"]==2048 then--проверить если сигнал типа события равен 2048, то
+		signal=Core["RAW_SEPAM_VV1_EVENT_N"..tostring(EVENT_NN).."_ADRESS_CP"]--собрать переменную сигнал
+		SignalName="S_ZRU_P11_VV1_"..string.sub (signal,1,4).."_"..string.sub (signal,-1).."_DP"--собрать переменную имя сигнала
+			if EDB[tostring(Core["RAW_SEPAM_VV1_EVENT_N"..tostring(EVENT_NN).."_ADRESS_CP"])]~=nil then--если адрес события присутствует в базе данных событий, то
 			timestamp.day=Core["RAW_SEPAM_VV1_EVENT_N"..tostring(EVENT_NN).."_TIME_DAY_CP"] --вычисляем день события
 			timestamp.month=Core["RAW_SEPAM_VV1_EVENT_N"..tostring(EVENT_NN).."_TIME_MONTH_CP"]--вычисляем месяц
 			timestamp.year=Core["RAW_SEPAM_VV1_EVENT_N"..tostring(EVENT_NN).."_TIME_YEAR_CP"]+2000 --вычисляем год
@@ -130,48 +109,27 @@ local msg=""
 			timestamp.usec=(Core["RAW_SEPAM_VV1_EVENT_N"..tostring(EVENT_NN).."_TIME_MS_CP"]-timestamp.sec*1000)*1000--вычисляем микросекунды
 			local timestamp_str = timestamp.day .. " " .. timestamp.month .. " " .. timestamp.year .. " " .. timestamp.hour .. ":" .. timestamp.min .. ":" ..  timestamp.sec .. "." .. timestamp.usec -- формируем строку времени
 			DT=os.time(timestamp)  + os.tz() -- преобразуем метку в формат POSIX c учетом временной зоны
-			msg=EDB[tostring(Core["RAW_SEPAM_VV1_EVENT_N"..tostring(EVENT_NN).."_ADRESS_CP"])].msg							
-			--Core.addLogMsg(msg)	
-			Core.addEvent(msg, EDB[tostring(Core["RAW_SEPAM_VV1_EVENT_N"..tostring(EVENT_NN).."_ADRESS_CP"])].cat , Core["RAW_SEPAM_VV1_EVENT_N"..tostring(EVENT_NN).."_DIR_CP"], "АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_".."(Sepam)", user, SignalName..Core["RAW_SEPAM_VV1_EVENT_N"..tostring(EVENT_NN).."_DIR_CP"], DT, "S_ZRU_P11")		
-				end			
+			msg=EDB[tostring(Core["RAW_SEPAM_VV1_EVENT_N"..tostring(EVENT_NN).."_ADRESS_CP"])].msg		--найти и присвоить по адресу события его сообщение					
+			Core.addLogMsg(timestamp_str..": "..msg)	--записать в лог приложения сообщение
+			Core.addEvent(msg, EDB[tostring(Core["RAW_SEPAM_VV1_EVENT_N"..tostring(EVENT_NN).."_ADRESS_CP"])].cat , Core["RAW_SEPAM_VV1_EVENT_N"..tostring(EVENT_NN).."_DIR_CP"], "АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_".."(Sepam)", user, SignalName..Core["RAW_SEPAM_VV1_EVENT_N"..tostring(EVENT_NN).."_DIR_CP"], DT, "S_ZRU_P11")		-- записать в журнал событий сообщение
+			os.sleep(0,1)	--подождать 		
+			end			
 		end	
 	end
-	Core.RAW_SEPAM_VV1_EVENT_WORD_QUANT_CP=0
-	Core.RAW_SEPAM_VV1_EVENT_WORD_WR_UP=1
-	os.sleep(1)
-	Core["RAW_SEPAM_VV1_".."EVENT_NN_UP"]=1
-	os.sleep(1)
-	OBMEN_NN=Core.RAW_SEPAM_VV1_EVENT_WORD_NUMB_CP
-	end
-	
+	Core.RAW_SEPAM_VV1_EVENT_WORD_QUANT_CP=0--сбросить в ноль количество событий
+	Group_WriteRead("RAW_SEPAM_VV1_EVENT_WORD_WR_UP","RAW_SEPAM_VV1_EVENT_WORD_WR_ST")--записать группу сигналов в драйвере modbus, отвечающую за количество обменов и событий
+end	end
+OBMEN_NN_OLD=OBMEN_NN	--запомнить количество обменов
 end --of ReadStack 
 
-local signals = {
-	-- Объявление переменных в виде структуры где левая часть до знака = это Suffix, правая часть это Descriptor. Descriptor в свою очередь представляет собой структуру
-	-- в которой первый элемент это комментарий Comment, второй элемент это функция eval. В функциях происходит преобразование значений сигналов из регистров, и присваивание этих
-	-- преобразованных значений переменным, передаваемым в SCADA систему
-	
 
 
- }		
+--основная программа
+user=Core["USER_NAME_OUT"] -- текущее имя  пользователя
+	while true do --всегда
+os.sleep(2) --подождать 
 
 
-
-
-
-	while true do
-os.sleep(1)
-
-
-ReadStack ()
+ReadStack ()--вызвать функцию считывания событий
 	
 	end	
-
-
-
-
-
-
-
-
-
