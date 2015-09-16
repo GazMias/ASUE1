@@ -406,12 +406,9 @@
         <Signal Name="Local_Time_Sonet_USO_ASUE" UUID="1876115C4BC1D308B3D44AAFC6E8C463" Type="STRING" OptionallyConnected="TRUE" Usage="input" />
         <Signal Name="RAW_SEPAM_VV1_UST_RD" UUID="95494BC84C6D549BB77053B0874C1514" Type="WORD" ArraySize="62" Global="TRUE" Comment="считывание регулировок" />
         <Signal Name="RAW_SEPAM_VV1_UST_RD_1" UUID="467FB972435FFA0463895FACFA34ACB9" Type="WORD" Global="TRUE" />
-        <Signal Name="RAW_SEPAM_VV1_UST_RD_ST" UUID="1976E9D04F4ED894C8CEF082C9C95D60" Type="WORD" Global="TRUE" Comment="считывание регулировок в драйвере статус" />
         <Signal Name="RAW_SEPAM_VV1_UST_RD_UP" UUID="1E48462F42E3535034E17DA2E57B815D" Type="BOOL" Global="TRUE" Comment="считывание регулировок в драйвере update" />
         <Signal Name="RAW_SEPAM_VV1_UST_WORD" UUID="E762A3004BAF7C1A0BB76AA81BFB612E" Type="WORD" Global="TRUE" Comment="обозначение функции" />
-        <Signal Name="RAW_SEPAM_VV1_UST_WORD_ST" UUID="33CF521143450E9CF0E392826D3D988A" Type="WORD" Global="TRUE" Comment="обозначение функции в драйвере статус" />
         <Signal Name="RAW_SEPAM_VV1_UST_WORD_UP" UUID="509394AC411557BD23E569B393984C1D" Type="BOOL" Global="TRUE" Comment="обозначение функции в драйвере update" />
-        <Signal Name="RAW_SEPAM_VV1_UST_WR_ST" UUID="9E1462F049AC3CB60AB1EF924CC3C43E" Type="WORD" Global="TRUE" Comment="запись телерегулировки в драйвере статус" />
         <Signal Name="RAW_SEPAM_VV1_UST_WR_UP" UUID="6FB9B5694AC0CBDED65AF084EFACFBCB" Type="BOOL" Global="TRUE" Comment="запись телерегулировки в драйвере update" />
         <Signal Name="SOUND_CRITICAL" UUID="AB732043442E764A0CFECDAE0674F180" Type="BOOL" Global="TRUE" Comment="Звуковая сигнализация ALARM" />
         <Signal Name="SOUND_WARNING" UUID="04DBB02C4EE20E3E689948BFF072B6B4" Type="BOOL" Global="TRUE" Comment="Звуковая сигнализация WARNING" />
