@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Node v. 1.3 >
+<Node Name="Debug" Comment="" Disabled="TRUE" Address="127.0.0.1" TargetPath="" UUID="43C40A1A461996781734398975A0704B">
+    <InterfaceList>
+        <SubApp Name="Driver" Type="8FF64E734FA2FF7DBB454B8A71A3FC9B" Args="" ConnectionTimeout="2000" ExecTimeout="50000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="EA39D91E4D584CEBD1C5C191BC842FB8" />
+        <SubApp Name="Osc_Sep" Type="76784BCB49980CEAC0BDC18494904FB5" Args="" ConnectionTimeout="2000" ExecTimeout="10000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="B384749D455EFB31851B2E8D32CA74D0" />
+        <SubApp Name="Osc_Read" Type="1C83AD8741BB504C4C53F980BDB9F156" Args="" ConnectionTimeout="2000" ExecTimeout="10000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="5A0045024CED003DD2FFABA1DF8EA4DB" />
+        <SubApp Name="interface" Type="01E79B314099080F773B1DAF8A9FCB3C" Args="" ConnectionTimeout="2000" ExecTimeout="10000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="4C17DF9A4E41B3B1D17FDE837C57D359" />
+    </InterfaceList>
+</Node>

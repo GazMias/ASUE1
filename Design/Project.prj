@@ -1,109 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE Project v. 1.0 >
-<Project Name="ASUE_1" Comment="" Port="10000" EndPort="20000" UUID="B9746FB24C66E2D862CECA836E0479D8">
+<Project Name="ASUE_1" Comment="" Port="10000" EndPort="20000" UUID="ED009B0842F3EEA7D71432B0ED08948D">
     <Globals>
-        <Signal Name="RAW_SEPAM_VV1_OSCIL_DATA_1_OSCIL_PREV" UUID="618C320148A62B34030BA3BA78D35528" Type="B07CB7CE4E4D270AE151008C971D986A" Global="TRUE" Comment="Время последней хаписи осциллограмма с последнего шага(в Oscillogramm_ReadDir)" />
-        <Signal Name="RAW_SEPAM_OLS80_OSCIL_DATA_1_OSCIL_PREV" UUID="5C1E129C4B8A4D3EE777DAAC61122305" Type="B07CB7CE4E4D270AE151008C971D986A" Global="TRUE" />
-        <Signal Name="RAW_SEPAM_SV_OSCIL_DATA_1_OSCIL_PREV" UUID="3A2F485A423BD47A765164AF475E32A1" Type="B07CB7CE4E4D270AE151008C971D986A" Global="TRUE" />
-        <Signal Name="RAW_SEPAM_SHTN_OSCIL_DATA_1_OSCIL_PREV" UUID="4E0A1FFF44C437376C7F888D93C9E355" Type="B07CB7CE4E4D270AE151008C971D986A" Global="TRUE" />
+        <Signal Name="ANALOG_LOEG_TEST" UUID="C59C5FEC4CE3B3039753CDB3F30846FD" Type="REAL" Global="TRUE" Comment="Тестирование аналогового сигнала" />
+        <Signal Name="Break_ARM1" UUID="9028DB25483267AFF70CB1AEB06BECD4" Type="BOOL" Global="TRUE" />
+        <Signal Name="Break_ARM2" UUID="63866587427743ECDF7DCC812228005A" Type="BOOL" Global="TRUE" />
+        <Signal Name="Break_PLC" UUID="B54CDF324ED1D0B5E84DD48A6B2ECDBE" Type="BOOL" Global="TRUE" />
+        <Signal Name="Break_Server1" UUID="A4D53A114682764AFEAF4F86B9CB655F" Type="BOOL" Global="TRUE" />
+        <Signal Name="Break_Server2" UUID="5224A807430C999DD4D39782FFE0B2C4" Type="BOOL" Global="TRUE" />
         <Signal Name="CHECK_RIGHTS" UUID="BF95CE814D2C5080B770DCA1956FCDC6" Type="BOOL" Global="TRUE" />
+        <Signal Name="Check_water" UUID="29361C7649114912BEEBB3801E85B0CC" Type="BOOL" Global="TRUE" Comment="Сигнал для отчета водхоз" />
+        <Signal Name="Connect_check_ARM1" UUID="08245C634CF72A038A1E3B829BED54D3" Type="INT" Global="TRUE" />
+        <Signal Name="Connect_check_ARM2" UUID="E8DC70424C497200BACF7BA195AEC094" Type="INT" Global="TRUE" />
+        <Signal Name="Connect_check_PLC" UUID="3155307248E7992494EC6CBF0FA08FB2" Type="INT" Global="TRUE" />
+        <Signal Name="Connect_check_Server1" UUID="7FF4F3C943540E91BC9814BB855B692E" Type="INT" Global="TRUE" />
+        <Signal Name="Connect_check_Server2" UUID="E1A43EB2431BCED567DD6CBFEAC67B6B" Type="INT" Global="TRUE" />
+        <Signal Name="DEBUG_ZONA_VIBORA" UUID="9270FB1042800CF38035889161B948A9" Type="B07CB7CE4E4D270AE151008C971D986A" Global="TRUE" />
         <Signal Name="DEBUG_ZONA_VIBORA_STATUS" UUID="244430D947008CF8AA69018231624CC9" Type="WORD" Global="TRUE" />
         <Signal Name="DEBUG_ZONA_VIBORA_UPDATE" UUID="B248817240C16CE46DB3ED9515D2798F" Type="BOOL" Global="TRUE" />
-        <Signal Name="DEBUG_ZONA_VIBORA" UUID="9270FB1042800CF38035889161B948A9" Type="B07CB7CE4E4D270AE151008C971D986A" Global="TRUE" />
-        <Signal Name="S_ZRU_P11_OSCIL_PATH" UUID="CFFCA0D741B827C7D89C1DA411D1B8B5" Type="STRING" Global="TRUE" Comment="Путь папки с считанными осциллограммами" />
-        <Signal Name="S_ZRU_P11_SHTN_OSCIL_PATH" UUID="2030445E4246B91CDB6A3E995A496BD3" Type="STRING" Global="TRUE" />
-        <Signal Name="S_ZRU_P11_OSCIL_SHTN_PATH" UUID="6FDFFE30483C23FB914D5480D0171C41" Type="STRING" Global="TRUE" />
-        <Signal Name="S_ZRU_P11_OSCIL_OLS80_PATH" UUID="C93B820E4B901317DC7B7BB4465BD12C" Type="STRING" Global="TRUE" />
-        <Signal Name="S_ZRU_P11_OLS80_OSCIL_PATH" UUID="E221AD274E1641F0728F328EC2E7D57A" Type="STRING" Global="TRUE" />
-        <Signal Name="S_ZRU_P11_OSCIL_SV_PATH" UUID="59E15B264F8E2550178C4A83AE16AD76" Type="STRING" Global="TRUE" />
-        <Signal Name="S_ZRU_P11_SV_OSCIL_PATH" UUID="C9A91B154542C7B6561770A9F0AFD0F5" Type="STRING" Global="TRUE" />
-        <Signal Name="RAW_SEPAM_VV1_OSCIL_NEW_ZAPIS_DATA_CP" UUID="E4ADE98042779AB6BFF59B8AC54F8C28" Type="B07CB7CE4E4D270AE151008C971D986A" Global="TRUE" />
-        <Signal Name="RAW_SEPAM_VV1_OSCIL_NEW_PRIZNAK_DATA_CP" UUID="B0D394D84E44138D274E2AA907A40E58" Type="BOOL" Global="TRUE" Comment="Признак что записана новая осциллограмма" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_WORD_NUMB_CP" UUID="4D2080A64778A8B5E655DCBD296A7A09" Type="BYTE" Global="TRUE" Comment="Событие_слово обмена_Номер обмена_" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_WORD_QUANT_CP" UUID="82889A4E4384DE12E78D03BAE8073F98" Type="BYTE" Global="TRUE" Comment="Событие_слово обмена_Количество событий_" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_WORD_WR_UP" UUID="A6C591B54D119486BEEAA7960250964A" Type="BOOL" Global="TRUE" Comment="Событие_слово обмена Обновить update" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_WORD_WR_ST" UUID="4F6CC2C74D1654F3D6FA0E80D8E1CD46" Type="WORD" Global="TRUE" Comment="Событие_слово обмена Состояние статус" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_N1_TYPE_CP" UUID="1FF049224E845B93AB382D867CEA5FC4" Type="WORD" Global="TRUE" Comment="Событие_событие номер 1_тип события_" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_N1_ADRESS_CP" UUID="74CED6964B76B0EFEFD8A3B2389BC50E" Type="WORD" Global="TRUE" Comment="Событие_событие номер 1_адрес события_" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_N1_RESERV_CP" UUID="009DCCF0430809396BD60C9AC5463836" Type="WORD" Global="TRUE" Comment="Событие_событие номер 1_резерв_" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_N1_DIR_CP" UUID="896C29594E3E67690C8EB8BB446BC033" Type="WORD" Global="TRUE" Comment="Событие_событие номер 1_направление события_" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_N1_TIME_RESERV_CP" UUID="92D69D694E2EF99484A37F9523756A7F" Type="BYTE" Global="TRUE" Comment="Событие_событие номер 1_время события_резерв" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_N1_TIME_YEAR_CP" UUID="7C81B0F84B0D7845F44D43BA47DC7AD7" Type="BYTE" Global="TRUE" Comment="Событие_событие номер 1_время события_год" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_N1_TIME_MONTH_CP" UUID="206795264070D8BEE80304912BE703E5" Type="BYTE" Global="TRUE" Comment="Событие_событие номер 1_время события_Месяц" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_N1_TIME_DAY_CP" UUID="7F6F3AC54361219DEA1E22BDC4AA4251" Type="BYTE" Global="TRUE" Comment="Событие_событие номер 1_время события_день" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_N1_TIME_HOUR_CP" UUID="CA29901E4689227F2DCA20830346599A" Type="BYTE" Global="TRUE" Comment="Событие_событие номер 1_время события_часы" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_N1_TIME_MIN_CP" UUID="5A241D6542AD06F784A1DFBFC1BE931F" Type="BYTE" Global="TRUE" Comment="Событие_событие номер 1_время события_минуты" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_N1_TIME_MS_CP" UUID="2F0F8DA64C46B0FAF18DA7AB010BBC17" Type="WORD" Global="TRUE" Comment="Событие_событие номер 1_время события_миллисекунды" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_N2_TYPE_CP" UUID="F7F0166B48D5EFD97F493C96E0A1E200" Type="WORD" Global="TRUE" Comment="Событие_событие номер 2_тип события_" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_N2_ADRESS_CP" UUID="F0440F8A436E995A9870518D6D21E015" Type="WORD" Global="TRUE" Comment="Событие_событие номер 2_адрес события_" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_N2_RESERV_CP" UUID="F25A90D64744057AF8A73D9350CE6730" Type="WORD" Global="TRUE" Comment="Событие_событие номер 2_резерв_" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_N2_DIR_CP" UUID="CD1A621B4C96A3CD10B5D59FA6B8608F" Type="WORD" Global="TRUE" Comment="Событие_событие номер 2_направление события_" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_N2_TIME_RESERV_CP" UUID="D845901743E85B0059A4ABA3A3A64877" Type="BYTE" Global="TRUE" Comment="Событие_событие номер 2_время события_резерв" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_N2_TIME_YEAR_CP" UUID="B69C6577431756F5DBAC52A12A5206CE" Type="BYTE" Global="TRUE" Comment="Событие_событие номер 2_время события_год" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_N2_TIME_MONTH_CP" UUID="F2F0D7F546178DB51D531195D2B29C96" Type="BYTE" Global="TRUE" Comment="Событие_событие номер 2_время события_Месяц" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_N2_TIME_DAY_CP" UUID="19D3723048B4B39B4204AE8535867619" Type="BYTE" Global="TRUE" Comment="Событие_событие номер 2_время события_день" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_N2_TIME_HOUR_CP" UUID="A8FCD4C647F6F60740BCB2A6B3D6AE88" Type="BYTE" Global="TRUE" Comment="Событие_событие номер 2_время события_часы" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_N2_TIME_MIN_CP" UUID="2DB5A7F14D7E27B1E49552B8AB0F661C" Type="BYTE" Global="TRUE" Comment="Событие_событие номер 2_время события_минуты" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_N2_TIME_MS_CP" UUID="1F7302FE40942F73B0B60C9F8864C32D" Type="WORD" Global="TRUE" Comment="Событие_событие номер 2_время события_миллисекунды" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_N3_TYPE_CP" UUID="A96123094DA076978814C392B547D560" Type="WORD" Global="TRUE" Comment="Событие_событие номер 3_тип события_" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_N3_ADRESS_CP" UUID="9B620EF3401EDD6E2185B6BBA4C66760" Type="WORD" Global="TRUE" Comment="Событие_событие номер 3_адрес события_" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_N3_RESERV_CP" UUID="8D25667D4C9650D069DE91949CB8F911" Type="WORD" Global="TRUE" Comment="Событие_событие номер 3_резерв_" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_N3_DIR_CP" UUID="E00B22264D2094267F36158E98864181" Type="WORD" Global="TRUE" Comment="Событие_событие номер 3_направление события_" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_N3_TIME_RESERV_CP" UUID="A2FEDEF2457E6AF5AEECC9995E300D90" Type="BYTE" Global="TRUE" Comment="Событие_событие номер 3_время события_резерв" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_N3_TIME_YEAR_CP" UUID="4CB22B0148F8BADCF3884387DA9CB5E7" Type="BYTE" Global="TRUE" Comment="Событие_событие номер 3_время события_год" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_N3_TIME_MONTH_CP" UUID="DAD5D42E46490E7325A5BE97F6640864" Type="BYTE" Global="TRUE" Comment="Событие_событие номер 3_время события_Месяц" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_N3_TIME_DAY_CP" UUID="73121932431523B651BE48A930335DD5" Type="BYTE" Global="TRUE" Comment="Событие_событие номер 3_время события_день" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_N3_TIME_HOUR_CP" UUID="8378E51248D2EB12C3B568AE9982711A" Type="BYTE" Global="TRUE" Comment="Событие_событие номер 3_время события_часы" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_N3_TIME_MIN_CP" UUID="48E5C1C2476F9DBD9BDB3985599BF42A" Type="BYTE" Global="TRUE" Comment="Событие_событие номер 3_время события_минуты" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_N3_TIME_MS_CP" UUID="9BDED0A7459784F6E91E16933D60B72D" Type="WORD" Global="TRUE" Comment="Событие_событие номер 3_время события_миллисекунды" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_N4_TYPE_CP" UUID="D71E330446EFD57939AC9C8E47A685F8" Type="WORD" Global="TRUE" Comment="Событие_событие номер 4_тип события_" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_N4_ADRESS_CP" UUID="D38B0DD54F8B0632B1075E827EB8174A" Type="WORD" Global="TRUE" Comment="Событие_событие номер 4_адрес события_" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_N4_RESERV_CP" UUID="E9762FEE4512E1AF24FEF8814B363CD6" Type="WORD" Global="TRUE" Comment="Событие_событие номер 4_резерв_" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_N4_DIR_CP" UUID="FB85772D492AEBD707355C94FDE0DCE6" Type="WORD" Global="TRUE" Comment="Событие_событие номер 4_направление события_" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_N4_TIME_RESERV_CP" UUID="7759A5694BEE086975DDA38D73AF0289" Type="BYTE" Global="TRUE" Comment="Событие_событие номер 4_время события_резерв" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_N4_TIME_YEAR_CP" UUID="AA87900C43A4CCE1DFF08B91ADDEF96E" Type="BYTE" Global="TRUE" Comment="Событие_событие номер 4_время события_год" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_N4_TIME_MONTH_CP" UUID="82BE279F44EB01D953A920B058188978" Type="BYTE" Global="TRUE" Comment="Событие_событие номер 4_время события_Месяц" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_N4_TIME_DAY_CP" UUID="A0E04B4E495C2009A898EAA962254BBF" Type="BYTE" Global="TRUE" Comment="Событие_событие номер 4_время события_день" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_N4_TIME_HOUR_CP" UUID="C4A7B6C249CB5FBA7BE5418E4168BBA6" Type="BYTE" Global="TRUE" Comment="Событие_событие номер 4_время события_часы" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_N4_TIME_MIN_CP" UUID="B58E73E5422B9E9DFDFDDCB64C7ECF59" Type="BYTE" Global="TRUE" Comment="Событие_событие номер 4_время события_минуты" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_N4_TIME_MS_CP" UUID="D86B50DA484081A8E32C04B488530789" Type="WORD" Global="TRUE" Comment="Событие_событие номер 4_время события_миллисекунды" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_NN_UP" UUID="733F10314114802634B304ADAC5A94B6" Type="BOOL" Global="TRUE" Comment="Группа Событие_событие номер N Обновить update" />
-        <Signal Name="RAW_SEPAM_VV1_EVENT_NN_ST" UUID="A29264474DA92D43F1630399FDABE2CD" Type="WORD" Global="TRUE" Comment="Группа Событие_событие номер N Состояние статус" />
-        <Signal Name="D_USO_NEISP_5_CP" UUID="1B6D9FF84C210423CDD5E69215CB082E" Type="INT" Global="TRUE" />
-        <Signal Name="S_TVS_DS_DP" UUID="E6C368D54B1D4A4FCD7E07B9677481B9" Type="USINT" Global="TRUE" Comment="АСУ ЭС_ТВС_Панель №1. Определение достоверност" />
-        <Signal Name="RAW_SEPAM_VV1_OSCIL_READING_CP" UUID="1BEBAC164DB79A6AD7C13A96FDF0BEB4" Type="BOOL" Global="TRUE" Comment="сигнал о записи осциллограммы(true - запись идёт, false-прекращена)" />
-        <Signal Name="RAW_SEPAM_VV1_OSCIL_DATA_SCHIT_CP" UUID="1A8A94824CA8E532D7CB5384368013A3" Type="DWORD" ArraySize="62" Global="TRUE" Comment="данные записей. в зоне считывания" />
-        <Signal Name="RAW_SEPAM_VV1_OSCIL_MANUAL_ZAPUSK_STC" UUID="5BD78B614DE2A6B952DA838E493F3D3B" Type="BOOL" Global="TRUE" Comment="ручной запуск записи осциллограмм аварийных режимов STC" />
-        <Signal Name="RAW_SEPAM_VV1_OSCIL_WORD_OBMEN_CP" UUID="C95F2EE84AC52E5E782827AC734E0DE4" Type="WORD" Global="TRUE" Comment="слово обмена из зоны считывания" />
-        <Signal Name="RAW_SEPAM_VV1_OSCIL_MANUAL_ZAPUSK_TC" UUID="D41944C94A785CD1C1C14589903FBA78" Type="BOOL" Global="TRUE" Comment="ручной запуск записи осциллограмм аварийных режимов TC" />
-        <Signal Name="RAW_SEPAM_VV1_OSCIL_DATA_VIBOR_CP" UUID="949EE6534CC641A1DD100CBDE2424E7D" Type="B07CB7CE4E4D270AE151008C971D986A" Global="TRUE" Comment="ссылка на требуемую запись в зоне выбора" />
-        <Signal Name="RAW_SEPAM_VV1_OSCIL_DATE_ZAPIS_1_CP" UUID="D3E99D6342869C52F8899F83C91EFF0F" Type="B07CB7CE4E4D270AE151008C971D986A" Global="TRUE" Comment="дата записи 1 (самая последняя) " />
-        <Signal Name="RAW_SEPAM_VV1_OSCIL_SIZE_DATA_CP" UUID="295F88FC4A7CFBBFF3AEC0A4F8E35786" Type="DWORD" Global="TRUE" Comment="Размер файлов данных" />
-        <Signal Name="RAW_SEPAM_VV1_OSCIL_DATE_ZAPIS_2_CP" UUID="49DBEAB2466E082EA4E2DEA56521B31A" Type="B07CB7CE4E4D270AE151008C971D986A" Global="TRUE" Comment="Осциллограмма_дата_записи_2" />
-        <Signal Name="RAW_SEPAM_VV1_OSCIL_DATE_ZAPIS_3_CP" UUID="98D6652D490DEB199054FDB778873E16" Type="B07CB7CE4E4D270AE151008C971D986A" Global="TRUE" Comment="Осциллограмма_дата_записи_3" />
-        <Signal Name="RAW_SEPAM_VV1_OSCIL_DATE_ZAPIS_4_CP" UUID="5FB3AB3F4A7DC79D8319698E806189AE" Type="B07CB7CE4E4D270AE151008C971D986A" Global="TRUE" Comment="Осциллограмма_дата_записи_4" />
-        <Signal Name="RAW_SEPAM_VV1_OSCIL_DATE_ZAPIS_5_CP" UUID="56398C9A4900C62DDE5FE98366B4C108" Type="B07CB7CE4E4D270AE151008C971D986A" Global="TRUE" Comment="Осциллограмма_дата_записи_5" />
-        <Signal Name="RAW_SEPAM_VV1_OSCIL_DATE_ZAPIS_6_CP" UUID="4C4E7F8D4F4CED3EE0AB8FAC44C201C1" Type="B07CB7CE4E4D270AE151008C971D986A" Global="TRUE" Comment="Осциллограмма_дата_записи_6" />
-        <Signal Name="RAW_SEPAM_VV1_OSCIL_DATE_ZAPIS_7_CP" UUID="2BC2D4534BEE203970F737B3BD35C268" Type="B07CB7CE4E4D270AE151008C971D986A" Global="TRUE" Comment="Осциллограмма_дата_записи_7" />
-        <Signal Name="RAW_SEPAM_VV1_OSCIL_DATE_ZAPIS_8_CP" UUID="E16E5EC34F9EBA99AE12C4806848CCEA" Type="B07CB7CE4E4D270AE151008C971D986A" Global="TRUE" Comment="Осциллограмма_дата_записи_8" />
-        <Signal Name="RAW_SEPAM_VV1_OSCIL_DATE_ZAPIS_9_CP" UUID="6C05779B472DA9521DE842899CD8B070" Type="B07CB7CE4E4D270AE151008C971D986A" Global="TRUE" Comment="Осциллограмма_дата_записи_9" />
-        <Signal Name="RAW_SEPAM_VV1_OSCIL_DATE_ZAPIS_10_CP" UUID="AF0FD9244928FF4B1B1D42AE57B82098" Type="B07CB7CE4E4D270AE151008C971D986A" Global="TRUE" Comment="Осциллограмма_дата_записи_10" />
-        <Signal Name="RAW_SEPAM_VV1_OSCIL_DATE_ZAPIS_11_CP" UUID="9A67F85F40E16FDC31F9B9B7FCB1377E" Type="B07CB7CE4E4D270AE151008C971D986A" Global="TRUE" Comment="Осциллограмма_дата_записи_11" />
-        <Signal Name="RAW_SEPAM_VV1_OSCIL_DATE_ZAPIS_12_CP" UUID="04FBA3C149C6B6E7A23821A4D87720DC" Type="B07CB7CE4E4D270AE151008C971D986A" Global="TRUE" Comment="Осциллограмма_дата_записи_12" />
-        <Signal Name="RAW_SEPAM_VV1_OSCIL_DATE_ZAPIS_13_CP" UUID="0F43F1E94A426582E8A6C1AD4481736A" Type="B07CB7CE4E4D270AE151008C971D986A" Global="TRUE" Comment="Осциллограмма_дата_записи_13" />
-        <Signal Name="RAW_SEPAM_VV1_OSCIL_DATE_ZAPIS_14_CP" UUID="7F57405E44D0CAD936AFA788E221F95E" Type="B07CB7CE4E4D270AE151008C971D986A" Global="TRUE" Comment="Осциллограмма_дата_записи_14" />
-        <Signal Name="RAW_SEPAM_VV1_OSCIL_DATE_ZAPIS_15_CP" UUID="6054D7444094359CD74B11A1BE669AD3" Type="B07CB7CE4E4D270AE151008C971D986A" Global="TRUE" Comment="Осциллограмма_дата_записи_15" />
-        <Signal Name="RAW_SEPAM_VV1_OSCIL_DATE_ZAPIS_16_CP" UUID="78F1C4574BE7C391669561A403C29058" Type="B07CB7CE4E4D270AE151008C971D986A" Global="TRUE" Comment="Осциллограмма_дата_записи_16" />
-        <Signal Name="RAW_SEPAM_VV1_OSCIL_DATE_ZAPIS_17_CP" UUID="00B57DFC49BE0FC259DDDBA20D1A36CE" Type="B07CB7CE4E4D270AE151008C971D986A" Global="TRUE" Comment="Осциллограмма_дата_записи_17" />
-        <Signal Name="RAW_SEPAM_VV1_OSCIL_DATE_ZAPIS_18_CP" UUID="DE6D66FB4CE6EF67BD1191AAAD7A66A0" Type="B07CB7CE4E4D270AE151008C971D986A" Global="TRUE" Comment="Осциллограмма_дата_записи_18" />
-        <Signal Name="RAW_SEPAM_VV1_OSCIL_DATE_ZAPIS_19_CP" UUID="C6BF89E74040C5A23381E5A0497D30AC" Type="B07CB7CE4E4D270AE151008C971D986A" Global="TRUE" Comment="Осциллограмма_дата_записи_19" />
-        <Signal Name="RAW_SEPAM_VV1_OSCIL_SIZE_CONF_CP" UUID="80E15E28453F4991EFDB2A96D6A9EECE" Type="WORD" Global="TRUE" Comment="Размер файлов конфигурации" />
-        <Signal Name="RAW_SEPAM_VV1_OSCIL_N_CP" UUID="67CC9D0942509E0A073B2C8C2AB0DC70" Type="WORD" Global="TRUE" Comment="Осцилограмма_количество доступных записей_" />
-        <Signal Name="RAW_SEPAM_VV1" UUID="95F9EB9A4CC1AAF2FE053A974ADE2A63" Type="94CD427C4FB607A0C990D9B2947C4BB8" Global="TRUE" Comment="Структура данных Oscilogramm_Sepam" />
-        <Signal Name="S_ZRU_P11_VV1_OSCIL_MANUAL_ZAPUSK" UUID="96E813CB475F2965C3F4F5AA41DFCCEE" Type="BOOL" Global="TRUE" />
         <Signal Name="DI_TEST1" UUID="BD2C3205477F249185DCE3B06B19D48F" Type="BOOL" InitialValue="0" Global="TRUE" />
-        <Signal Name="ANALOG_LOEG_TEST" UUID="C59C5FEC4CE3B3039753CDB3F30846FD" Type="REAL" Global="TRUE" Comment="Тестирование аналогового сигнала" />
-        <Signal Name="Check_water" UUID="29361C7649114912BEEBB3801E85B0CC" Type="BOOL" Global="TRUE" Comment="Сигнал для отчета водхоз" />
         <Signal Name="D_MAI_USO_NPR_ifOperStatus1" UUID="1CB06E244153736A2AF502A40B73E3ED" Type="INT" Global="TRUE" Comment="Диагностика Главная УСО АСУЭ нПорт5450. состояние интерфейса Локальной сети" />
         <Signal Name="D_MAI_USO_NPR_ifOperStatus2" UUID="B1D79BCD432381AC25257A9BF6C3DE31" Type="INT" Global="TRUE" Comment="Диагностика Главная УСО АСУЭ нПорт5450. состояние интерфейса последовательного порта 1" />
         <Signal Name="D_MAI_USO_NPR_ifOperStatus3" UUID="D9BCE00F4247DE0AB2DFFEA771BD1BA7" Type="INT" Global="TRUE" Comment="Диагностика Главная УСО АСУЭ нПорт5450. состояние интерфейса последовательного порта 2" />
@@ -114,6 +29,7 @@
         <Signal Name="D_USO_NEISP_2_DP" UUID="EE0DDA9D4A79C807B7048CAA523659A7" Type="BOOL" Global="TRUE" Comment="Диагностика   УСО. Неисправность модуля 2" />
         <Signal Name="D_USO_NEISP_3_DP" UUID="1B4AB5244501D9367CA32DAE83D57A97" Type="BOOL" Global="TRUE" Comment="Диагностика   УСО. Неисправность модуля 3" />
         <Signal Name="D_USO_NEISP_4_DP" UUID="D5D3E1FB41AB469EF202EA948612B005" Type="BOOL" Global="TRUE" Comment="Диагностика   УСО. Неисправность модуля 4" />
+        <Signal Name="D_USO_NEISP_5_CP" UUID="1B6D9FF84C210423CDD5E69215CB082E" Type="INT" Global="TRUE" />
         <Signal Name="D_USO_NEISP_5_DP" UUID="28A3CAB44F9F399F75FD72ACACE06D48" Type="BOOL" Global="TRUE" Comment="Диагностика   УСО. Неисправность модуля 5" />
         <Signal Name="D_USO_NEISP_6_DP" UUID="C051A3744C4599DBF8B7689F51643D0F" Type="BOOL" Global="TRUE" Comment="Диагностика   УСО. Неисправность модуля 6" />
         <Signal Name="D_USO_NEISP_7_DP" UUID="EC623BB848A2B749A7DA19A14D59F511" Type="BOOL" Global="TRUE" Comment="Диагностика   УСО. Неисправность модуля 7" />
@@ -121,6 +37,20 @@
         <Signal Name="D_USO_NEISP_9_DP" UUID="37F2BA4E47A967CF3F4D8289637F8C27" Type="BOOL" Global="TRUE" Comment="Диагностика   УСО. Неисправность модуля 9" />
         <Signal Name="GLOBAL_KVIT" UUID="6C138E91424A81E43DD7A2B54F0C55D7" Type="BOOL" Global="TRUE" Comment="Квитирование общее" />
         <Signal Name="Global_1" UUID="75CA786A42653F4A4613F0A4EA143709" Type="BOOL" Global="TRUE" />
+        <Signal Name="MakeReport1" UUID="E1342197475E617EAFEFF49A46B15625" Type="BOOL" Global="TRUE" />
+        <Signal Name="MakeReport2" UUID="83865F4041A336EBEE3BEDB512D9EB7D" Type="BOOL" Global="TRUE" />
+        <Signal Name="MakeReport3" UUID="A732DA7347E13F7642A0A8B84E35AC79" Type="BOOL" Global="TRUE" />
+        <Signal Name="MakeReport4" UUID="A9A8CF8D46D462F58332E08964F33078" Type="BOOL" Global="TRUE" />
+        <Signal Name="MakeReport5" UUID="D1C1169745BCFD202234609E2F6AB813" Type="BOOL" Global="TRUE" />
+        <Signal Name="MakeReport6" UUID="C7C8364C4E2792FD5A3EA5A1601D2A9E" Type="BOOL" Global="TRUE" />
+        <Signal Name="MakeReport7" UUID="069AB36D4D013F65B52FD784493D6CD6" Type="BOOL" Global="TRUE" />
+        <Signal Name="NameFileDir" UUID="3B7AE1104B9D682C360D51878705FE41" Type="STRING" ArraySize="19" Global="TRUE" Comment="Перечень файлов осциллограмм на сервере" />
+        <Signal Name="PotrebP" UUID="9564FE8F46474832F10E7E832AE11038" Type="REAL" ArraySize="48" Global="TRUE" Storage="persistent" />
+        <Signal Name="PotrebPItog" UUID="42A37F434BB57E08B8D694A579E7DC8F" Type="REAL" ArraySize="4" Global="TRUE" Storage="persistent" />
+        <Signal Name="PotrebQ" UUID="96151B144C86A4B174D80CAA23C4DEFF" Type="REAL" ArraySize="48" Global="TRUE" Storage="persistent" />
+        <Signal Name="PotrebQItog" UUID="2B0DA974432342EBE7CBA4BB0AF1CACC" Type="REAL" ArraySize="4" Global="TRUE" Storage="persistent" />
+        <Signal Name="PotrebS" UUID="8AC5B8094DF860E858D46D81C2FED330" Type="REAL" ArraySize="48" Global="TRUE" Storage="persistent" />
+        <Signal Name="PotrebSItog" UUID="61F3F2184CD27881E7ED62AE506F6C8E" Type="REAL" ArraySize="4" Global="TRUE" Storage="persistent" />
         <Signal Name="RAW_BMPA_40029_00_DP" UUID="09852D51493A6160C753CBBF803EC3BE" Type="BOOL" Global="TRUE" Comment="Неисправность БМПА ВЫЗОВ  " />
         <Signal Name="RAW_BMPA_40029_01_DP" UUID="2AB3B9534B452A375568E4AB7AF19380" Type="BOOL" Global="TRUE" Comment="Неисправность ЦУ ВЫЗОВ  " />
         <Signal Name="RAW_BMPA_40029_07_DP" UUID="76D325A943A179F7A1794B9DBE70E184" Type="BOOL" Global="TRUE" Comment="Аварийное отключение  " />
@@ -166,8 +96,8 @@
         <Signal Name="RAW_BMPA_Reg_NetCmd_Result" UUID="27A2C3C94F08E40617D0448DC69C708C" Type="INT" Global="TRUE" Comment="Код исполнения команды " />
         <Signal Name="RAW_BMPA_Reg_NetCtrl" UUID="923777C64702989B1189B198A0AB3295" Type="DWORD" Global="TRUE" Comment="Регистр команд управления выключателем " />
         <Signal Name="RAW_BMPA_Reg_NetCtrl1" UUID="85752E3F4B7739E2EAA7D2A8535A1141" Type="DWORD" Global="TRUE" Comment="Регистр команд управления БМРЗ " />
-        <Signal Name="RAW_BMPA_Reg_NetCtrl1_UP" UUID="B02EA5764D206309A4C5479028DB1C05" Type="BOOL" Global="TRUE" Comment="Регистр команд управления БМРЗ update" />
         <Signal Name="RAW_BMPA_Reg_NetCtrl1_R" UUID="D06622E24F42288C91321BB4A574FE81" Type="DWORD" Global="TRUE" Comment="Регистр команд управления БМРЗ " />
+        <Signal Name="RAW_BMPA_Reg_NetCtrl1_UP" UUID="B02EA5764D206309A4C5479028DB1C05" Type="BOOL" Global="TRUE" Comment="Регистр команд управления БМРЗ update" />
         <Signal Name="RAW_BMPA_Reg_NetCtrl_R" UUID="204D7BE14447D8411FDB139C08C31ACD" Type="DWORD" Global="TRUE" Comment="Регистр команд управления выключателем " />
         <Signal Name="RAW_BMPA_Reg_Slave_ID" UUID="9809651147552BB9389CBA876A2FDDAE" Type="BYTE" ArraySize="32" Global="TRUE" Comment="Идентификатор  " />
         <Signal Name="RAW_BMPA_Reg_Time" UUID="3640F31047C4A672250F41AF360380CF" Type="BYTE" ArraySize="8" Global="TRUE" Comment="Астрономическое время встроенных часов- календаря  " />
@@ -478,8 +408,8 @@
         <Signal Name="RAW_BMRZ_2_Reg_NetCmd_Result" UUID="6D7B68054350D0678C62C28DBB89EA12" Type="INT" Global="TRUE" Comment=" Код исполнения команды " />
         <Signal Name="RAW_BMRZ_2_Reg_NetCtrl" UUID="BED763ED43D25F404CF8399BB00E49B2" Type="DWORD" Global="TRUE" Comment=" Регистр команд управления выключателем " />
         <Signal Name="RAW_BMRZ_2_Reg_NetCtrl1" UUID="2C27E9BF42CA5EBED36911B12E0DCD24" Type="DWORD" Global="TRUE" Comment=" Регистр команд управления БМРЗ " />
-        <Signal Name="RAW_BMRZ_2_Reg_NetCtrl1_UP" UUID="1FB9564A428AE8455B90CDA853979740" Type="BOOL" Global="TRUE" Comment=" Регистр команд управления БМРЗ update" />
         <Signal Name="RAW_BMRZ_2_Reg_NetCtrl1_R" UUID="BFCF9D944AB6C98D4FE49F869F230994" Type="DWORD" Global="TRUE" Comment=" Регистр команд управления БМРЗ " />
+        <Signal Name="RAW_BMRZ_2_Reg_NetCtrl1_UP" UUID="1FB9564A428AE8455B90CDA853979740" Type="BOOL" Global="TRUE" Comment=" Регистр команд управления БМРЗ update" />
         <Signal Name="RAW_BMRZ_2_Reg_NetCtrl_R" UUID="83D770DF4C07996302D0FC818006D949" Type="DWORD" Global="TRUE" Comment=" Регистр команд управления выключателем " />
         <Signal Name="RAW_BMRZ_2_Reg_Slave_ID" UUID="30D23AA344B31CD6E31D63B280557125" Type="BYTE" ArraySize="32" Global="TRUE" Comment=" Идентификатор  " />
         <Signal Name="RAW_BMRZ_2_Reg_Time" UUID="70D72D1742044351A7ADDFB3A56ED98A" Type="BYTE" ArraySize="8" Global="TRUE" Comment=" Астрономическое время встроенных часов- календаря  " />
@@ -681,8 +611,8 @@
         <Signal Name="RAW_BMRZ_Reg_NetCmd_Result" UUID="F3AF29324EBC5BD4CB5728AB53C11445" Type="INT" Global="TRUE" Comment="Код исполнения&#x0A;команды" />
         <Signal Name="RAW_BMRZ_Reg_NetCtrl" UUID="ABAABFA6436CADB9740ECEB278DD891F" Type="DWORD" Global="TRUE" Comment="Регистр команд управления выключателем" />
         <Signal Name="RAW_BMRZ_Reg_NetCtrl1" UUID="A5D258174C1C8D455F9645B2FC0C329D" Type="DWORD" Global="TRUE" Comment="Регистр команд управления БМРЗ" />
-        <Signal Name="RAW_BMRZ_Reg_NetCtrl1_UP" UUID="4F20933042EEFC3152F4E0ABA8AC1ED3" Type="BOOL" Global="TRUE" Comment="Регистр команд управления БМРЗ update" />
         <Signal Name="RAW_BMRZ_Reg_NetCtrl1_R" UUID="6863EBB34EA040B92BC6339E4298B17B" Type="DWORD" Global="TRUE" Comment="Регистр команд управления БМРЗ" />
+        <Signal Name="RAW_BMRZ_Reg_NetCtrl1_UP" UUID="4F20933042EEFC3152F4E0ABA8AC1ED3" Type="BOOL" Global="TRUE" Comment="Регистр команд управления БМРЗ update" />
         <Signal Name="RAW_BMRZ_Reg_NetCtrl_R" UUID="323428E94D4BBBB110B894AA467A48F3" Type="DWORD" Global="TRUE" Comment="Регистр команд управления выключателем" />
         <Signal Name="RAW_BMRZ_Reg_Slave_ID" UUID="E7E41DE04074A4E5F0BB74BCA91CD3B4" Type="BYTE" ArraySize="32" Global="TRUE" Comment="Идентификатор " />
         <Signal Name="RAW_BMRZ_Reg_Time" UUID="2F68DBC0438EB86B1E8CC4AB9E853C32" Type="BYTE" ArraySize="8" Global="TRUE" Comment="Астрономическое время встроенных часов- календаря " />
@@ -819,6 +749,12 @@
         <Signal Name="RAW_M340_P06_AV2_VKLSVAVRAV_DP" UUID="BF58FA524EB929A8013776BE2220E9A0" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_2._Включение_СВ_по_АВР_АВ_" />
         <Signal Name="RAW_M340_P06_AV2_VKLSVVNRAVRAV_DP" UUID="597BBA72430AB76CDDF55FB4D1CDDD61" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_2._Включение_СВ_при_ВНР_после_АВР_АВ_" />
         <Signal Name="RAW_M340_P06_AV2_VKLVAVAVRAV_DP" UUID="B8A3F6FD4F1E7AED0A30EE8F57DE4CB8" Type="BOOL" Global="TRUE" Comment="Панель_№6_Аварийный_ввод_2._Включение_ВАВ_по_АВР_АВ_" />
+        <Signal Name="RAW_M340_P06_DATABLOCK1" UUID="CC034C7A44FB25EFBE79389814F7FA55" Type="WORD" Global="TRUE" Comment="Панель №6, Слово стека событий №1" />
+        <Signal Name="RAW_M340_P06_DATABLOCK2" UUID="3473F1C04266FDF56B6723B04AE10776" Type="WORD" Global="TRUE" Comment="Панель №6, Слово стека событий №2" />
+        <Signal Name="RAW_M340_P06_DATABLOCK3" UUID="09AF445D4B6CBEDA16FD0F931C846F55" Type="WORD" Global="TRUE" Comment="Панель №6, Слово стека событий №3" />
+        <Signal Name="RAW_M340_P06_DATABLOCK4" UUID="33A99CC7449545074BF552AF727D03AE" Type="WORD" Global="TRUE" Comment="Панель №6, Слово стека событий №4" />
+        <Signal Name="RAW_M340_P06_DATABLOCK5" UUID="214D133F4BB097E9D83F0A87E712AEE6" Type="WORD" Global="TRUE" Comment="Панель №6, Слово стека событий №5" />
+        <Signal Name="RAW_M340_P06_DATABLOCK6" UUID="F4785EC747FDC8459658808A37D2D2C3" Type="WORD" Global="TRUE" Comment="Панель №6, Слово стека событий №6" />
         <Signal Name="RAW_M340_P06_PU_AVARKTP_DP" UUID="C1AED2A74A9AAB2DE6D893BD34B97107" Type="BOOL" Global="TRUE" Comment="Панель_№6_Авария_КТП" />
         <Signal Name="RAW_M340_P06_PU_AVTVIKCOBOTK_DP" UUID="CA38956740ED30DA5B77D0B4EC15F4F1" Type="BOOL" Global="TRUE" Comment="Панель_№6_авт._Выключатель_цепей_обогрева_откл." />
         <Signal Name="RAW_M340_P06_PU_AVTVIKCSIGOTK_DP" UUID="E5BA5FA542451E9E9B54C19589FE478A" Type="BOOL" Global="TRUE" Comment="Панель_№6_Авт._Выключатель_цепей_сигнализации_откл." />
@@ -833,12 +769,6 @@
         <Signal Name="RAW_M340_P06_STACK_ERR" UUID="8A12516C4D9061CAEB8EB2A89C5B8195" Type="WORD" Global="TRUE" Comment="Панель_№6_Флаг_ошибки_стека" />
         <Signal Name="RAW_M340_P06_STACK_STATUS" UUID="E922D0FA4C0A3737D60B3A8B3AE62573" Type="WORD" Global="TRUE" Comment="Панель_№6_Статус_стека_событий" />
         <Signal Name="RAW_M340_P06_SV_AVOTKSV_DP" UUID="AD2F02684D77DA43C19348AB6D20DD42" Type="BOOL" Global="TRUE" Comment="Панель_№6_Секционный_выключатель._Аварийное_отключение_СВ_" />
-        <Signal Name="RAW_M340_P06_DATABLOCK1" UUID="CC034C7A44FB25EFBE79389814F7FA55" Type="WORD" Global="TRUE" Comment="Панель №6, Слово стека событий №1" />
-        <Signal Name="RAW_M340_P06_DATABLOCK2" UUID="3473F1C04266FDF56B6723B04AE10776" Type="WORD" Global="TRUE" Comment="Панель №6, Слово стека событий №2" />
-        <Signal Name="RAW_M340_P06_DATABLOCK3" UUID="09AF445D4B6CBEDA16FD0F931C846F55" Type="WORD" Global="TRUE" Comment="Панель №6, Слово стека событий №3" />
-        <Signal Name="RAW_M340_P06_DATABLOCK4" UUID="33A99CC7449545074BF552AF727D03AE" Type="WORD" Global="TRUE" Comment="Панель №6, Слово стека событий №4" />
-        <Signal Name="RAW_M340_P06_DATABLOCK5" UUID="214D133F4BB097E9D83F0A87E712AEE6" Type="WORD" Global="TRUE" Comment="Панель №6, Слово стека событий №5" />
-        <Signal Name="RAW_M340_P06_DATABLOCK6" UUID="F4785EC747FDC8459658808A37D2D2C3" Type="WORD" Global="TRUE" Comment="Панель №6, Слово стека событий №6" />
         <Signal Name="RAW_M340_P06_SV_AVRSVOTKPU_DP" UUID="3DE339AB480456FFD5581382614A4CAE" Type="BOOL" Global="TRUE" Comment="Панель_№6_Секционный_выключатель._АВР_СВ_отключено_с_ПУ_" />
         <Signal Name="RAW_M340_P06_SV_AVRSVOTK_DP" UUID="CF30E19F48ECE17BC27391A6BE074908" Type="BOOL" Global="TRUE" Comment="Панель_№6_Секционный_выключатель._АВР_СВ_отключен_" />
         <Signal Name="RAW_M340_P06_SV_AVRSVVKLPU_DP" UUID="63BCB036441E314B480135BC7964EBC1" Type="BOOL" Global="TRUE" Comment="Панель_№6_Секционный_выключатель._АВР_СВ_включено_с_ПУ_" />
@@ -1148,6 +1078,8 @@
         <Signal Name="RAW_SEPAM_OLS80_815_AP" UUID="D60DBFA64B4B7E2D8136D393CFCEC3D3" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Отходящая линия с АПВ SEPAM S80_Счетчик количества выката выключателей " />
         <Signal Name="RAW_SEPAM_OLS80_817_AP" UUID="F4912467445887EAAF1C2B839EF5591C" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Отходящая линия с АПВ SEPAM S80_Счетчик отключения междуфазных КЗ " />
         <Signal Name="RAW_SEPAM_OLS80_818_AP" UUID="3550D5F041B03A18F982C593BC55C1DB" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Отходящая линия с АПВ SEPAM S80_Счетчик отключения при замыканиях на землю " />
+        <Signal Name="RAW_SEPAM_OLS80_OSCIL" UUID="2D05BCCA45793575DD17B4B209A6229A" Type="94CD427C4FB607A0C990D9B2947C4BB8" Global="TRUE" />
+        <Signal Name="RAW_SEPAM_OLS80_OSCIL_DATA_1_OSCIL_PREV" UUID="5C1E129C4B8A4D3EE777DAAC61122305" Type="B07CB7CE4E4D270AE151008C971D986A" Global="TRUE" />
         <Signal Name="RAW_SEPAM_OLS80_Reg_Time" UUID="2210E3894CF24B33A6A30FB718011729" Type="BYTE" ArraySize="5" Global="TRUE" Comment="Астрономическое время встроенных часов- календаря   " />
         <Signal Name="RAW_SEPAM_OLS80_Reg_Time_1" UUID="91E05BAC49681FA3B92C27AD47361EE5" Type="BYTE" ArraySize="5" Global="TRUE" Comment="Астрономическое время встроенных часов- календаря  " />
         <Signal Name="RAW_SEPAM_OLS80_Reg_Time_MS" UUID="A2D4C0684168657DF9AE96A2B9FC7C64" Type="WORD" Global="TRUE" Comment="Астрономическое время встроенных часов- календаря. Милисекунды " />
@@ -1211,6 +1143,8 @@
         <Signal Name="RAW_SEPAM_SHTN_64007_AP" UUID="50ABEB3247E347682D792BB528A75F40" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Линейное напряжение U32 " />
         <Signal Name="RAW_SEPAM_SHTN_64008_AP" UUID="3D804B234BEFBFC4058A83B4F3E407D9" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Линейное напряжение U13 " />
         <Signal Name="RAW_SEPAM_SHTN_64009_AP" UUID="3CA1536B421C98F0FE6F33A68FC81E4E" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Частота " />
+        <Signal Name="RAW_SEPAM_SHTN_OSCIL" UUID="387B3C3849DAA945F3A1D3A194AADF4F" Type="94CD427C4FB607A0C990D9B2947C4BB8" Global="TRUE" />
+        <Signal Name="RAW_SEPAM_SHTN_OSCIL_DATA_1_OSCIL_PREV" UUID="4E0A1FFF44C437376C7F888D93C9E355" Type="B07CB7CE4E4D270AE151008C971D986A" Global="TRUE" />
         <Signal Name="RAW_SEPAM_SHTN_Reg_Time" UUID="FD63E40E41D57C76CE3F858E2304E7CB" Type="BYTE" ArraySize="5" Global="TRUE" Comment="Астрономическое время встроенных часов- календаря   " />
         <Signal Name="RAW_SEPAM_SHTN_Reg_Time_1" UUID="53195AB2401C5AB8B7DB67B778E6ACBC" Type="BYTE" ArraySize="5" Global="TRUE" Comment="Астрономическое время встроенных часов- календаря  " />
         <Signal Name="RAW_SEPAM_SHTN_Reg_Time_MS" UUID="7CD0EFFD4501D176E20906B90E10A60A" Type="WORD" Global="TRUE" Comment="Астрономическое время встроенных часов- календаря. Милисекунды " />
@@ -1230,11 +1164,14 @@
         <Signal Name="RAW_SEPAM_SHTN_UST_WR_1" UUID="5968620B438A5A9C003A1A91488D4F57" Type="WORD" Global="TRUE" />
         <Signal Name="RAW_SEPAM_SHTN_UST_WR_ST" UUID="F1DB33B1434A52B4448D978F3E6AF23D" Type="WORD" Global="TRUE" Comment="запись телерегулировки в драйвере статус" />
         <Signal Name="RAW_SEPAM_SHTN_UST_WR_UP" UUID="94F943854657E48CFFF91487FC990557" Type="BOOL" Global="TRUE" Comment="запись телерегулировки в драйвере update" />
+        <Signal Name="RAW_SEPAM_SV_OSCIL" UUID="08754EC3419AB43A5FA6DC9E8D6D87B6" Type="94CD427C4FB607A0C990D9B2947C4BB8" Global="TRUE" />
+        <Signal Name="RAW_SEPAM_SV_OSCIL_DATA_1_OSCIL_PREV" UUID="3A2F485A423BD47A765164AF475E32A1" Type="B07CB7CE4E4D270AE151008C971D986A" Global="TRUE" />
         <Signal Name="RAW_SEPAM_UST_RD" UUID="97264208477209457844AC9325818C69" Type="UINT" ArraySize="125" Global="TRUE" Comment="Зона считывания настроек (уставок)" />
         <Signal Name="RAW_SEPAM_UST_RD_FUNC" UUID="0162EE7C4BAAEFAA42B819BBB703DD8D" Type="INT" Global="TRUE" Comment="Обозначение функции " />
         <Signal Name="RAW_SEPAM_UST_RD_WORD" UUID="11F44ACE47DFA4AF5E10BC9617039CCE" Type="INT" Global="TRUE" Comment="Слово обмена для чтения настроек" />
         <Signal Name="RAW_SEPAM_UST_WR" UUID="120496934572516E6BE608ABC718816D" Type="UINT" ArraySize="125" Global="TRUE" Comment="Зона записи настроек (уставок) " />
         <Signal Name="RAW_SEPAM_UST_WR_WORD" UUID="857A00924EA426378E57C9B2C8C9ECFC" Type="INT" Global="TRUE" Comment="Слово обмена для записи настроек" />
+        <Signal Name="RAW_SEPAM_VV1" UUID="95F9EB9A4CC1AAF2FE053A974ADE2A63" Type="94CD427C4FB607A0C990D9B2947C4BB8" Global="TRUE" Comment="Структура данных Oscilogramm_Sepam" />
         <Signal Name="RAW_SEPAM_VV1_3088_0_DP" UUID="1BD46BEF42DD01D9B42729BD3CC95FDD" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_РПВ (Реле положения «Включено») " />
         <Signal Name="RAW_SEPAM_VV1_3088_10_DP" UUID="56AFBC0541DAE691C907F6A08EE3A278" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Отключение от ДГЗ, УРОВ " />
         <Signal Name="RAW_SEPAM_VV1_3088_11_DP" UUID="2A2E13A24FF419B78FC342BCCFAAB909" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Отключение от защит трансформатора " />
@@ -1329,6 +1266,88 @@
         <Signal Name="RAW_SEPAM_VV1_813_AP" UUID="9572CDBE42DCEB461A32D684A569DF47" Type="STRING" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Время коммутации (отключение выключателя) " />
         <Signal Name="RAW_SEPAM_VV1_815_AP" UUID="54E800EA43392D780789BCA2D518AF14" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Счетчик количества выката выключателей " />
         <Signal Name="RAW_SEPAM_VV1_817_AP" UUID="3663A9FA46C0EB30E8A0BD84CC77351A" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Счетчик отключения междуфазных КЗ " />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_N1_ADRESS_CP" UUID="74CED6964B76B0EFEFD8A3B2389BC50E" Type="WORD" Global="TRUE" Comment="Событие_событие номер 1_адрес события_" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_N1_DIR_CP" UUID="896C29594E3E67690C8EB8BB446BC033" Type="WORD" Global="TRUE" Comment="Событие_событие номер 1_направление события_" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_N1_RESERV_CP" UUID="009DCCF0430809396BD60C9AC5463836" Type="WORD" Global="TRUE" Comment="Событие_событие номер 1_резерв_" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_N1_TIME_DAY_CP" UUID="7F6F3AC54361219DEA1E22BDC4AA4251" Type="BYTE" Global="TRUE" Comment="Событие_событие номер 1_время события_день" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_N1_TIME_HOUR_CP" UUID="CA29901E4689227F2DCA20830346599A" Type="BYTE" Global="TRUE" Comment="Событие_событие номер 1_время события_часы" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_N1_TIME_MIN_CP" UUID="5A241D6542AD06F784A1DFBFC1BE931F" Type="BYTE" Global="TRUE" Comment="Событие_событие номер 1_время события_минуты" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_N1_TIME_MONTH_CP" UUID="206795264070D8BEE80304912BE703E5" Type="BYTE" Global="TRUE" Comment="Событие_событие номер 1_время события_Месяц" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_N1_TIME_MS_CP" UUID="2F0F8DA64C46B0FAF18DA7AB010BBC17" Type="WORD" Global="TRUE" Comment="Событие_событие номер 1_время события_миллисекунды" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_N1_TIME_RESERV_CP" UUID="92D69D694E2EF99484A37F9523756A7F" Type="BYTE" Global="TRUE" Comment="Событие_событие номер 1_время события_резерв" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_N1_TIME_YEAR_CP" UUID="7C81B0F84B0D7845F44D43BA47DC7AD7" Type="BYTE" Global="TRUE" Comment="Событие_событие номер 1_время события_год" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_N1_TYPE_CP" UUID="1FF049224E845B93AB382D867CEA5FC4" Type="WORD" Global="TRUE" Comment="Событие_событие номер 1_тип события_" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_N2_ADRESS_CP" UUID="F0440F8A436E995A9870518D6D21E015" Type="WORD" Global="TRUE" Comment="Событие_событие номер 2_адрес события_" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_N2_DIR_CP" UUID="CD1A621B4C96A3CD10B5D59FA6B8608F" Type="WORD" Global="TRUE" Comment="Событие_событие номер 2_направление события_" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_N2_RESERV_CP" UUID="F25A90D64744057AF8A73D9350CE6730" Type="WORD" Global="TRUE" Comment="Событие_событие номер 2_резерв_" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_N2_TIME_DAY_CP" UUID="19D3723048B4B39B4204AE8535867619" Type="BYTE" Global="TRUE" Comment="Событие_событие номер 2_время события_день" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_N2_TIME_HOUR_CP" UUID="A8FCD4C647F6F60740BCB2A6B3D6AE88" Type="BYTE" Global="TRUE" Comment="Событие_событие номер 2_время события_часы" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_N2_TIME_MIN_CP" UUID="2DB5A7F14D7E27B1E49552B8AB0F661C" Type="BYTE" Global="TRUE" Comment="Событие_событие номер 2_время события_минуты" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_N2_TIME_MONTH_CP" UUID="F2F0D7F546178DB51D531195D2B29C96" Type="BYTE" Global="TRUE" Comment="Событие_событие номер 2_время события_Месяц" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_N2_TIME_MS_CP" UUID="1F7302FE40942F73B0B60C9F8864C32D" Type="WORD" Global="TRUE" Comment="Событие_событие номер 2_время события_миллисекунды" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_N2_TIME_RESERV_CP" UUID="D845901743E85B0059A4ABA3A3A64877" Type="BYTE" Global="TRUE" Comment="Событие_событие номер 2_время события_резерв" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_N2_TIME_YEAR_CP" UUID="B69C6577431756F5DBAC52A12A5206CE" Type="BYTE" Global="TRUE" Comment="Событие_событие номер 2_время события_год" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_N2_TYPE_CP" UUID="F7F0166B48D5EFD97F493C96E0A1E200" Type="WORD" Global="TRUE" Comment="Событие_событие номер 2_тип события_" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_N3_ADRESS_CP" UUID="9B620EF3401EDD6E2185B6BBA4C66760" Type="WORD" Global="TRUE" Comment="Событие_событие номер 3_адрес события_" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_N3_DIR_CP" UUID="E00B22264D2094267F36158E98864181" Type="WORD" Global="TRUE" Comment="Событие_событие номер 3_направление события_" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_N3_RESERV_CP" UUID="8D25667D4C9650D069DE91949CB8F911" Type="WORD" Global="TRUE" Comment="Событие_событие номер 3_резерв_" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_N3_TIME_DAY_CP" UUID="73121932431523B651BE48A930335DD5" Type="BYTE" Global="TRUE" Comment="Событие_событие номер 3_время события_день" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_N3_TIME_HOUR_CP" UUID="8378E51248D2EB12C3B568AE9982711A" Type="BYTE" Global="TRUE" Comment="Событие_событие номер 3_время события_часы" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_N3_TIME_MIN_CP" UUID="48E5C1C2476F9DBD9BDB3985599BF42A" Type="BYTE" Global="TRUE" Comment="Событие_событие номер 3_время события_минуты" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_N3_TIME_MONTH_CP" UUID="DAD5D42E46490E7325A5BE97F6640864" Type="BYTE" Global="TRUE" Comment="Событие_событие номер 3_время события_Месяц" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_N3_TIME_MS_CP" UUID="9BDED0A7459784F6E91E16933D60B72D" Type="WORD" Global="TRUE" Comment="Событие_событие номер 3_время события_миллисекунды" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_N3_TIME_RESERV_CP" UUID="A2FEDEF2457E6AF5AEECC9995E300D90" Type="BYTE" Global="TRUE" Comment="Событие_событие номер 3_время события_резерв" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_N3_TIME_YEAR_CP" UUID="4CB22B0148F8BADCF3884387DA9CB5E7" Type="BYTE" Global="TRUE" Comment="Событие_событие номер 3_время события_год" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_N3_TYPE_CP" UUID="A96123094DA076978814C392B547D560" Type="WORD" Global="TRUE" Comment="Событие_событие номер 3_тип события_" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_N4_ADRESS_CP" UUID="D38B0DD54F8B0632B1075E827EB8174A" Type="WORD" Global="TRUE" Comment="Событие_событие номер 4_адрес события_" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_N4_DIR_CP" UUID="FB85772D492AEBD707355C94FDE0DCE6" Type="WORD" Global="TRUE" Comment="Событие_событие номер 4_направление события_" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_N4_RESERV_CP" UUID="E9762FEE4512E1AF24FEF8814B363CD6" Type="WORD" Global="TRUE" Comment="Событие_событие номер 4_резерв_" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_N4_TIME_DAY_CP" UUID="A0E04B4E495C2009A898EAA962254BBF" Type="BYTE" Global="TRUE" Comment="Событие_событие номер 4_время события_день" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_N4_TIME_HOUR_CP" UUID="C4A7B6C249CB5FBA7BE5418E4168BBA6" Type="BYTE" Global="TRUE" Comment="Событие_событие номер 4_время события_часы" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_N4_TIME_MIN_CP" UUID="B58E73E5422B9E9DFDFDDCB64C7ECF59" Type="BYTE" Global="TRUE" Comment="Событие_событие номер 4_время события_минуты" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_N4_TIME_MONTH_CP" UUID="82BE279F44EB01D953A920B058188978" Type="BYTE" Global="TRUE" Comment="Событие_событие номер 4_время события_Месяц" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_N4_TIME_MS_CP" UUID="D86B50DA484081A8E32C04B488530789" Type="WORD" Global="TRUE" Comment="Событие_событие номер 4_время события_миллисекунды" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_N4_TIME_RESERV_CP" UUID="7759A5694BEE086975DDA38D73AF0289" Type="BYTE" Global="TRUE" Comment="Событие_событие номер 4_время события_резерв" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_N4_TIME_YEAR_CP" UUID="AA87900C43A4CCE1DFF08B91ADDEF96E" Type="BYTE" Global="TRUE" Comment="Событие_событие номер 4_время события_год" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_N4_TYPE_CP" UUID="D71E330446EFD57939AC9C8E47A685F8" Type="WORD" Global="TRUE" Comment="Событие_событие номер 4_тип события_" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_NN_ST" UUID="A29264474DA92D43F1630399FDABE2CD" Type="WORD" Global="TRUE" Comment="Группа Событие_событие номер N Состояние статус" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_NN_UP" UUID="733F10314114802634B304ADAC5A94B6" Type="BOOL" Global="TRUE" Comment="Группа Событие_событие номер N Обновить update" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_WORD_NUMB_CP" UUID="4D2080A64778A8B5E655DCBD296A7A09" Type="BYTE" Global="TRUE" Comment="Событие_слово обмена_Номер обмена_" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_WORD_QUANT_CP" UUID="82889A4E4384DE12E78D03BAE8073F98" Type="BYTE" Global="TRUE" Comment="Событие_слово обмена_Количество событий_" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_WORD_WR_ST" UUID="4F6CC2C74D1654F3D6FA0E80D8E1CD46" Type="WORD" Global="TRUE" Comment="Событие_слово обмена Состояние статус" />
+        <Signal Name="RAW_SEPAM_VV1_EVENT_WORD_WR_UP" UUID="A6C591B54D119486BEEAA7960250964A" Type="BOOL" Global="TRUE" Comment="Событие_слово обмена Обновить update" />
+        <Signal Name="RAW_SEPAM_VV1_OSCIL" UUID="02C11C644D8E02206C043890E4D49302" Type="94CD427C4FB607A0C990D9B2947C4BB8" Global="TRUE" />
+        <Signal Name="RAW_SEPAM_VV1_OSCIL_DATA_1_OSCIL_PREV" UUID="618C320148A62B34030BA3BA78D35528" Type="B07CB7CE4E4D270AE151008C971D986A" Global="TRUE" Comment="Время последней хаписи осциллограмма с последнего шага(в Oscillogramm_ReadDir)" />
+        <Signal Name="RAW_SEPAM_VV1_OSCIL_DATA_SCHIT_CP" UUID="1A8A94824CA8E532D7CB5384368013A3" Type="DWORD" ArraySize="62" Global="TRUE" Comment="данные записей. в зоне считывания" />
+        <Signal Name="RAW_SEPAM_VV1_OSCIL_DATA_VIBOR_CP" UUID="949EE6534CC641A1DD100CBDE2424E7D" Type="B07CB7CE4E4D270AE151008C971D986A" Global="TRUE" Comment="ссылка на требуемую запись в зоне выбора" />
+        <Signal Name="RAW_SEPAM_VV1_OSCIL_DATE_ZAPIS_10_CP" UUID="AF0FD9244928FF4B1B1D42AE57B82098" Type="B07CB7CE4E4D270AE151008C971D986A" Global="TRUE" Comment="Осциллограмма_дата_записи_10" />
+        <Signal Name="RAW_SEPAM_VV1_OSCIL_DATE_ZAPIS_11_CP" UUID="9A67F85F40E16FDC31F9B9B7FCB1377E" Type="B07CB7CE4E4D270AE151008C971D986A" Global="TRUE" Comment="Осциллограмма_дата_записи_11" />
+        <Signal Name="RAW_SEPAM_VV1_OSCIL_DATE_ZAPIS_12_CP" UUID="04FBA3C149C6B6E7A23821A4D87720DC" Type="B07CB7CE4E4D270AE151008C971D986A" Global="TRUE" Comment="Осциллограмма_дата_записи_12" />
+        <Signal Name="RAW_SEPAM_VV1_OSCIL_DATE_ZAPIS_13_CP" UUID="0F43F1E94A426582E8A6C1AD4481736A" Type="B07CB7CE4E4D270AE151008C971D986A" Global="TRUE" Comment="Осциллограмма_дата_записи_13" />
+        <Signal Name="RAW_SEPAM_VV1_OSCIL_DATE_ZAPIS_14_CP" UUID="7F57405E44D0CAD936AFA788E221F95E" Type="B07CB7CE4E4D270AE151008C971D986A" Global="TRUE" Comment="Осциллограмма_дата_записи_14" />
+        <Signal Name="RAW_SEPAM_VV1_OSCIL_DATE_ZAPIS_15_CP" UUID="6054D7444094359CD74B11A1BE669AD3" Type="B07CB7CE4E4D270AE151008C971D986A" Global="TRUE" Comment="Осциллограмма_дата_записи_15" />
+        <Signal Name="RAW_SEPAM_VV1_OSCIL_DATE_ZAPIS_16_CP" UUID="78F1C4574BE7C391669561A403C29058" Type="B07CB7CE4E4D270AE151008C971D986A" Global="TRUE" Comment="Осциллограмма_дата_записи_16" />
+        <Signal Name="RAW_SEPAM_VV1_OSCIL_DATE_ZAPIS_17_CP" UUID="00B57DFC49BE0FC259DDDBA20D1A36CE" Type="B07CB7CE4E4D270AE151008C971D986A" Global="TRUE" Comment="Осциллограмма_дата_записи_17" />
+        <Signal Name="RAW_SEPAM_VV1_OSCIL_DATE_ZAPIS_18_CP" UUID="DE6D66FB4CE6EF67BD1191AAAD7A66A0" Type="B07CB7CE4E4D270AE151008C971D986A" Global="TRUE" Comment="Осциллограмма_дата_записи_18" />
+        <Signal Name="RAW_SEPAM_VV1_OSCIL_DATE_ZAPIS_19_CP" UUID="C6BF89E74040C5A23381E5A0497D30AC" Type="B07CB7CE4E4D270AE151008C971D986A" Global="TRUE" Comment="Осциллограмма_дата_записи_19" />
+        <Signal Name="RAW_SEPAM_VV1_OSCIL_DATE_ZAPIS_1_CP" UUID="D3E99D6342869C52F8899F83C91EFF0F" Type="B07CB7CE4E4D270AE151008C971D986A" Global="TRUE" Comment="дата записи 1 (самая последняя) " />
+        <Signal Name="RAW_SEPAM_VV1_OSCIL_DATE_ZAPIS_2_CP" UUID="49DBEAB2466E082EA4E2DEA56521B31A" Type="B07CB7CE4E4D270AE151008C971D986A" Global="TRUE" Comment="Осциллограмма_дата_записи_2" />
+        <Signal Name="RAW_SEPAM_VV1_OSCIL_DATE_ZAPIS_3_CP" UUID="98D6652D490DEB199054FDB778873E16" Type="B07CB7CE4E4D270AE151008C971D986A" Global="TRUE" Comment="Осциллограмма_дата_записи_3" />
+        <Signal Name="RAW_SEPAM_VV1_OSCIL_DATE_ZAPIS_4_CP" UUID="5FB3AB3F4A7DC79D8319698E806189AE" Type="B07CB7CE4E4D270AE151008C971D986A" Global="TRUE" Comment="Осциллограмма_дата_записи_4" />
+        <Signal Name="RAW_SEPAM_VV1_OSCIL_DATE_ZAPIS_5_CP" UUID="56398C9A4900C62DDE5FE98366B4C108" Type="B07CB7CE4E4D270AE151008C971D986A" Global="TRUE" Comment="Осциллограмма_дата_записи_5" />
+        <Signal Name="RAW_SEPAM_VV1_OSCIL_DATE_ZAPIS_6_CP" UUID="4C4E7F8D4F4CED3EE0AB8FAC44C201C1" Type="B07CB7CE4E4D270AE151008C971D986A" Global="TRUE" Comment="Осциллограмма_дата_записи_6" />
+        <Signal Name="RAW_SEPAM_VV1_OSCIL_DATE_ZAPIS_7_CP" UUID="2BC2D4534BEE203970F737B3BD35C268" Type="B07CB7CE4E4D270AE151008C971D986A" Global="TRUE" Comment="Осциллограмма_дата_записи_7" />
+        <Signal Name="RAW_SEPAM_VV1_OSCIL_DATE_ZAPIS_8_CP" UUID="E16E5EC34F9EBA99AE12C4806848CCEA" Type="B07CB7CE4E4D270AE151008C971D986A" Global="TRUE" Comment="Осциллограмма_дата_записи_8" />
+        <Signal Name="RAW_SEPAM_VV1_OSCIL_DATE_ZAPIS_9_CP" UUID="6C05779B472DA9521DE842899CD8B070" Type="B07CB7CE4E4D270AE151008C971D986A" Global="TRUE" Comment="Осциллограмма_дата_записи_9" />
+        <Signal Name="RAW_SEPAM_VV1_OSCIL_MANUAL_ZAPUSK_STC" UUID="5BD78B614DE2A6B952DA838E493F3D3B" Type="BOOL" Global="TRUE" Comment="ручной запуск записи осциллограмм аварийных режимов STC" />
+        <Signal Name="RAW_SEPAM_VV1_OSCIL_MANUAL_ZAPUSK_TC" UUID="D41944C94A785CD1C1C14589903FBA78" Type="BOOL" Global="TRUE" Comment="ручной запуск записи осциллограмм аварийных режимов TC" />
+        <Signal Name="RAW_SEPAM_VV1_OSCIL_NEW_PRIZNAK_DATA_CP" UUID="B0D394D84E44138D274E2AA907A40E58" Type="BOOL" Global="TRUE" Comment="Признак что записана новая осциллограмма" />
+        <Signal Name="RAW_SEPAM_VV1_OSCIL_NEW_ZAPIS_DATA_CP" UUID="E4ADE98042779AB6BFF59B8AC54F8C28" Type="B07CB7CE4E4D270AE151008C971D986A" Global="TRUE" />
+        <Signal Name="RAW_SEPAM_VV1_OSCIL_N_CP" UUID="67CC9D0942509E0A073B2C8C2AB0DC70" Type="WORD" Global="TRUE" Comment="Осцилограмма_количество доступных записей_" />
+        <Signal Name="RAW_SEPAM_VV1_OSCIL_READING_CP" UUID="1BEBAC164DB79A6AD7C13A96FDF0BEB4" Type="BOOL" Global="TRUE" Comment="сигнал о записи осциллограммы(true - запись идёт, false-прекращена)" />
+        <Signal Name="RAW_SEPAM_VV1_OSCIL_SIZE_CONF_CP" UUID="80E15E28453F4991EFDB2A96D6A9EECE" Type="WORD" Global="TRUE" Comment="Размер файлов конфигурации" />
+        <Signal Name="RAW_SEPAM_VV1_OSCIL_SIZE_DATA_CP" UUID="295F88FC4A7CFBBFF3AEC0A4F8E35786" Type="DWORD" Global="TRUE" Comment="Размер файлов данных" />
+        <Signal Name="RAW_SEPAM_VV1_OSCIL_WORD_OBMEN_CP" UUID="C95F2EE84AC52E5E782827AC734E0DE4" Type="WORD" Global="TRUE" Comment="слово обмена из зоны считывания" />
         <Signal Name="RAW_SEPAM_VV1_Reg_Time" UUID="49E011454B0FE5CA02FC02B3914D1CC9" Type="BYTE" ArraySize="5" Global="TRUE" Comment="Астрономическое время встроенных часов- календаря  " />
         <Signal Name="RAW_SEPAM_VV1_Reg_Time_1" UUID="0CD5DEAB4A2FF36606B6C3AAAA4B623B" Type="BYTE" ArraySize="5" Global="TRUE" Comment="Астрономическое время встроенных часов- календаря   " />
         <Signal Name="RAW_SEPAM_VV1_Reg_Time_2" UUID="192B5A124B28AABD2BE9FDB2C00E1DE7" Type="BYTE" ArraySize="5" Global="TRUE" Comment="Астрономическое время встроенных часов- календаря  " />
@@ -1352,6 +1371,9 @@
         <Signal Name="RAW_SEPAM_VV1_UST_WR_1" UUID="FC295AFF450A3507C89C9A9F303D92E0" Type="WORD" Global="TRUE" />
         <Signal Name="RAW_SEPAM_VV1_UST_WR_ST" UUID="9E1462F049AC3CB60AB1EF924CC3C43E" Type="WORD" Global="TRUE" Comment="запись телерегулировки в драйвере статус" />
         <Signal Name="RAW_SEPAM_VV1_UST_WR_UP" UUID="6FB9B5694AC0CBDED65AF084EFACFBCB" Type="BOOL" Global="TRUE" Comment="запись телерегулировки в драйвере update" />
+        <Signal Name="RAW_TVS_A1800_WP" UUID="43F2B45748A8655D68EB27AB7C14533C" Type="UDINT" Global="TRUE" />
+        <Signal Name="RAW_TVS_A1800_WQ" UUID="E8D91BA24CE33F28D580438553F1DA93" Type="UDINT" Global="TRUE" />
+        <Signal Name="RAW_TVS_A1800_WS" UUID="F254214D4A350BA000BA9C93FA2C7011" Type="UDINT" Global="TRUE" />
         <Signal Name="RAW_TVS_KNS_KOSNEIS_DP" UUID="BF35F7234FF421FF4E90C88AE1888E72" Type="BOOL" Global="TRUE" Comment="Панель ТВС_КОС_Неисправность КОС" />
         <Signal Name="RAW_TVS_KNS_KOSVRAB_DP" UUID="330D1A1F47A669AB0C7FB79D4A08A4FC" Type="BOOL" Global="TRUE" Comment="Панель ТВС_КОС_КОС в работе" />
         <Signal Name="RAW_TVS_KNS_NASAVAR_DP" UUID="1E5CD4ED4BCF7B09995B64ABDD6EC311" Type="BOOL" Global="TRUE" Comment="Панель ТВС_КНС_Авария насоса КНС" />
@@ -1360,20 +1382,18 @@
         <Signal Name="RAW_TVS_KNS_SAUAVT_DP" UUID="097FEB53404790E9EF262FA255F8ADE6" Type="BOOL" Global="TRUE" Comment="Панель ТВС_КНС_Автоматический режим работы САУ КНС включен" />
         <Signal Name="RAW_TVS_KOT_KOTELVKL_DP" UUID="9874FD544F4500ED89571C84EA0C7102" Type="BOOL" Global="TRUE" Comment="Панель ТВС_КОТ_Котел включен" />
         <Signal Name="RAW_TVS_KOT_OTKLOTKR_DP" UUID="D985328F46B4705876DC20ACBA718EAA" Type="BOOL" Global="TRUE" Comment="Панель ТВС_КОТ_Отсечной клапан открыт" />
-        <Signal Name="RAW_TVS_KOT_P1TEMP_AP" UUID="BCA73BCB4A5E852B55D32EA81A7A390E" Type="WORD" Global="TRUE" Comment="Панель ТВС_AI_КОТ Температура прямоточной воды" />
         <Signal Name="RAW_TVS_KOT_P1PRESS_AP" UUID="2116A49A4573A33B367BDB9843B225F5" Type="WORD" Global="TRUE" Comment="Панель ТВС_AI_КОТ_Давление прямоточной воды" />
-        <Signal Name="RAW_TVS_KOT_P2TEMP_AP" UUID="D86E39DF41A72DF44592869CDDEB1273" Type="WORD" Global="TRUE" Comment="Панель ТВС_AI_КОТ_Температура обратной воды" />
+        <Signal Name="RAW_TVS_KOT_P1TEMP_AP" UUID="BCA73BCB4A5E852B55D32EA81A7A390E" Type="WORD" Global="TRUE" Comment="Панель ТВС_AI_КОТ Температура прямоточной воды" />
         <Signal Name="RAW_TVS_KOT_P2PRESS_AP" UUID="612BF6B94EC02DA8CA35D38D208FEC7F" Type="WORD" Global="TRUE" Comment="Панель ТВС_AI_КОТ_Давление обратной воды" />
+        <Signal Name="RAW_TVS_KOT_P2TEMP_AP" UUID="D86E39DF41A72DF44592869CDDEB1273" Type="WORD" Global="TRUE" Comment="Панель ТВС_AI_КОТ_Температура обратной воды" />
         <Signal Name="RAW_TVS_KOT_RECNASVKL_DP" UUID="11D4BF5F47CE2FBF53FD9CBC21B9651D" Type="BOOL" Global="TRUE" Comment="Панель ТВС_КОТ_Рециркулярционный насос включен" />
         <Signal Name="RAW_TVS_KOT_SETNASAVAR_DP" UUID="664A542A4FA2155638FCE4A8D78B361B" Type="BOOL" Global="TRUE" Comment="Панель ТВС_КОТ_Авария сетевого насоса" />
         <Signal Name="RAW_TVS_KOT_SETNASVKL_DP" UUID="ACC4281A4BD99C30F1D938863856B6EC" Type="BOOL" Global="TRUE" Comment="Панель ТВС_КОТ_Сетевой насос включен" />
         <Signal Name="RAW_TVS_KU_OTKRSHIB_CO" UUID="5827D8B94975613DB1C95A9B33A6DA3A" Type="BOOL" Global="TRUE" Comment="Панель ТВС_КУ_Шибер открыть" />
-        <Signal Name="RAW_TVS_KU_P1TEMP_AP" UUID="F232E8F24A7D1CEBCCD0E0BE842AFEF2" Type="WORD" Global="TRUE" Comment="Панель ТВС_AI_КУ Температура прямоточной воды" />
         <Signal Name="RAW_TVS_KU_P1PRESS_AP" UUID="0622FCB14D196458318093B6E421FD07" Type="WORD" Global="TRUE" Comment="Панель ТВС_AI_КУ_Давление прямоточной воды" />
-        <Signal Name="RAW_TVS_KU_P2TEMP_AP" UUID="E6847F2C43B8C3087D8C42BE66CECD0C" Type="WORD" Global="TRUE" Comment="Панель ТВС_AI_КУ_Температура обратной воды" />
+        <Signal Name="RAW_TVS_KU_P1TEMP_AP" UUID="F232E8F24A7D1CEBCCD0E0BE842AFEF2" Type="WORD" Global="TRUE" Comment="Панель ТВС_AI_КУ Температура прямоточной воды" />
         <Signal Name="RAW_TVS_KU_P2PRESS_AP" UUID="D71D0A9548BB50B045235D8B2853B70F" Type="WORD" Global="TRUE" Comment="Панель ТВС_AI_КУ_Давление обратной воды " />
-        <Signal Name="S_TVS_KU_P1TEMP_AP" UUID="6FB1EA3146E3F9ABE95BFC886D8C6AD9" Type="WORD" Global="TRUE" Comment="ТВС_AI_КU_Температура прямоточной воды" />
-        <Signal Name="S_TVS_KU_P2TEMP_AP" UUID="F43602724CA99092263349BDBB313F95" Type="WORD" Global="TRUE" Comment="ТВС_AI_КU_Температура обратной воды" />
+        <Signal Name="RAW_TVS_KU_P2TEMP_AP" UUID="E6847F2C43B8C3087D8C42BE66CECD0C" Type="WORD" Global="TRUE" Comment="Панель ТВС_AI_КУ_Температура обратной воды" />
         <Signal Name="RAW_TVS_KU_SHIBOTKR_DP" UUID="97D04CE643357FDF372F838064CB5ED8" Type="BOOL" Global="TRUE" Comment="Панель ТВС_КУ_Шибер открыт" />
         <Signal Name="RAW_TVS_KU_SHIBZAKR_DP" UUID="FD2AD6DC4787E365F21AF79D4529DD41" Type="BOOL" Global="TRUE" Comment="Панель ТВС_КУ_Шибер закрыт" />
         <Signal Name="RAW_TVS_KU_ZAKRSHIB_CO" UUID="B0B2C42F4293CDAC5929F4A063D36273" Type="BOOL" Global="TRUE" Comment="Панель ТВС_КУ_Шибер закрыть" />
@@ -1412,6 +1432,17 @@
         <Signal Name="RAW_TVS_VOS_VAVARURRES_DP" UUID="711394744B96929A9E0D28AE73B0B648" Type="BOOL" Global="TRUE" Comment="Панель ТВС_ТВС_ВОС_РЕЗ_Уровень воды ВЕРХНИЙ АВАРИЙНЫЙ" />
         <Signal Name="RAW_USO_SNT_XT7_1A_AI" UUID="44DF1DAF4D8FF5248DADDD8E9AB66549" Type="REAL" Global="TRUE" Comment="ЗРУ-10кВ. Температура в помещении ЗРУ. Необработанный" />
         <Signal Name="RAW_USO_SNT_XT7_2A_AI" UUID="A9ABF4934BBE536ABCE7968360D2B5B3" Type="REAL" Global="TRUE" Comment="КТП c БМРЗ. Температура в помещении КТП. . Необработанный" />
+        <Signal Name="RashodDay" UUID="1A280A5246CC9A81AC9FCABE75077C1E" Type="REAL" ArraySize="48" Global="TRUE" Storage="persistent" Comment="Показания расходомера за день" />
+        <Signal Name="RashodDayItog" UUID="79DE949E4AFA697F8AF3599D6D500705" Type="REAL" ArraySize="4" Global="TRUE" Storage="persistent" Comment="Сумма Среднее Минимум и Максимум показания расходомера за неделю" />
+        <Signal Name="RashodHH" UUID="E8BCCB9A41D37D2B4117F5A753BBABA8" Type="REAL" ArraySize="3600" Global="TRUE" Storage="persistent" Comment="Показания расходомера за час" />
+        <Signal Name="RashodHHItog" UUID="3CD982B14A0DA16FE50BAEA8F9C26EAC" Type="REAL" ArraySize="4" Global="TRUE" Storage="persistent" Comment="Сумма Среднее Минимум и максимум показаний расходомера за день" />
+        <Signal Name="RashodMonth" UUID="B9D52F504D99A10B1188C3BA4F543ECD" Type="REAL" ArraySize="31" Global="TRUE" Storage="persistent" />
+        <Signal Name="RashodMonthItog" UUID="06C9C27A4CCDB34D96D93085EE73AFB2" Type="REAL" ArraySize="4" Global="TRUE" Storage="persistent" />
+        <Signal Name="RashodWeek" UUID="D0D4CCA04594F4F67A2178B4A5D12CF9" Type="REAL" ArraySize="7" Global="TRUE" Storage="persistent" />
+        <Signal Name="RashodWeekItog" UUID="A6185D014C235D49DBE00AB28CC1F991" Type="REAL" ArraySize="4" Global="TRUE" />
+        <Signal Name="ReserveS1" UUID="848BD8E74E16B103AE80909202FA3B47" Type="BOOL" ArraySize="8" Global="TRUE" Comment="Резервирование программ 1-го Сервера" />
+        <Signal Name="ReserveS2" UUID="864FAAC146DE52BBE44F99A8CE885EB4" Type="BOOL" ArraySize="8" Global="TRUE" Comment="Резервирование программ 2-го Сервера" />
+        <Signal Name="S1Active" UUID="BE753C3348846194EA016783735AD5DA" Type="BOOL" Global="TRUE" Comment="Признак работоспосбности 1-го основного сервера" />
         <Signal Name="SOUND_CRITICAL" UUID="AB732043442E764A0CFECDAE0674F180" Type="BOOL" Global="TRUE" Comment="Звуковая сигнализация ALARM" />
         <Signal Name="SOUND_WARNING" UUID="04DBB02C4EE20E3E689948BFF072B6B4" Type="BOOL" Global="TRUE" Comment="Звуковая сигнализация WARNING" />
         <Signal Name="S_KTP_P05_AV1_AVOTKVAV_DP" UUID="D09E32BB41C73B1C9BFCF599D3F2143D" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №5_Аварийный ввод 1. Аварийное отключение ВАВ " />
@@ -1592,22 +1623,6 @@
         <Signal Name="S_KTP_P05_VV2_VVIK_DP" UUID="B4A8FE4C47E0A81DAA14009FEC5E7CC2" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №5_Ввод 2. Выключатель ввода выкачен " />
         <Signal Name="S_KTP_P05_VV2_VVKL_DP" UUID="4BCF7BF94E849A638B570FAD363FA310" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №5_Ввод 2. Выключатель ввода включен " />
         <Signal Name="S_KTP_P06_AV1_AVOTKVAV_DP" UUID="E0946AE7443C6EBBAF3CB48B4D9281AB" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 1. Аварийное отключение ВАВ " />
-        <Signal Name="S_KTP_P06_EVENT_STRING_0" UUID="C928A4124FD7814ACA1049BECC74D7E1" Type="STRING" Global="TRUE" Comment=" КТП М340. Строка стека событий 0" />
-        <Signal Name="S_KTP_P06_EVENT_STRING_1" UUID="1F9F6531413A21ADD2A604B52CE07E74" Type="STRING" Global="TRUE" Comment=" КТП М340. Строка стека событий 1" />
-        <Signal Name="S_KTP_P06_EVENT_STRING_2" UUID="1BE8694544040365B8A0018025606D4B" Type="STRING" Global="TRUE" Comment=" КТП М340. Строка стека событий 2" />
-        <Signal Name="S_KTP_P06_EVENT_STRING_3" UUID="7AD7E0374607E86AF6EB1B93928502A6" Type="STRING" Global="TRUE" Comment=" КТП М340. Строка стека событий 3" />
-        <Signal Name="S_KTP_P06_EVENT_STRING_4" UUID="F319D8A145D64E85190FF6AD77E3FE74" Type="STRING" Global="TRUE" Comment=" КТП М340. Строка стека событий 4" />
-        <Signal Name="S_KTP_P06_EVENT_STRING_5" UUID="16F7762F40D57AD88FDFFC9E4D9349A6" Type="STRING" Global="TRUE" Comment=" КТП М340. Строка стека событий 5" />
-        <Signal Name="S_KTP_P06_EVENT_STRING_6" UUID="1434BBC44F95F73D369D55BF5A3FAECD" Type="STRING" Global="TRUE" Comment=" КТП М340. Строка стека событий 6" />
-        <Signal Name="S_KTP_P06_EVENT_STRING_7" UUID="96A2DF944DC4FF837C116C8BB9B3C9D0" Type="STRING" Global="TRUE" Comment=" КТП М340. Строка стека событий 7" />
-        <Signal Name="S_KTP_P06_EVENT_STRING_8" UUID="8F50966042E9C2BDA760819623F81B6F" Type="STRING" Global="TRUE" Comment=" КТП М340. Строка стека событий 8" />
-        <Signal Name="S_KTP_P06_EVENT_STRING_9" UUID="A47FA0A74B864FC6DD8CDFB83654285B" Type="STRING" Global="TRUE" Comment=" КТП М340. Строка стека событий 9" />
-        <Signal Name="S_KTP_P06_EVENT_STRING_10" UUID="4F2B64FD49D96FF4B3EC5AA485BEAD37" Type="STRING" Global="TRUE" Comment=" КТП М340. Строка стека событий 10" />
-        <Signal Name="S_KTP_P06_EVENT_STRING_11" UUID="97C7DE0945B44931F911738903BA4038" Type="STRING" Global="TRUE" Comment=" КТП М340. Строка стека событий 11" />
-        <Signal Name="S_KTP_P06_EVENT_STRING_12" UUID="918474B441C2FCBC86B340951947EF92" Type="STRING" Global="TRUE" Comment=" КТП М340. Строка стека событий 12" />
-        <Signal Name="S_KTP_P06_EVENT_STRING_13" UUID="22ACAAD6487B7EDDD2D7FBB4092ECB61" Type="STRING" Global="TRUE" Comment=" КТП М340. Строка стека событий 13" />
-        <Signal Name="S_KTP_P06_EVENT_STRING_14" UUID="9CB637214BF582B75B66E18EF54EBFFF" Type="STRING" Global="TRUE" Comment=" КТП М340. Строка стека событий 14" />
-        <Signal Name="S_KTP_P06_EVENT_STRING_15" UUID="68A7AA6D49DB44E1D027F9BFBC5474BC" Type="STRING" Global="TRUE" Comment=" КТП М340. Строка стека событий 15" />
         <Signal Name="S_KTP_P06_AV1_AVRAVOTKPU_DP" UUID="E3F6EF0A46DB2F8AB10B03A809BE1B78" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 1. АВР АВ отключено с ПУ " />
         <Signal Name="S_KTP_P06_AV1_AVRAVOTK_DP" UUID="72DC2AA84B48E2D80E6941976EE7E742" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 1. АВР АВ отключен " />
         <Signal Name="S_KTP_P06_AV1_AVRAVVKLPU_DP" UUID="274905C243526DFD5F1F888A93914C85" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 1. АВР АВ включено с ПУ " />
@@ -1680,6 +1695,22 @@
         <Signal Name="S_KTP_P06_AV2_VKLVAVAVRAV_DP" UUID="E14974AC409D8039D0C8358FB71DF848" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 2. Включение ВАВ по АВР АВ " />
         <Signal Name="S_KTP_P06_AV2_VKLVAV_CO" UUID="445564104F2F1FB6D6A32891AF9F6728" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Аварийный ввод 2. Включить BАВ " />
         <Signal Name="S_KTP_P06_DS_DP" UUID="4D6DFBFA4D672F964E01DE9A4BA448C4" Type="USINT" Global="TRUE" Comment=" АСУ ЭС_КТП 10/0,4 кВ_Панель №6 . Определение достоверности " />
+        <Signal Name="S_KTP_P06_EVENT_STRING_0" UUID="C928A4124FD7814ACA1049BECC74D7E1" Type="STRING" Global="TRUE" Comment=" КТП М340. Строка стека событий 0" />
+        <Signal Name="S_KTP_P06_EVENT_STRING_1" UUID="1F9F6531413A21ADD2A604B52CE07E74" Type="STRING" Global="TRUE" Comment=" КТП М340. Строка стека событий 1" />
+        <Signal Name="S_KTP_P06_EVENT_STRING_10" UUID="4F2B64FD49D96FF4B3EC5AA485BEAD37" Type="STRING" Global="TRUE" Comment=" КТП М340. Строка стека событий 10" />
+        <Signal Name="S_KTP_P06_EVENT_STRING_11" UUID="97C7DE0945B44931F911738903BA4038" Type="STRING" Global="TRUE" Comment=" КТП М340. Строка стека событий 11" />
+        <Signal Name="S_KTP_P06_EVENT_STRING_12" UUID="918474B441C2FCBC86B340951947EF92" Type="STRING" Global="TRUE" Comment=" КТП М340. Строка стека событий 12" />
+        <Signal Name="S_KTP_P06_EVENT_STRING_13" UUID="22ACAAD6487B7EDDD2D7FBB4092ECB61" Type="STRING" Global="TRUE" Comment=" КТП М340. Строка стека событий 13" />
+        <Signal Name="S_KTP_P06_EVENT_STRING_14" UUID="9CB637214BF582B75B66E18EF54EBFFF" Type="STRING" Global="TRUE" Comment=" КТП М340. Строка стека событий 14" />
+        <Signal Name="S_KTP_P06_EVENT_STRING_15" UUID="68A7AA6D49DB44E1D027F9BFBC5474BC" Type="STRING" Global="TRUE" Comment=" КТП М340. Строка стека событий 15" />
+        <Signal Name="S_KTP_P06_EVENT_STRING_2" UUID="1BE8694544040365B8A0018025606D4B" Type="STRING" Global="TRUE" Comment=" КТП М340. Строка стека событий 2" />
+        <Signal Name="S_KTP_P06_EVENT_STRING_3" UUID="7AD7E0374607E86AF6EB1B93928502A6" Type="STRING" Global="TRUE" Comment=" КТП М340. Строка стека событий 3" />
+        <Signal Name="S_KTP_P06_EVENT_STRING_4" UUID="F319D8A145D64E85190FF6AD77E3FE74" Type="STRING" Global="TRUE" Comment=" КТП М340. Строка стека событий 4" />
+        <Signal Name="S_KTP_P06_EVENT_STRING_5" UUID="16F7762F40D57AD88FDFFC9E4D9349A6" Type="STRING" Global="TRUE" Comment=" КТП М340. Строка стека событий 5" />
+        <Signal Name="S_KTP_P06_EVENT_STRING_6" UUID="1434BBC44F95F73D369D55BF5A3FAECD" Type="STRING" Global="TRUE" Comment=" КТП М340. Строка стека событий 6" />
+        <Signal Name="S_KTP_P06_EVENT_STRING_7" UUID="96A2DF944DC4FF837C116C8BB9B3C9D0" Type="STRING" Global="TRUE" Comment=" КТП М340. Строка стека событий 7" />
+        <Signal Name="S_KTP_P06_EVENT_STRING_8" UUID="8F50966042E9C2BDA760819623F81B6F" Type="STRING" Global="TRUE" Comment=" КТП М340. Строка стека событий 8" />
+        <Signal Name="S_KTP_P06_EVENT_STRING_9" UUID="A47FA0A74B864FC6DD8CDFB83654285B" Type="STRING" Global="TRUE" Comment=" КТП М340. Строка стека событий 9" />
         <Signal Name="S_KTP_P06_PU_AVARKTP_DP" UUID="6CEDEDBE4E569F939E65DDB78F7C3D73" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Авария КТП" />
         <Signal Name="S_KTP_P06_PU_AVTVIKCOBOTK_DP" UUID="E6FB6AAF44AC21F561EED9900C3FE7A4" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_авт. Выключатель цепей обогрева откл.&#x0A;" />
         <Signal Name="S_KTP_P06_PU_AVTVIKCSIGOTK_DP" UUID="807995354EA5882A470AC0AA0E873FAD" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_КТП 10/0,4 кВ_Панель №6_Авт. Выключатель цепей сигнализации откл." />
@@ -2510,6 +2541,11 @@
         <Signal Name="S_KTP_P07_XT7_2A_AI" UUID="41E9458D4546E92A36661B9727F3E987" Type="REAL" Global="TRUE" Comment="КТП c БМРЗ. Температура в помещении КТП" />
         <Signal Name="S_KTP_P07_XT7_2A_AI_KZ" UUID="71EFC2FE4059112550F4AE8ADF5C8D73" Type="BOOL" Global="TRUE" Comment="КТП c БМРЗ. Температура в помещении КТП. Короткое замыкание" />
         <Signal Name="S_KTP_P07_XT7_2A_AI_OL" UUID="8E7F5CA6469490495F49AE918DB6EB57" Type="BOOL" Global="TRUE" Comment="КТП c БМРЗ. Температура в помещении КТП. Обрыв" />
+        <Signal Name="S_RM_A10503_AI" UUID="E2EC00B04CD6BB00B51B8F82ACC8AE1B" Type="REAL" Global="TRUE" Comment="Показания расходомера " />
+        <Signal Name="S_TVS_A1800_WP" UUID="474989A64485E4AFCF520D9E46D12024" Type="UDINT" Global="TRUE" />
+        <Signal Name="S_TVS_A1800_WQ" UUID="29E893774236B04BA1D4E097617CED8A" Type="UDINT" Global="TRUE" />
+        <Signal Name="S_TVS_A1800_WS" UUID="675A1E194AF0533B78E70BA875FB78E9" Type="UDINT" Global="TRUE" />
+        <Signal Name="S_TVS_DS_DP" UUID="E6C368D54B1D4A4FCD7E07B9677481B9" Type="USINT" Global="TRUE" Comment="АСУ ЭС_ТВС_Панель №1. Определение достоверност" />
         <Signal Name="S_TVS_KNS_KOSNEIS_DP" UUID="2F661C584828DCBD824EFAB24FCFF1D6" Type="BOOL" Global="TRUE" Comment="ТВС_КОС_Неисправность КОС" />
         <Signal Name="S_TVS_KNS_KOSVRAB_DP" UUID="CDFCBABC46AAACC61AF1B5AC74FFDC1F" Type="BOOL" Global="TRUE" Comment="ТВС_КОС_КОС в работе" />
         <Signal Name="S_TVS_KNS_NASAVAR_DP" UUID="E026BEEE44758C04D664B9AAEC380F95" Type="BOOL" Global="TRUE" Comment="ТВС_КНС_Авария насоса КНС" />
@@ -2518,16 +2554,18 @@
         <Signal Name="S_TVS_KNS_SAUAVT_DP" UUID="40D6739440895B6E4CAA92955A6086F8" Type="BOOL" Global="TRUE" Comment="ТВС_КНС_Автоматический режим работы САУ КНС включен" />
         <Signal Name="S_TVS_KOT_KOTELVKL_DP" UUID="8902498348A10224608704A1811CB172" Type="BOOL" Global="TRUE" Comment="ТВС_КОТ_Котел включен" />
         <Signal Name="S_TVS_KOT_OTKLOTKR_DP" UUID="579A0AB5440BE42AB17B1DAC4E0B9957" Type="BOOL" Global="TRUE" Comment="ТВС_КОТ_Отсечной клапан открыт" />
-        <Signal Name="S_TVS_KOT_P1TEMP_AP" UUID="D8E2D46C4A4EBA5FAE7B9197DCD0FB79" Type="WORD" Global="TRUE" Comment="ТВС_AI_КОТ_Температура прямоточной воды" />
-        <Signal Name="S_TVS_KOT_P2TEMP_AP" UUID="F40092D84429B7E59EB44A90A31CD923" Type="WORD" Global="TRUE" Comment="ТВС_AI_КОТ_Температура обратной воды" />
         <Signal Name="S_TVS_KOT_P1PRESS_AP" UUID="D37A43624BEC620C685817AB79241347" Type="WORD" Global="TRUE" Comment="ТВС_AI_КОТ_Давление прямоточной воды" />
+        <Signal Name="S_TVS_KOT_P1TEMP_AP" UUID="D8E2D46C4A4EBA5FAE7B9197DCD0FB79" Type="WORD" Global="TRUE" Comment="ТВС_AI_КОТ_Температура прямоточной воды" />
         <Signal Name="S_TVS_KOT_P2PRESS_AP" UUID="A3A2E0454CE07C505B7EE4A21774BA18" Type="WORD" Global="TRUE" Comment="ТВС_AI_КОТ_Давление обратной воды" />
+        <Signal Name="S_TVS_KOT_P2TEMP_AP" UUID="F40092D84429B7E59EB44A90A31CD923" Type="WORD" Global="TRUE" Comment="ТВС_AI_КОТ_Температура обратной воды" />
         <Signal Name="S_TVS_KOT_RECNASVKL_DP" UUID="4645E0E44B99CD0C003702B97280264B" Type="BOOL" Global="TRUE" Comment="ТВС_КОТ_Рециркулярционный насос включен" />
         <Signal Name="S_TVS_KOT_SETNASAVAR_DP" UUID="DCA26E68418DD731E1529AA2F8631979" Type="BOOL" Global="TRUE" Comment="ТВС_КОТ_Авария сетевого насоса" />
         <Signal Name="S_TVS_KOT_SETNASVKL_DP" UUID="AD14CCA04C28FCAEDBE9F186622B3E00" Type="BOOL" Global="TRUE" Comment="ТВС_КОТ_Сетевой насос включен" />
         <Signal Name="S_TVS_KU_OTKRSHIB_CO" UUID="A1E17DCA4A0C8A5B34FFB2845C577F78" Type="BOOL" Global="TRUE" Comment="ТВС_КУ_Шибер открыть" />
         <Signal Name="S_TVS_KU_P1PRESS_AP" UUID="BA0E164F42204CE31CA8D18DFF344AB2" Type="WORD" Global="TRUE" Comment="ТВС_AI_КУ_Давление прямоточной воды" />
+        <Signal Name="S_TVS_KU_P1TEMP_AP" UUID="6FB1EA3146E3F9ABE95BFC886D8C6AD9" Type="WORD" Global="TRUE" Comment="ТВС_AI_КU_Температура прямоточной воды" />
         <Signal Name="S_TVS_KU_P2PRESS_AP" UUID="591BE7984E91FB7142F232BBF6C951F6" Type="WORD" Global="TRUE" Comment="ТВС_AI_КУ_Давление обратной воды " />
+        <Signal Name="S_TVS_KU_P2TEMP_AP" UUID="F43602724CA99092263349BDBB313F95" Type="WORD" Global="TRUE" Comment="ТВС_AI_КU_Температура обратной воды" />
         <Signal Name="S_TVS_KU_SHIBOTKR_DP" UUID="027C0E014AC3EDCFB0A926947331F2C5" Type="BOOL" Global="TRUE" Comment="ТВС_КУ_Шибер открыт" />
         <Signal Name="S_TVS_KU_SHIBZAKR_DP" UUID="FCA784FC4B8B2C6BB4CDFBB33E3E4C74" Type="BOOL" Global="TRUE" Comment="ТВС_КУ_Шибер закрыт" />
         <Signal Name="S_TVS_KU_ZAKRSHIB_CO" UUID="755348AA4B809B6B5AA2F08A12E43FC2" Type="BOOL" Global="TRUE" Comment="ТВС_КУ_Шибер закрыть" />
@@ -2658,10 +2696,16 @@
         <Signal Name="S_ZRU_P11_OLS80_815_AP" UUID="1E830D154D6DE93781315AAAFF98A1B6" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Отходящая линия с АПВ SEPAM S80_Счетчик количества выката выключателей" />
         <Signal Name="S_ZRU_P11_OLS80_817_AP" UUID="E045C41E40C429EC2EDA459E94B07A13" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Отходящая линия с АПВ SEPAM S80_Счетчик отключения междуфазных КЗ" />
         <Signal Name="S_ZRU_P11_OLS80_818_AP" UUID="209EC3F14C7D7466F040A082033CF607" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Отходящая линия с АПВ SEPAM S80_Счетчик отключения при замыканиях на землю" />
+        <Signal Name="S_ZRU_P11_OLS80_DS_DP" UUID="FBC6D34F4C105F0A92E67FABF4F84C27" Type="USINT" Global="TRUE" />
+        <Signal Name="S_ZRU_P11_OLS80_OSCIL_PATH" UUID="E221AD274E1641F0728F328EC2E7D57A" Type="STRING" Global="TRUE" />
         <Signal Name="S_ZRU_P11_OLS80_Reg_Time" UUID="A467E37D464B55D9445D4CB397B62DE9" Type="STRING" Global="TRUE" Comment="Астрономическое время в SEPAM" />
         <Signal Name="S_ZRU_P11_OLS80_Reg_Time_CO" UUID="A6FBD8E5405AF1FAF9956BBA7A498301" Type="BOOL" Global="TRUE" />
         <Signal Name="S_ZRU_P11_OLS80_Reg_Time_Set_AV" UUID="9398469C464C19FDF33FAA86FC3CB02D" Type="BOOL" Global="TRUE" Comment="Установка текущего астрономического времени автоматическки" />
         <Signal Name="S_ZRU_P11_OLS80_SysCmd_T_Cor_AV" UUID="9858D58A404CD5607CB932A68FF0C90F" Type="BOOL" Global="TRUE" Comment="Коррекция астрономического времени автоматически" />
+        <Signal Name="S_ZRU_P11_OSCIL_OLS80_PATH" UUID="C93B820E4B901317DC7B7BB4465BD12C" Type="STRING" Global="TRUE" />
+        <Signal Name="S_ZRU_P11_OSCIL_PATH" UUID="CFFCA0D741B827C7D89C1DA411D1B8B5" Type="STRING" Global="TRUE" Comment="Путь папки с считанными осциллограммами" />
+        <Signal Name="S_ZRU_P11_OSCIL_SHTN_PATH" UUID="6FDFFE30483C23FB914D5480D0171C41" Type="STRING" Global="TRUE" />
+        <Signal Name="S_ZRU_P11_OSCIL_SV_PATH" UUID="59E15B264F8E2550178C4A83AE16AD76" Type="STRING" Global="TRUE" />
         <Signal Name="S_ZRU_P11_SHTN_3088_0_DP" UUID="426544D14160D039147793A5E652F5D1" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Выключатель ввода или СВ включен" />
         <Signal Name="S_ZRU_P11_SHTN_3088_10_DP" UUID="E4A993DC4F2F7CE157191E98E30B7CF8" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Сигнал из ввода «U обр. послед. больше»" />
         <Signal Name="S_ZRU_P11_SHTN_3088_11_DP" UUID="DF809F244B0A6FDC939C0A88B04BFF25" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Авт. выкл. доп. обмотки ТН отключен" />
@@ -2706,13 +2750,14 @@
         <Signal Name="S_ZRU_P11_SHTN_64007_AP" UUID="ACF41BDA43FEFD899366738779D5895C" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Линейное напряжение U32" />
         <Signal Name="S_ZRU_P11_SHTN_64008_AP" UUID="A8581A414F06E3071BB940803870F1DC" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Линейное напряжение U13" />
         <Signal Name="S_ZRU_P11_SHTN_64009_AP" UUID="B9263DB541F262CC5A60998FA4B677C5" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Шинный трансформатор напряжения_Частота" />
+        <Signal Name="S_ZRU_P11_SHTN_OSCIL_PATH" UUID="2030445E4246B91CDB6A3E995A496BD3" Type="STRING" Global="TRUE" />
         <Signal Name="S_ZRU_P11_SHTN_Reg_Time" UUID="BDF133404AA5FC98F5CFA786A476C567" Type="STRING" Global="TRUE" Comment="Астрономическое время в SEPAM" />
         <Signal Name="S_ZRU_P11_SHTN_Reg_Time_CO" UUID="229F624C4E4A46F7F0428BBF90854D39" Type="BOOL" Global="TRUE" />
         <Signal Name="S_ZRU_P11_SHTN_Reg_Time_Set_AV" UUID="C854F90A4265E922BFF044B41E85DA6C" Type="BOOL" Global="TRUE" Comment="Установка текущего астрономического времени автоматическки" />
         <Signal Name="S_ZRU_P11_SHTN_SysCmd_T_Cor_AV" UUID="72AF45FF41267F6271068DBBA8E07BB3" Type="BOOL" Global="TRUE" Comment="Коррекция астрономического времени автоматически" />
         <Signal Name="S_ZRU_P11_STN_DS_DP" UUID="74FF8E0B482BA4268EA8C0B867400FDD" Type="USINT" Global="TRUE" Comment=" АСУ ЭС_ЗРУ 10 кВ_Панель №11_ШТН. Определение достоверности " />
-        <Signal Name="S_ZRU_P11_OLS80_DS_DP" UUID="FBC6D34F4C105F0A92E67FABF4F84C27" Type="USINT" Global="TRUE" />
         <Signal Name="S_ZRU_P11_SV_DS_DP" UUID="38E0F60A426093E06B3F4EBE43806834" Type="USINT" Global="TRUE" />
+        <Signal Name="S_ZRU_P11_SV_OSCIL_PATH" UUID="C9A91B154542C7B6561770A9F0AFD0F5" Type="STRING" Global="TRUE" />
         <Signal Name="S_ZRU_P11_VV1_3088_0_DP" UUID="649405D642E1ED29D37AD289C8F59E9A" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_РПВ (Реле положения «Включено»)" />
         <Signal Name="S_ZRU_P11_VV1_3088_10_DP" UUID="7FE2F8A040C138B8477EB89ECC7D1377" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Отключение от ДГЗ, УРОВ" />
         <Signal Name="S_ZRU_P11_VV1_3088_11_DP" UUID="B48220E84E70513F8B711AB148097772" Type="BOOL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Отключение от защит трансформатора" />
@@ -2808,6 +2853,7 @@
         <Signal Name="S_ZRU_P11_VV1_815_AP" UUID="EA89BBD746CFB4ABC11A4A9EF812D1D6" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Счетчик количества выката выключателей" />
         <Signal Name="S_ZRU_P11_VV1_817_AP" UUID="51CFCCDB4AD6CF78630E18868C6CB8C0" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1_Счетчик отключения междуфазных КЗ" />
         <Signal Name="S_ZRU_P11_VV1_DS_DP" UUID="58E1C9194024354CF5DDDF8A2274F2E9" Type="USINT" Global="TRUE" Comment=" АСУ ЭС_ЗРУ 10 кВ_Панель №11_Ввод 1. Определение достоверности " />
+        <Signal Name="S_ZRU_P11_VV1_OSCIL_MANUAL_ZAPUSK" UUID="96E813CB475F2965C3F4F5AA41DFCCEE" Type="BOOL" Global="TRUE" />
         <Signal Name="S_ZRU_P11_VV1_Reg_Time" UUID="C0CEA9C8414F4D147930FA9E227DB873" Type="STRING" Global="TRUE" Comment="Астрономическое время в SEPAM" />
         <Signal Name="S_ZRU_P11_VV1_Reg_Time_CO" UUID="240630484EA4DC3CC81182ADF375721F" Type="BOOL" Global="TRUE" />
         <Signal Name="S_ZRU_P11_VV1_Reg_Time_Set_AV" UUID="2770C6774BF7B78A38930EB03C822FF1" Type="BOOL" Global="TRUE" Comment="Установка текущего астрономического времени автоматическки" />
@@ -2827,57 +2873,12 @@
         <Signal Name="S_ZRU_P11_XT7_1A_AI" UUID="771F2DD04A5B657C01B22E81E5C17AF1" Type="REAL" Global="TRUE" Comment="ЗРУ-10кВ. Температура в помещении ЗРУ" />
         <Signal Name="S_ZRU_P11_XT7_1A_AI_KZ" UUID="4F417E7744AD789913DD52B75AC2C6B5" Type="BOOL" Global="TRUE" Comment="ЗРУ-10кВ. Температура в помещении ЗРУ. Короткое замыкание" />
         <Signal Name="S_ZRU_P11_XT7_1A_AI_OL" UUID="FBB686B34DD260B5B1F819B8AACDA64D" Type="BOOL" Global="TRUE" Comment="ЗРУ-10кВ. Температура в помещении ЗРУ. Обрыв" />
+        <Signal Name="Switch" UUID="7F0C20E240DFCE1B7ED7C69BA09ACE41" Type="BOOL" Global="TRUE" Comment="Тестовый сигнал переключения " />
         <Signal Name="T_ZRU_P11_" UUID="5AEB060944B199F62D63C086806CD5AF" Type="E079B0E64556720E806FA393FCDC7989" Global="TRUE" />
+        <Signal Name="TimeOsc" UUID="86E083384EE5B4B6DA62599307E61C23" Type="STRING" ArraySize="19" Global="TRUE" Comment="Временные метки осциллограмм" />
         <Signal Name="Time_request" UUID="FF225CEE4A8F6218E57D12B29EB8386C" Type="BOOL" Global="TRUE" Comment="Запрос текущего времени" />
         <Signal Name="USER_NAME_OUT" UUID="6635F88B4D85282B72705FAD3B99E079" Type="STRING" Global="TRUE" />
-        <Signal Name="ReserveS1" UUID="848BD8E74E16B103AE80909202FA3B47" Type="BOOL" ArraySize="8" Global="TRUE" Comment="Резервирование программ 1-го Сервера" />
-        <Signal Name="ReserveS2" UUID="864FAAC146DE52BBE44F99A8CE885EB4" Type="BOOL" ArraySize="8" Global="TRUE" Comment="Резервирование программ 2-го Сервера" />
-        <Signal Name="Switch" UUID="7F0C20E240DFCE1B7ED7C69BA09ACE41" Type="BOOL" Global="TRUE" Comment="Тестовый сигнал переключения " />
-        <Signal Name="S1Active" UUID="BE753C3348846194EA016783735AD5DA" Type="BOOL" Global="TRUE" Comment="Признак работоспосбности 1-го основного сервера" />
-        <Signal Name="MakeReport1" UUID="E1342197475E617EAFEFF49A46B15625" Type="BOOL" Global="TRUE" />
-        <Signal Name="MakeReport2" UUID="83865F4041A336EBEE3BEDB512D9EB7D" Type="BOOL" Global="TRUE" />
-        <Signal Name="MakeReport3" UUID="A732DA7347E13F7642A0A8B84E35AC79" Type="BOOL" Global="TRUE" />
-        <Signal Name="RashodHH" UUID="E8BCCB9A41D37D2B4117F5A753BBABA8" Type="REAL" ArraySize="3600" Global="TRUE" Storage="persistent" Comment="Показания расходомера за час" />
-        <Signal Name="RashodHHItog" UUID="3CD982B14A0DA16FE50BAEA8F9C26EAC" Type="REAL" ArraySize="4" Global="TRUE" Storage="persistent" Comment="Сумма Среднее Минимум и максимум показаний расходомера за день" />
-        <Signal Name="RashodDay" UUID="1A280A5246CC9A81AC9FCABE75077C1E" Type="REAL" ArraySize="48" Global="TRUE" Storage="persistent" Comment="Показания расходомера за день" />
-        <Signal Name="RashodDayItog" UUID="79DE949E4AFA697F8AF3599D6D500705" Type="REAL" ArraySize="4" Global="TRUE" Storage="persistent" Comment="Сумма Среднее Минимум и Максимум показания расходомера за неделю" />
-        <Signal Name="RashodWeek" UUID="D0D4CCA04594F4F67A2178B4A5D12CF9" Type="REAL" ArraySize="7" Global="TRUE" Storage="persistent" />
-        <Signal Name="S_RM_A10503_AI" UUID="E2EC00B04CD6BB00B51B8F82ACC8AE1B" Type="REAL" Global="TRUE" Comment="Показания расходомера " />
-        <Signal Name="TimeOsc" UUID="86E083384EE5B4B6DA62599307E61C23" Type="STRING" ArraySize="19" Global="TRUE" Comment="Временные метки осциллограмм" />
-        <Signal Name="NameFileDir" UUID="3B7AE1104B9D682C360D51878705FE41" Type="STRING" ArraySize="19" Global="TRUE" Comment="Перечень файлов осциллограмм на сервере" />
-        <Signal Name="Connect_check_Server1" UUID="7FF4F3C943540E91BC9814BB855B692E" Type="INT" Global="TRUE" />
-        <Signal Name="Connect_check_Server2" UUID="E1A43EB2431BCED567DD6CBFEAC67B6B" Type="INT" Global="TRUE" />
-        <Signal Name="Connect_check_ARM1" UUID="08245C634CF72A038A1E3B829BED54D3" Type="INT" Global="TRUE" />
-        <Signal Name="Connect_check_ARM2" UUID="E8DC70424C497200BACF7BA195AEC094" Type="INT" Global="TRUE" />
-        <Signal Name="Connect_check_PLC" UUID="3155307248E7992494EC6CBF0FA08FB2" Type="INT" Global="TRUE" />
-        <Signal Name="Break_Server1" UUID="A4D53A114682764AFEAF4F86B9CB655F" Type="BOOL" Global="TRUE" />
-        <Signal Name="Break_Server2" UUID="5224A807430C999DD4D39782FFE0B2C4" Type="BOOL" Global="TRUE" />
-        <Signal Name="Break_ARM1" UUID="9028DB25483267AFF70CB1AEB06BECD4" Type="BOOL" Global="TRUE" />
-        <Signal Name="Break_ARM2" UUID="63866587427743ECDF7DCC812228005A" Type="BOOL" Global="TRUE" />
-        <Signal Name="Break_PLC" UUID="B54CDF324ED1D0B5E84DD48A6B2ECDBE" Type="BOOL" Global="TRUE" />
-        <Signal Name="RashodMonth" UUID="B9D52F504D99A10B1188C3BA4F543ECD" Type="REAL" ArraySize="31" Global="TRUE" Storage="persistent" />
-        <Signal Name="PotrebP" UUID="9564FE8F46474832F10E7E832AE11038" Type="REAL" ArraySize="48" Global="TRUE" Storage="persistent" />
-        <Signal Name="RashodMonthItog" UUID="06C9C27A4CCDB34D96D93085EE73AFB2" Type="REAL" ArraySize="4" Global="TRUE" Storage="persistent" />
-        <Signal Name="PotrebPItog" UUID="42A37F434BB57E08B8D694A579E7DC8F" Type="REAL" ArraySize="4" Global="TRUE" Storage="persistent" />
-        <Signal Name="PotrebS" UUID="8AC5B8094DF860E858D46D81C2FED330" Type="REAL" ArraySize="48" Global="TRUE" Storage="persistent" />
-        <Signal Name="PotrebSItog" UUID="61F3F2184CD27881E7ED62AE506F6C8E" Type="REAL" ArraySize="4" Global="TRUE" Storage="persistent" />
-        <Signal Name="PotrebQ" UUID="96151B144C86A4B174D80CAA23C4DEFF" Type="REAL" ArraySize="48" Global="TRUE" Storage="persistent" />
-        <Signal Name="PotrebQItog" UUID="2B0DA974432342EBE7CBA4BB0AF1CACC" Type="REAL" ArraySize="4" Global="TRUE" Storage="persistent" />
-        <Signal Name="MakeReport4" UUID="A9A8CF8D46D462F58332E08964F33078" Type="BOOL" Global="TRUE" />
-        <Signal Name="MakeReport5" UUID="D1C1169745BCFD202234609E2F6AB813" Type="BOOL" Global="TRUE" />
-        <Signal Name="MakeReport6" UUID="C7C8364C4E2792FD5A3EA5A1601D2A9E" Type="BOOL" Global="TRUE" />
-        <Signal Name="MakeReport7" UUID="069AB36D4D013F65B52FD784493D6CD6" Type="BOOL" Global="TRUE" />
-        <Signal Name="S_TVS_A1800_WQ" UUID="29E893774236B04BA1D4E097617CED8A" Type="UDINT" Global="TRUE" />
-        <Signal Name="S_TVS_A1800_WS" UUID="675A1E194AF0533B78E70BA875FB78E9" Type="UDINT" Global="TRUE" />
-        <Signal Name="S_TVS_A1800_WP" UUID="474989A64485E4AFCF520D9E46D12024" Type="UDINT" Global="TRUE" />
-        <Signal Name="RAW_TVS_A1800_WP" UUID="43F2B45748A8655D68EB27AB7C14533C" Type="UDINT" Global="TRUE" />
-        <Signal Name="RAW_TVS_A1800_WS" UUID="F254214D4A350BA000BA9C93FA2C7011" Type="UDINT" Global="TRUE" />
-        <Signal Name="RAW_TVS_A1800_WQ" UUID="E8D91BA24CE33F28D580438553F1DA93" Type="UDINT" Global="TRUE" />
-        <Signal Name="RashodWeekItog" UUID="A6185D014C235D49DBE00AB28CC1F991" Type="REAL" ArraySize="4" Global="TRUE" />
-        <Signal Name="RAW_SEPAM_VV1_OSCIL" UUID="02C11C644D8E02206C043890E4D49302" Type="94CD427C4FB607A0C990D9B2947C4BB8" Global="TRUE" />
-        <Signal Name="RAW_SEPAM_SHTN_OSCIL" UUID="387B3C3849DAA945F3A1D3A194AADF4F" Type="94CD427C4FB607A0C990D9B2947C4BB8" Global="TRUE" />
-        <Signal Name="RAW_SEPAM_OLS80_OSCIL" UUID="2D05BCCA45793575DD17B4B209A6229A" Type="94CD427C4FB607A0C990D9B2947C4BB8" Global="TRUE" />
-        <Signal Name="RAW_SEPAM_SV_OSCIL" UUID="08754EC3419AB43A5FA6DC9E8D6D87B6" Type="94CD427C4FB607A0C990D9B2947C4BB8" Global="TRUE" />
+        <Signal Name="RAW_SEPAM_OSCIL_READING_NAME" UUID="91EEAD9F416F6316264D29AAD7D1798E" Type="STRING" Global="TRUE" Comment="Имя сепама осциллограммы коего показываем" />
     </Globals>
     <Connections />
 </Project>
