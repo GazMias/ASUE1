@@ -1,78 +1,19 @@
 dofile("Lib_Sepam.lua")
---[[
-LibSepam = { 
---FUNCTIONS FOR TDATA_SEPAM		
-["Data"] = {
---funksia sravnenia (str_data_1>str_data_2 return 1, 
---str_data_1=str_data_2 return 0,	
---str_data_1<str_data_2 return -1)
-["compare"] = function(str_data_1, 					    str_data_2)
-local aaaaaaaaaa= 1
-local year1 = Core[str_data_1..".year"]
-local year2 = Core[str_data_2..".year"] 
-if(Core[str_data_1.."[year]"]  > Core[str_data_2.."[year]"])
-then
-	return 1;
-end
-if(Core[str_data_1.."[year]"]  < Core[str_data_2.."[year]"])
-then	
-	return -1;
-end
-if(Core[str_data_1.."[month]"]  > Core[str_data_2.."[month]"])
-then	
-	return 1;
-end
-if(Core[str_data_1.."[month]"]  < Core[str_data_2.."[month]"])
-then	
-	return -1;
-end		
-if(Core[str_data_1.."[day]"]  > Core[str_data_2.."[day]"])
-then	
-	return 1;
-end
-if(Core[str_data_1.."[day]"]  < Core[str_data_2.."[day]"])
-then	
-	return -1;
-end
-if(Core[str_data_1.."[hour]"]  > Core[str_data_2.."[hour]"])
-then	
-	return 1;
-end
-if(Core[str_data_1.."[hour]"]  < Core[str_data_2.."[hour]"])
-then	
-	return -1;
-end			
-if(Core[str_data_1.."[minute]"]  > Core[str_data_2.."[minute]"])
-then	
-	return 1;
-end
-if(Core[str_data_1.."[minute]"]  < Core[str_data_2.."[minute]"])
-then	
-	return -1;
-end		
-if(Core[str_data_1.."[msec]"]  > Core[str_data_2.."[msec]"])
-then	
-	return 1;
-end
-if(Core[str_data_1.."[msec]"]  < Core[str_data_2.."[msec]"])
-then	
-	return -1;
-end			
-return 0;
-end		
-		}
-
-	}
-]]
---НЕ ОБРАБАТЫВАЕТСЯ СЛУЧАЙ КОГДА В ПРОЦЕССЕ ПОЛУЧЕНИЯ ОСЦИЛЛОГРАММЫ ПОЯВЛЯЕТСЯ БОЛЕЕ НОВАЯ 
---(ТОГДА В ЗОНЕ СЧИТЫВАНИЯ СТАРАЯ ЗАПИСЬ ПЕРЕБЬЁТСЯ НОВОЙ)
-
-
-
 --переменные и функции общие для программного модуля
 -----------------------------------------------------
 -----------------------------------------------------
 Core["S_ZRU_P11_OSCIL_PATH"] = "D:/OSCILLOGRAMM/S_ZRU_P11_VV1/"
+Core["S_ZRU_P11_SHTN_OSCIL_PATH"] = "D:/OSCILLOGRAMM/S_ZRU_P11_SHTN/"
+Core["S_ZRU_P11_OLS80_OSCIL_PATH"] = "D:/OSCILLOGRAMM/S_ZRU_P11_OLS80/"
+Core["S_ZRU_P11_SV_OSCIL_PATH"] = "D:/OSCILLOGRAMM/S_ZRU_P11_SV/"
+--сепамы
+local objects = {
+	["RAW_SEPAM_VV1_OSCIL"]="S_ZRU_P11_VV1",
+	["RAW_SEPAM_SHTN_OSCIL"]="S_ZRU_P11_SHTN",
+	["RAW_SEPAM_OLS80_OSCIL"]="S_ZRU_P11_OLS80",
+	["RAW_SEPAM_SV_OSCIL"]="S_ZRU_P11_SV"
+}
+
 local str_path_osc = "D:/OSCILLOGRAMM"
 --задержка дебага
 local iStop_debug_osc_sepam = 600
@@ -88,24 +29,24 @@ local str_path_test = "D:/"
 -----------------------------------------------------
 local str_full_name = function (N_zapis, str_rasshirenie)
 	local str_file_descriptor_name = str_path_osc.."/"..name_obj[1]
-	str_file_descriptor_name = str_file_descriptor_name.."/"..str_data(name_obj[1].."_OSCIL_DATE_ZAPIS_"..N_zapis.."_CP")
+	str_file_descriptor_name = str_file_descriptor_name.."/"..str_data(name_obj[1]..".OSCIL_DATE_ZAPIS_"..N_zapis..".CP")
 	str_file_descriptor_name = str_file_descriptor_name..str_rasshirenie
 	return str_file_descriptor_name
 end
 -----------------------------------------------------
 --дескриптор текущего файла осцилограммы
-local file_descriptor = nil
+local file_descriptor = {}
+--инициализируем file_descriptor
+for obj, pult_obj in pairs(objects) do
+	file_descriptor[obj] = nil	
+end
 
 --имена переменных в зоне записи 
-local str_var_zapis = {"OSCIL_N_CP", "OSCIL_SIZE_CONF_CP", "OSCIL_SIZE_DATA_CP", "OSCIL_DATE_ZAPIS_1_CP"};
+local str_var_zapis = {"OSCIL_DATE_ZAPIS_1_CP"};
 
 --имена переменных в структуре TDataSepam
 local str_var_date_sepam = {"year",  "month", "day",  "hour",  "minute", "msec", "type_zapisi"};
 
---сепамы
-local objects = {
-	["RAW_SEPAM_VV1"]="S_ZRU_P11_VV1"
-}
 
 --нет связи с сепамом
 local bSviazSepam = {}
@@ -174,15 +115,13 @@ local Init = 	function(name_obj, bStart)
 					Core[name_obj[1]]["bDataFile"] = false;
 					Core[name_obj[1]]["N_Obmen"] = 0;
 					for i = 1, #str_var_date_sepam do								
-						Core[name_obj[1].."_OSCIL_DATA_VIBOR_CP."..str_var_date_sepam[i] ] = 0
+						Core[name_obj[1]..".OSCIL_DATA_VIBOR_CP."..str_var_date_sepam[i] ] = 0
 					end
 					--если программа только запустилась
 					if 	bStart == true then
-						Core[name_obj[1]]["OSCIL_SIZE_CONF_CP"] = 0;
-						Core[name_obj[1]]["OSCIL_SIZE_DATA_CP"] = 0;
-						Core[name_obj[1].."_OSCIL_WORD_OBMEN_CP"] = 0
+						Core[name_obj[1]..".OSCIL_WORD_OBMEN_CP"] = 0
 						--квитируем запись
-						Core[name_obj[1] ]["update_OSCIL_ZONA_Schiti_kvitir"] = true;
+						--Core[name_obj[1] ]["update_OSCIL_ZONA_Schiti_kvitir"] = true;
 						--обновляем зону записи
 						Core[name_obj[1]]["update_OSCIL_ZONA_ZAPISI"] = true;
 						Core[name_obj[1].."[N_osc_no_write]"] = 0
@@ -190,10 +129,10 @@ local Init = 	function(name_obj, bStart)
 							Core[name_obj[1]..".OSCIL_DATE_ZAPIS_LAST."..str_var_date_sepam[i] ] = 150  --точно неверное значение месяцев, минут...
 						end
 						for i = 1, #str_var_date_sepam do								
-							Core[name_obj[1].."_OSCIL_NEW_ZAPIS_DATA_CP."..str_var_date_sepam[i] ] = 0
+							Core[name_obj[1]..".OSCIL_NEW_ZAPIS_DATA_CP."..str_var_date_sepam[i] ] = 0
 						end
 						for i = 1, #str_var_date_sepam do								
-							Core[name_obj[1].."[OSCIL_DATE_ZAPIS_1_CP]."..str_var_date_sepam[i] ] = 0
+							Core[name_obj[1].."[OSCIL_DATE_ZAPIS_1_CP_buf]."..str_var_date_sepam[i] ] = 0
 						end
 						--создаём папки
 						-----------------------------------------------------
@@ -228,7 +167,7 @@ local str_data = 	function(data)
 -----------------------------------------------------
 local str_full_name = function (name_obj, N_zapis, str_rasshirenie)
 	local str_file_descriptor_name = str_path_osc.."/"..name_obj[2]
-	str_file_descriptor_name = str_file_descriptor_name.."/"..str_data(name_obj[1].."_OSCIL_DATE_ZAPIS_"..N_zapis.."_CP")
+	str_file_descriptor_name = str_file_descriptor_name.."/"..str_data(name_obj[1]..".OSCIL_DATE_ZAPIS_"..N_zapis.."_CP")
 	str_file_descriptor_name = str_file_descriptor_name..str_rasshirenie
 	return str_file_descriptor_name
 end
@@ -238,59 +177,59 @@ end
 -----------------------------------------------------
 -----------------------------------------------------
 local debug_debujnii = function(name_obj, N_Zapis)				
-				Core[name_obj[1].."_OSCIL_READING_CP"] = true
+				Core[name_obj[1]..".OSCIL_READING_CP"] = true
 				os.sleep(iStop_debug_osc_sepam);
 				local test_descriptor = io.open(str_path_test.."Projects/Sepam_oscilogramm/Design/Test.DAT", "rb")
-				if file_descriptor~= nil then
-					file_descriptor:close();
-					file_descriptor = nil
+				if file_descriptor[name_obj]~= nil then
+					file_descriptor[name_obj]:close();
+					file_descriptor[name_obj] = nil
 				end
 				test_descriptor:seek("set");
 				local test_data = test_descriptor:read("*a");
 				local str_file_descriptor_name = str_path_osc.."/"..name_obj[1]
-				--[[str_file_descriptor_name = str_file_descriptor_name..str_data(name_obj[1].."_OSCIL_DATE_ZAPIS_"..N_Zapis.."_CP")]]
-				--[[str_file_descriptor_name = str_file_descriptor_name.."/"..str_data(name_obj[1].."_OSCIL_DATE_ZAPIS_"..N_Zapis.."_CP")]]
+				--[[str_file_descriptor_name = str_file_descriptor_name..str_data(name_obj[1]..".OSCIL_DATE_ZAPIS_"..N_Zapis.."_CP")]]
+				--[[str_file_descriptor_name = str_file_descriptor_name.."/"..str_data(name_obj[1]..".OSCIL_DATE_ZAPIS_"..N_Zapis.."_CP")]]
 				--[[str_file_descriptor_name = str_file_descriptor_name..".DAT"]]
-				file_descriptor = io.open(str_full_name(name_obj, N_Zapis, ".DAT"), "w+b")
-				file_descriptor:write(test_data);
-				file_descriptor:flush()
+				file_descriptor[name_obj] = io.open(str_full_name(name_obj, N_Zapis, ".DAT"), "w+b")
+				file_descriptor[name_obj]:write(test_data);
+				file_descriptor[name_obj]:flush()
 				--Закрываем файл .DAT	
 				test_descriptor:close()
 				test_descriptor = io.open(str_path_test.."Projects/Sepam_oscilogramm/Design/Test.CFG", "r")
-				file_descriptor:close();
-				file_descriptor = nil
+				file_descriptor[name_obj]:close();
+				file_descriptor[name_obj] = nil
 				test_descriptor:seek("set");
 				test_data = test_descriptor:read("*a");
 				local str_file_descriptor_name = str_path_osc.."/"..name_obj[1]
-				--[[str_file_descriptor_name = str_file_descriptor_name..str_data(name_obj[1].."_OSCIL_DATE_ZAPIS_"..N_Zapis.."_CP")]]
-				--[[str_file_descriptor_name = str_file_descriptor_name.."/"..str_data(name_obj[1].."_OSCIL_DATE_ZAPIS_"..N_Zapis.."_CP")]]
+				--[[str_file_descriptor_name = str_file_descriptor_name..str_data(name_obj[1]..".OSCIL_DATE_ZAPIS_"..N_Zapis.."_CP")]]
+				--[[str_file_descriptor_name = str_file_descriptor_name.."/"..str_data(name_obj[1]..".OSCIL_DATE_ZAPIS_"..N_Zapis.."_CP")]]
 				--[[str_file_descriptor_name = str_file_descriptor_name..".CFG"]]
-				file_descriptor = io.open(str_full_name(name_obj, N_Zapis, ".CFG"), "w+")
-				file_descriptor:write(test_data);
-				file_descriptor:flush()
-				file_descriptor:close()
-				file_descriptor = nil
+				file_descriptor[name_obj] = io.open(str_full_name(name_obj, N_Zapis, ".CFG"), "w+")
+				file_descriptor[name_obj]:write(test_data);
+				file_descriptor[name_obj]:flush()
+				file_descriptor[name_obj]:close()
+				file_descriptor[name_obj] = nil
 				test_descriptor:close()
 				for i = 1, #str_var_date_sepam do								
-					Core[name_obj[1].."_OSCIL_NEW_ZAPIS_DATA_CP."..str_var_date_sepam[i] ] = Core[name_obj[1].."_OSCIL_DATE_ZAPIS_"..N_Zapis.."_CP."..str_var_date_sepam[i] ]
+					Core[name_obj[1]..".OSCIL_NEW_ZAPIS_DATA_CP."..str_var_date_sepam[i] ] = Core[name_obj[1]..".OSCIL_DATE_ZAPIS_"..N_Zapis.."_CP."..str_var_date_sepam[i] ]
 				end
 				--меняем самую позднюю считанную запись
 				-----------------------------------------------------
 				-----------------------------------------------------
 				if Core[name_obj[1].."[OSCIL_DATE_ZAPIS_LAST][month]"] <= 31 then
-					if LibSepam.Data.compare(name_obj[1].."_OSCIL_DATE_ZAPIS_"..Core[name_obj[1].."[N_osc_no_write]"].."_CP", name_obj[1].."[OSCIL_DATE_ZAPIS_LAST]") > 0 then
+					if LibSepam.Data.compare(name_obj[1]..".OSCIL_DATE_ZAPIS_"..Core[name_obj[1].."[N_osc_no_write]"].."_CP", name_obj[1].."[OSCIL_DATE_ZAPIS_LAST]") > 0 then
 						for i = 1, #str_var_date_sepam do								
-							Core[name_obj[1].."[OSCIL_DATE_ZAPIS_LAST]."..str_var_date_sepam[i] ] = Core[name_obj[1].."_OSCIL_DATE_ZAPIS_"..Core[name_obj[1].."[N_osc_no_write]"].."_CP."..str_var_date_sepam[i] ]
+							Core[name_obj[1].."[OSCIL_DATE_ZAPIS_LAST]."..str_var_date_sepam[i] ] = Core[name_obj[1]..".OSCIL_DATE_ZAPIS_"..Core[name_obj[1].."[N_osc_no_write]"].."_CP."..str_var_date_sepam[i] ]
 						end		
 					end
 				else
 					for i = 1, #str_var_date_sepam do								
-						Core[name_obj[1].."[OSCIL_DATE_ZAPIS_LAST]."..str_var_date_sepam[i] ] = Core[name_obj[1].."_OSCIL_DATE_ZAPIS_"..Core[name_obj[1].."[N_osc_no_write]"].."_CP."..str_var_date_sepam[i] ]
+						Core[name_obj[1].."[OSCIL_DATE_ZAPIS_LAST]."..str_var_date_sepam[i] ] = Core[name_obj[1]..".OSCIL_DATE_ZAPIS_"..Core[name_obj[1].."[N_osc_no_write]"].."_CP."..str_var_date_sepam[i] ]
 					end	
 				end
 				-----------------------------------------------------
 				-----------------------------------------------------
-				Core[name_obj[1].."_OSCIL_READING_CP"] = false
+				Core[name_obj[1]..".OSCIL_READING_CP"] = false
 end
 
 -----------------------------------------------------
@@ -303,7 +242,11 @@ end
 local timer_event = function(arg__)
 
 						for obj, pult_obj in pairs(objects) do
+							if pult_obj=="S_ZRU_P11_SHTN" then 
+								pult_obj = "S_ZRU_P11_STN"
+							end
 
+							
 							--прошла задержка после восстановления соединения(нужна - потому что соединение подглючивает,1,2,1,1,2)
 							-----------------------------------------------------
 							-----------------------------------------------------
@@ -318,17 +261,17 @@ local timer_event = function(arg__)
 							-----------------------------------------------------
 
 							--связь с сепамом или с драйвером пропала - останавливаем работу
-							if 	(bSviazSepam[pult_obj] == true and string.sub(Core["Driver_Sepam_Run"],1,3)== "RUN")
+							if 	--[[(]]bSviazSepam[pult_obj] == true --[[and string.sub(Core["Driver_Sepam_Run"],1,3)== "RUN")]]
 								and
 								Core[pult_obj.."_DS_DP"] == 2 		
 								then
-								Init({obj, pult_obj}, true)								
+								Init({obj, pult_obj}, false)								
 								bSviazSepam[pult_obj]	= false
 								iModeSepam[obj] = iNoSleep_Osc_const
 								return	
 							end	
 							--связь с сепамом или с драйвером появилась - перезапускаем
-							if 	(bSviazSepam[pult_obj] == false or string.sub(Core["Driver_Sepam_Run"],1,3)~= "RUN") 
+							if 	--[[(]]bSviazSepam[pult_obj] == false --[[or string.sub(Core["Driver_Sepam_Run"],1,3)~= "RUN")]] 
 								and
 								Core[pult_obj.."_DS_DP"] ~= 2 then
 								--время соединения
@@ -337,7 +280,7 @@ local timer_event = function(arg__)
 								return	
 							end									
 							--запоминаем значение связи с сепамом
-							if Core[pult_obj.."_DS_DP"] == 2 or string.sub(Core["Driver_Sepam_Run"],1,3)~= "RUN" then
+							if Core[pult_obj.."_DS_DP"] == 2 --[[or string.sub(Core["Driver_Sepam_Run"],1,3)~= "RUN"]] then
 								bSviazSepam[pult_obj]	= false					
 							else
 								bSviazSepam[pult_obj]	= true		
@@ -381,8 +324,8 @@ local timer_sepam_schit_zapis = function(arg_)
 local pult_operator =
 {	["OSCIL_MANUAL_ZAPUSK_STC"] ={	["comment"] = "Ручной запуск осциллограмм",
 									["func"] = 	function(name_obj)
-													Core[name_obj[1].."_OSCIL_MANUAL_ZAPUSK_STC"] = true;
-													Core[name_obj[1].."_OSCIL_MANUAL_ZAPUSK_TC"] = true;
+													Core[name_obj[1]..".OSCIL_MANUAL_ZAPUSK_STC"] = true;
+													Core[name_obj[1]..".OSCIL_MANUAL_ZAPUSK_TC"] = true;
 													Core[name_obj[1]]["update_OSCIL_MANUAL_ZAPUSK_TC"] = true;		
 												end},						
 }
@@ -404,7 +347,7 @@ local commands_operator =
 									-----------------------------------------------------
 									-----------------------------------------------------
 									if bFirstReadingZapis then
-										local N_Zapis_Osc_Sepam = Core[name_obj[1].."_OSCIL_N_CP"]
+										local N_Zapis_Osc_Sepam = Core[name_obj[1]..".OSCIL_N_CP"]
 										for i=1, N_Zapis_Osc_Sepam do
 											debug_debujnii(name_obj,i)									
 										end  
@@ -412,11 +355,11 @@ local commands_operator =
 									-----------------------------------------------------
 									-----------------------------------------------------
 								end
-								if LibSepam.Data.compare(name_obj[1].."_OSCIL_DATE_ZAPIS_1_CP", name_obj[1].."[OSCIL_DATE_ZAPIS_1_CP]") ~= 0 
+								if LibSepam.Data.compare(name_obj[1]..".OSCIL_DATE_ZAPIS_1_CP", name_obj[1].."[OSCIL_DATE_ZAPIS_1_CP_buf]") ~= 0 
 									and
 									( Core[name_obj[1].."[N_osc_no_write]"] == 0 or bDebug_osc_sepam == true)									
 									then
-									Core[name_obj[1].."_OSCIL_READING_CP"] = true
+									Core[name_obj[1]..".OSCIL_READING_CP"] = true
 									--кол-во необработанных осциллограмм
 									-----------------------------------------------------
 									-----------------------------------------------------
@@ -425,14 +368,14 @@ local commands_operator =
 									-----------------------------------------------------
 									-----------------------------------------------------
 									if Core[name_obj[1].."[OSCIL_DATE_ZAPIS_LAST][month]"] <= 31 then
-										for i_zap = 1, Core[name_obj[1].."_OSCIL_N_CP"] do
-											if LibSepam.Data.compare(name_obj[1].."_OSCIL_DATE_ZAPIS_"..i_zap.."_CP", name_obj[1].."[OSCIL_DATE_ZAPIS_LAST]") == 0 then
+										for i_zap = 1, Core[name_obj[1]..".OSCIL_N_CP"] do
+											if LibSepam.Data.compare(name_obj[1]..".OSCIL_DATE_ZAPIS_"..i_zap.."_CP", name_obj[1].."[OSCIL_DATE_ZAPIS_LAST]") == 0 then
 												Core[name_obj[1].."[N_osc_no_write]"] = i_zap - 1
 											end
 										end
 									--в первый раз считываем
 									else
-										Core[name_obj[1].."[N_osc_no_write]"] = Core[name_obj[1].."_OSCIL_N_CP"]
+										Core[name_obj[1].."[N_osc_no_write]"] = Core[name_obj[1]..".OSCIL_N_CP"]
 									end
 									-----------------------------------------------------
 									-----------------------------------------------------
@@ -440,15 +383,10 @@ local commands_operator =
 									--считываем данные об осцилограммах
 									-----------------------------------------------------
 									-----------------------------------------------------	
-									for i = 1, #str_var_zapis do
-										Core[name_obj[1] ..".".. str_var_zapis[i]] 
-											= 
-										Core[name_obj[1] .."_".. str_var_zapis[i]];							
-									end
 									for i = 1, #str_var_date_sepam do								
-										Core[name_obj[1].."[OSCIL_DATE_ZAPIS_1_CP]."..str_var_date_sepam[i] ] = Core[name_obj[1].."_OSCIL_DATE_ZAPIS_1_CP."..str_var_date_sepam[i] ]
+										Core[name_obj[1]..".OSCIL_DATE_ZAPIS_1_CP_buf."..str_var_date_sepam[i] ] = Core[name_obj[1]..".OSCIL_DATE_ZAPIS_1_CP."..str_var_date_sepam[i] ]
 									end
-									Core[name_obj[1].."[OSCIL_DATE_ZAPIS_1_CP].type_zapisi"] = 0
+									Core[name_obj[1].."[OSCIL_DATE_ZAPIS_1_CP_buf].type_zapisi"] = 0
 									-----------------------------------------------------
 									-----------------------------------------------------
 		
@@ -456,9 +394,9 @@ local commands_operator =
 									-----------------------------------------------------
 									-----------------------------------------------------
 									for i = 1, #str_var_date_sepam do								
-										Core[name_obj[1].."_OSCIL_DATA_VIBOR_CP."..str_var_date_sepam[i] ] = Core[name_obj[1].."_OSCIL_DATE_ZAPIS_"..Core[name_obj[1].."[N_osc_no_write]"].."_CP."..str_var_date_sepam[i] ]
+										Core[name_obj[1]..".OSCIL_DATA_VIBOR_CP."..str_var_date_sepam[i] ] = Core[name_obj[1]..".OSCIL_DATE_ZAPIS_"..Core[name_obj[1].."[N_osc_no_write]"].."_CP."..str_var_date_sepam[i] ]
 									end
-									Core[name_obj[1].."_OSCIL_DATA_VIBOR_CP.type_zapisi"] = 0
+									Core[name_obj[1]..".OSCIL_DATA_VIBOR_CP.type_zapisi"] = 0
 									if bDebug_osc_sepam == false then
 										--обновляем зону выбора
 										Core[name_obj[1]]["update_OSCIL_ZONA_VIBORA"] = true;
@@ -504,19 +442,27 @@ local commands_operator =
 
 	["OSCIL_ZONA_VIBORA"] = {["comment"] = "Зона выбора записи",
 							["func"] =function(name_obj)
-								iModeSepam[name_obj[1]] = iVibor_Osc_const;
-								sleep_time[name_obj[1]]	= os.time();
-								--os.sleep(2);
-								--Core[name_obj[1] ]["update_OSCIL_ZONA_Schit"] = true;							
+								if Core[name_obj[1] ]["status_OSCIL_ZONA_VIBORA"] ~= 0 then
+									--обновляем зону выбора
+									Core[name_obj[1] ]["update_OSCIL_ZONA_VIBORA"] = true;								
+								else
+									iModeSepam[name_obj[1]] = iVibor_Osc_const;
+									sleep_time[name_obj[1]]	= os.time();
+									--os.sleep(2);
+									--Core[name_obj[1] ]["update_OSCIL_ZONA_Schit"] = true;
+								end						
 							end 							
 							},
 	["OSCIL_ZONA_Schit"] = { ["comment"] = "Зона считывания данных",
 							["func"] = function(name_obj)
+								Core.addLogMsg("Sepam start -"..name_obj[1].."pro4itannich baitov - "..Core[name_obj[1] ]["N_cur_Read_Bytes"]);
 								--обрыв связи - ничо не делаем
 								if bSviazSepam[name_obj[2]] == false then
+									Core.addLogMsg("Sepam obriv sviazi -"..name_obj[1]);
 									return
 								end
 								if bDebug_osc_sepam then
+									Core.addLogMsg("Sepam bDebug_osc_sepam -"..name_obj[1]);
 									return
 								end
 								--прищнак что осциллограмма полностью выкачанная уже есть в папке
@@ -525,19 +471,19 @@ local commands_operator =
 								-----------------------------------------------------
 								-----------------------------------------------------
 								--если только начали читать осциллограмму
-								if Core[name_obj[1] ]["N_posilka_cur_Read_Bytes"] == 0 then
+								if Core[name_obj[1] ]["N_cur_Read_Bytes"] == 0 then
 									local str_DAT = str_full_name(name_obj, Core[name_obj[1].."[N_osc_no_write]"], ".DAT")
 									local Exist_DAT = os.rename(str_DAT, str_DAT)
 									--проверяем существование файлов
 									if os.rename(str_DAT, str_DAT) == true then
 										--проверяем размер DAT
 										local size_dat = fs.attributes(str_DAT, "size")
-										if size_dat == Core[name_obj[1] ]["OSCIL_SIZE_DATA_CP"] then
+										if size_dat == Core[name_obj[1]..".OSCIL_SIZE_DATA_CP"] then
 											bOscExist = true	
 										end
 									end
 									if bOscExist == false then
-										file_descriptor = io.open(str_full_name(name_obj, Core[name_obj[1].."[N_osc_no_write]"], ".CFG"), "w+b")
+										file_descriptor[name_obj[1] ] = io.open(str_full_name(name_obj, Core[name_obj[1].."[N_osc_no_write]"], ".CFG"), "w+b")
 									end
 								end
 								-----------------------------------------------------
@@ -545,16 +491,16 @@ local commands_operator =
 								--число прочтённых байтов в текущей посылке
 								Core[name_obj[1] ]["N_posilka_cur_Read_Bytes"] = 0;
 								--проверяем что все данные пришли
-								if 	Core[name_obj[1].."_OSCIL_WORD_OBMEN_CP"] ~= 0
+								if 	Core[name_obj[1]..".OSCIL_WORD_OBMEN_CP"] ~= 0
 										and
-									Core[name_obj[1].."_OSCIL_WORD_OBMEN_CP"] ~= 65535																	
+									Core[name_obj[1]..".OSCIL_WORD_OBMEN_CP"] ~= 65535																	
 										and
-									bit32.extract(Core[name_obj[1].."_OSCIL_WORD_OBMEN_CP"], 0, 8) ~= 254
+									bit32.extract(Core[name_obj[1]..".OSCIL_WORD_OBMEN_CP"], 0, 8) ~= 254
 										and
 									bOscExist == false
 									then
 									--
-									Core[name_obj[1] ]["iN_Bytes_Schit"] = bit32.extract(Core[name_obj[1].."_OSCIL_WORD_OBMEN_CP"], 0, 8);
+									Core[name_obj[1] ]["iN_Bytes_Schit"] = bit32.extract(Core[name_obj[1]..".OSCIL_WORD_OBMEN_CP"], 0, 8);
 								
 									--функция записи одного байта в нужный файл (DAT или CONF)
 									-----------------------------------------------------
@@ -562,16 +508,16 @@ local commands_operator =
 									local write_file_data = function( iAlignmentBits)
 
 																--записали файл .CONF
-																if  Core[name_obj[1] ]["N_cur_Read_Bytes"] == Core[name_obj[1] ]["OSCIL_SIZE_CONF_CP"] 
+																if  Core[name_obj[1] ]["N_cur_Read_Bytes"] == Core[name_obj[1]..".OSCIL_SIZE_CONF_CP"] 
 																	and	
 																	Core[name_obj[1] ]["bDataFile"] == false then
 
-																	file_descriptor:flush()
+																	file_descriptor[name_obj[1] ]:flush()
 																	--закрываем файл .CONF
-																	file_descriptor:close();
-																	file_descriptor = nil
+																	file_descriptor[name_obj[1] ]:close();
+																	file_descriptor[name_obj[1] ] = nil
 																	--открываем на запись файл .DAT																	
-																	file_descriptor = io.open(str_full_name(name_obj, Core[name_obj[1].."[N_osc_no_write]"], ".DAT"), "w+b")
+																	file_descriptor[name_obj[1] ] = io.open(str_full_name(name_obj, Core[name_obj[1].."[N_osc_no_write]"], ".DAT"), "w+b")
 																	Core[name_obj[1] ]["bDataFile"] = true;
 
 																end	
@@ -583,9 +529,9 @@ local commands_operator =
 																	if math.fmod(Core[name_obj[1] ]["N_posilka_cur_Read_Bytes"], 4) == 0 then
 																		iN_cur_Read_Dwords = iN_cur_Read_Dwords - 1
 																	end
-																	local cur_data = Core[name_obj[1].."_OSCIL_DATA_SCHIT_CP"][iN_cur_Read_Dwords];
-																	local chto_pishem = bit32.extract(Core[name_obj[1].."_OSCIL_DATA_SCHIT_CP"][iN_cur_Read_Dwords], iAlignmentBits,8)
-																	file_descriptor:write(string.char(chto_pishem));
+																	local cur_data = Core[name_obj[1]]["OSCIL_DATA_SCHIT_CP"][iN_cur_Read_Dwords];
+																	local chto_pishem = bit32.extract(Core[name_obj[1]]["OSCIL_DATA_SCHIT_CP"][iN_cur_Read_Dwords], iAlignmentBits,8)
+																	file_descriptor[name_obj[1] ]:write(string.char(chto_pishem));
 																end			
 															end
 									-----------------------------------------------------
@@ -630,7 +576,7 @@ local commands_operator =
  										file_descriptor = nil
 									   	--инициализируем объект
 										Init(name_obj[1], false);
-										Core[name_obj[1].."_OSCIL_READING_CP"] = false
+										Core[name_obj[1]..".OSCIL_READING_CP"] = false
 									end
 ]]									
 									-----------------------------------------------------
@@ -640,11 +586,11 @@ local commands_operator =
 									-----------------------------------------------------
 									-----------------------------------------------------
 									--кол-во переданных блоков данных
-									Core[name_obj[1].."_OSCIL_WORD_OBMEN_CP"] = bit32.replace(	Core[name_obj[1].."_OSCIL_WORD_OBMEN_CP"],
+									Core[name_obj[1]..".OSCIL_WORD_OBMEN_CP"] = bit32.replace(	Core[name_obj[1]..".OSCIL_WORD_OBMEN_CP"],
 																							0,
 																							0,
 																							8)												
-									Core[name_obj[1].."_OSCIL_WORD_OBMEN_CP"] = bit32.replace( Core[name_obj[1].."_OSCIL_WORD_OBMEN_CP"],
+									Core[name_obj[1]..".OSCIL_WORD_OBMEN_CP"] = bit32.replace( Core[name_obj[1]..".OSCIL_WORD_OBMEN_CP"],
 																							Core[name_obj[1] ]["N_Obmen"],
 																							8,
 																							8)
@@ -662,93 +608,96 @@ local commands_operator =
  									Core[name_obj[1] ]["update_OSCIL_ZONA_Schiti_kvitir"] = true;
 									--os.sleep(iSchit_delay)										 
 									--проводим считывание (считаем что осциллограмма считана не до конца если размер файла конфигурации не обнулён)
-									if Core[name_obj[1] ]["N_cur_Read_Bytes"] < Core[name_obj[1] ]["OSCIL_SIZE_CONF_CP"] + Core[name_obj[1] ]["OSCIL_SIZE_DATA_CP"] then
- 										file_descriptor:flush();	
+									if Core[name_obj[1] ]["N_cur_Read_Bytes"] < Core[name_obj[1]..".OSCIL_SIZE_CONF_CP"] + Core[name_obj[1]..".OSCIL_SIZE_DATA_CP"] then
+ 										file_descriptor[name_obj[1] ]:flush();	
 										--Core[name_obj[1] ]["update_OSCIL_ZONA_Schit"] = true;
 									else
-										Core[name_obj[1].."_OSCIL_NEW_PRIZNAK_DATA_CP"] = true
+										Core[name_obj[1]..".OSCIL_NEW_PRIZNAK_DATA_CP"] = true
 										--выдаём сигнал записали осциллограмму
 										for i = 1, #str_var_date_sepam do								
-											Core[name_obj[1].."_OSCIL_NEW_ZAPIS_DATA_CP."..str_var_date_sepam[i] ] = Core[name_obj[1].."_OSCIL_DATE_ZAPIS_"..Core[name_obj[1].."[N_osc_no_write]"].."_CP."..str_var_date_sepam[i] ]
+											Core[name_obj[1]..".OSCIL_NEW_ZAPIS_DATA_CP."..str_var_date_sepam[i] ] = Core[name_obj[1]..".OSCIL_DATE_ZAPIS_"..Core[name_obj[1].."[N_osc_no_write]"].."_CP."..str_var_date_sepam[i] ]
 										end
 										--меняем самую позднюю считанную запись
 										-----------------------------------------------------
 										-----------------------------------------------------
 										if Core[name_obj[1].."[OSCIL_DATE_ZAPIS_LAST][month]"] <= 31 then
-											if LibSepam.Data.compare(name_obj[1].."_OSCIL_DATE_ZAPIS_"..Core[name_obj[1].."[N_osc_no_write]"].."_CP", name_obj[1].."[OSCIL_DATE_ZAPIS_LAST]") > 0 then
+											if LibSepam.Data.compare(name_obj[1]..".OSCIL_DATE_ZAPIS_"..Core[name_obj[1].."[N_osc_no_write]"].."_CP", name_obj[1].."[OSCIL_DATE_ZAPIS_LAST]") > 0 then
 												for i = 1, #str_var_date_sepam do								
-													Core[name_obj[1].."[OSCIL_DATE_ZAPIS_LAST]."..str_var_date_sepam[i] ] = Core[name_obj[1].."_OSCIL_DATE_ZAPIS_"..Core[name_obj[1].."[N_osc_no_write]"].."_CP."..str_var_date_sepam[i] ]
+													Core[name_obj[1].."[OSCIL_DATE_ZAPIS_LAST]."..str_var_date_sepam[i] ] = Core[name_obj[1]..".OSCIL_DATE_ZAPIS_"..Core[name_obj[1].."[N_osc_no_write]"].."_CP."..str_var_date_sepam[i] ]
 												end		
 											end
 										else
 											for i = 1, #str_var_date_sepam do								
-												Core[name_obj[1].."[OSCIL_DATE_ZAPIS_LAST]."..str_var_date_sepam[i] ] = Core[name_obj[1].."_OSCIL_DATE_ZAPIS_"..Core[name_obj[1].."[N_osc_no_write]"].."_CP."..str_var_date_sepam[i] ]
+												Core[name_obj[1].."[OSCIL_DATE_ZAPIS_LAST]."..str_var_date_sepam[i] ] = Core[name_obj[1]..".OSCIL_DATE_ZAPIS_"..Core[name_obj[1].."[N_osc_no_write]"].."_CP."..str_var_date_sepam[i] ]
 											end	
 										end
 										-----------------------------------------------------
 										-----------------------------------------------------
 										Core[name_obj[1].."[N_osc_no_write]"] = Core[name_obj[1].."[N_osc_no_write]"] - 1
-										file_descriptor:flush()										
+										file_descriptor[name_obj[1] ]:flush()										
 										--Закрываем файл .DAT	
-										file_descriptor:close();
-		 								file_descriptor = nil
+										file_descriptor[name_obj[1] ]:close();
+		 								file_descriptor[name_obj[1] ] = nil
 										--инициализируем объект
 										Init(name_obj, false);
-										Core[name_obj[1].."_OSCIL_READING_CP"] = false
+										Core[name_obj[1]..".OSCIL_READING_CP"] = false
 										if Core[name_obj[1].."[N_osc_no_write]"] == 0 then
 											Core[name_obj[1] ]["update_OSCIL_ZONA_ZAPISI"] = true
 										else
 											for i = 1, #str_var_date_sepam do								
-												Core[name_obj[1].."_OSCIL_DATA_VIBOR_CP."..str_var_date_sepam[i] ] = Core[name_obj[1].."_OSCIL_DATE_ZAPIS_"..Core[name_obj[1].."[N_osc_no_write]"].."_CP."..str_var_date_sepam[i] ]
+												Core[name_obj[1]..".OSCIL_DATA_VIBOR_CP."..str_var_date_sepam[i] ] = Core[name_obj[1]..".OSCIL_DATE_ZAPIS_"..Core[name_obj[1].."[N_osc_no_write]"].."_CP."..str_var_date_sepam[i] ]
 											end
-												Core[name_obj[1].."_OSCIL_DATA_VIBOR_CP.type_zapisi"] = 0
+												Core[name_obj[1]..".OSCIL_DATA_VIBOR_CP.type_zapisi"] = 0
 												--обновляем зону выбора
 												Core[name_obj[1] ]["update_OSCIL_ZONA_VIBORA"] = true;
 												--os.sleep(5)
 												--Core[name_obj[1] ]["update_OSCIL_ZONA_Schit"] = true;
-												Core[name_obj[1].."_OSCIL_READING_CP"] = true
+												Core[name_obj[1]..".OSCIL_READING_CP"] = true
 										end
 									end
+									Core.addLogMsg("Sepam end -"..name_obj[1].." pro4itannich baitov -  "..Core[name_obj[1] ]["N_cur_Read_Bytes"]);
 									return																	
 								end								
-
+								
+								Core.addLogMsg("Sepam end -"..name_obj[1].." pro4itannich baitov -  "..Core[name_obj[1] ]["N_cur_Read_Bytes"]);
+								
 								--передача отменена - ищем новую осциллограмму
 								-----------------------------------------------------
 								-----------------------------------------------------
-								if bit32.extract(Core[name_obj[1].."_OSCIL_WORD_OBMEN_CP"], 0, 8) == 254 
+								if bit32.extract(Core[name_obj[1]..".OSCIL_WORD_OBMEN_CP"], 0, 8) == 254 
 										or
 									bOscExist == true
 									then
 									--Закрываем файл .DAT
-									if 	file_descriptor ~= nil then
-										file_descriptor:close()
-										file_descriptor = nil
+									if 	file_descriptor[name_obj[1] ] ~= nil then
+										file_descriptor[name_obj[1] ]:close()
+										file_descriptor[name_obj[1] ] = nil
 									end
 									--инициализируем объект
 									Init(name_obj, false);
 									Core[name_obj[1].."[N_osc_no_write]"] = Core[name_obj[1].."[N_osc_no_write]"] - 1
-									Core[name_obj[1].."_OSCIL_READING_CP"] = false									
+									Core[name_obj[1]..".OSCIL_READING_CP"] = false									
 									if Core[name_obj[1].."[N_osc_no_write]"] == 0 then
 										Core[name_obj[1] ]["update_OSCIL_ZONA_ZAPISI"] = true
 									else
 										for i = 1, #str_var_date_sepam do								
-											Core[name_obj[1].."_OSCIL_DATA_VIBOR_CP."..str_var_date_sepam[i] ] = Core[name_obj[1].."_OSCIL_DATE_ZAPIS_"..Core[name_obj[1].."[N_osc_no_write]"].."_CP."..str_var_date_sepam[i] ]
+											Core[name_obj[1]..".OSCIL_DATA_VIBOR_CP."..str_var_date_sepam[i] ] = Core[name_obj[1]..".OSCIL_DATE_ZAPIS_"..Core[name_obj[1].."[N_osc_no_write]"].."_CP."..str_var_date_sepam[i] ]
 										end
-										Core[name_obj[1].."_OSCIL_DATA_VIBOR_CP.type_zapisi"] = 0
+										Core[name_obj[1]..".OSCIL_DATA_VIBOR_CP.type_zapisi"] = 0
 										--обновляем зону выбора
 										Core[name_obj[1] ]["update_OSCIL_ZONA_VIBORA"] = true;
 										--os.sleep(5)
 										--Core[name_obj[1] ]["update_OSCIL_ZONA_Schit"] = true;
-										Core[name_obj[1].."_OSCIL_READING_CP"] = true
+										Core[name_obj[1]..".OSCIL_READING_CP"] = true
 									end
 									os.sleep(1)	
 --[[
 									--снова выбираем запись
 									if Core[name_obj[1].."[N_osc_no_write]"] == 0 then
 										for i = 1, #str_var_date_sepam do								
-											Core[name_obj[1].."_OSCIL_DATA_VIBOR_CP."..str_var_date_sepam[i] ] = Core[name_obj[1].."_OSCIL_DATE_ZAPIS_"..Core[name_obj[1].."[N_osc_no_write]"].."_CP."..str_var_date_sepam[i] ]
+											Core[name_obj[1]..".OSCIL_DATA_VIBOR_CP."..str_var_date_sepam[i] ] = Core[name_obj[1]..".OSCIL_DATE_ZAPIS_"..Core[name_obj[1].."[N_osc_no_write]"].."_CP."..str_var_date_sepam[i] ]
 										end
-										Core[name_obj[1].."_OSCIL_DATA_VIBOR_CP.type_zapisi"] = 0
+										Core[name_obj[1]..".OSCIL_DATA_VIBOR_CP.type_zapisi"] = 0
 										--обновляем зону выбора
 										Core[name_obj[1] ]["update_OSCIL_ZONA_VIBORA"] = true;
 										os.sleep(1)
@@ -763,9 +712,9 @@ local commands_operator =
 								--повторяем попытку считывания
 								-----------------------------------------------------
 								-----------------------------------------------------
-								if Core[name_obj[1].."_OSCIL_WORD_OBMEN_CP"] == 0			--никакой запрос считывания ещё не поступил 
+								if Core[name_obj[1]..".OSCIL_WORD_OBMEN_CP"] == 0			--никакой запрос считывания ещё не поступил 
 										or
-								   Core[name_obj[1].."_OSCIL_WORD_OBMEN_CP"] == 65535		--запрос считывания учтён но данные ещё не доступны в зоне считывания
+								   Core[name_obj[1]..".OSCIL_WORD_OBMEN_CP"] == 65535		--запрос считывания учтён но данные ещё не доступны в зоне считывания
 										and
 									bOscExist == false
 								then
@@ -783,7 +732,7 @@ local commands_operator =
 									["func"] = 	function(name_obj)
 													--os.sleep(iSchit_delay);
 													if Core[name_obj[1].."[N_osc_no_write]"] ~= 0 then
-														iModeSepam[name_obj[1]] = iVibor_Osc_const;
+														iModeSepam[name_obj[1]] = iSchit_Osc_const;
 														sleep_time[name_obj[1]]	= os.time();
 														--Core[name_obj[1] ]["update_OSCIL_ZONA_Schit"] = true;
 													end
@@ -796,16 +745,16 @@ local commands_operator =
 
 -----------------------------------------------------
 -----------------------------------------------------
-while true do
+--[[while true do
 	if string.sub(Core["Driver_Sepam_Run"],1,3) == "RUN" then
 		local a =1
 		break;
 	end
-end
+end]]
 
 
 fs.mkdir(str_path_osc);
---os.sleep(30)
+os.sleep(30)
 --debug_debujnii({"RAW_SEPAM_VV1", "S_ZRU_P11_VV1"},1)
 --задаём обработчики
 -----------------------------------------------------
@@ -818,11 +767,6 @@ for obj, pult_obj in pairs(objects) do
 					     {obj, pult_obj});	
 	end
 end
-Core.onTimer(1, 1, timer_event);
-Core.onTimer(2, 0.1, timer_sepam_schit_zapis);
-Core.onExtChange( {"S_ZRU_P11_VV1_OSCIL_MANUAL_ZAPUSK"}, 
-				 pult_operator["OSCIL_MANUAL_ZAPUSK_STC"]["func"],
-					     {"S_ZRU_P11_VV1"} );
 
 --инициализируем начальные переменные
 -----------------------------------------------------
@@ -832,5 +776,9 @@ for obj, pult_obj in pairs(objects) do
 end
 -----------------------------------------------------
 -----------------------------------------------------
-
+Core.onTimer(1, 1, timer_event);
+Core.onTimer(2, 0.1, timer_sepam_schit_zapis);
+Core.onExtChange( {"S_ZRU_P11_VV1_OSCIL_MANUAL_ZAPUSK"}, 
+				 pult_operator["OSCIL_MANUAL_ZAPUSK_STC"]["func"],
+					     {"S_ZRU_P11_VV1"} );
 Core.waitEvents( )
