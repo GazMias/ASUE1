@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE Driver.MODBUS v. 1.3 >
 <Configuration Slave="FALSE" TCP="FALSE">
-    <Devices CommConfig="COM1,19200,8,2,NONE">
-        <Device Address="1" RetryCount="1" RetryDelay="1000000" SymbolTimeout="50000" ResponseTimeout="2000000" InterpacketDelay="5000" MaxStatus="125" MaxRegs="125">
+    <Devices CommConfig="COM4,19200,8,2,NONE">
+        <Device Address="1" RetryCount="3" RetryDelay="1000000" SymbolTimeout="50000" ResponseTimeout="500000" InterpacketDelay="5000" MaxStatus="125" MaxRegs="125">
             <Group Name="обозначение функции" Function="PRESET_MULTIPLY_REGISTERS" UpdatePeriod="0" />
             <Group Name="Зона считывания регулировок" Function="READ_HOLDING_REGISTERS" UpdatePeriod="0" />
             <Group Name="Зона телерегулировки" Function="PRESET_MULTIPLY_REGISTERS" UpdatePeriod="0" />
@@ -16,7 +16,7 @@
             <Group Name="ручной запуск записи осциллограмм аварийных режимов TC" Function="PRESET_MULTIPLY_REGISTERS" UpdatePeriod="0" />
             <Group Name="ручной запуск записи осциллограмм аварийных режимов STC" Function="PRESET_MULTIPLY_REGISTERS" UpdatePeriod="0" />
         </Device>
-        <Device Address="2" RetryCount="1" RetryDelay="1000000" SymbolTimeout="50000" ResponseTimeout="2000000" InterpacketDelay="5000" MaxStatus="125" MaxRegs="125">
+        <Device Address="2" RetryCount="3" RetryDelay="1000000" SymbolTimeout="50000" ResponseTimeout="500000" InterpacketDelay="5000" MaxStatus="125" MaxRegs="125">
             <Group Name="обозначение функции" Function="PRESET_MULTIPLY_REGISTERS" UpdatePeriod="0" />
             <Group Name="Зона считывания регулировок" Function="READ_HOLDING_REGISTERS" UpdatePeriod="0" />
             <Group Name="Зона телерегулировки" Function="PRESET_MULTIPLY_REGISTERS" UpdatePeriod="0" />
@@ -34,7 +34,7 @@
             <Group Name="слово обмена" Function="PRESET_MULTIPLY_REGISTERS" UpdatePeriod="0" />
             <Group Name="Группа Событие" Function="READ_HOLDING_REGISTERS" UpdatePeriod="0" />
         </Device>
-        <Device Address="3" RetryCount="1" RetryDelay="1000000" SymbolTimeout="50000" ResponseTimeout="2000000" InterpacketDelay="5000" MaxStatus="125" MaxRegs="125">
+        <Device Address="3" RetryCount="3" RetryDelay="1000000" SymbolTimeout="50000" ResponseTimeout="500000" InterpacketDelay="5000" MaxStatus="125" MaxRegs="125">
             <Group Name="обозначение функции" Function="PRESET_MULTIPLY_REGISTERS" UpdatePeriod="0" />
             <Group Name="Зона считывания регулировок" Function="READ_HOLDING_REGISTERS" UpdatePeriod="0" />
             <Group Name="Зона телерегулировки" Function="PRESET_MULTIPLY_REGISTERS" UpdatePeriod="0" />
@@ -48,7 +48,7 @@
             <Group Name="ручной запуск записи осциллограмм аварийных режимов TC" Function="PRESET_MULTIPLY_REGISTERS" UpdatePeriod="0" />
             <Group Name="ручной запуск записи осциллограмм аварийных режимов STC" Function="PRESET_MULTIPLY_REGISTERS" UpdatePeriod="0" />
         </Device>
-        <Device Address="4" RetryCount="1" RetryDelay="1000000" SymbolTimeout="50000" ResponseTimeout="2000000" InterpacketDelay="5000" MaxStatus="125" MaxRegs="125">
+        <Device Address="4" RetryCount="3" RetryDelay="1000000" SymbolTimeout="50000" ResponseTimeout="500000" InterpacketDelay="5000" MaxStatus="125" MaxRegs="125">
             <Group Name="Зона записи осциллограмм" Function="READ_HOLDING_REGISTERS" UpdatePeriod="0" />
             <Group Name="Зона выбора записи" Function="PRESET_MULTIPLY_REGISTERS" UpdatePeriod="0" />
             <Group Name="Зона считывания данных" Function="READ_HOLDING_REGISTERS" UpdatePeriod="0" />

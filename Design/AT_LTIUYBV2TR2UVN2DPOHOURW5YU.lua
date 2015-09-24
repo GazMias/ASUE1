@@ -64,6 +64,10 @@ local iNoSleep_Osc_const	= 0
 local iWait_Osc_const 		= 1
 local iVibor_Osc_const 		= 2
 local iSchit_Osc_const		= 3
+--[[local bPovtorSchit = {};
+for obj, pult_obj in pairs(objects) do
+	bPovtorSchit[obj] = false	
+end]]
 
 local iModeSepam ={}
 for obj, pult_obj in pairs(objects) do
@@ -76,8 +80,8 @@ end
 -----------------------------------------------------
 -----------------------------------------------------
 --задержка после квитирования
-local iSchit_Osc_delay = 1
-local iVibor_Osc_delay = 1
+local iSchit_Osc_delay = 3
+local iVibor_Osc_delay = 3
 local iWait_Osc_delay = 30
 
 local sleep_time = {}
@@ -292,6 +296,13 @@ local timer_event = function(arg__)
 --функция в таймере имитирует все sleepы
 local timer_sepam_schit_zapis = function(arg_)
 									for obj, pult_obj in pairs(objects) do
+--[[
+										--повторное считывание
+										if bPovtorSchit[obj] == true and Core[obj]["update_OSCIL_ZONA_Schit"]==false then
+											Core[obj]["update_OSCIL_ZONA_Schit"]=true;
+											return;
+										end
+]]
 										--ждём новые осциллограммы
 										if iModeSepam[obj] == iWait_Osc_const then
 											if os.time() - sleep_time[obj] >= iWait_Osc_delay then
@@ -336,6 +347,12 @@ local commands_operator =
 { 	
 	["OSCIL_ZONA_ZAPISI"] = {["comment"] = "Зона записи осциллограмма",
 						["func"] =function(name_obj)
+							--неудачное считывание пробуем ещё раз
+							if Core[name_obj[1] ]["status_OSCIL_ZONA_ZAPISI"] ~= 0 then
+								--обновляем зону выбора
+								Core[name_obj[1]]["update_OSCIL_ZONA_ZAPISI"] = true;
+								return;
+							end	
 							if Core[name_obj[1]..".update_OSCIL_ZONA_ZAPISI"]==false then
 								--обрыв связи - ничо не делаем
 								if bSviazSepam[name_obj[2]] == false then
@@ -442,6 +459,12 @@ local commands_operator =
 
 	["OSCIL_ZONA_VIBORA"] = {["comment"] = "Зона выбора записи",
 							["func"] =function(name_obj)
+								--неудачное считывание пробуем ещё раз
+								if Core[name_obj[1] ]["status_OSCIL_ZONA_VIBORA"] ~= 0 then
+									--обновляем зону выбора
+									Core[name_obj[1]]["update_OSCIL_ZONA_VIBORA"] = true;
+									return;
+								end	
 								if Core[name_obj[1] ]["status_OSCIL_ZONA_VIBORA"] ~= 0 then
 									--обновляем зону выбора
 									Core[name_obj[1] ]["update_OSCIL_ZONA_VIBORA"] = true;								
@@ -455,7 +478,15 @@ local commands_operator =
 							},
 	["OSCIL_ZONA_Schit"] = { ["comment"] = "Зона считывания данных",
 							["func"] = function(name_obj)
-								Core.addLogMsg("Sepam start -"..name_obj[1].."pro4itannich baitov - "..Core[name_obj[1] ]["N_cur_Read_Bytes"]);
+--[[
+								--неудачное считывание пробуем ещё раз
+								if Core[name_obj[1] ]["status_OSCIL_ZONA_Schit"] ~= 0 then
+									bPovtorSchit[name_obj[1] ] = true
+									Core.addLogMsg("Sepam plohoe schitivanie status_OSCIL_ZONA_Schit "..Core[name_obj[1] ]["status_OSCIL_ZONA_Schit"].." sepam - "..name_obj[1]);
+									return;
+								end
+								bPovtorSchit[name_obj[1] ] = false	
+]]						
 								--обрыв связи - ничо не делаем
 								if bSviazSepam[name_obj[2]] == false then
 									Core.addLogMsg("Sepam obriv sviazi -"..name_obj[1]);
@@ -596,14 +627,8 @@ local commands_operator =
 																							8)
  									Core[name_obj[1] ]["N_Obmen"] = Core[name_obj[1] ]["N_Obmen"]+1;
 
---									--debug
---									--квитируем запись
--- 									Core[name_obj[1] ]["update_OSCIL_ZONA_Schiti_kvitir"] = true;
---									os.sleep(1)	
-
 									-----------------------------------------------------
 									-----------------------------------------------------
-
 									--квитируем запись
  									Core[name_obj[1] ]["update_OSCIL_ZONA_Schiti_kvitir"] = true;
 									--os.sleep(iSchit_delay)										 
@@ -655,11 +680,9 @@ local commands_operator =
 												Core[name_obj[1]..".OSCIL_READING_CP"] = true
 										end
 									end
-									Core.addLogMsg("Sepam end -"..name_obj[1].." pro4itannich baitov -  "..Core[name_obj[1] ]["N_cur_Read_Bytes"]);
 									return																	
 								end								
 								
-								Core.addLogMsg("Sepam end -"..name_obj[1].." pro4itannich baitov -  "..Core[name_obj[1] ]["N_cur_Read_Bytes"]);
 								
 								--передача отменена - ищем новую осциллограмму
 								-----------------------------------------------------
