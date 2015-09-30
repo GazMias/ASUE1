@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE Node v. 1.3 >
-<Node Name="Debug" Comment="" Disabled="TRUE" Address="127.0.0.1" TargetPath="" UUID="43C40A1A461996781734398975A0704B">
+<Node Name="Debug" Comment="" Disabled="FALSE" Address="127.0.0.1" TargetPath="" UUID="43C40A1A461996781734398975A0704B">
     <InterfaceList>
         <SubApp Name="Driver" Type="8FF64E734FA2FF7DBB454B8A71A3FC9B" Args="" ConnectionTimeout="2000" ExecTimeout="50000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="EA39D91E4D584CEBD1C5C191BC842FB8" />
         <SubApp Name="Osc_Sep" Type="76784BCB49980CEAC0BDC18494904FB5" Args="" ConnectionTimeout="2000" ExecTimeout="10000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="B384749D455EFB31851B2E8D32CA74D0" />
