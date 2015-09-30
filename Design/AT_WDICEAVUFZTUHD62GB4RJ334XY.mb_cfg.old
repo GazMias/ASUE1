@@ -49,6 +49,9 @@
             <Group Name="ручной запуск записи осциллограмм аварийных режимов STC" Function="PRESET_MULTIPLY_REGISTERS" UpdatePeriod="0" />
         </Device>
         <Device Address="4" RetryCount="1" RetryDelay="1000000" SymbolTimeout="50000" ResponseTimeout="2000000" InterpacketDelay="5000" MaxStatus="125" MaxRegs="125">
+            <Group Name="Команды" Function="PRESET_MULTIPLY_REGISTERS" UpdatePeriod="1000000" />
+            <Group Name="Чтение аналоговых сигналов" Function="READ_INPUT_REGISTERS" UpdatePeriod="1000000" />
+            <Group Name="Чтение дискретных сигналов" Function="READ_INPUT_REGISTERS" UpdatePeriod="1000000" />
             <Group Name="Зона записи осциллограмм" Function="READ_HOLDING_REGISTERS" UpdatePeriod="0" />
             <Group Name="Зона выбора записи" Function="PRESET_MULTIPLY_REGISTERS" UpdatePeriod="0" />
             <Group Name="Зона считывания данных" Function="READ_HOLDING_REGISTERS" UpdatePeriod="0" />
@@ -1560,5 +1563,85 @@
         <Connection ItemName="RAW_SEPAM_SV_OSCIL.status_OSCIL_MANUAL_ZAPUSK_STC" Device="4" Channel="Group.status" Group="ручной запуск записи осциллограмм аварийных режимов STC" UUID="08754EC3419AB43A5FA6DC9E8D6D87B6.50B1B79A4718BBF494D3DD9C593CD1E1" />
         <Connection ItemName="RAW_SEPAM_SV_OSCIL.update_OSCIL_MANUAL_ZAPUSK_STC" Device="4" Channel="Group.update" Group="ручной запуск записи осциллограмм аварийных режимов STC" UUID="08754EC3419AB43A5FA6DC9E8D6D87B6.06456D1C4F47E0786FF2B0AD2731A5AB" />
         <Connection ItemName="RAW_SEPAM_SV_OSCIL.OSCIL_MANUAL_ZAPUSK_STC" Device="4" Channel="3205.3:BIT" Group="ручной запуск записи осциллограмм аварийных режимов STC" UUID="08754EC3419AB43A5FA6DC9E8D6D87B6.59685BE84C4FD1A8C787E58E2D079376" />
+        <Connection ItemName="RAW_SEPAM_SV_3216_0_PS" Device="4" Channel="3216.0:BIT" Group="Чтение дискретных сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3216_1_PS" Device="4" Channel="3216.1:BIT" Group="Чтение дискретных сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3216_2_PS" Device="4" Channel="3216.2:BIT" Group="Чтение дискретных сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3216_4_PS" Device="4" Channel="3216.4:BIT" Group="Чтение дискретных сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3216_9_TS" Device="4" Channel="3216.9:BIT" Group="Чтение дискретных сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3216_10_TS" Device="4" Channel="3216.10:BIT" Group="Чтение дискретных сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3216_11_PS" Device="4" Channel="3216.11:BIT" Group="Чтение дискретных сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3216_13_TS" Device="4" Channel="3216.13:BIT" Group="Чтение дискретных сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3217_0_TS" Device="4" Channel="3217.0:BIT" Group="Чтение дискретных сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3219_1_TS" Device="4" Channel="3219.1:BIT" Group="Чтение дискретных сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3219_2_TS" Device="4" Channel="3219.2:BIT" Group="Чтение дискретных сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3219_3_PS" Device="4" Channel="3219.3:BIT" Group="Чтение дискретных сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3219_15_PS" Device="4" Channel="3219.15:BIT" Group="Чтение дискретных сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3220_0_PS" Device="4" Channel="3220.0:BIT" Group="Чтение дискретных сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3220_2_AS" Device="4" Channel="3220.2:BIT" Group="Чтение дискретных сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3220_3_AS" Device="4" Channel="3220.3:BIT" Group="Чтение дискретных сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3222_15_AS" Device="4" Channel="3222.15:BIT" Group="Чтение дискретных сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3227_0_AS" Device="4" Channel="3227.0:BIT" Group="Чтение дискретных сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3227_1_AS" Device="4" Channel="3227.1:BIT" Group="Чтение дискретных сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3227_2_AS" Device="4" Channel="3227.2:BIT" Group="Чтение дискретных сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3227_3_PS" Device="4" Channel="3227.3:BIT" Group="Чтение дискретных сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3227_4_AS" Device="4" Channel="3227.4:BIT" Group="Чтение дискретных сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3227_5_TS" Device="4" Channel="3227.5:BIT" Group="Чтение дискретных сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3227_6_TS" Device="4" Channel="3227.6:BIT" Group="Чтение дискретных сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3227_7_PS" Device="4" Channel="3227.7:BIT" Group="Чтение дискретных сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3228_15_PS" Device="4" Channel="3228.15:BIT" Group="Чтение дискретных сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3229_0_PS" Device="4" Channel="3229.0:BIT" Group="Чтение дискретных сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3229_5_PS" Device="4" Channel="3229.5:BIT" Group="Чтение дискретных сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3229_10_PS" Device="4" Channel="3229.10:BIT" Group="Чтение дискретных сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3229_11_TS" Device="4" Channel="3229.11:BIT" Group="Чтение дискретных сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3229_14_TS" Device="4" Channel="3229.14:BIT" Group="Чтение дискретных сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3208_0_CO" Device="4" Channel="3208.0:BIT" Group="Команды" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3208_1_CO" Device="4" Channel="3208.1:BIT" Group="Команды" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3208_2_CO" Device="4" Channel="3208.2:BIT" Group="Команды" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3208_3_CO" Device="4" Channel="3208.3:BIT" Group="Команды" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3208_4_CO" Device="4" Channel="3208.4:BIT" Group="Команды" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3208_5_CO" Device="4" Channel="3208.5:BIT" Group="Команды" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3208_6_CO" Device="4" Channel="3208.6:BIT" Group="Команды" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3209_1_CO" Device="4" Channel="3209.1:BIT" Group="Команды" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3209_2_CO" Device="4" Channel="3209.2:BIT" Group="Команды" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3209_3_CO" Device="4" Channel="3209.3:BIT" Group="Команды" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3088_0_TS" Device="4" Channel="3088.0:BIT" Group="Чтение дискретных сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3088_1_TS" Device="4" Channel="3088.1:BIT" Group="Чтение дискретных сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3088_3_TS" Device="4" Channel="3088.3:BIT" Group="Чтение дискретных сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3088_4_TS" Device="4" Channel="3088.4:BIT" Group="Чтение дискретных сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3088_5_TS" Device="4" Channel="3088.5:BIT" Group="Чтение дискретных сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3088_6_TS" Device="4" Channel="3088.6:BIT" Group="Чтение дискретных сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3088_7_TS" Device="4" Channel="3088.7:BIT" Group="Чтение дискретных сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3088_8_TS" Device="4" Channel="3088.8:BIT" Group="Чтение дискретных сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3088_9_TS" Device="4" Channel="3088.9:BIT" Group="Чтение дискретных сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3088_10_TS" Device="4" Channel="3088.10:BIT" Group="Чтение дискретных сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3088_11_TS" Device="4" Channel="3088.11:BIT" Group="Чтение дискретных сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3088_12_TS" Device="4" Channel="3088.12:BIT" Group="Чтение дискретных сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3088_13_TS" Device="4" Channel="3088.13:BIT" Group="Чтение дискретных сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3089_0_TS" Device="4" Channel="3089.0:BIT" Group="Чтение дискретных сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3089_1_TS" Device="4" Channel="3089.1:BIT" Group="Чтение дискретных сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3089_2_TS" Device="4" Channel="3089.2:BIT" Group="Чтение дискретных сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3089_3_TS" Device="4" Channel="3089.3:BIT" Group="Чтение дискретных сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3089_4_TS" Device="4" Channel="3089.4:BIT" Group="Чтение дискретных сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3089_5_TS" Device="4" Channel="3089.5:BIT" Group="Чтение дискретных сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3089_6_TS" Device="4" Channel="3089.6:BIT" Group="Чтение дискретных сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_3089_7_TS" Device="4" Channel="3089.7:BIT" Group="Чтение дискретных сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_817__AP" Device="4" Channel="817:USHORT_BA" Group="Чтение аналоговых сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_820__AP" Device="4" Channel="820:USHORT_BA" Group="Чтение аналоговых сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_819__AP" Device="4" Channel="819:USHORT_BA" Group="Чтение аналоговых сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_815__AP" Device="4" Channel="815:USHORT_BA" Group="Чтение аналоговых сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_64000__AP" Device="4" Channel="64000:USHORT_BA" Group="Чтение аналоговых сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_64001__AP" Device="4" Channel="64001:USHORT_BA" Group="Чтение аналоговых сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_64002__AP" Device="4" Channel="64002:USHORT_BA" Group="Чтение аналоговых сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_528__AP" Device="4" Channel="528:LONG_DCBA" Group="Чтение аналоговых сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_530__AP" Device="4" Channel="530:LONG_DCBA" Group="Чтение аналоговых сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_532__AP" Device="4" Channel="532:LONG_DCBA" Group="Чтение аналоговых сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_64272__AP" Device="4" Channel="64272:USHORT_BA" Group="Чтение аналоговых сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_64273__AP" Device="4" Channel="64273:USHORT_BA" Group="Чтение аналоговых сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_64274__AP" Device="4" Channel="64274:USHORT_BA" Group="Чтение аналоговых сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_808__AP" Device="4" Channel="808:USHORT_BA" Group="Чтение аналоговых сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_811__AP" Device="4" Channel="811:USHORT_BA" Group="Чтение аналоговых сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_809__AP" Device="4" Channel="809:USHORT_BA" Group="Чтение аналоговых сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_810__AP" Device="4" Channel="810:USHORT_BA" Group="Чтение аналоговых сигналов" UUID="" />
+        <Connection ItemName="RAW_SEPAM_SV_812__AP" Device="4" Channel="812:USHORT_BA" Group="Чтение аналоговых сигналов" UUID="" />
     </Crossconnect>
 </Configuration>
