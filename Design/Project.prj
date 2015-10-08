@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE Project v. 1.0 >
-<Project Name="ASUE_1" Comment="" Port="10000" EndPort="20000" UUID="8996D2D04C940CB6CFD44D8246F09795">
+<Project Name="ASUE_1" Comment="" Port="10000" EndPort="20000" UUID="023CE5FA4C27D8E8E4DC6BB880EA351E">
     <Globals>
         <Signal Name="RAW_SEPAM_SV_UST_RD" UUID="E402960A47B9C52EB6CEB490C37433C3" Type="WORD" ArraySize="62" Global="TRUE" Comment="считывание регулировок" />
         <Signal Name="RAW_SEPAM_SV_UST_RD_1" UUID="5F45C90D4FF2AF7EC9BECFBBC930623F" Type="WORD" Global="TRUE" />
@@ -3057,7 +3057,8 @@
         <Signal Name="TimeOsc" UUID="86E083384EE5B4B6DA62599307E61C23" Type="STRING" ArraySize="19" Global="TRUE" Comment="Временные метки осциллограмм" />
         <Signal Name="Time_request" UUID="FF225CEE4A8F6218E57D12B29EB8386C" Type="BOOL" Global="TRUE" Comment="Запрос текущего времени" />
         <Signal Name="USER_NAME_OUT" UUID="6635F88B4D85282B72705FAD3B99E079" Type="STRING" Global="TRUE" />
-        <Signal Name="RAW_SEPAM_OSCIL_READING_NAME" UUID="91EEAD9F416F6316264D29AAD7D1798E" Type="STRING" Global="TRUE" Comment="Имя сепама осциллограммы коего показываем" />
+        <Signal Name="RAW_SEPAM_OSCIL_READING_NAME" UUID="91EEAD9F416F6316264D29AAD7D1798E" Type="INT" Global="TRUE" Comment="Имя сепама осциллограммы коего показываем (1-vv1, 2-sv, 3-ols80, 4-shtn)" />
+        <Signal Name="RAW_SEPAM_OSCIL_READING_CHANGE" UUID="8A4AC4C24407B799B84A359FBD2D3F6D" Type="BOOL" Global="TRUE" Comment="признак что на экране изменили сепам, осциллограммы которого наблюдаем (на false сбрасывается в Oscillogramm_ReadDir)" />
     </Globals>
     <Connections />
 </Project>

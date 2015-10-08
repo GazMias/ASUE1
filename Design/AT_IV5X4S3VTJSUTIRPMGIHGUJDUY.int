@@ -24,5 +24,6 @@
         <Signal Name="NameFileDir" UUID="3B7AE1104B9D682C360D51878705FE41" Type="STRING" ArraySize="19" Global="TRUE" Comment="Перечень файлов осциллограмм на сервере" />
         <Signal Name="RAW_SEPAM_SV_OSCIL" UUID="08754EC3419AB43A5FA6DC9E8D6D87B6" Type="94CD427C4FB607A0C990D9B2947C4BB8" Global="TRUE" />
         <Signal Name="RAW_SEPAM_SHTN_OSCIL" UUID="387B3C3849DAA945F3A1D3A194AADF4F" Type="94CD427C4FB607A0C990D9B2947C4BB8" Global="TRUE" />
+        <Signal Name="RAW_SEPAM_OSCIL_READING_NAME" UUID="91EEAD9F416F6316264D29AAD7D1798E" Type="INT" Global="TRUE" Comment="Имя сепама осциллограммы коего показываем (1-vv1, 2-sv, 3-ols80, 4-shtn)" />
     </InterfaceList>
 </SubAppType>
