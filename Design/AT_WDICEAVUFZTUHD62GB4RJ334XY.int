@@ -10,6 +10,17 @@
         <Signal Name="@PID" UUID="5AA1A2944D8A9BF39D9DA79EC905153C" Type="STRING" Usage="output" />
         <Signal Name="@RESERVE" UUID="E42996E74397141A00A3CD8CE163CD68" Type="BOOL" />
         <Signal Name="@STATE" UUID="876614BB4BCB1A8E0D3676AD00F25CC8" Type="STRING" Usage="output" />
+        <Signal Name="RAW_SEPAM_SV_UST_RD" UUID="E402960A47B9C52EB6CEB490C37433C3" Type="WORD" ArraySize="62" Global="TRUE" Comment="считывание регулировок" />
+        <Signal Name="RAW_SEPAM_SV_UST_RD_1" UUID="5F45C90D4FF2AF7EC9BECFBBC930623F" Type="WORD" Global="TRUE" />
+        <Signal Name="RAW_SEPAM_SV_UST_RD_ST" UUID="04566C3743E1B38BDCA353B74E7C5C8E" Type="WORD" Global="TRUE" Comment="считывание регулировок в драйвере статус" />
+        <Signal Name="RAW_SEPAM_SV_UST_RD_UP" UUID="E5686FA94452A098720F108C1FFD251D" Type="BOOL" Global="TRUE" Comment="считывание регулировок в драйвере update" />
+        <Signal Name="RAW_SEPAM_SV_UST_WORD" UUID="32DC39C6498BDA620B9EBA853B6E35EC" Type="WORD" Global="TRUE" Comment="обозначение функции" />
+        <Signal Name="RAW_SEPAM_SV_UST_WORD_ST" UUID="7016386D46C28B19A7328983FAF2466F" Type="WORD" Global="TRUE" Comment="обозначение функции в драйвере статус" />
+        <Signal Name="RAW_SEPAM_SV_UST_WORD_UP" UUID="150F7F4147EBB027A95C668F7DB19724" Type="BOOL" Global="TRUE" Comment="обозначение функции в драйвере update" />
+        <Signal Name="RAW_SEPAM_SV_UST_WR" UUID="5A5F2B9F4B280B1C8DFB4DA8B8A1F919" Type="WORD" ArraySize="62" Global="TRUE" Comment="телерегулировки" />
+        <Signal Name="RAW_SEPAM_SV_UST_WR_1" UUID="B6B2BFF6485C62D72E69EF9519C645AB" Type="WORD" Global="TRUE" />
+        <Signal Name="RAW_SEPAM_SV_UST_WR_ST" UUID="9F9554234DDD85881ABFFC8FE9F4D31F" Type="WORD" Global="TRUE" Comment="запись телерегулировки в драйвере статус" />
+        <Signal Name="RAW_SEPAM_SV_UST_WR_UP" UUID="CA815B144D7AA3867B22658B72C8A8B5" Type="BOOL" Global="TRUE" Comment="запись телерегулировки в драйвере update" />
         <Signal Name="RAW_SEPAM_SV_817__AP" UUID="5001C88C4F8C5519E102B2958EFE6423" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Секционный_выключатель_Счетчик коммутаций" />
         <Signal Name="S_ZRU_P11_SV_817__AP" UUID="0C3B1A1A45AE96B492881FAF2BC356BA" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Секционный_выключатель_Счетчик коммутаций" />
         <Signal Name="S_ZRU_P11_SV_820__AP" UUID="1198E1494518183E7602DFB19905D9FD" Type="REAL" Global="TRUE" Comment="АСУ ЭС_ЗРУ 10 кВ_Панель №11_Секционный_выключатель_Счетчик отключения междуфазных КЗ" />

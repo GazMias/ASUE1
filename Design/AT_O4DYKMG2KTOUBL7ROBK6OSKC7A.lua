@@ -1,12 +1,15 @@
-local counter=0
+local ScreenID="S_KTP_P06" -- идентификатор мнемосхемы технологического объекта
+local ObjID="S_KTP_P06_" -- идентификатор технологического объекта
 local FR=90 -- адрес первого регистра данных DI
 local LR=99 -- адрес последнего регистра данных DI
 local oldsignal = {} -- буферная таблица  предыдущего значения входов
 local oldstack = {} -- буферная таблица  предыдущего значения сигналов
 local stack_error -- флаг ошибки стека
-local old_stack_error -- предыдущее значение флага ошибки стека
+local old_DRFlag = Core["S_KTP_P06_DS_DP"]-- предыдущее значение флага достоверности данных
 --local user=Core["USER_NAME_OUT"] -- текущее имя  пользователя
 local user=""
+
+--local DRFlag=true
 --local user="USER_:)" --текущий пользователь тестовый
 local sig_source="АСУ ЭС, КТП 10/0,4 кВ, Панель №6 " --описание источника сигналов
 
@@ -15,9 +18,10 @@ event ={  --таблица типов событий
 		w=10100, --предупреждения
 		s=101,  --телесигнализация
 		c=100, --команды
+		dr=30100, -- достоверность сигнала
 		}
 
-local BitMap ={  -- таблица адресов переменных дискретных входов 
+local BitMap ={  -- таблица Modbus-адресов переменных дискретных входов в формате ["Слово.Бит"] = "ТЭГ"
 			--ввод1
 					["90.0"]="VV1_VVKL",
 					["90.1"]="VV1_VOTK",
@@ -491,12 +495,66 @@ local msg= { --таблица системных сообщений
 			PU_PURESET="Сброс выполнен с ПУ",
 			  }
 
+local function Check_Data_Reliability() 
+--функция проверки достоверности данных по входным данным формирует флаг достоверности
+-- если решаем, что данные недостоверны - в журнал событий записываем сообщения о недостоверности КАЖДОГО сигнала
+--считываем по очереди дискретные входы
+-- имена переменных присваиваются из таблицы BitMap по адресу регистра и номеру бита
+		local time_source=" (Сервер)"
+		local DRFlag=Core["S_KTP_P06_DS_DP"] -- флаг наличия соединения с контроллером Data_Reliability_Flag
+		local DT=os.time()
+		local cell -- номер регистра
+		local bit -- номер бита
+	
+	if old_DRFlag==nil or old_DRFlag~=DRFlag then --если сигнал недостоверности изменился
+		  if DRFlag==2 then -- проверка появления сигнала недостоверности	
+			for cell=FR, LR do  -- читаем от первого до последнего регистра
+				for bit=0 ,15 do -- читаем все биты
+					local addr=tostring(cell.."."..bit) --получаем адрес переменной в формате "РЕГИСТР.БИТ"
+						if BitMap[addr]~=nil -- проверяем существование переменной в таблице по указанному адресу
+						then -- переменная существует (описана в BitMap)
+							local Tag= BitMap[addr]
+					    	Core.addEvent("НЕДОСТОВЕРНО: " .. msg[Tag], event.dr, 1, sig_source..time_source, user, "DRF_"..ObjID..Tag.."_DP_1", DT, "S_KTP_P06") --  добавляем событие (появление), текст берем в таблице msg, класс сообщения в таблице event_class
+							Core.addLogMsg(os.date(DT).." ".."(Появл) НЕДОСТОВЕРНО: " .. msg[Tag])
+		  		 		else -- переменная не существует (не описана в BitMap)
+								break -- прерываем цикл	
+						end --переменная  существует ( описана в BitMap)
+					bit=bit+1
+				end --bit
+				cell=cell+1
+			end --cell
+		  end --проверки появления сигнала недостоверности	
+
+		  if DRFlag==0 then -- проверка исчезновения сигнала недостоверности
+			for cell=FR, LR do  -- читаем от первого до последнего регистра
+				for bit=0 ,15 do -- читаем все биты
+					local addr=tostring(cell.."."..bit) --получаем адрес переменной в формате "РЕГИСТР.БИТ"
+						if BitMap[addr]~=nil -- проверяем существование переменной в таблице по указанному адресу
+						then -- переменная существует (описана в BitMap)
+							local Tag= BitMap[addr]
+			  				Core.addEvent("НЕДОСТОВЕРНО: " .. msg[Tag] , event.dr , 0, sig_source..time_source, user, "DRF_"..ObjID..Tag.."_DP_0", DT, "S_KTP_P06") --добавляем событие (исчезновение)
+							Core.addLogMsg(os.date(DT).." ".."(Исчезн) НЕДОСТОВЕРНО: " .. msg[Tag])
+ 		  	 			else -- переменная не существует (не описана в BitMap)
+								break -- прерываем цикл	
+						end --переменная  существует ( описана в BitMap)
+					bit=bit+1
+				end --bit
+				cell=cell+1
+			end --cell
+		  end --проверка исчезновения сигнала недостоверности
+		old_DRFlag = DRFlag -- запоминаем текущее состояние сигнала
+	end -- если сигнал недостоверности изменился	
+
+
+
+end --of Check_Data_Reliability
+
 
 
 
 local function ReadStack()
 -- считываем содержимое стека событий
---	counter=counter+1	
+
 		local timestamp={} -- метка времени
 		local signal -- состояние считанного бита
 		local stack_status = Core["RAW_M340_P06_STACK_STATUS"]
@@ -529,7 +587,7 @@ local function ReadStack()
 						timestamp.hour=bit32.extract (datablock5 , 0,8) --вычисляем час
 						timestamp.min=bit32.extract (datablock5 , 8,8)--вычисляем минуты
 						timestamp.sec=math.floor(datablock6/1000)--вычисляем секунды
-						timestamp.usec=(datablock6-timestamp.sec*1000)*1000--вычисляем микросекунды
+						timestamp.usec=math.fmod (datablock6,1000)*1000--вычисляем микросекунды
 						local timestamp_str = timestamp.day .. " " .. timestamp.month .. " " .. timestamp.year .. " " .. timestamp.hour .. ":" .. timestamp.min .. ":" ..  timestamp.sec .. "." .. timestamp.usec -- формируем строку времени
 						DT=os.time(timestamp)  + os.tz() -- преобразуем метку в формат POSIX c учетом временной зоны
 						--раскладывем слово данных на биты
@@ -543,11 +601,15 @@ local function ReadStack()
 								if oldsignal[Tag]==nil or oldsignal[Tag]~=signal then --если сигнал изменился
 									if signal then -- проверка состояния сигнала
 										Core["S_KTP_P06_"..Tag.."_DP"]=true	
-		 		  						 Core.addEvent(msg[Tag], event_class[Tag] , 1, sig_source..time_source, user, "PLC_"..Tag.."_DP_1", DT, "S_KTP_P06") --  добавляем событие (появление), текст берем в таблице msg, класс сообщения в таблице event_class
+		 		  						 Core.addEvent(msg[Tag], event_class[Tag] , 1, sig_source..time_source, user, "PLC_"..ObjID..Tag.."_DP_1", DT, "S_KTP_P06") --  добавляем событие (появление), текст берем в таблице msg, класс сообщения в таблице event_class
+										Core.addLogMsg(timestamp_str.." ".."(ПЛК) Появление: " .. msg[Tag])	
+										
 		  		 					else	
 										 Core["S_KTP_P06_"..Tag.."_DP"]=false
-										 Core.addEvent(msg[Tag], event_class[Tag] , 0, sig_source..time_source, user, "PLC_"..Tag.."_DP_0", DT, "S_KTP_P06" ) --добавляем событие (исчезновение)
+										 Core.addEvent(msg[Tag], event_class[Tag] , 0, sig_source..time_source, user, "PLC_"..ObjID..Tag.."_DP_0", DT, "S_KTP_P06" ) --добавляем событие (исчезновение)
+										 Core.addLogMsg(timestamp_str.." ".."(ПЛК) Исчезновение: " .. msg[Tag])
  		  	 		 				end --проверки изменения сигнала
+									os.sleep(0.3)
 									oldsignal[Tag] = signal -- запоминаем текущее состояние сигнала в буферной таблице
 									
  		 			  			end -- если сигнал изменился
@@ -569,7 +631,6 @@ local function InitializationDI()
 -- нужна для того, чтобы при первом запуске не лилось лишних событий исчезновения
 --считываем по очереди дискретные входы
 -- имена переменных присваиваются из таблицы BitMap по адресу резистра и номеру бита
-
 		local cell -- номер регистра
 		local bit -- номер бита
 		for cell=FR,LR do  -- читаем от первого до посдеднего регистра
@@ -609,10 +670,13 @@ local function ReadDI()
 						local Tag= BitMap[addr]
 						local signal = Core["RAW_M340_P06_"..Tag.."_DP"] --считываем сигнал из ядра
 					    if oldsignal[Tag]==nil or oldsignal[Tag]~=signal then --если сигнал изменился
+							local DT=os.time()
 							if signal then -- проверка состояния сигнала
-		 		  				 Core.addEvent(msg[Tag], event_class[Tag] , 1, sig_source..time_source, user, "Serv_"..Tag.."_DP_1",os.time(),"S_KTP_P06") --  добавляем событие (появление), текст берем в таблице msg, класс сообщения в таблице event_class
+		 		  				 Core.addEvent(msg[Tag], event_class[Tag] , 1, sig_source..time_source, user, "Serv_"..ObjID..Tag.."_DP_1",DT, ScreenID) --  добавляем событие (появление), текст берем в таблице msg, класс сообщения в таблице event_class
+								Core.addLogMsg(os.date(DT).." ".."(Сервер) Появление: " .. msg[Tag])	
 		  		 			else
-								Core.addEvent(msg[Tag], event_class[Tag] , 0, sig_source..time_source, user, "Serv_"..Tag.."_DP_0", os.time(), "S_KTP_P06" ) --добавляем событие (исчезновение)
+								Core.addEvent(msg[Tag], event_class[Tag] , 0, sig_source..time_source, user, "Serv_"..ObjID..Tag.."_DP_0", DT, ScreenID ) --добавляем событие (исчезновение)
+								Core.addLogMsg(os.date(DT).." ".."(Сервер) Исчезновение: " .. msg[Tag])	
  		  	 		 		end --проверки изменения сигнала
 							oldsignal[Tag] = signal -- запоминаем текущее состояние сигнала в буферной таблице
 							Core["S_KTP_P06_"..Tag.."_DP"]=signal -- присваиваем значение переменной ядра 	
@@ -630,8 +694,9 @@ end --ReadDI()
 
 local function CheckStack()
 				local time_source="(Сервер) "-- источник присвоения метки времени
-				--local cell_addr=bit32.extract(Core["RAW_M340_P06_DATABLOCK1"],0,12) --считываем адрес слова данных --адрес ячейки данных о событии, считываемой из стека 
-				local cell_addr=90
+				local cell_addr=bit32.extract(Core["RAW_M340_P06_DATABLOCK1"],0,12) --считываем адрес слова данных --адрес ячейки данных о событии, считываемой из стека 
+					local DT=os.time()				
+					--local cell_addr=90
 					if cell_addr==100 then --проверяем стек на переполнение если переполнен
 						Core["S_KTP_P06_STACK_ERR"] =true --устанавливаем флаг переполнения стека 
 						stack_error=true --устанавливаем флаг переполнения стека для скрипта
@@ -644,10 +709,10 @@ local function CheckStack()
 					end --if
 					if old_stack_error==nil or old_stack_error~=stack_error then --если сигнал изменился
  							if stack_error then -- проверка состояния сигнала	
-									Core.addEvent(msg.stack_err, event.w, 1, sig_source..time_source, user, "stack_error_1")	-- пишем событие в журнал
+									Core.addEvent(msg.stack_err, event.w, 1, sig_source..time_source, user, ObjID.."stack_error_1", DT, ScreenID)	-- пишем событие в журнал
 									Core["RAW_M340_P06_STACK_STATUS"]=256  -- обнуляем номер обмена		и очищаем стек
 							else
-									Core.addEvent(msg.stack_err, event.w, 0, sig_source..time_source, user, "stack_error_0") -- исчезновение события
+									Core.addEvent(msg.stack_err, event.w, 0, sig_source..time_source, user, ObjID.."stack_error_0", DT, ScreenID) -- исчезновение события
 							end
 					end
 					old_stack_error=stack_error --запоминаем значение флага ошибки стека
@@ -655,9 +720,15 @@ local function CheckStack()
 					
 end  --CheckStack()
 
-	InitializationDI()
-	CheckStack() --первоначальная проверка стека
+
+--if user==nil then user="Unknown" end
+--Core["S_KTP_P06_EVENT_STRING_0"]=user
+	Check_Data_Reliability() --проверяем соединения с контроллером	
+	InitializationDI() -- инициализация входных переменных
+	--CheckStack() --первоначальная проверка стека
+	Core.onExtChange({"S_KTP_P06_DS_DP"}, Check_Data_Reliability) --отслеживем наличие соединения с контроллером
 	Core.onExtChange({"RAW_M340_P06_STACK_STATUS"}, CheckStack) --отслеживем статус стека и вызываем проверку стека
+
 
 
 Core.waitEvents( )

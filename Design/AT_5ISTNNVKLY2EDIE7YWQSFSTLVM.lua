@@ -1,8 +1,9 @@
 local DRFlag-- флаг достоверности данных
---local DRFlag=Core["RAW_S7_P05_CONNECT"] -- флаг наличия соединения с контроллером Data_Reliability_Flag
-local old_DRFlag -- предыдущее значение флага достоверности данных
+local DRFlag=Core["S_KTP_P05_DS_DP"] -- флаг наличия соединения с контроллером Data_Reliability_Flag
+--local old_DRFlag -- предыдущее значение флага достоверности данных
 local oldsignal = {} -- буферная таблица  предыдущего состояния входов
 --local user=Core["USER_NAME_OUT"] -- текущее имя  пользователя
+local Log=true
 local user=""
 local ScreenID="S_KTP_P05" -- идентификатор мнемосхемы технологического объекта
 local ObjID="S_KTP_P05_" -- идентификатор технологического объекта
@@ -17,6 +18,148 @@ local event ={  --таблица типов событий
 		dr=30100, -- достоверность сигнала
 		}
 
+
+local TagList={ --список всех обрабытываемых в приложении тегов
+              "VV1_VVKL",
+              "VV1_VOTK",
+              "VV1_VVIK",
+              "VV1_OTKVVAVRSV",
+              "VV1_VKLSVAVRSV",
+              "VV1_OTKVVAVRAV1",
+              "VV1_OTKVVAVRAV2",
+              "VV1_AVOTKVV",
+              "VV1_OTKSVVNRAVRSV",
+              "VV1_VKLVVVNRAVRSV",
+              "VV1_VKLVVVNRAVRAV1",
+              "VV1_VKLVVVNRAVRAV2",
+              "VV1_SRTZNPOTKSV",
+              "VV1_SRTZNPOTKVV",
+              "VV1_SRTZNPOTKTR",
+              "VV1_PRTEMTROTK",
+              "VV1_SRZASHVV",
+              "VV1_OTKVVNTRZASH",
+              "VV1_OTKVVDGZ",
+              "VV1_PRTEMTRSIG",
+              "VV1_AVTVIKCNOTK",
+              "VV1_AVTVIKCUOTK",
+              "VV1_NEISPCUV",
+              "VV1_NEISPCOV",
+              "VV1_NEISPCVV",
+              "VV1_SRDGZSEC",
+              "VV1_AVTVIKCUOLSECOTK",
+              "VV1_AVOTKUVN",
+              "VV1_AVOTKOLSEC",
+              "VV1_RAZGRSEC",
+              "VV1_NEISPCONTRV",
+              "VV2_VVKL",
+              "VV2_VOTK",
+              "VV2_VVIK",
+              "VV2_OTKVVAVRSV",
+              "VV2_VKLSVAVRSV",
+              "VV2_OTKVVAVRAV1",
+              "VV2_OTKVVAVRAV2",
+              "VV2_AVOTKVV",
+              "VV2_OTKSVVNRAVRSV",
+              "VV2_VKLVVVNRAVRSV",
+              "VV2_VKLVVVNRAVRAV1",
+              "VV2_VKLVVVNRAVRAV2",
+              "VV2_SRTZNPOTKSV",
+              "VV2_SRTZNPOTKVV",
+              "VV2_SRTZNPOTKTR",
+              "VV2_PRTEMTROTK",
+              "VV2_SRZASHVV",
+              "VV2_OTKVVNTRZASH",
+              "VV2_OTKVVDGZ",
+              "VV2_PRTEMTRSIG",
+              "VV2_AVTVIKCNOTK",
+              "VV2_AVTVIKCUOTK",
+              "VV2_NEISPCUV",
+              "VV2_NEISPCOV",
+              "VV2_NEISPCVV",
+              "VV2_SRDGZSEC",
+              "VV2_AVTVIKCUOLSECOTK",
+              "VV2_AVOTKUVN",
+              "VV2_AVOTKOLSEC",
+              "VV2_RAZGRSEC",
+              "VV2_NEISPCONTRV",
+              "SV_SVVKL",
+              "SV_SVOTK",
+              "SV_SVVIK",
+              "SV_AVRSVVKL",
+              "SV_AVRSVOTK",
+              "SV_AVOTKSV",
+              "SV_SRZASHSV",
+              "SV_OTKSVTZNPVVDGZ",
+              "SV_AVTVIKCUSVOTK",
+              "SV_NEISPCUSV",
+              "SV_NEISPCOV",
+              "SV_NEISPCVV",
+              "SV_NEISPCONTRSV",
+              "AV1_VAVVKL",
+              "AV1_VAVOTK",
+              "AV1_VAVVIK",
+              "AV1_VGVKL",
+              "AV1_VGOTK",
+              "AV1_AVRAVVKL",
+              "AV1_AVRAVOTK",
+              "AV1_OTKSVAVRAV",
+              "AV1_VKLSVVNRAVRAV",
+              "AV1_VKLSVAVRAV",
+              "AV1_PADSAVRAV",
+              "AV1_VKLVAVAVRAV",
+              "AV1_OTKVAVVNR",
+              "AV1_OTKSVVNRAVRAV",
+              "AV1_OSTADSVNRAVRAV",
+              "AV1_NPADS",
+              "AV1_AVOTKVAV",
+              "AV1_OTKVAVDGZ",
+              "AV1_SRZASHVAV",
+              "AV1_NEISPADS",
+              "AV1_PEREGRADS",
+              "AV1_AVTVIKCNAVOTK",
+              "AV1_AVTVIKCUAVOTK",
+              "AV1_NEISPCUVG",
+              "AV1_NEISPCUVAV",
+              "AV1_NEISPCOV",
+              "AV1_NEISPCVV",
+              "AV1_NEISPCONTRAV",
+              "AV2_VAVVKL",
+              "AV2_VAVOTK",
+              "AV2_VAVVIK",
+              "AV2_VGVKL",
+              "AV2_VGOTK",
+              "AV2_AVRAVOTK",
+              "AV2_AVRAVVKL",
+              "AV2_OTKSVAVRAV",
+              "AV2_VKLSVVNRAVRAV",
+              "AV2_VKLSVAVRAV",
+              "AV2_PADSAVRAV",
+              "AV2_VKLVAVAVRAV",
+              "AV2_OTKVAVVNR",
+              "AV2_OTKSVVNRAVRAV",
+              "AV2_OSTADSVNRAVRAV",
+              "AV2_NPADS",
+              "AV2_AVOTKVAV",
+              "AV2_OTKVAVDGZ",
+              "AV2_SRZASHVAV",
+              "AV2_NEISPADS",
+              "AV2_PEREGRADS",
+              "AV2_AVTVIKCNAVOTK",
+              "AV2_AVTVIKCUAVOTK",
+              "AV2_NEISPCUVG",
+              "AV2_NEISPCUVAV",
+              "AV2_NEISPCOV",
+              "AV2_NEISPCVV",
+              "AV2_NEISPCONTRAV",
+              "PU_DURAZR",
+              "PU_SRAVTKTP",
+              "PU_NEISKTP",
+              "PU_AVARKTP",
+              "PU_NEISPDGZ",
+              "PU_NEISPCONTRPU",
+              "PU_AVTVIKCSIGOTK",
+              "PU_AVTVIKCOBOTK",
+}-- of Taglist
 
 local event_class= {  --таблица классов тревог для сигналов
 				--Ввод 1
@@ -314,43 +457,49 @@ local msg= { --таблица системных сообщений
          PU_AVTVIKCOBOTK="ПУ. Авт выключатель цепей обогрева отключен",
 } --msg
 
-local function Check_Data_Reliability() 
-	DRFlag= Core["S_KTP_P05_DS_DP"]
---	for raw_objectName, objectName in pairs(objects) do	--Цикл по 2ум массивам: RAW_ и S_
-		for _, signals_Descriptor in pairs(signals) do	--Цикл по всем элементов в каждом из 2 массивов: RAW_ и S_
-			signals_Descriptor.cdr({raw_objectName,objectName})	--Вызов функций у каждой из переменных, описанных в signals
-		end
---	end
-end --of Check_Data_Reliability
 
-local function Get_DR_Type ()--функция определения появления\исчезновения недостоверности
-	local DR_Type -- переменная :1 - параметр недостоверен, 0 - в норме
-	DRFlag= Core["S_KTP_P05_DS_DP"]
-	if DRFlag==2 then DR_Type=1 end --появление недостоверности
-	if DRFlag==0 
-		then DR_Type=0 --исчезновение недостоверности
-		else DR_Type=nil -- нештатная ситуация
-	end
-	return DR_Type -- возвращаем в вызывающую функцию тип события недостоверности
-end
+local function Check_Data_Reliability ()-- функция проверки достоверности сигналов и выдачи соответствующих сообщений
+	local time_source=" (Сервер)"
+	local DRFlag=Core["S_KTP_P05_DS_DP"] -- флаг наличия соединения с контроллером Data_Reliability_Flag
+	local DT=os.time()	
+	if old_DRFlag==nil or old_DRFlag~=DRFlag then --если сигнал недостоверности изменился
+		local i=1 -- счетчик цикла
+		local Tag -- текущий тэг из списка 
+		while TagList[i]~=nil do -- пока сигналы в списке не кончатся
+			if TagList[i]~=nil then Tag=TagList[i] else break end -- очередной тэг	
+			if 	msg[Tag]==nil then break end
+		  	if DRFlag>0 then -- проверка появления сигнала недостоверности	
+			    	Core.addEvent("НЕДОСТОВЕРНО: " .. msg[Tag], event.dr, 1, sig_source..time_source, user, "DRF_"..ObjID..Tag.."_DP_1", DT, ScreenID) --  добавляем событие (появление), текст берем в таблице msg, класс сообщения в таблице event_class
+					Core.addLogMsg(os.date().." ".."(Появл) НЕДОСТОВЕРНО: " .. msg[Tag])
+		  	end --проверки появления сигнала недостоверности	
+		    if DRFlag==0 then -- проверка исчезновения сигнала-- недостоверности
+				Core.addEvent("НЕДОСТОВЕРНО: " .. msg[Tag] , event.dr , 0, sig_source..time_source, user, "DRF_"..ObjID..Tag.."_DP_0", DT, ScreenID) --добавляем событие (исчезновение)
+				if Log then Core.addLogMsg(os.date().." ".."(Исчезн) НЕДОСТОВЕРНО: " .. msg[Tag]) end
+	  	    end --проверка исчезновения сигнала недостоверности
+			i=i+1 -- следующий!!!
+		  end --of while
+		  old_DRFlag = DRFlag -- запоминаем текущее состояние сигнала
+	end -- если сигнал недостоверности изменился	 	 						 
+end -- of Check_Data_Reliability 
+
+
+
+
 
 local function Add_Event (Tag, signal)-- функция добавления события по сигналу Tag со значением signal в журнал
      					local DT=os.time() -- время события (локальное)
 						local e_type -- тип события (появление\исчезновение)
-						if signal then e_type=1 else e_type=0 end 						-- определение типа события (появление\ исчезновение)
+						local e_type -- тип события (появление\исчезновение)
+						if signal then 
+							e_type=1
+							if Log then Core.addLogMsg(os.date().." ".."(Появл.) " .. msg[Tag]) end --добавление события в лог 
+						else
+							 e_type=0
+							if Log then Core.addLogMsg(os.date().." ".."(Исчезн.) " .. msg[Tag]) end --добавление события в лог  						-- определение типа события (появление\ исчезновение)
+						end
 					    if oldsignal[Tag]==nil or oldsignal[Tag]~=signal then --если сигнал изменился
 		 		  				 Core.addEvent(msg[Tag], event_class[Tag] , e_type, sig_source..time_source, user, ObjID..Tag.."_DP_"..e_type, DT, ScreenID) --  добавляем событие (типа e_type), текст берем в таблице msg, класс сообщения в таблице event_class
 	   	 			    end -- если сигнал изменился  				 
-end -- of Add_Event
-
-local function Add_DR_Event (Tag,DR_type)-- функция добавления события недостоверности сигналов
-     					local DT=os.time() -- время события (локальное)
-						-- тип события 
-						-- определение типа события (появление\ исчезновение)
-					    if old_DRFlag==nil or old_DRFlag~=DRFlag then --если сигнал изменился
-		 		  				 Core.addEvent("Параметр недостоверен: "..msg[Tag], event.dr , DR_type, sig_source..time_source, user, "DR_"..ObjID..Tag.."_DP_"..DR_type, DT, ScreenID) --  добавляем событие (типа e_type), текст берем в таблице msg, класс сообщения в таблице event_class
-	   	 			    end -- если сигнал изменился  				 
-						old_DRFlag=DRFlag
 end -- of Add_Event
 
 
@@ -377,54 +526,159 @@ local signals = {
 				Add_Event (Tag, signal) -- запись события в журнал
 				Core[Name[2]..Tag.."_DP"]=signal -- передаем значение сигнала в проект
 				oldsignal[Tag] = signal -- запоминаем текущее состояние сигнала в буферной таблице
-			 end, --of eval
-			["cdr"]=function(Name) 
-					local Tag="VV1_AVOTKOLSEC"
-					local DR_Type = Get_DR_Type ()
-					if DR_Type~=nil then Add_DR_Event (Tag,DR_Type) end
-			end
+			 end --of eval
+
 		  },
-				 ["VV1_VVKL_DP"]={ ["Comment"]=sig_source..msg.VV1_VVKL,["eval"]= function(Name)local Tag="VV1_VVKL" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end,  ["cdr"]=function(Name) local Tag="VV1_VVKL" local DR_Type = Get_DR_Type () if DR_Type~=nil then Add_DR_Event (Tag,DR_Type) end    end},
-                 ["VV1_VOTK_DP"]={ ["Comment"]=sig_source..msg.VV1_VOTK,["eval"]= function(Name)local Tag="VV1_VOTK" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end,  ["cdr"]=function(Name) local Tag="VV1_VOTK" local DR_Type = Get_DR_Type () if DR_Type~=nil then Add_DR_Event (Tag,DR_Type) end    end},
-                 ["VV1_VVIK_DP"]={ ["Comment"]=sig_source..msg.VV1_VVIK,["eval"]= function(Name)local Tag="VV1_VVIK" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end,  ["cdr"]=function(Name) local Tag="VV1_VVIK" local DR_Type = Get_DR_Type () if DR_Type~=nil then Add_DR_Event (Tag,DR_Type) end    end},
-                 ["VV1_OTKVVAVRSV_DP"]={ ["Comment"]=sig_source..msg.VV1_OTKVVAVRSV,["eval"]= function(Name)local Tag="VV1_OTKVVAVRSV" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end,  ["cdr"]=function(Name) local Tag="VV1_OTKVVAVRSV" local DR_Type = Get_DR_Type () if DR_Type~=nil then Add_DR_Event (Tag,DR_Type) end    end},
-                 ["VV1_VKLSVAVRSV_DP"]={ ["Comment"]=sig_source..msg.VV1_VKLSVAVRSV,["eval"]= function(Name)local Tag="VV1_VKLSVAVRSV" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end,  ["cdr"]=function(Name) local Tag="VV1_VKLSVAVRSV" local DR_Type = Get_DR_Type () if DR_Type~=nil then Add_DR_Event (Tag,DR_Type) end    end},
-                 ["VV1_OTKVVAVRAV1_DP"]={ ["Comment"]=sig_source..msg.VV1_OTKVVAVRAV1,["eval"]= function(Name)local Tag="VV1_OTKVVAVRAV1" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end,  ["cdr"]=function(Name) local Tag="VV1_OTKVVAVRAV1" local DR_Type = Get_DR_Type () if DR_Type~=nil then Add_DR_Event (Tag,DR_Type) end    end},
-                 ["VV1_OTKVVAVRAV2_DP"]={ ["Comment"]=sig_source..msg.VV1_OTKVVAVRAV2,["eval"]= function(Name)local Tag="VV1_OTKVVAVRAV2" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end,  ["cdr"]=function(Name) local Tag="VV1_OTKVVAVRAV2" local DR_Type = Get_DR_Type () if DR_Type~=nil then Add_DR_Event (Tag,DR_Type) end    end},
-                 ["VV1_AVOTKVV_DP"]={ ["Comment"]=sig_source..msg.VV1_AVOTKVV,["eval"]= function(Name)local Tag="VV1_AVOTKVV" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end,  ["cdr"]=function(Name) local Tag="VV1_AVOTKVV" local DR_Type = Get_DR_Type () if DR_Type~=nil then Add_DR_Event (Tag,DR_Type) end    end},
-                 ["VV1_OTKSVVNRAVRSV_DP"]={ ["Comment"]=sig_source..msg.VV1_OTKSVVNRAVRSV,["eval"]= function(Name)local Tag="VV1_OTKSVVNRAVRSV" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end,  ["cdr"]=function(Name) local Tag="VV1_OTKSVVNRAVRSV" local DR_Type = Get_DR_Type () if DR_Type~=nil then Add_DR_Event (Tag,DR_Type) end    end},
-                 ["VV1_VKLVVVNRAVRSV_DP"]={ ["Comment"]=sig_source..msg.VV1_VKLVVVNRAVRSV,["eval"]= function(Name)local Tag="VV1_VKLVVVNRAVRSV" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end,  ["cdr"]=function(Name) local Tag="VV1_VKLVVVNRAVRSV" local DR_Type = Get_DR_Type () if DR_Type~=nil then Add_DR_Event (Tag,DR_Type) end    end},
-                 ["VV1_VKLVVVNRAVRAV1_DP"]={ ["Comment"]=sig_source..msg.VV1_VKLVVVNRAVRAV1,["eval"]= function(Name)local Tag="VV1_VKLVVVNRAVRAV1" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end,  ["cdr"]=function(Name) local Tag="VV1_VKLVVVNRAVRAV1" local DR_Type = Get_DR_Type () if DR_Type~=nil then Add_DR_Event (Tag,DR_Type) end    end},
-                 ["VV1_VKLVVVNRAVRAV2_DP"]={ ["Comment"]=sig_source..msg.VV1_VKLVVVNRAVRAV2,["eval"]= function(Name)local Tag="VV1_VKLVVVNRAVRAV2" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end,  ["cdr"]=function(Name) local Tag="VV1_VKLVVVNRAVRAV2" local DR_Type = Get_DR_Type () if DR_Type~=nil then Add_DR_Event (Tag,DR_Type) end    end},
-                 ["VV1_SRTZNPOTKSV_DP"]={ ["Comment"]=sig_source..msg.VV1_SRTZNPOTKSV,["eval"]= function(Name)local Tag="VV1_SRTZNPOTKSV" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end,  ["cdr"]=function(Name) local Tag="VV1_SRTZNPOTKSV" local DR_Type = Get_DR_Type () if DR_Type~=nil then Add_DR_Event (Tag,DR_Type) end    end},
-                 ["VV1_SRTZNPOTKVV_DP"]={ ["Comment"]=sig_source..msg.VV1_SRTZNPOTKVV,["eval"]= function(Name)local Tag="VV1_SRTZNPOTKVV" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end,  ["cdr"]=function(Name) local Tag="VV1_SRTZNPOTKVV" local DR_Type = Get_DR_Type () if DR_Type~=nil then Add_DR_Event (Tag,DR_Type) end    end},
-                 ["VV1_SRTZNPOTKTR_DP"]={ ["Comment"]=sig_source..msg.VV1_SRTZNPOTKTR,["eval"]= function(Name)local Tag="VV1_SRTZNPOTKTR" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end,  ["cdr"]=function(Name) local Tag="VV1_SRTZNPOTKTR" local DR_Type = Get_DR_Type () if DR_Type~=nil then Add_DR_Event (Tag,DR_Type) end    end},
-                 ["VV1_PRTEMTROTK_DP"]={ ["Comment"]=sig_source..msg.VV1_PRTEMTROTK,["eval"]= function(Name)local Tag="VV1_PRTEMTROTK" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end,  ["cdr"]=function(Name) local Tag="VV1_PRTEMTROTK" local DR_Type = Get_DR_Type () if DR_Type~=nil then Add_DR_Event (Tag,DR_Type) end    end},
-                 ["VV1_SRZASHVV_DP"]={ ["Comment"]=sig_source..msg.VV1_SRZASHVV,["eval"]= function(Name)local Tag="VV1_SRZASHVV" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end,  ["cdr"]=function(Name) local Tag="VV1_SRZASHVV" local DR_Type = Get_DR_Type () if DR_Type~=nil then Add_DR_Event (Tag,DR_Type) end    end},
-                 ["VV1_OTKVVNTRZASH_DP"]={ ["Comment"]=sig_source..msg.VV1_OTKVVNTRZASH,["eval"]= function(Name)local Tag="VV1_OTKVVNTRZASH" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end,  ["cdr"]=function(Name) local Tag="VV1_OTKVVNTRZASH" local DR_Type = Get_DR_Type () if DR_Type~=nil then Add_DR_Event (Tag,DR_Type) end    end},
-                 ["VV1_OTKVVDGZ_DP"]={ ["Comment"]=sig_source..msg.VV1_OTKVVDGZ,["eval"]= function(Name)local Tag="VV1_OTKVVDGZ" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end,  ["cdr"]=function(Name) local Tag="VV1_OTKVVDGZ" local DR_Type = Get_DR_Type () if DR_Type~=nil then Add_DR_Event (Tag,DR_Type) end    end},
-                 ["VV1_PRTEMTRSIG_DP"]={ ["Comment"]=sig_source..msg.VV1_PRTEMTRSIG,["eval"]= function(Name)local Tag="VV1_PRTEMTRSIG" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end,  ["cdr"]=function(Name) local Tag="VV1_PRTEMTRSIG" local DR_Type = Get_DR_Type () if DR_Type~=nil then Add_DR_Event (Tag,DR_Type) end    end},
-                 ["VV1_AVTVIKCNOTK_DP"]={ ["Comment"]=sig_source..msg.VV1_AVTVIKCNOTK,["eval"]= function(Name)local Tag="VV1_AVTVIKCNOTK" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end,  ["cdr"]=function(Name) local Tag="VV1_AVTVIKCNOTK" local DR_Type = Get_DR_Type () if DR_Type~=nil then Add_DR_Event (Tag,DR_Type) end    end},
-                 ["VV1_AVTVIKCUOTK_DP"]={ ["Comment"]=sig_source..msg.VV1_AVTVIKCUOTK,["eval"]= function(Name)local Tag="VV1_AVTVIKCUOTK" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end,  ["cdr"]=function(Name) local Tag="VV1_AVTVIKCUOTK" local DR_Type = Get_DR_Type () if DR_Type~=nil then Add_DR_Event (Tag,DR_Type) end    end},
-                 ["VV1_NEISPCUV_DP"]={ ["Comment"]=sig_source..msg.VV1_NEISPCUV,["eval"]= function(Name)local Tag="VV1_NEISPCUV" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end,  ["cdr"]=function(Name) local Tag="VV1_NEISPCUV" local DR_Type = Get_DR_Type () if DR_Type~=nil then Add_DR_Event (Tag,DR_Type) end    end},
-                 ["VV1_NEISPCOV_DP"]={ ["Comment"]=sig_source..msg.VV1_NEISPCOV,["eval"]= function(Name)local Tag="VV1_NEISPCOV" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end,  ["cdr"]=function(Name) local Tag="VV1_NEISPCOV" local DR_Type = Get_DR_Type () if DR_Type~=nil then Add_DR_Event (Tag,DR_Type) end    end},
-                 ["VV1_NEISPCVV_DP"]={ ["Comment"]=sig_source..msg.VV1_NEISPCVV,["eval"]= function(Name)local Tag="VV1_NEISPCVV" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end,  ["cdr"]=function(Name) local Tag="VV1_NEISPCVV" local DR_Type = Get_DR_Type () if DR_Type~=nil then Add_DR_Event (Tag,DR_Type) end    end},
-                 ["VV1_SRDGZSEC_DP"]={ ["Comment"]=sig_source..msg.VV1_SRDGZSEC,["eval"]= function(Name)local Tag="VV1_SRDGZSEC" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end,  ["cdr"]=function(Name) local Tag="VV1_SRDGZSEC" local DR_Type = Get_DR_Type () if DR_Type~=nil then Add_DR_Event (Tag,DR_Type) end    end},
-                 ["VV1_AVTVIKCUOLSECOTK_DP"]={ ["Comment"]=sig_source..msg.VV1_AVTVIKCUOLSECOTK,["eval"]= function(Name)local Tag="VV1_AVTVIKCUOLSECOTK" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end,  ["cdr"]=function(Name) local Tag="VV1_AVTVIKCUOLSECOTK" local DR_Type = Get_DR_Type () if DR_Type~=nil then Add_DR_Event (Tag,DR_Type) end    end},
-                 ["VV1_AVOTKUVN_DP"]={ ["Comment"]=sig_source..msg.VV1_AVOTKUVN,["eval"]= function(Name)local Tag="VV1_AVOTKUVN" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end,  ["cdr"]=function(Name) local Tag="VV1_AVOTKUVN" local DR_Type = Get_DR_Type () if DR_Type~=nil then Add_DR_Event (Tag,DR_Type) end    end},
-                 ["VV1_RAZGRSEC_DP"]={ ["Comment"]=sig_source..msg.VV1_RAZGRSEC,["eval"]= function(Name)local Tag="VV1_RAZGRSEC" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end,  ["cdr"]=function(Name) local Tag="VV1_RAZGRSEC" local DR_Type = Get_DR_Type () if DR_Type~=nil then Add_DR_Event (Tag,DR_Type) end    end},
-                 ["VV1_NEISPCONTRV_DP"]={ ["Comment"]=sig_source..msg.VV1_NEISPCONTRV,["eval"]= function(Name)local Tag="VV1_NEISPCONTRV" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end,  ["cdr"]=function(Name) local Tag="VV1_NEISPCONTRV" local DR_Type = Get_DR_Type () if DR_Type~=nil then Add_DR_Event (Tag,DR_Type) end    end},
+				 ["VV1_VVKL_DP"]={ ["Comment"]=sig_source..msg.VV1_VVKL,["eval"]= function(Name)local Tag="VV1_VVKL" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end},
+                 ["VV1_VOTK_DP"]={ ["Comment"]=sig_source..msg.VV1_VOTK,["eval"]= function(Name)local Tag="VV1_VOTK" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end},
+                 ["VV1_VVIK_DP"]={ ["Comment"]=sig_source..msg.VV1_VVIK,["eval"]= function(Name)local Tag="VV1_VVIK" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end},
+                 ["VV1_OTKVVAVRSV_DP"]={ ["Comment"]=sig_source..msg.VV1_OTKVVAVRSV,["eval"]= function(Name)local Tag="VV1_OTKVVAVRSV" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end},
+                 ["VV1_VKLSVAVRSV_DP"]={ ["Comment"]=sig_source..msg.VV1_VKLSVAVRSV,["eval"]= function(Name)local Tag="VV1_VKLSVAVRSV" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end},
+                 ["VV1_OTKVVAVRAV1_DP"]={ ["Comment"]=sig_source..msg.VV1_OTKVVAVRAV1,["eval"]= function(Name)local Tag="VV1_OTKVVAVRAV1" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end},
+                 ["VV1_OTKVVAVRAV2_DP"]={ ["Comment"]=sig_source..msg.VV1_OTKVVAVRAV2,["eval"]= function(Name)local Tag="VV1_OTKVVAVRAV2" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end},
+                 ["VV1_AVOTKVV_DP"]={ ["Comment"]=sig_source..msg.VV1_AVOTKVV,["eval"]= function(Name)local Tag="VV1_AVOTKVV" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end},
+                 ["VV1_OTKSVVNRAVRSV_DP"]={ ["Comment"]=sig_source..msg.VV1_OTKSVVNRAVRSV,["eval"]= function(Name)local Tag="VV1_OTKSVVNRAVRSV" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end},
+                 ["VV1_VKLVVVNRAVRSV_DP"]={ ["Comment"]=sig_source..msg.VV1_VKLVVVNRAVRSV,["eval"]= function(Name)local Tag="VV1_VKLVVVNRAVRSV" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end},
+                 ["VV1_VKLVVVNRAVRAV1_DP"]={ ["Comment"]=sig_source..msg.VV1_VKLVVVNRAVRAV1,["eval"]= function(Name)local Tag="VV1_VKLVVVNRAVRAV1" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end},
+                 ["VV1_VKLVVVNRAVRAV2_DP"]={ ["Comment"]=sig_source..msg.VV1_VKLVVVNRAVRAV2,["eval"]= function(Name)local Tag="VV1_VKLVVVNRAVRAV2" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end},
+                 ["VV1_SRTZNPOTKSV_DP"]={ ["Comment"]=sig_source..msg.VV1_SRTZNPOTKSV,["eval"]= function(Name)local Tag="VV1_SRTZNPOTKSV" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end},
+                 ["VV1_SRTZNPOTKVV_DP"]={ ["Comment"]=sig_source..msg.VV1_SRTZNPOTKVV,["eval"]= function(Name)local Tag="VV1_SRTZNPOTKVV" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end},
+                 ["VV1_SRTZNPOTKTR_DP"]={ ["Comment"]=sig_source..msg.VV1_SRTZNPOTKTR,["eval"]= function(Name)local Tag="VV1_SRTZNPOTKTR" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end},
+                 ["VV1_PRTEMTROTK_DP"]={ ["Comment"]=sig_source..msg.VV1_PRTEMTROTK,["eval"]= function(Name)local Tag="VV1_PRTEMTROTK" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end},
+                 ["VV1_SRZASHVV_DP"]={ ["Comment"]=sig_source..msg.VV1_SRZASHVV,["eval"]= function(Name)local Tag="VV1_SRZASHVV" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end},
+                 ["VV1_OTKVVNTRZASH_DP"]={ ["Comment"]=sig_source..msg.VV1_OTKVVNTRZASH,["eval"]= function(Name)local Tag="VV1_OTKVVNTRZASH" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end},
+                 ["VV1_OTKVVDGZ_DP"]={ ["Comment"]=sig_source..msg.VV1_OTKVVDGZ,["eval"]= function(Name)local Tag="VV1_OTKVVDGZ" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end},
+                 ["VV1_PRTEMTRSIG_DP"]={ ["Comment"]=sig_source..msg.VV1_PRTEMTRSIG,["eval"]= function(Name)local Tag="VV1_PRTEMTRSIG" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end},
+                 ["VV1_AVTVIKCNOTK_DP"]={ ["Comment"]=sig_source..msg.VV1_AVTVIKCNOTK,["eval"]= function(Name)local Tag="VV1_AVTVIKCNOTK" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end},
+                 ["VV1_AVTVIKCUOTK_DP"]={ ["Comment"]=sig_source..msg.VV1_AVTVIKCUOTK,["eval"]= function(Name)local Tag="VV1_AVTVIKCUOTK" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end},
+                 ["VV1_NEISPCUV_DP"]={ ["Comment"]=sig_source..msg.VV1_NEISPCUV,["eval"]= function(Name)local Tag="VV1_NEISPCUV" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end},
+                 ["VV1_NEISPCOV_DP"]={ ["Comment"]=sig_source..msg.VV1_NEISPCOV,["eval"]= function(Name)local Tag="VV1_NEISPCOV" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end},
+                 ["VV1_NEISPCVV_DP"]={ ["Comment"]=sig_source..msg.VV1_NEISPCVV,["eval"]= function(Name)local Tag="VV1_NEISPCVV" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end},
+                 ["VV1_SRDGZSEC_DP"]={ ["Comment"]=sig_source..msg.VV1_SRDGZSEC,["eval"]= function(Name)local Tag="VV1_SRDGZSEC" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end},
+                 ["VV1_AVTVIKCUOLSECOTK_DP"]={ ["Comment"]=sig_source..msg.VV1_AVTVIKCUOLSECOTK,["eval"]= function(Name)local Tag="VV1_AVTVIKCUOLSECOTK" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end},
+                 ["VV1_AVOTKUVN_DP"]={ ["Comment"]=sig_source..msg.VV1_AVOTKUVN,["eval"]= function(Name)local Tag="VV1_AVOTKUVN" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end},
+                 ["VV1_RAZGRSEC_DP"]={ ["Comment"]=sig_source..msg.VV1_RAZGRSEC,["eval"]= function(Name)local Tag="VV1_RAZGRSEC" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end},
+                 ["VV1_NEISPCONTRV_DP"]={ ["Comment"]=sig_source..msg.VV1_NEISPCONTRV,["eval"]= function(Name)local Tag="VV1_NEISPCONTRV" local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end},
 
 --ВВОД2
-        
+		 ["VV2_VVKL_DP"]= { ["Comment"]=sig_source..msg.VV2_VVKL, ["eval"]= function(Name)  local Tag="VV2_VVKL"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["VV2_VOTK_DP"]= { ["Comment"]=sig_source..msg.VV2_VOTK, ["eval"]= function(Name)  local Tag="VV2_VOTK"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["VV2_VVIK_DP"]= { ["Comment"]=sig_source..msg.VV2_VVIK, ["eval"]= function(Name)  local Tag="VV2_VVIK"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["VV2_OTKVVAVRSV_DP"]= { ["Comment"]=sig_source..msg.VV2_OTKVVAVRSV, ["eval"]= function(Name)  local Tag="VV2_OTKVVAVRSV"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["VV2_VKLSVAVRSV_DP"]= { ["Comment"]=sig_source..msg.VV2_VKLSVAVRSV, ["eval"]= function(Name)  local Tag="VV2_VKLSVAVRSV"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["VV2_OTKVVAVRAV1_DP"]= { ["Comment"]=sig_source..msg.VV2_OTKVVAVRAV1, ["eval"]= function(Name)  local Tag="VV2_OTKVVAVRAV1"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["VV2_OTKVVAVRAV2_DP"]= { ["Comment"]=sig_source..msg.VV2_OTKVVAVRAV2, ["eval"]= function(Name)  local Tag="VV2_OTKVVAVRAV2"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["VV2_AVOTKVV_DP"]= { ["Comment"]=sig_source..msg.VV2_AVOTKVV, ["eval"]= function(Name)  local Tag="VV2_AVOTKVV"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["VV2_OTKSVVNRAVRSV_DP"]= { ["Comment"]=sig_source..msg.VV2_OTKSVVNRAVRSV, ["eval"]= function(Name)  local Tag="VV2_OTKSVVNRAVRSV"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["VV2_VKLVVVNRAVRSV_DP"]= { ["Comment"]=sig_source..msg.VV2_VKLVVVNRAVRSV, ["eval"]= function(Name)  local Tag="VV2_VKLVVVNRAVRSV"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["VV2_VKLVVVNRAVRAV1_DP"]= { ["Comment"]=sig_source..msg.VV2_VKLVVVNRAVRAV1, ["eval"]= function(Name)  local Tag="VV2_VKLVVVNRAVRAV1"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["VV2_VKLVVVNRAVRAV2_DP"]= { ["Comment"]=sig_source..msg.VV2_VKLVVVNRAVRAV2, ["eval"]= function(Name)  local Tag="VV2_VKLVVVNRAVRAV2"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["VV2_SRTZNPOTKSV_DP"]= { ["Comment"]=sig_source..msg.VV2_SRTZNPOTKSV, ["eval"]= function(Name)  local Tag="VV2_SRTZNPOTKSV"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["VV2_SRTZNPOTKVV_DP"]= { ["Comment"]=sig_source..msg.VV2_SRTZNPOTKVV, ["eval"]= function(Name)  local Tag="VV2_SRTZNPOTKVV"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["VV2_SRTZNPOTKTR_DP"]= { ["Comment"]=sig_source..msg.VV2_SRTZNPOTKTR, ["eval"]= function(Name)  local Tag="VV2_SRTZNPOTKTR"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["VV2_PRTEMTROTK_DP"]= { ["Comment"]=sig_source..msg.VV2_PRTEMTROTK, ["eval"]= function(Name)  local Tag="VV2_PRTEMTROTK"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["VV2_SRZASHVV_DP"]= { ["Comment"]=sig_source..msg.VV2_SRZASHVV, ["eval"]= function(Name)  local Tag="VV2_SRZASHVV"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["VV2_OTKVVNTRZASH_DP"]= { ["Comment"]=sig_source..msg.VV2_OTKVVNTRZASH, ["eval"]= function(Name)  local Tag="VV2_OTKVVNTRZASH"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["VV2_OTKVVDGZ_DP"]= { ["Comment"]=sig_source..msg.VV2_OTKVVDGZ, ["eval"]= function(Name)  local Tag="VV2_OTKVVDGZ"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["VV2_PRTEMTRSIG_DP"]= { ["Comment"]=sig_source..msg.VV2_PRTEMTRSIG, ["eval"]= function(Name)  local Tag="VV2_PRTEMTRSIG"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["VV2_AVTVIKCNOTK_DP"]= { ["Comment"]=sig_source..msg.VV2_AVTVIKCNOTK, ["eval"]= function(Name)  local Tag="VV2_AVTVIKCNOTK"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["VV2_AVTVIKCUOTK_DP"]= { ["Comment"]=sig_source..msg.VV2_AVTVIKCUOTK, ["eval"]= function(Name)  local Tag="VV2_AVTVIKCUOTK"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["VV2_NEISPCUV_DP"]= { ["Comment"]=sig_source..msg.VV2_NEISPCUV, ["eval"]= function(Name)  local Tag="VV2_NEISPCUV"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["VV2_NEISPCOV_DP"]= { ["Comment"]=sig_source..msg.VV2_NEISPCOV, ["eval"]= function(Name)  local Tag="VV2_NEISPCOV"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["VV2_NEISPCVV_DP"]= { ["Comment"]=sig_source..msg.VV2_NEISPCVV, ["eval"]= function(Name)  local Tag="VV2_NEISPCVV"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["VV2_SRDGZSEC_DP"]= { ["Comment"]=sig_source..msg.VV2_SRDGZSEC, ["eval"]= function(Name)  local Tag="VV2_SRDGZSEC"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["VV2_AVTVIKCUOLSECOTK_DP"]= { ["Comment"]=sig_source..msg.VV2_AVTVIKCUOLSECOTK, ["eval"]= function(Name)  local Tag="VV2_AVTVIKCUOLSECOTK"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["VV2_AVOTKUVN_DP"]= { ["Comment"]=sig_source..msg.VV2_AVOTKUVN, ["eval"]= function(Name)  local Tag="VV2_AVOTKUVN"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["VV2_AVOTKOLSEC_DP"]= { ["Comment"]=sig_source..msg.VV2_AVOTKOLSEC, ["eval"]= function(Name)  local Tag="VV2_AVOTKOLSEC"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["VV2_RAZGRSEC_DP"]= { ["Comment"]=sig_source..msg.VV2_RAZGRSEC, ["eval"]= function(Name)  local Tag="VV2_RAZGRSEC"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["VV2_NEISPCONTRV_DP"]= { ["Comment"]=sig_source..msg.VV2_NEISPCONTRV, ["eval"]= function(Name)  local Tag="VV2_NEISPCONTRV"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+
 
 --СВ
-        
+         ["SV_SVVKL_DP"]= { ["Comment"]=sig_source..msg.SV_SVVKL, ["eval"]= function(Name)  local Tag="SV_SVVKL"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["SV_SVOTK_DP"]= { ["Comment"]=sig_source..msg.SV_SVOTK, ["eval"]= function(Name)  local Tag="SV_SVOTK"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["SV_SVVIK_DP"]= { ["Comment"]=sig_source..msg.SV_SVVIK, ["eval"]= function(Name)  local Tag="SV_SVVIK"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["SV_AVRSVVKL_DP"]= { ["Comment"]=sig_source..msg.SV_AVRSVVKL, ["eval"]= function(Name)  local Tag="SV_AVRSVVKL"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["SV_AVRSVOTK_DP"]= { ["Comment"]=sig_source..msg.SV_AVRSVOTK, ["eval"]= function(Name)  local Tag="SV_AVRSVOTK"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["SV_AVOTKSV_DP"]= { ["Comment"]=sig_source..msg.SV_AVOTKSV, ["eval"]= function(Name)  local Tag="SV_AVOTKSV"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["SV_SRZASHSV_DP"]= { ["Comment"]=sig_source..msg.SV_SRZASHSV, ["eval"]= function(Name)  local Tag="SV_SRZASHSV"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["SV_OTKSVTZNPVVDGZ_DP"]= { ["Comment"]=sig_source..msg.SV_OTKSVTZNPVVDGZ, ["eval"]= function(Name)  local Tag="SV_OTKSVTZNPVVDGZ"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["SV_AVTVIKCUSVOTK_DP"]= { ["Comment"]=sig_source..msg.SV_AVTVIKCUSVOTK, ["eval"]= function(Name)  local Tag="SV_AVTVIKCUSVOTK"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["SV_NEISPCUSV_DP"]= { ["Comment"]=sig_source..msg.SV_NEISPCUSV, ["eval"]= function(Name)  local Tag="SV_NEISPCUSV"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["SV_NEISPCOV_DP"]= { ["Comment"]=sig_source..msg.SV_NEISPCOV, ["eval"]= function(Name)  local Tag="SV_NEISPCOV"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["SV_NEISPCVV_DP"]= { ["Comment"]=sig_source..msg.SV_NEISPCVV, ["eval"]= function(Name)  local Tag="SV_NEISPCVV"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["SV_NEISPCONTRSV_DP"]= { ["Comment"]=sig_source..msg.SV_NEISPCONTRSV, ["eval"]= function(Name)  local Tag="SV_NEISPCONTRSV"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+    
+    
 --АВ1
+         ["AV1_VAVVKL_DP"]= { ["Comment"]=sig_source..msg.AV1_VAVVKL, ["eval"]= function(Name)  local Tag="AV1_VAVVKL"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV1_VAVOTK_DP"]= { ["Comment"]=sig_source..msg.AV1_VAVOTK, ["eval"]= function(Name)  local Tag="AV1_VAVOTK"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV1_VAVVIK_DP"]= { ["Comment"]=sig_source..msg.AV1_VAVVIK, ["eval"]= function(Name)  local Tag="AV1_VAVVIK"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV1_VGVKL_DP"]= { ["Comment"]=sig_source..msg.AV1_VGVKL, ["eval"]= function(Name)  local Tag="AV1_VGVKL"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV1_VGOTK_DP"]= { ["Comment"]=sig_source..msg.AV1_VGOTK, ["eval"]= function(Name)  local Tag="AV1_VGOTK"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV1_AVRAVVKL_DP"]= { ["Comment"]=sig_source..msg.AV1_AVRAVVKL, ["eval"]= function(Name)  local Tag="AV1_AVRAVVKL"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV1_AVRAVOTK_DP"]= { ["Comment"]=sig_source..msg.AV1_AVRAVOTK, ["eval"]= function(Name)  local Tag="AV1_AVRAVOTK"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV1_OTKSVAVRAV_DP"]= { ["Comment"]=sig_source..msg.AV1_OTKSVAVRAV, ["eval"]= function(Name)  local Tag="AV1_OTKSVAVRAV"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV1_VKLSVVNRAVRAV_DP"]= { ["Comment"]=sig_source..msg.AV1_VKLSVVNRAVRAV, ["eval"]= function(Name)  local Tag="AV1_VKLSVVNRAVRAV"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV1_VKLSVAVRAV_DP"]= { ["Comment"]=sig_source..msg.AV1_VKLSVAVRAV, ["eval"]= function(Name)  local Tag="AV1_VKLSVAVRAV"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV1_PADSAVRAV_DP"]= { ["Comment"]=sig_source..msg.AV1_PADSAVRAV, ["eval"]= function(Name)  local Tag="AV1_PADSAVRAV"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV1_VKLVAVAVRAV_DP"]= { ["Comment"]=sig_source..msg.AV1_VKLVAVAVRAV, ["eval"]= function(Name)  local Tag="AV1_VKLVAVAVRAV"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV1_OTKVAVVNR_DP"]= { ["Comment"]=sig_source..msg.AV1_OTKVAVVNR, ["eval"]= function(Name)  local Tag="AV1_OTKVAVVNR"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV1_OTKSVVNRAVRAV_DP"]= { ["Comment"]=sig_source..msg.AV1_OTKSVVNRAVRAV, ["eval"]= function(Name)  local Tag="AV1_OTKSVVNRAVRAV"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV1_OSTADSVNRAVRAV_DP"]= { ["Comment"]=sig_source..msg.AV1_OSTADSVNRAVRAV, ["eval"]= function(Name)  local Tag="AV1_OSTADSVNRAVRAV"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV1_NPADS_DP"]= { ["Comment"]=sig_source..msg.AV1_NPADS, ["eval"]= function(Name)  local Tag="AV1_NPADS"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV1_AVOTKVAV_DP"]= { ["Comment"]=sig_source..msg.AV1_AVOTKVAV, ["eval"]= function(Name)  local Tag="AV1_AVOTKVAV"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV1_OTKVAVDGZ_DP"]= { ["Comment"]=sig_source..msg.AV1_OTKVAVDGZ, ["eval"]= function(Name)  local Tag="AV1_OTKVAVDGZ"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV1_SRZASHVAV_DP"]= { ["Comment"]=sig_source..msg.AV1_SRZASHVAV, ["eval"]= function(Name)  local Tag="AV1_SRZASHVAV"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV1_NEISPADS_DP"]= { ["Comment"]=sig_source..msg.AV1_NEISPADS, ["eval"]= function(Name)  local Tag="AV1_NEISPADS"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV1_PEREGRADS_DP"]= { ["Comment"]=sig_source..msg.AV1_PEREGRADS, ["eval"]= function(Name)  local Tag="AV1_PEREGRADS"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV1_AVTVIKCNAVOTK_DP"]= { ["Comment"]=sig_source..msg.AV1_AVTVIKCNAVOTK, ["eval"]= function(Name)  local Tag="AV1_AVTVIKCNAVOTK"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV1_AVTVIKCUAVOTK_DP"]= { ["Comment"]=sig_source..msg.AV1_AVTVIKCUAVOTK, ["eval"]= function(Name)  local Tag="AV1_AVTVIKCUAVOTK"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV1_NEISPCUVG_DP"]= { ["Comment"]=sig_source..msg.AV1_NEISPCUVG, ["eval"]= function(Name)  local Tag="AV1_NEISPCUVG"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV1_NEISPCUVAV_DP"]= { ["Comment"]=sig_source..msg.AV1_NEISPCUVAV, ["eval"]= function(Name)  local Tag="AV1_NEISPCUVAV"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV1_NEISPCOV_DP"]= { ["Comment"]=sig_source..msg.AV1_NEISPCOV, ["eval"]= function(Name)  local Tag="AV1_NEISPCOV"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV1_NEISPCVV_DP"]= { ["Comment"]=sig_source..msg.AV1_NEISPCVV, ["eval"]= function(Name)  local Tag="AV1_NEISPCVV"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV1_NEISPCONTRAV_DP"]= { ["Comment"]=sig_source..msg.AV1_NEISPCONTRAV, ["eval"]= function(Name)  local Tag="AV1_NEISPCONTRAV"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
        
 --АВ2
+         ["AV2_VAVVKL_DP"]= { ["Comment"]=sig_source..msg.AV2_VAVVKL, ["eval"]= function(Name)  local Tag="AV2_VAVVKL"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV2_VAVOTK_DP"]= { ["Comment"]=sig_source..msg.AV2_VAVOTK, ["eval"]= function(Name)  local Tag="AV2_VAVOTK"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV2_VAVVIK_DP"]= { ["Comment"]=sig_source..msg.AV2_VAVVIK, ["eval"]= function(Name)  local Tag="AV2_VAVVIK"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV2_VGVKL_DP"]= { ["Comment"]=sig_source..msg.AV2_VGVKL, ["eval"]= function(Name)  local Tag="AV2_VGVKL"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV2_VGOTK_DP"]= { ["Comment"]=sig_source..msg.AV2_VGOTK, ["eval"]= function(Name)  local Tag="AV2_VGOTK"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV2_AVRAVOTK_DP"]= { ["Comment"]=sig_source..msg.AV2_AVRAVOTK, ["eval"]= function(Name)  local Tag="AV2_AVRAVOTK"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV2_AVRAVVKL_DP"]= { ["Comment"]=sig_source..msg.AV2_AVRAVVKL, ["eval"]= function(Name)  local Tag="AV2_AVRAVVKL"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV2_OTKSVAVRAV_DP"]= { ["Comment"]=sig_source..msg.AV2_OTKSVAVRAV, ["eval"]= function(Name)  local Tag="AV2_OTKSVAVRAV"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV2_VKLSVVNRAVRAV_DP"]= { ["Comment"]=sig_source..msg.AV2_VKLSVVNRAVRAV, ["eval"]= function(Name)  local Tag="AV2_VKLSVVNRAVRAV"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV2_VKLSVAVRAV_DP"]= { ["Comment"]=sig_source..msg.AV2_VKLSVAVRAV, ["eval"]= function(Name)  local Tag="AV2_VKLSVAVRAV"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV2_PADSAVRAV_DP"]= { ["Comment"]=sig_source..msg.AV2_PADSAVRAV, ["eval"]= function(Name)  local Tag="AV2_PADSAVRAV"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV2_VKLVAVAVRAV_DP"]= { ["Comment"]=sig_source..msg.AV2_VKLVAVAVRAV, ["eval"]= function(Name)  local Tag="AV2_VKLVAVAVRAV"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV2_OTKVAVVNR_DP"]= { ["Comment"]=sig_source..msg.AV2_OTKVAVVNR, ["eval"]= function(Name)  local Tag="AV2_OTKVAVVNR"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV2_OTKSVVNRAVRAV_DP"]= { ["Comment"]=sig_source..msg.AV2_OTKSVVNRAVRAV, ["eval"]= function(Name)  local Tag="AV2_OTKSVVNRAVRAV"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV2_OSTADSVNRAVRAV_DP"]= { ["Comment"]=sig_source..msg.AV2_OSTADSVNRAVRAV, ["eval"]= function(Name)  local Tag="AV2_OSTADSVNRAVRAV"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV2_NPADS_DP"]= { ["Comment"]=sig_source..msg.AV2_NPADS, ["eval"]= function(Name)  local Tag="AV2_NPADS"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV2_AVOTKVAV_DP"]= { ["Comment"]=sig_source..msg.AV2_AVOTKVAV, ["eval"]= function(Name)  local Tag="AV2_AVOTKVAV"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV2_OTKVAVDGZ_DP"]= { ["Comment"]=sig_source..msg.AV2_OTKVAVDGZ, ["eval"]= function(Name)  local Tag="AV2_OTKVAVDGZ"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV2_SRZASHVAV_DP"]= { ["Comment"]=sig_source..msg.AV2_SRZASHVAV, ["eval"]= function(Name)  local Tag="AV2_SRZASHVAV"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV2_NEISPADS_DP"]= { ["Comment"]=sig_source..msg.AV2_NEISPADS, ["eval"]= function(Name)  local Tag="AV2_NEISPADS"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV2_PEREGRADS_DP"]= { ["Comment"]=sig_source..msg.AV2_PEREGRADS, ["eval"]= function(Name)  local Tag="AV2_PEREGRADS"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV2_AVTVIKCNAVOTK_DP"]= { ["Comment"]=sig_source..msg.AV2_AVTVIKCNAVOTK, ["eval"]= function(Name)  local Tag="AV2_AVTVIKCNAVOTK"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV2_AVTVIKCUAVOTK_DP"]= { ["Comment"]=sig_source..msg.AV2_AVTVIKCUAVOTK, ["eval"]= function(Name)  local Tag="AV2_AVTVIKCUAVOTK"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV2_NEISPCUVG_DP"]= { ["Comment"]=sig_source..msg.AV2_NEISPCUVG, ["eval"]= function(Name)  local Tag="AV2_NEISPCUVG"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV2_NEISPCUVAV_DP"]= { ["Comment"]=sig_source..msg.AV2_NEISPCUVAV, ["eval"]= function(Name)  local Tag="AV2_NEISPCUVAV"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV2_NEISPCOV_DP"]= { ["Comment"]=sig_source..msg.AV2_NEISPCOV, ["eval"]= function(Name)  local Tag="AV2_NEISPCOV"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV2_NEISPCVV_DP"]= { ["Comment"]=sig_source..msg.AV2_NEISPCVV, ["eval"]= function(Name)  local Tag="AV2_NEISPCVV"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["AV2_NEISPCONTRAV_DP"]= { ["Comment"]=sig_source..msg.AV2_NEISPCONTRAV, ["eval"]= function(Name)  local Tag="AV2_NEISPCONTRAV"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
         
 -- ПУ
+         ["PU_DURAZR_DP"]= { ["Comment"]=sig_source..msg.PU_DURAZR, ["eval"]= function(Name)  local Tag="PU_DURAZR"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["PU_SRAVTKTP_DP"]= { ["Comment"]=sig_source..msg.PU_SRAVTKTP, ["eval"]= function(Name)  local Tag="PU_SRAVTKTP"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["PU_NEISKTP_DP"]= { ["Comment"]=sig_source..msg.PU_NEISKTP, ["eval"]= function(Name)  local Tag="PU_NEISKTP"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["PU_AVARKTP_DP"]= { ["Comment"]=sig_source..msg.PU_AVARKTP, ["eval"]= function(Name)  local Tag="PU_AVARKTP"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["PU_NEISPDGZ_DP"]= { ["Comment"]=sig_source..msg.PU_NEISPDGZ, ["eval"]= function(Name)  local Tag="PU_NEISPDGZ"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["PU_NEISPCONTRPU_DP"]= { ["Comment"]=sig_source..msg.PU_NEISPCONTRPU, ["eval"]= function(Name)  local Tag="PU_NEISPCONTRPU"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["PU_AVTVIKCSIGOTK_DP"]= { ["Comment"]=sig_source..msg.PU_AVTVIKCSIGOTK, ["eval"]= function(Name)  local Tag="PU_AVTVIKCSIGOTK"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
+         ["PU_AVTVIKCOBOTK_DP"]= { ["Comment"]=sig_source..msg.PU_AVTVIKCOBOTK, ["eval"]= function(Name)  local Tag="PU_AVTVIKCOBOTK"  local signal= Core[Name[1]..Tag.."_DP"] Add_Event (Tag, signal) Core[Name[2]..Tag.."_DP"]=signal oldsignal[Tag] = signal end },
          
 }
 	
@@ -435,7 +689,6 @@ local signals = {
 for raw_objectName, objectName in pairs(objects) do	--Цикл по 2ум массивам: RAW_ и S_
 	for _, signals_Descriptor in pairs(signals) do	--Цикл по всем элементов в каждом из 2 массивов: RAW_ и S_
 		signals_Descriptor.eval({raw_objectName,objectName})	--Вызов функций у каждой из переменных, описанных в signals
-		signals_Descriptor.cdr({raw_objectName,objectName})	--Вызов функций у каждой из переменных, описанных в signals
 	end
 end
 --отслеживем наличие соединения с контроллером
@@ -444,7 +697,6 @@ Core.onExtChange({"S_KTP_P05_DS_DP"}, Check_Data_Reliability)
 for raw_objectName, objectName in pairs(objects) do	--Цикл по 2ум массивам: RAW_ и S_
 	for signals_Suffix, signals_Descriptor in pairs(signals) do	--Цикл по всем переменным в каждом из 2 массивов: RAW_ и S_
 		Core.onExtChange({raw_objectName..signals_Suffix},signals_Descriptor.eval,{raw_objectName,objectName})	--Вызов функций у каждой из переменных, описанных в signals при изменении любой из переменных
-		Core.onExtChange({"S_KTP_P05_DS_DP"},signals_Descriptor.cdr,{raw_objectName,objectName})	--Вызов функций у каждой из переменных, описанных в signals при изменении любой из переменных
 	end
 end
 
